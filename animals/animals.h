@@ -5,14 +5,20 @@ using namespace std;
 
 class Animal
 {
-    protected:
+protected:
     friend Customer;
-    public:
-     virtual void giveVoice();
-     
+    bool stomAche;
+    string name;
+
+public:
+    virtual void giveVoice();
+    virtual void healAnimal
 };
 class Dog
 {
 
+    bool illPawn;
+bool public : void healAnimal();
+    void giveVoice();
 };
 #endif

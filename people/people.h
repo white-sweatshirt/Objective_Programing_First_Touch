@@ -10,21 +10,21 @@ protected:
     string name;
     int age;
     Animal *pet;
+
 public:
     virtual void introduceYourself();
 };
-class Customer: public Person
+class Customer : public Person
 {
-     public:
-     void askForHelpWithAnimal;
-
+private:
+double cashAtHand public : void askForHelpWithAnimal();
 };
 class Vet : public Person
 {
-    
-    public:
+
+public:
     void introduceYourself();
-    void healAnimal();// as argument it will take name of animal
-    void talkToCustomer();// as argument it will take name of cusotmer
+    void healAnimal();     // as argument it will take name of animal
+    void talkToCustomer(); // as argument it will take name of cusotmer
 };
 #endif
