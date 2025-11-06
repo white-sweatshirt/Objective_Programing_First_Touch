@@ -3,10 +3,16 @@
 #include "people.h"
 using namespace std;
 
-class DivisonOfBank
+class Animal
 {
+    protected:
     friend Customer;
-    
+    public:
+     virtual void giveVoice();
+     
 };
+class Dog
+{
 
+};
 #endif

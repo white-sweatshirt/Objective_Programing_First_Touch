@@ -2,19 +2,21 @@
 #define PEOPLE_H
 // de facto people in my vetinary
 #include <iostream>
+#include "animals.h"
 using namespace std;
 class Person
 {
 protected:
     string name;
     int age;
-    class Pet *pet;
+    Animal *pet;
 public:
     virtual void introduceYourself();
 };
 class Customer: public Person
 {
-     
+     public:
+     void askForHelpWithAnimal;
 
 };
 class Vet : public Person
