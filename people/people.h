@@ -12,9 +12,16 @@ protected:
 public:
     virtual void introduceYourself();
 };
+class Customer: public Person
+{
+    []
+};
 class Vet : public Person
 {
+    
     public:
     void introduceYourself();
+    void healAnimal();// as argument it will take name of animal
+    void talkToCustomer();// as argument it will take name of cusotmer
 };
 #endif
