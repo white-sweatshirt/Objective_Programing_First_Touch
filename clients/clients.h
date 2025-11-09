@@ -2,6 +2,7 @@
 #define ANIMALS_H
 #include <iostream>
 using namespace std;
+
 class Person
 {
 protected:
@@ -12,6 +13,7 @@ protected:
 public:
     virtual void introduceYourself();
 };
+
 class Customer : public Person
 {
 private:
@@ -19,7 +21,10 @@ private:
 
 public:
     void askForHelpWithAnimal();
+    double giveMoneyForTreatment(double costOfTreatment);
+    void getLoan(double amount);
 };
+
 class Animal
 {
 protected:
@@ -28,14 +33,17 @@ protected:
     string name;
 
 public:
-    virtual void giveVoice();
-    virtual void healAnimal();
+    virtual void giveName();
+    virtual int beHealed();
 };
-class Dog
+
+class Dog : public Animal
 {
     bool illPawn;
+    bool tailHurts;
 public:
-    void healAnimal();
+    int beHealed();
     void giveVoice();
+    void giveName();
 };
 #endif
