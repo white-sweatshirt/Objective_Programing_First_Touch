@@ -30,7 +30,6 @@ protected:
 public:
     virtual void giveVoice();
     virtual void healAnimal();
-    virtual void beNamed();
 };
 class Dog
 {
