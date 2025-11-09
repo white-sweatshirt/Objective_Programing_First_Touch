@@ -1,9 +1,5 @@
 {
     "files.associations": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 09b4289 (Resolving problem of dependecis . ie now there are library of clients and employees)
         "iostream": "cpp",
         "ostream": "cpp",
         "array": "cpp",
@@ -74,11 +70,5 @@
         "xstring": "cpp",
         "xtr1common": "cpp",
         "xutility": "cpp"
-<<<<<<< HEAD
-=======
-        "iostream": "cpp"
->>>>>>> master
-=======
->>>>>>> parent of 09b4289 (Resolving problem of dependecis . ie now there are library of clients and employees)
     }
 }
