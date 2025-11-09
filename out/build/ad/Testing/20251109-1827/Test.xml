@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Site BuildName="Win32-ninja"
-	BuildStamp="20251109-1757-Experimental"
+	BuildStamp="20251109-1827-Experimental"
 	Name="Franciszek"
 	Generator="ctest-3.31.2"
 	CompilerName="C:/msys64/ucrt64/bin/c++.exe"
@@ -25,11 +25,11 @@
 	ProcessorClockFrequency="4104"
 	>
 	<Testing>
-		<StartDateTime>Nov 09 18:57 [NON-UTF-8-BYTE-0x8C]rodkowoeuropejski czas stand.</StartDateTime>
-		<StartTestTime>1762711052</StartTestTime>
+		<StartDateTime>Nov 09 19:27 [NON-UTF-8-BYTE-0x8C]rodkowoeuropejski czas stand.</StartDateTime>
+		<StartTestTime>1762712828</StartTestTime>
 		<TestList/>
-		<EndDateTime>Nov 09 18:57 [NON-UTF-8-BYTE-0x8C]rodkowoeuropejski czas stand.</EndDateTime>
-		<EndTestTime>1762711052</EndTestTime>
+		<EndDateTime>Nov 09 19:27 [NON-UTF-8-BYTE-0x8C]rodkowoeuropejski czas stand.</EndDateTime>
+		<EndTestTime>1762712828</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>
