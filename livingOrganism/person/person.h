@@ -4,8 +4,10 @@
 class Person
 {
 protected:
+    double moneyAtHand;
     string name;
     int age;
+
 public:
     virtual void introduceYourself();
 };

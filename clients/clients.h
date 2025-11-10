@@ -6,18 +6,21 @@
 #include "employes.h"
 
 class Customer : public Person
-{
+{ /*
+     double moneyAtHand;
+     string name;
+     int age;
+ inherited
+     */
 private:
-    Animal * pet;// ma swoje zwierzatko
-    double cashAtHand;
+    Animal *pet; // ma swoje zwierzatko
 public:
     void askForHelpWithAnimal(Vet *doctor);
-    double giveMoneyForTreatment(double costOfTreatment);
+    double payFromHand(double costOfTreatment);
     void getLoan(double amount);
     void introduceYourself();
-    Customer(Animal *pet,double cash);
+    Customer(Animal *pet, double cash, string customerName, int age);
     ~Customer();
 };
-
 
 #endif

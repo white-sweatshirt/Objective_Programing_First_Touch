@@ -1,7 +1,11 @@
 #include "paitients.h"
+void Animal::giveVoice()
+{
+    cout<<"generic sound "<<endl;
+}
 void Animal::giveName()
 {
-    cout << "zwierzatko ma na imie : " << name;
+    cout << "zwierzatko ma na imie : " << name<<endl;
 }
 int Animal::beHealed()
 {
@@ -13,14 +17,14 @@ int Animal::beHealed()
 Dog::Dog(string name)
 {
     this->name = name;
-    this->hasCold=1;
-    this->illPawn=1;
-    this->stomAche=1;
-    this->tailHurts=1;
+    this->hasCold = 1;
+    this->illPawn = 1;
+    this->stomAche = 1;
+    this->tailHurts = 1;
 }
 void Dog::giveName()
 {
-    cout << "pies ma na imie: " << name;
+    cout << "pies ma na imie: " << name<<endl;
 }
 int Dog::beHealed()
 {
@@ -35,5 +39,27 @@ int Dog::beHealed()
 }
 void Dog::giveVoice()
 {
-    cout << "Wof Wof";
+    cout << "Hau Hau";
+}
+void Parrot::giveName()
+{
+    cout << "papuga ma na imie: " << endl;
+}
+void Parrot::giveVoice()
+{
+    cout << "krau krau" << endl;
+}
+int Parrot::beHealed()
+{
+    int illnessHealed = 0;
+    if (this->brokenWing)
+        illnessHealed++;
+    if (this->feathersWithoutColor)
+        illnessHealed++;
+    if (this->stomAche)
+        illnessHealed++;
+    brokenWing = 0;
+    feathersWithoutColor = 0;
+    stomAche = 0;
+    return illnessHealed;
 }

@@ -1,5 +1,11 @@
 #include "employes.h"
-void Vet::introduceYourself()
+Vet::Vet(string name, int age, string degree)
+{
+    this->name=name;
+    this->degree=degree;
+    this->moneyAtHand=0.0;
+}
+    void Vet::introduceYourself()
 {
     cout << "nazywam sie :" << this->name << endl;
     cout << "mam " << this->age << " lat" << endl;
@@ -17,4 +23,8 @@ double Vet::serveCustomer(Animal *petient)
     else
         cout << " calosc kosztowala : " << vetFee * (double)illnesHealed + baseFee;
     return vetFee * (double)illnesHealed + baseFee;
+}
+void Vet::getMonyForTreatment(double moneyForTreatment)
+{
+    this->moneyAtHand+=moneyForTreatment;
 }
