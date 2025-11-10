@@ -1,10 +1,12 @@
 #ifndef ANIMALS_H
 #define ANIMALS_H
+#include "stdHeader.h"
 #include <iostream>
 using namespace std;
 #include "person.h"
 #include "paitients.h"
 #include "employes.h"
+
 class Customer : public Person
 {
 private:

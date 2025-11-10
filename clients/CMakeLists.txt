@@ -4,5 +4,6 @@ add_library( Clients STATIC
 )
 target_include_directories(Clients PUBLIC "${organismFolder}/person" 
 PUBLIC "${organismFolder}/paitients"
- PUBLIC "${PROJECT_SOURCE_DIR}/employes" )
-target_link_libraries(Clients PUBLIC Person PUBLIC Paitients PUBLIC Employes)
+PUBLIC "${PROJECT_SOURCE_DIR}/employes"
+PUBLIC "${stdheaderFolder}" )
+target_link_libraries(Clients PUBLIC StdHeader PUBLIC Person PUBLIC Paitients PUBLIC Employes ) 

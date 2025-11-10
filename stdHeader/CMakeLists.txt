@@ -1,0 +1,1 @@
+add_library(StdHeader STATIC stdHeader.h stdHeader.cpp)
