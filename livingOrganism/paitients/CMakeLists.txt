@@ -1,0 +1,1 @@
+add_library(Paitients paitients.cpp paitients.h)

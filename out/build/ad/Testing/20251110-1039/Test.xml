@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Win32-ninja"
+	BuildStamp="20251110-1039-Experimental"
+	Name="Franciszek"
+	Generator="ctest-3.31.2"
+	CompilerName="C:/msys64/ucrt64/bin/c++.exe"
+	CompilerVersion="15.2.0"
+	OSName="Windows"
+	Hostname="Franciszek"
+	OSRelease=" Professional"
+	OSVersion=" (Build 26200)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="5"
+	ModelName=""
+	ProcessorCacheSize="-1"
+	NumberOfLogicalCPU="4"
+	NumberOfPhysicalCPU="2"
+	TotalVirtualMemory="14981"
+	TotalPhysicalMemory="8069"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="4103"
+	>
+	<Testing>
+		<StartDateTime>Nov 10 12:25 [NON-UTF-8-BYTE-0x8C]rodkowoeuropejski czas stand.</StartDateTime>
+		<StartTestTime>1762773917</StartTestTime>
+		<TestList/>
+		<EndDateTime>Nov 10 12:25 [NON-UTF-8-BYTE-0x8C]rodkowoeuropejski czas stand.</EndDateTime>
+		<EndTestTime>1762773917</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
