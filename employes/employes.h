@@ -1,7 +1,6 @@
 #ifndef PEOPLE_H
 #define PEOPLE_H
 // de facto people in my vetinary
-#include "stdHeader.h"
 #include "paitients.h"
 #include "person.h"
 

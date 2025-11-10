@@ -1,6 +1,6 @@
 #ifndef ANIMALS_H
 #define ANIMALS_H
-#include "stdHeader.h"
+
 #include "person.h"
 #include "paitients.h"
 #include "employes.h"
@@ -15,6 +15,8 @@ public:
     double giveMoneyForTreatment(double costOfTreatment);
     void getLoan(double amount);
     void introduceYourself();
+    Customer(Animal *pet,double cash);
+    ~Customer();
 };
 
 

@@ -20,5 +20,15 @@ public:
     int beHealed();
     void giveVoice();
     void giveName();
+    Dog(string name);
+};
+class Parot : public Animal
+{
+    bool brokenWing;
+    bool feathersWithoutColor;
+public:
+    int beHealed();
+    void giveVoice();
+    void giveName();
 };
 #endif

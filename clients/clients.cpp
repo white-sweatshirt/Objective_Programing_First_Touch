@@ -1,4 +1,13 @@
 #include "clients.h"
+Customer::Customer(Animal *pet,double cash)
+{
+    this->pet=pet;
+    this->cashAtHand=cash;
+}
+Customer::~Customer()
+{
+    delete pet;
+}
 void Customer::introduceYourself()
 {
     cout << "nazywam sie :" << this->name << endl;

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10.0)
-project(Veterinary VERSION 0.2.1  LANGUAGES CXX)
+project(Veterinary VERSION 0.2.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)# for constexpr
 set(CMAKE_CXX_STANDARD_REQUIRED True)
