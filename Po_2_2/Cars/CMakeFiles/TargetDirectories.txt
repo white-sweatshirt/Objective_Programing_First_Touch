@@ -1,0 +1,6 @@
+C:/Users/franc/OneDrive/Pulpit/gitExperiment/Cars/CMakeFiles/End.dir
+C:/Users/franc/OneDrive/Pulpit/gitExperiment/Cars/CMakeFiles/edit_cache.dir
+C:/Users/franc/OneDrive/Pulpit/gitExperiment/Cars/CMakeFiles/rebuild_cache.dir
+C:/Users/franc/OneDrive/Pulpit/gitExperiment/Cars/car/CMakeFiles/Car.dir
+C:/Users/franc/OneDrive/Pulpit/gitExperiment/Cars/car/CMakeFiles/edit_cache.dir
+C:/Users/franc/OneDrive/Pulpit/gitExperiment/Cars/car/CMakeFiles/rebuild_cache.dir
