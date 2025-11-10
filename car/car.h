@@ -1,15 +1,29 @@
 #ifndef CAR_H
 #define CAR_H
-class car
+#include "engine.h"
+class Velichcale
 {
-private:
+public:
+    void drive();
+    void stopYourself();
+    void changeDirection();
+};
+class Car : public Velichcale
+{
+protected:
+    int numberOfFotels;
+    int bootCapacity;
+    string name;
     /* data */
 public:
-    car(/* args */);
-    ~car();
+    Car(string name, int numberOfFotels, int bootCapacity);
+    void openDoor();
+    void closeDoor();
 };
-
-
-
-
+class PersonalCar : virtual public Car
+{
+public:
+    PersonalCar();
+    void closeSeatBells();
+};
 #endif
