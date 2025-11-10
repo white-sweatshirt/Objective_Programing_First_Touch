@@ -9,18 +9,21 @@ void sperateConversions(void)
 }
 int main(void)
 {
-    Customer ala(new Dog("Pimpek"), 1000, "Ala", 21);
+    Customer* ala=new Customer(new Dog("Pimpek"), 1000, "Ala", 21);
     Vet *flitz;
     Customer *basa = new Customer(new Parrot("Jack Sparoow"), 100, "Basa", 30);
     flitz = new Vet("Fryderyk", 34, "masters");
-    ala.askForHelpWithAnimal(flitz);
+    flitz->introduceYourself();
+
+    ala->askForHelpWithAnimal(flitz);
     sperateConversions();
 
     basa->askForHelpWithAnimal(flitz);
     sperateConversions();
 
-    ala.askForHelpWithAnimal(flitz);
+    ala->askForHelpWithAnimal(flitz);
     sperateConversions();
-
+    delete ala;
+    delete basa;
     flitz->sayHowMuchHaveYouMade();
 }

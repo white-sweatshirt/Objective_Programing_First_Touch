@@ -3,6 +3,7 @@
 #include "stdHeader.h"
 class Animal
 {
+    // animal is virutral class needed so we have simpler customer class
 protected:
     bool stomAche;
     string name;

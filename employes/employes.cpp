@@ -1,6 +1,7 @@
 #include "employes.h"
 Vet::Vet(string name, int age, string degree)
 {
+    this->age = age;
     this->name = name;
     this->degree = degree;
     this->moneyAtHand = 0.0;
@@ -9,7 +10,7 @@ void Vet::introduceYourself()
 {
     cout << "nazywam sie :" << this->name << endl;
     cout << "mam " << this->age << " lat" << endl;
-    cout << "mam dyplom: " << degree;
+    cout << "mam dyplom: " << degree << endl;
 }
 double Vet::serveCustomer(Animal *petient)
 {
@@ -30,5 +31,5 @@ void Vet::getMonyForTreatment(double moneyForTreatment)
 }
 void Vet::sayHowMuchHaveYouMade()
 {
-    cout << "ja " << name << "dzis zarobilem: " << this->moneyAtHand << endl;
+    cout << name << " dzis zarobil: " << this->moneyAtHand << endl;
 }

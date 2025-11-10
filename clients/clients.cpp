@@ -1,7 +1,8 @@
 #include "clients.h"
 Customer::Customer(Animal *pet, double cash, string customerName, int age)
 {
-    this->name=customerName;
+    // pointer to animal is meant to intilized as there can be diffrent animals pointed by this pointer
+    this->name = customerName;
     this->pet = pet;
     this->moneyAtHand = cash;
     this->age = age;
@@ -26,7 +27,7 @@ double Customer::payFromHand(double costOfTreatment)
 {
     if (this->moneyAtHand < costOfTreatment)
     {
-        cout << "ide do bakomatu!";
+        cout << "ide do bakomatu!" << endl;
         getLoan(costOfTreatment - moneyAtHand);
     }
     else
