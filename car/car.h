@@ -10,6 +10,7 @@ public:
     void virtual drive();
     void virtual stopYourself();
     void virtual changeDirection(string direction);
+    void virtual sayDirection();
 };
 class Car : public Velichcale
 {
@@ -25,6 +26,7 @@ public:
     Car(string name, int numberOfFotels, int bootCapacity);
     virtual void openDoor();
     virtual void closeDoor();
+    virtual void showCurrentDoorStatus();
 };
 class DeliveryCar : public Car, public EngineCombustion
 {

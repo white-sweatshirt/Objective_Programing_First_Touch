@@ -11,7 +11,10 @@ void Velichcale::changeDirection(string direction)
 {
     this->direction = direction;
 }
-
+void Velichcale::sayDirection()
+{
+    cout << "obecnie kieruje sie : " << this->direction << endl;
+}
 Car::Car()
 {
 }
@@ -29,7 +32,10 @@ void Car::closeDoor()
 {
     this->doorOpen = false;
 }
-
+void Car::showCurrentDoorStatus()
+{
+    cout << "obecnie mam drzwi " << (this->doorOpen ? "otwarte" : "zamkniete") << endl;
+}
 DeliveryCar::DeliveryCar(int load) : Car(), EngineCombustion(10, 31)
 {
 }

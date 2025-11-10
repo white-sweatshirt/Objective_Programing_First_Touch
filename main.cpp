@@ -11,12 +11,14 @@ int main()
     Engine *engine = new Engine();
 
     car->openDoor();
+    car->showCurrentDoorStatus();
     engine->startEngine();
     car->closeDoor();
+    car->showCurrentDoorStatus();
     velichcale->changeDirection("prawo");
+    velichcale->sayDirection();
     deliverrCar->stopYourself();
     deliverrCar->turnOffEngine();
-
     Velichcale *velichcale2 = personalCar;
     Car *car2 = personalCar;
     // is imposible here as personal car is composed from engines
@@ -26,10 +28,10 @@ int main()
     
     personalCar->startDiselEngine();
     personalCar->startElectricEngine();
-
     car2->openDoor();
     personalCar->closeDoor();
     velichcale2->drive();
+    velichcale2->sayDirection();
     personalCar->changeDirection("lewo");
     personalCar->stopYourself();
 
