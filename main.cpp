@@ -1,6 +1,6 @@
 #include "car.h"
 #include "engine.h"
-
+#include "tractor.h"
 int main()
 {
     PersonalCar *personalCar = new PersonalCar();
@@ -23,11 +23,15 @@ int main()
     // and it doesnot inherit it
     // EngineElectrical *engineElectrical=PersonalCar;
     // EngineCombustion *engineCombustion=PersonalCar;
+    
+    personalCar->startDiselEngine();
+    personalCar->startElectricEngine();
+
     car2->openDoor();
     personalCar->closeDoor();
     velichcale2->drive();
     personalCar->changeDirection("lewo");
     personalCar->stopYourself();
-    
+
     return 0;
 }

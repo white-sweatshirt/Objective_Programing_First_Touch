@@ -1,0 +1,5 @@
+Zastowałem kompozycje w  ramach klasy samochód osobowy zamiast dziedzczenia z dwóch klass.
+Metoda ta ma taką zaletę że omijam problem diamentu i zamiast tego mam dwa różne obiekty klas silnik elektryczny oraz silnik spalinowy
+Ma to jednak wadę pozbawiłem się możliwość publicznego wywołania funkcji startEngine() Lub szerzej funkcji dla typów silnikElektryczny i Spalinowy poza klasą. Co zmusiło mnie do zaimplemnotowania dwóch funkcji pomocniczych które realizuję te operacje dla dwóch róznych silników. 
+Z rzeczy abstrakcjnych mam dzięki temu fajną sytuację bo umożliwłem sobie posiadanie w samochodzie dwóch silników równocześnie elekrycznego oraz spalinowego czyli zrobiłem z osobówki hybrydę.
+Ponadto kompozycja ma jeszcze jedną przewagę przy dziedziczniu przejmowaliśmy metody oraz atrybuty obu silników w naszej klasie. Co powodowało że rozróżnie jednego od drugiego było problematyczne. Dzięki zastosowaniu kompozycji oba silniki są reprezentowane przez swoje obiekty co daje nam lepszy obraz jak to wygląda w rzeczywsitości.

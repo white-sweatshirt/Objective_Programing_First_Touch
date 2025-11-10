@@ -45,5 +45,7 @@ private:
 public:
     PersonalCar();
     void closeSeatBells();
+    void startElectricEngine();
+    void startDiselEngine();
 };
 #endif

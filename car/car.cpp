@@ -12,7 +12,6 @@ void Velichcale::changeDirection(string direction)
     this->direction = direction;
 }
 
-
 Car::Car()
 {
 }
@@ -31,7 +30,6 @@ void Car::closeDoor()
     this->doorOpen = false;
 }
 
-
 DeliveryCar::DeliveryCar(int load) : Car(), EngineCombustion(10, 31)
 {
 }
@@ -40,7 +38,6 @@ void DeliveryCar::enload(int load)
     this->currentLoad += load;
 }
 
-
 PersonalCar::PersonalCar() : Car(), carElectrical(10, 41), carEngine2(13, 31)
 {
     closeSeatBells();
@@ -48,4 +45,12 @@ PersonalCar::PersonalCar() : Car(), carElectrical(10, 41), carEngine2(13, 31)
 void PersonalCar::closeSeatBells()
 {
     this->seatBeelsPutOn = 1;
+}
+void PersonalCar::startDiselEngine()
+{
+    this->carElectrical.startEngine();
+}
+void PersonalCar::startElectricEngine()
+{
+    this->carEngine2.startEngine();
 }
