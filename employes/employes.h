@@ -2,8 +2,9 @@
 #define PEOPLE_H
 // de facto people in my vetinary
 #include "stdHeader.h"
-#include "clients.h"
+#include "paitients.h"
 #include "person.h"
+
 using namespace std;
 
 

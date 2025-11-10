@@ -1,5 +1,6 @@
 #ifndef PAITIENTS_H
 #define PAITIENTS_H
+#include "stdHeader.h"
 class Animal
 {
 protected:

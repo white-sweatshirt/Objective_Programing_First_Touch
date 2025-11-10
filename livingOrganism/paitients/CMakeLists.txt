@@ -1,2 +1,2 @@
-add_library(Paitients paitients.cpp paitients.h)
-target_include_directories(Paitients PUBLIC "${stdHeader}")
+add_library(Paitients STATIC paitients.cpp paitients.h)
+target_link_directories(Paitients PUBLIC ${PROJECT_SOURCE_DIR}/stdHeader)
