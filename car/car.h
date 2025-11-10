@@ -18,6 +18,8 @@ protected:
     int bootCapacity; // bagznik
     string name;
     bool doorOpen;
+    EngineElectrical carElectrical;
+    EngineCombustion carEngine2;
     /* data */
 public:
     Car();

@@ -17,6 +17,7 @@ void Engine::turnOffEngine()
     else
         cout << "juz jest wylaczony \n";
 }
+
 EngineElectrical::EngineElectrical(int power, float energyLevel)
 {
     this->power = power;

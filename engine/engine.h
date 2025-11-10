@@ -9,8 +9,8 @@ protected:
     bool engineOn;
 
 public:
-    void startEngine();
-    void turnOffEngine();
+    virtual void startEngine();
+    virtual void turnOffEngine();
     Engine::Engine();
 };
 

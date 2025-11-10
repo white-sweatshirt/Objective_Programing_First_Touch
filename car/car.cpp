@@ -11,10 +11,11 @@ void Velichcale::changeDirection(string direction)
 {
     this->direction = direction;
 }
-Car::Car()
+Car::Car() : carElectrical(10,41), carEngine2(13,31)
 {
+
 }
-Car::Car(string name, int numberOfFotels, int bootCapacity)
+Car::Car(string name, int numberOfFotels, int bootCapacity): carElectrical(10,41), carEngine2(13,31)
 {
     this->name = name;
     this->numberOfFotels = numberOfFotels;
