@@ -34,5 +34,12 @@ int main()
     velichcale2->sayDirection();
     personalCar->changeDirection("lewo");
     personalCar->stopYourself();
+    Tractor *tractor=new Tractor();
+    tractor->changeDirection("lewo");
+    tractor->sayDirection();
+    tractor->drive();
+    tractor->sayDirection();
+    tractor->stopYourself();
+    tractor->sayDirection();
     return 0;
 }
