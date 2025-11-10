@@ -14,5 +14,6 @@ public:
     void introduceYourself();
     double serveCustomer(Animal *paitinet); // as group function for healing and for giving recipe
     void getMonyForTreatment(double cashFromPaitient);
+    void sayHowMuchHaveYouMade();
 };
 #endif

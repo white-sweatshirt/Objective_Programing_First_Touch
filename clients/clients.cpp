@@ -14,9 +14,9 @@ void Customer::introduceYourself()
 {
     cout << "nazywam sie :" << this->name << endl;
     cout << "mam " << this->age << " lat" << endl;
-    cout << "mam: ";
+    cout << "mam ";
     this->pet->giveName();
-    cout << " i potrzebuje pomocy zwiazanej z jego leczniem" << endl;
+    cout << "i potrzebuje pomocy zwiazanej z jego leczniem" << endl;
 }
 void Customer::getLoan(double amount)
 {

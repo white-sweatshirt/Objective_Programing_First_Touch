@@ -30,6 +30,7 @@ class Parrot : public Animal
     bool feathersWithoutColor;
 
 public:
+    Parrot(string name);
     int beHealed();
     void giveVoice();
     void giveName();

@@ -5,7 +5,7 @@ void Animal::giveVoice()
 }
 void Animal::giveName()
 {
-    cout << "zwierzatko ma na imie : " << name << endl;
+    cout << "zwierzatko  " << name << endl;
 }
 int Animal::beHealed()
 {
@@ -24,7 +24,7 @@ Dog::Dog(string name)
 }
 void Dog::giveName()
 {
-    cout << "pieska ma na imie: " << name << endl;
+    cout << "pieska " << name << endl;
 }
 int Dog::beHealed()
 {
@@ -35,15 +35,28 @@ int Dog::beHealed()
         illnessHealed++;
     if (this->stomAche)
         illnessHealed++;
+    if (this->tailHurts)
+        illnessHealed++;
+    hasCold = 0;
+    stomAche = 0;
+    illPawn = 0;
+    tailHurts = 0;
     return illnessHealed;
 }
 void Dog::giveVoice()
 {
     cout << "Hau Hau";
 }
+Parrot::Parrot(string name)
+{
+    this->name = name;
+    this->brokenWing = 1;
+    this->feathersWithoutColor = 1;
+    this->stomAche = 1;
+}
 void Parrot::giveName()
 {
-    cout << "papuga ma na imie: " << endl;
+    cout << "papuge  " << this->name << endl;
 }
 void Parrot::giveVoice()
 {
