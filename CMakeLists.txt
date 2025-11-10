@@ -15,7 +15,7 @@ add_executable(Veterinary main.cpp)
 
 target_include_directories(Veterinary PUBLIC "${PROJECT_SOURCE_DIR}/clients"
  PUBLIC "${PROJECT_SOURCE_DIR}/employes")
-target_link_libraries(Veterinary PUBLIC Animals PUBLIC People)
+target_link_libraries(Veterinary PUBLIC Clients PUBLIC Employes)
 
 
 include(CTest)
