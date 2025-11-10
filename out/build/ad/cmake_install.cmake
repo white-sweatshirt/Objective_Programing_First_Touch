@@ -39,6 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
+  include("C:/Users/franc/OneDrive/Pulpit/gitExperiment/out/build/ad/livingOrganism/cmake_install.cmake")
   include("C:/Users/franc/OneDrive/Pulpit/gitExperiment/out/build/ad/clients/cmake_install.cmake")
   include("C:/Users/franc/OneDrive/Pulpit/gitExperiment/out/build/ad/employes/cmake_install.cmake")
 

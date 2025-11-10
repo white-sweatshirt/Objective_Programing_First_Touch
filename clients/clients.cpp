@@ -1,9 +1,9 @@
 #include "clients.h"
-void Person::introduceYourself()
+void Customer::introduceYourself()
 {
     cout << "nazywam sie :" << this->name << endl;
     cout << "mam " << this->age << " lat" << endl;
-    cout << "mam :" << endl;
+    cout<<"mam: ";
     this->pet->giveName();
 }
 void Customer::getLoan(double amount)
@@ -24,16 +24,31 @@ double Customer::giveMoneyForTreatment(double costOfTreatment)
 }
 void Animal::giveName()
 {
-    cout << "ma na imie : " << name;
+    cout << "zwierzatko ma na imie : " << name;
 }
 int Animal::beHealed()
 {
-    int ilnesCured = 0;
-    ilnesCured += stomAche ? 1 : 0;
+    int illnessCured = 0;
+    illnessCured += stomAche ? 1 : 0;
     stomAche = 1;
-    return ilnesCured;
+    return illnessCured;
 }
 void Dog::giveName()
 {
-    cout<<"pies ma na imie: "<<name;
+    cout << "pies ma na imie: " << name;
+}
+int Dog::beHealed()
+{
+    int illnessHealed = 0;
+    if (this->hasCold)
+        illnessHealed++;
+    if (this->illPawn)
+        illnessHealed++;
+    if (this->stomAche)
+        illnessHealed++;
+    return illnessHealed;
+}
+void Dog::giveVoice()
+{
+    cout<<"Wof Wof";
 }

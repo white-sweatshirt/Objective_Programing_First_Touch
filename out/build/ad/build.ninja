@@ -531,6 +531,263 @@ build CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}CMakeFiles/ContinuousS
 # C:/Users/franc/OneDrive/Pulpit/gitExperiment/CMakeLists.txt
 # =============================================================================
 
+
+#############################################
+# Utility command for package
+
+build livingOrganism/CMakeFiles/package.util: CUSTOM_COMMAND livingOrganism/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad && "C:\Program Files\CMake\bin\cpack.exe" --config ./CPackConfig.cmake"
+  DESC = Run CPack packaging tool...
+  pool = console
+  restat = 1
+
+build livingOrganism/package: phony livingOrganism/CMakeFiles/package.util
+
+
+#############################################
+# Utility command for package_source
+
+build livingOrganism/CMakeFiles/package_source.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad && "C:\Program Files\CMake\bin\cpack.exe" --config ./CPackSourceConfig.cmake C:/Users/franc/OneDrive/Pulpit/gitExperiment/out/build/ad/CPackSourceConfig.cmake"
+  DESC = Run CPack packaging tool for source...
+  pool = console
+  restat = 1
+
+build livingOrganism/package_source: phony livingOrganism/CMakeFiles/package_source.util
+
+
+#############################################
+# Utility command for test
+
+build livingOrganism/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad\livingOrganism && "C:\Program Files\CMake\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build livingOrganism/test: phony livingOrganism/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build livingOrganism/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad\livingOrganism && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\franc\OneDrive\Pulpit\gitExperiment -BC:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build livingOrganism/edit_cache: phony livingOrganism/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build livingOrganism/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad\livingOrganism && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\franc\OneDrive\Pulpit\gitExperiment -BC:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build livingOrganism/rebuild_cache: phony livingOrganism/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target Paitients
+
+
+#############################################
+# Order-only phony target for Paitients
+
+build cmake_object_order_depends_target_Paitients: phony || .
+
+build livingOrganism/paitients/CMakeFiles/Paitients.dir/paitients.cpp.obj: CXX_COMPILER__Paitients_unscanned_Debug C$:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/paitients/paitients.cpp || cmake_object_order_depends_target_Paitients
+  DEP_FILE = livingOrganism\paitients\CMakeFiles\Paitients.dir\paitients.cpp.obj.d
+  FLAGS = -g -std=gnu++11
+  OBJECT_DIR = livingOrganism\paitients\CMakeFiles\Paitients.dir
+  OBJECT_FILE_DIR = livingOrganism\paitients\CMakeFiles\Paitients.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Paitients
+
+
+#############################################
+# Link the static library livingOrganism\paitients\libPaitients.a
+
+build livingOrganism/paitients/libPaitients.a: CXX_STATIC_LIBRARY_LINKER__Paitients_Debug livingOrganism/paitients/CMakeFiles/Paitients.dir/paitients.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = livingOrganism\paitients\CMakeFiles\Paitients.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = livingOrganism\paitients\libPaitients.a
+  TARGET_PDB = Paitients.a.dbg
+
+
+#############################################
+# Utility command for package
+
+build livingOrganism/paitients/CMakeFiles/package.util: CUSTOM_COMMAND livingOrganism/paitients/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad && "C:\Program Files\CMake\bin\cpack.exe" --config ./CPackConfig.cmake"
+  DESC = Run CPack packaging tool...
+  pool = console
+  restat = 1
+
+build livingOrganism/paitients/package: phony livingOrganism/paitients/CMakeFiles/package.util
+
+
+#############################################
+# Utility command for package_source
+
+build livingOrganism/paitients/CMakeFiles/package_source.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad && "C:\Program Files\CMake\bin\cpack.exe" --config ./CPackSourceConfig.cmake C:/Users/franc/OneDrive/Pulpit/gitExperiment/out/build/ad/CPackSourceConfig.cmake"
+  DESC = Run CPack packaging tool for source...
+  pool = console
+  restat = 1
+
+build livingOrganism/paitients/package_source: phony livingOrganism/paitients/CMakeFiles/package_source.util
+
+
+#############################################
+# Utility command for test
+
+build livingOrganism/paitients/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad\livingOrganism\paitients && "C:\Program Files\CMake\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build livingOrganism/paitients/test: phony livingOrganism/paitients/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build livingOrganism/paitients/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad\livingOrganism\paitients && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\franc\OneDrive\Pulpit\gitExperiment -BC:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build livingOrganism/paitients/edit_cache: phony livingOrganism/paitients/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build livingOrganism/paitients/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad\livingOrganism\paitients && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\franc\OneDrive\Pulpit\gitExperiment -BC:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build livingOrganism/paitients/rebuild_cache: phony livingOrganism/paitients/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target Person
+
+
+#############################################
+# Order-only phony target for Person
+
+build cmake_object_order_depends_target_Person: phony || .
+
+build livingOrganism/person/CMakeFiles/Person.dir/person.cpp.obj: CXX_COMPILER__Person_unscanned_Debug C$:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/person/person.cpp || cmake_object_order_depends_target_Person
+  DEP_FILE = livingOrganism\person\CMakeFiles\Person.dir\person.cpp.obj.d
+  FLAGS = -g -std=gnu++11
+  OBJECT_DIR = livingOrganism\person\CMakeFiles\Person.dir
+  OBJECT_FILE_DIR = livingOrganism\person\CMakeFiles\Person.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Person
+
+
+#############################################
+# Link the static library livingOrganism\person\libPerson.a
+
+build livingOrganism/person/libPerson.a: CXX_STATIC_LIBRARY_LINKER__Person_Debug livingOrganism/person/CMakeFiles/Person.dir/person.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = livingOrganism\person\CMakeFiles\Person.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = livingOrganism\person\libPerson.a
+  TARGET_PDB = Person.a.dbg
+
+
+#############################################
+# Utility command for package
+
+build livingOrganism/person/CMakeFiles/package.util: CUSTOM_COMMAND livingOrganism/person/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad && "C:\Program Files\CMake\bin\cpack.exe" --config ./CPackConfig.cmake"
+  DESC = Run CPack packaging tool...
+  pool = console
+  restat = 1
+
+build livingOrganism/person/package: phony livingOrganism/person/CMakeFiles/package.util
+
+
+#############################################
+# Utility command for package_source
+
+build livingOrganism/person/CMakeFiles/package_source.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad && "C:\Program Files\CMake\bin\cpack.exe" --config ./CPackSourceConfig.cmake C:/Users/franc/OneDrive/Pulpit/gitExperiment/out/build/ad/CPackSourceConfig.cmake"
+  DESC = Run CPack packaging tool for source...
+  pool = console
+  restat = 1
+
+build livingOrganism/person/package_source: phony livingOrganism/person/CMakeFiles/package_source.util
+
+
+#############################################
+# Utility command for test
+
+build livingOrganism/person/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad\livingOrganism\person && "C:\Program Files\CMake\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build livingOrganism/person/test: phony livingOrganism/person/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build livingOrganism/person/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad\livingOrganism\person && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\franc\OneDrive\Pulpit\gitExperiment -BC:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build livingOrganism/person/edit_cache: phony livingOrganism/person/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build livingOrganism/person/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad\livingOrganism\person && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\franc\OneDrive\Pulpit\gitExperiment -BC:\Users\franc\OneDrive\Pulpit\gitExperiment\out\build\ad"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build livingOrganism/person/rebuild_cache: phony livingOrganism/person/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/franc/OneDrive/Pulpit/gitExperiment/CMakeLists.txt
+# =============================================================================
+
 # =============================================================================
 # Object build statements for STATIC_LIBRARY target Clients
 
@@ -538,11 +795,12 @@ build CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}CMakeFiles/ContinuousS
 #############################################
 # Order-only phony target for Clients
 
-build cmake_object_order_depends_target_Clients: phony || .
+build cmake_object_order_depends_target_Clients: phony || cmake_object_order_depends_target_Employes
 
 build clients/CMakeFiles/Clients.dir/clients.cpp.obj: CXX_COMPILER__Clients_unscanned_Debug C$:/Users/franc/OneDrive/Pulpit/gitExperiment/clients/clients.cpp || cmake_object_order_depends_target_Clients
   DEP_FILE = clients\CMakeFiles\Clients.dir\clients.cpp.obj.d
   FLAGS = -g -std=gnu++11
+  INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/person -IC:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/paitients -IC:/Users/franc/OneDrive/Pulpit/gitExperiment/employes -IC:/Users/franc/OneDrive/Pulpit/gitExperiment/clients
   OBJECT_DIR = clients\CMakeFiles\Clients.dir
   OBJECT_FILE_DIR = clients\CMakeFiles\Clients.dir
 
@@ -554,7 +812,7 @@ build clients/CMakeFiles/Clients.dir/clients.cpp.obj: CXX_COMPILER__Clients_unsc
 #############################################
 # Link the static library clients\libClients.a
 
-build clients/libClients.a: CXX_STATIC_LIBRARY_LINKER__Clients_Debug clients/CMakeFiles/Clients.dir/clients.cpp.obj
+build clients/libClients.a: CXX_STATIC_LIBRARY_LINKER__Clients_Debug clients/CMakeFiles/Clients.dir/clients.cpp.obj || employes/libEmployes.a
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = clients\CMakeFiles\Clients.dir
   POST_BUILD = cd .
@@ -634,12 +892,12 @@ build clients/rebuild_cache: phony clients/CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for Employes
 
-build cmake_object_order_depends_target_Employes: phony || cmake_object_order_depends_target_Clients
+build cmake_object_order_depends_target_Employes: phony || cmake_object_order_depends_target_Paitients cmake_object_order_depends_target_Person
 
 build employes/CMakeFiles/Employes.dir/employes.cpp.obj: CXX_COMPILER__Employes_unscanned_Debug C$:/Users/franc/OneDrive/Pulpit/gitExperiment/employes/employes.cpp || cmake_object_order_depends_target_Employes
   DEP_FILE = employes\CMakeFiles\Employes.dir\employes.cpp.obj.d
   FLAGS = -g -std=gnu++11
-  INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/gitExperiment/clients
+  INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/gitExperiment/clients -IC:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/person -IC:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/paitients -IC:/Users/franc/OneDrive/Pulpit/gitExperiment/employes
   OBJECT_DIR = employes\CMakeFiles\Employes.dir
   OBJECT_FILE_DIR = employes\CMakeFiles\Employes.dir
 
@@ -651,7 +909,7 @@ build employes/CMakeFiles/Employes.dir/employes.cpp.obj: CXX_COMPILER__Employes_
 #############################################
 # Link the static library employes\libEmployes.a
 
-build employes/libEmployes.a: CXX_STATIC_LIBRARY_LINKER__Employes_Debug employes/CMakeFiles/Employes.dir/employes.cpp.obj || clients/libClients.a
+build employes/libEmployes.a: CXX_STATIC_LIBRARY_LINKER__Employes_Debug employes/CMakeFiles/Employes.dir/employes.cpp.obj || livingOrganism/paitients/libPaitients.a livingOrganism/person/libPerson.a
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = employes\CMakeFiles\Employes.dir
   POST_BUILD = cd .
@@ -726,11 +984,19 @@ build Clients: phony clients/libClients.a
 
 build Employes: phony employes/libEmployes.a
 
+build Paitients: phony livingOrganism/paitients/libPaitients.a
+
+build Person: phony livingOrganism/person/libPerson.a
+
 build Veterinary: phony Veterinary.exe
 
 build libClients.a: phony clients/libClients.a
 
 build libEmployes.a: phony employes/libEmployes.a
+
+build libPaitients.a: phony livingOrganism/paitients/libPaitients.a
+
+build libPerson.a: phony livingOrganism/person/libPerson.a
 
 # =============================================================================
 # Folder targets.
@@ -740,7 +1006,7 @@ build libEmployes.a: phony employes/libEmployes.a
 #############################################
 # Folder: C:/Users/franc/OneDrive/Pulpit/gitExperiment/out/build/ad
 
-build all: phony Veterinary.exe clients/all employes/all
+build all: phony Veterinary.exe livingOrganism/all clients/all employes/all
 
 # =============================================================================
 
@@ -757,20 +1023,41 @@ build clients/all: phony clients/libClients.a
 build employes/all: phony employes/libEmployes.a
 
 # =============================================================================
+
+#############################################
+# Folder: C:/Users/franc/OneDrive/Pulpit/gitExperiment/out/build/ad/livingOrganism
+
+build livingOrganism/all: phony livingOrganism/paitients/all livingOrganism/person/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/franc/OneDrive/Pulpit/gitExperiment/out/build/ad/livingOrganism/paitients
+
+build livingOrganism/paitients/all: phony livingOrganism/paitients/libPaitients.a
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/franc/OneDrive/Pulpit/gitExperiment/out/build/ad/livingOrganism/person
+
+build livingOrganism/person/all: phony livingOrganism/person/libPerson.a
+
+# =============================================================================
 # Built-in targets
 
 
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CPack.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CPackComponent.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTest.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTestTargets.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTestUseLaunchers.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/DartConfiguration.tcl.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Templates/CPackConfig.cmake.in C$:/Users/franc/OneDrive/Pulpit/gitExperiment/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/clients/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/employes/CMakeLists.txt CMakeCache.txt CMakeFiles/3.31.2/CMakeCXXCompiler.cmake CMakeFiles/3.31.2/CMakeRCCompiler.cmake CMakeFiles/3.31.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CPack.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CPackComponent.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTest.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTestTargets.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTestUseLaunchers.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/DartConfiguration.tcl.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Templates/CPackConfig.cmake.in C$:/Users/franc/OneDrive/Pulpit/gitExperiment/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/clients/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/employes/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/paitients/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/person/CMakeLists.txt CMakeCache.txt CMakeFiles/3.31.2/CMakeCXXCompiler.cmake CMakeFiles/3.31.2/CMakeRCCompiler.cmake CMakeFiles/3.31.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CPack.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CPackComponent.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTest.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTestTargets.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTestUseLaunchers.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/DartConfiguration.tcl.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Templates/CPackConfig.cmake.in C$:/Users/franc/OneDrive/Pulpit/gitExperiment/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/clients/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/employes/CMakeLists.txt CMakeCache.txt CMakeFiles/3.31.2/CMakeCXXCompiler.cmake CMakeFiles/3.31.2/CMakeRCCompiler.cmake CMakeFiles/3.31.2/CMakeSystem.cmake: phony
+build C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CPack.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CPackComponent.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTest.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTestTargets.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CTestUseLaunchers.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/DartConfiguration.tcl.in C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Templates/CPackConfig.cmake.in C$:/Users/franc/OneDrive/Pulpit/gitExperiment/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/clients/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/employes/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/paitients/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/gitExperiment/livingOrganism/person/CMakeLists.txt CMakeCache.txt CMakeFiles/3.31.2/CMakeCXXCompiler.cmake CMakeFiles/3.31.2/CMakeRCCompiler.cmake CMakeFiles/3.31.2/CMakeSystem.cmake: phony
 
 
 #############################################

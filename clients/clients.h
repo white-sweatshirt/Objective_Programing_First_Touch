@@ -2,48 +2,20 @@
 #define ANIMALS_H
 #include <iostream>
 using namespace std;
-
-class Person
-{
-protected:
-    string name;
-    int age;
-    Animal *pet;
-
-public:
-    virtual void introduceYourself();
-};
-
+#include "person.h"
+#include "paitients.h"
+#include "employes.h"
 class Customer : public Person
 {
 private:
+    Animal * pet;// ma swoje zwierzatko
     double cashAtHand;
-
 public:
-    void askForHelpWithAnimal();
+    void askForHelpWithAnimal(Vet *doctor);
     double giveMoneyForTreatment(double costOfTreatment);
     void getLoan(double amount);
+    void introduceYourself();
 };
 
-class Animal
-{
-protected:
-    friend Customer;
-    bool stomAche;
-    string name;
 
-public:
-    virtual void giveName();
-    virtual int beHealed();
-};
-
-class Dog : public Animal
-{
-    bool illPawn;
-    bool tailHurts;
-public:
-    int beHealed();
-    void giveVoice();
-    void giveName();
-};
 #endif
