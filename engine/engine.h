@@ -11,7 +11,7 @@ protected:
 public:
     virtual void startEngine();
     virtual void turnOffEngine();
-    Engine::Engine();
+    Engine();
 };
 
 class EngineElectrical : virtual public Engine
@@ -24,7 +24,7 @@ public:
     EngineElectrical(int power, float energyLevel);
 };
 
-class EngineCombustion
+class EngineCombustion: virtual public Engine
 {
 protected:
     int amountOfCylinders;

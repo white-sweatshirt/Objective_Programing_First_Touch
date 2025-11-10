@@ -18,8 +18,7 @@ protected:
     int bootCapacity; // bagznik
     string name;
     bool doorOpen;
-    EngineElectrical carElectrical;
-    EngineCombustion carEngine2;
+
     /* data */
 public:
     Car();
@@ -27,7 +26,7 @@ public:
     virtual void openDoor();
     virtual void closeDoor();
 };
-class DeliveryCar : virtual public Car
+class DeliveryCar : public Car, public EngineCombustion
 {
 protected:
     int currentLoad;
@@ -40,6 +39,8 @@ class PersonalCar : virtual public Car
 {
 private:
     bool seatBeelsPutOn;
+    EngineElectrical carElectrical;
+    EngineCombustion carEngine2;
 
 public:
     PersonalCar();

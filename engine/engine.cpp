@@ -1,7 +1,7 @@
 #include "engine.h"
 Engine::Engine()
 {
-    this->engineOn=false;
+    this->engineOn = false;
 }
 void Engine::startEngine()
 {

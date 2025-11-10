@@ -11,11 +11,12 @@ void Velichcale::changeDirection(string direction)
 {
     this->direction = direction;
 }
-Car::Car() : carElectrical(10,41), carEngine2(13,31)
-{
 
+
+Car::Car()
+{
 }
-Car::Car(string name, int numberOfFotels, int bootCapacity): carElectrical(10,41), carEngine2(13,31)
+Car::Car(string name, int numberOfFotels, int bootCapacity)
 {
     this->name = name;
     this->numberOfFotels = numberOfFotels;
@@ -29,14 +30,18 @@ void Car::closeDoor()
 {
     this->doorOpen = false;
 }
-DeliveryCar::DeliveryCar(int load) : Car(), currentLoad(load)
+
+
+DeliveryCar::DeliveryCar(int load) : Car(), EngineCombustion(10, 31)
 {
 }
 void DeliveryCar::enload(int load)
 {
     this->currentLoad += load;
 }
-PersonalCar::PersonalCar() : Car()
+
+
+PersonalCar::PersonalCar() : Car(), carElectrical(10, 41), carEngine2(13, 31)
 {
     closeSeatBells();
 }

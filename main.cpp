@@ -3,13 +3,31 @@
 
 int main()
 {
-    PersonalCar *privateCar1 = new PersonalCar();
-    DeliveryCar *publicCar1 = new DeliveryCar(10);
+    PersonalCar *personalCar = new PersonalCar();
+    DeliveryCar *deliverrCar = new DeliveryCar(10);
+
+    Velichcale *velichcale = personalCar;
+    Car *car = new Car("Ford", 10, 1);
     Engine *engine = new Engine();
 
-    Velichcale *velichcale=privateCar1;
-    Car *car=new Car("Ford",10,1);
-    
+    car->openDoor();
+    engine->startEngine();
+    car->closeDoor();
+    velichcale->changeDirection("prawo");
+    deliverrCar->stopYourself();
+    deliverrCar->turnOffEngine();
 
+    Velichcale *velichcale2 = personalCar;
+    Car *car2 = personalCar;
+    // is imposible here as personal car is composed from engines
+    // and it doesnot inherit it
+    // EngineElectrical *engineElectrical=PersonalCar;
+    // EngineCombustion *engineCombustion=PersonalCar;
+    car2->openDoor();
+    personalCar->closeDoor();
+    velichcale2->drive();
+    personalCar->changeDirection("lewo");
+    personalCar->stopYourself();
+    
     return 0;
 }
