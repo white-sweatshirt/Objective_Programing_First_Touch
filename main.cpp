@@ -13,6 +13,7 @@ int main(void)
     Vet *flitz;
     Customer *basa = new Customer(new Parrot("Jack Sparoow"), 100, "Basa", 30);
     flitz = new Vet("Fryderyk", 34, "masters");
+    Vet *filp=new Vet("Filip",23,"masters");
     flitz->introduceYourself();
 
     ala->askForHelpWithAnimal(flitz);
@@ -23,7 +24,9 @@ int main(void)
 
     ala->askForHelpWithAnimal(flitz);
     sperateConversions();
+    basa->askForHelpWithAnimal(filp);
     delete ala;
     delete basa;
     flitz->sayHowMuchHaveYouMade();
+    filp->sayHowMuchHaveYouMade();
 }
