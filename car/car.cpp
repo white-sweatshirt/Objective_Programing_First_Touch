@@ -1,8 +1,13 @@
 #include "car.h"
-Car::Car(int fuelLevel, bool techincalState)
+string Car::giveName()
+{
+    return this->name;
+}
+Car::Car(int fuelLevel, bool techincalState, string name)
 {
     this->fuelLevel = fuelLevel;
     this->technicalState = techincalState;
+    this->name = name;
 }
 int Car::giveFuelLevel()
 {
@@ -16,17 +21,20 @@ void Car::changeName(string newName)
 {
     this->name = newName;
 }
+Person::Person(string name)
+{
+    this->name = name;
+}
 void Person::getName(string newName)
 {
     this->name = newName;
 }
-Person::Person(string name)
+void Person::sayName()
 {
-    this->name=name;
+    cout << "Jestem :" << this->name << endl;
 }
-Driver::Driver(string name): Person(name)
+Driver::Driver(string name) : Person(name)
 {
-    
 }
 bool Driver::canIDrive(Car *const car)
 {
@@ -37,12 +45,10 @@ bool Driver::canIDrive(Car *const car)
 }
 Mechanic::Mechanic(string name) : Person(name)
 {
-    
 }
 void Mechanic::repair(Car *car)
 {
     // using diractly attribiutes witohut helping class
     car->fuelLevel = 60;
     car->technicalState = 1;
-  
 }

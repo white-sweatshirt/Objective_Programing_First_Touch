@@ -7,5 +7,5 @@ add_subdirectory(car)
 
 
 add_executable(End main.cpp)
-target_include_directories(End PUBLIC ${carFolder} PUBLIC ${mechanicFolder})
-target_link_libraries(End PUBLIC Car PUBLIC Mechanic)
+target_include_directories(End PUBLIC ${carFolder})
+target_link_libraries(End PUBLIC Car )
