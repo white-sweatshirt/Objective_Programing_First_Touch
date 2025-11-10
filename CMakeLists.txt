@@ -7,8 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set (stdheaderFolder "${PROJECT_SOURCE_DIR}/stdHeader")
 set (organismFolder "${PROJECT_SOURCE_DIR}/livingOrganism")
 
-
-add_subdirectory("${stdheaderFolder}")
 add_subdirectory("${organismFolder}")
 add_subdirectory("${PROJECT_SOURCE_DIR}/clients")
 add_subdirectory("${PROJECT_SOURCE_DIR}/employes")

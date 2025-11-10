@@ -1,7 +1,7 @@
 #ifndef PEOPLE_H
 #define PEOPLE_H
 // de facto people in my vetinary
-#include <iostream>
+#include "stdHeader.h"
 #include "clients.h"
 #include "person.h"
 using namespace std;
