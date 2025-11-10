@@ -49,5 +49,6 @@ public:
     void closeSeatBells();
     void startElectricEngine();
     void startDiselEngine();
+    ~PersonalCar();
 };
 #endif

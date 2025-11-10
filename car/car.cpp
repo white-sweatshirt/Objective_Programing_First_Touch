@@ -43,7 +43,10 @@ void DeliveryCar::enload(int load)
 {
     this->currentLoad += load;
 }
+PersonalCar::~PersonalCar(): ~carEngine2(),~carElectrical()
+{
 
+}
 PersonalCar::PersonalCar() : Car(), carElectrical(10, 41), carEngine2(13, 31)
 {
     closeSeatBells();

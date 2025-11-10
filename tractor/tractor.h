@@ -4,8 +4,10 @@
 class Tractor : public Velichcale
 {
 public:
+    Tractor();
     void drive();
     void stopYourself();
     void changeDirection(string direction);
+    void sayDirection();
 };
 #endif

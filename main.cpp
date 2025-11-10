@@ -25,7 +25,7 @@ int main()
     // and it doesnot inherit it
     // EngineElectrical *engineElectrical=PersonalCar;
     // EngineCombustion *engineCombustion=PersonalCar;
-    
+
     personalCar->startDiselEngine();
     personalCar->startElectricEngine();
     car2->openDoor();
@@ -34,6 +34,5 @@ int main()
     velichcale2->sayDirection();
     personalCar->changeDirection("lewo");
     personalCar->stopYourself();
-
     return 0;
 }
