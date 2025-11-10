@@ -30,5 +30,5 @@ void Vet::getMonyForTreatment(double moneyForTreatment)
 }
 void Vet::sayHowMuchHaveYouMade()
 {
-    cout << "dzis zarobilem: " << this->moneyAtHand << endl;
+    cout << "ja " << name << "dzis zarobilem: " << this->moneyAtHand << endl;
 }

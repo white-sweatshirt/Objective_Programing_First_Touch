@@ -9,7 +9,7 @@ void sperateConversions(void)
 }
 int main(void)
 {
-    Customer ala(new Dog("Pimpek"), 1000, "ala", 21);
+    Customer ala(new Dog("Pimpek"), 1000, "Ala", 21);
     Vet *flitz;
     Customer *basa = new Customer(new Parrot("Jack Sparoow"), 100, "Basa", 30);
     flitz = new Vet("Fryderyk", 34, "masters");
@@ -21,6 +21,6 @@ int main(void)
 
     ala.askForHelpWithAnimal(flitz);
     sperateConversions();
-    
+
     flitz->sayHowMuchHaveYouMade();
 }
