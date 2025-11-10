@@ -1,1 +1,0 @@
-add_library(Mechanic mechanic.cpp mechanic.cpp mechanic.h)
