@@ -2,6 +2,7 @@
 #define ENGINE_H
 #include <iostream>
 using namespace std;
+
 class Engine
 {
 protected:
@@ -10,7 +11,9 @@ protected:
 public:
     void startEngine();
     void turnOffEngine();
+    Engine::Engine();
 };
+
 class EngineElectrical : virtual public Engine
 {
 protected:
@@ -20,6 +23,7 @@ protected:
 public:
     EngineElectrical(int power, float energyLevel);
 };
+
 class EngineCombustion
 {
 protected:
@@ -28,4 +32,5 @@ protected:
 public:
     EngineCombustion(int amountOfCylinders, int amountOfValve);
 };
+
 #endif

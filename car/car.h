@@ -3,25 +3,42 @@
 #include "engine.h"
 class Velichcale
 {
+protected:
+    string direction;
+
 public:
-    void drive();
-    void stopYourself();
-    void changeDirection();
+    void virtual drive();
+    void virtual stopYourself();
+    void virtual changeDirection(string direction);
 };
 class Car : public Velichcale
 {
 protected:
     int numberOfFotels;
-    int bootCapacity;
+    int bootCapacity; // bagznik
     string name;
+    bool doorOpen;
     /* data */
 public:
+    Car();
     Car(string name, int numberOfFotels, int bootCapacity);
-    void openDoor();
-    void closeDoor();
+    virtual void openDoor();
+    virtual void closeDoor();
+};
+class DeliveryCar : virtual public Car
+{
+protected:
+    int currentLoad;
+
+public:
+    DeliveryCar(int load);
+    void enload(int load);
 };
 class PersonalCar : virtual public Car
 {
+private:
+    bool seatBeelsPutOn;
+
 public:
     PersonalCar();
     void closeSeatBells();
