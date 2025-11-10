@@ -1,11 +1,11 @@
 #include "paitients.h"
 void Animal::giveVoice()
 {
-    cout<<"generic sound "<<endl;
+    cout << "generic sound " << endl;
 }
 void Animal::giveName()
 {
-    cout << "zwierzatko ma na imie : " << name<<endl;
+    cout << "zwierzatko ma na imie : " << name << endl;
 }
 int Animal::beHealed()
 {
@@ -24,7 +24,7 @@ Dog::Dog(string name)
 }
 void Dog::giveName()
 {
-    cout << "pies ma na imie: " << name<<endl;
+    cout << "pieska ma na imie: " << name << endl;
 }
 int Dog::beHealed()
 {

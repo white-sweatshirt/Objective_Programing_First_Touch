@@ -1,6 +1,7 @@
 #include "clients.h"
 Customer::Customer(Animal *pet, double cash, string customerName, int age)
 {
+    this->name=customerName;
     this->pet = pet;
     this->moneyAtHand = cash;
     this->age = age;
