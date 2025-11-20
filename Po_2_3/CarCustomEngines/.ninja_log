@@ -1,9 +1,0 @@
-# ninja log v6
-11	1968	7845093323681633	engine/CMakeFiles/Engine.dir/engine.cpp.obj	99bcabdfd5be6525
-123	2170	7845093324796551	car/CMakeFiles/Car.dir/car.cpp.obj	2fb24ab0a8eb5eaa
-1971	2173	7845093343295681	engine/libEngine.a	61beeadb06e93210
-2173	2328	7845093345309921	car/libCar.a	831ed7074cf0583c
-12	2405	7845093369198237	tractor/CMakeFiles/Tractor.dir/tractor.cpp.obj	bc782118a318ebd8
-97	2490	7845093370035565	CMakeFiles/End.dir/main.cpp.obj	5af4eb328cc87052
-2406	3021	7845093393132201	tractor/libTractor.a	a48ac541ab2fd2d7
-3021	3361	7845093399279364	End.exe	d4b5a0a9bc2abb46

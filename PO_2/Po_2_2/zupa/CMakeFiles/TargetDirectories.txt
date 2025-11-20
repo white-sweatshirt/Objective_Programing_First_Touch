@@ -1,0 +1,6 @@
+C:/Users/franc/OneDrive/Pulpit/gitExperiment/Po_2_2/zupa/CMakeFiles/End.dir
+C:/Users/franc/OneDrive/Pulpit/gitExperiment/Po_2_2/zupa/CMakeFiles/edit_cache.dir
+C:/Users/franc/OneDrive/Pulpit/gitExperiment/Po_2_2/zupa/CMakeFiles/rebuild_cache.dir
+C:/Users/franc/OneDrive/Pulpit/gitExperiment/Po_2_2/zupa/car/CMakeFiles/Car.dir
+C:/Users/franc/OneDrive/Pulpit/gitExperiment/Po_2_2/zupa/car/CMakeFiles/edit_cache.dir
+C:/Users/franc/OneDrive/Pulpit/gitExperiment/Po_2_2/zupa/car/CMakeFiles/rebuild_cache.dir
