@@ -6,9 +6,10 @@ class ListElement
 {
 private:
     friend ListHead;
-    ListElement* next;
+    ListElement *next;
     string key;
-    ListElement* prev;
+    ListElement *prev;
+
 public:
     ListElement(string key);
     string getKey();
@@ -16,17 +17,20 @@ public:
 class ListHead
 {
 private:
-    ListElement* first;
+    ListElement *first;
     int size;
+
 public:
+    // give size is for janks
+    int giveSize();
     void addToBegging(string key);
     void addToEnd(string key);
     bool contains(string key);
-    ListElement* getIndex(int idx);
+    ListElement *getIndex(int idx);
+    ListElement *getElement(string key);
     void remove(string key);
     void clearAll();
     void printList();
     ListHead();
     ~ListHead();
 };
-
