@@ -46,7 +46,7 @@ int main(void)
     vector<Customer *> waitingLine;
     Vet *flitz;
     waitingLine.push_back(new Customer(new Dog("Reksio"), 2000, "alex", 19));
-    waitingLine.push_back(new Customer(new Parrot("Jack Sparrow"), 300, "Jhony Deep", 62));
+    waitingLine.push_back(new Customer(new Parrot("Jack Sparrow"), 90000, "Jhony Deep", 62));
 
     addPlaceHoleders(waitingLine);
 

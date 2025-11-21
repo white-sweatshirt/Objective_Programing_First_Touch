@@ -64,11 +64,11 @@ double Customer::payFromHand(double costOfTreatment)
 {
     if (this->moneyAtHand < costOfTreatment)
     {
-        cout << "ide do bakomatu!" << endl;
+        cout << "-ide do bakomatu!" << endl;
         getLoan(costOfTreatment - moneyAtHand);
     }
     else
-        cout << "mam przy sobie!" << endl;
+        cout << "-mam przy sobie!" << endl;
     moneyAtHand -= costOfTreatment;
 
     return costOfTreatment;
@@ -79,7 +79,8 @@ void Customer::askForHelpWithAnimals(Vet *doctor)
     this->introduceYourself();
     double toPay = 0;
     for (auto chosenPet : pets)
-        toPay = doctor->serveCustomer(chosenPet);
+        toPay += doctor->serveCustomer(chosenPet);
+    cout << "musze zaplacic: " << toPay << endl;
     payFromHand(toPay);
     doctor->getMonyForTreatment(toPay);
 }

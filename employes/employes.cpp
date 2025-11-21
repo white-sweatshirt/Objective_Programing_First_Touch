@@ -12,17 +12,17 @@ void Vet::introduceYourself()
     cout << "mam " << this->age << " lat" << endl;
     cout << "mam dyplom: " << degree << endl;
 }
+
 double Vet::serveCustomer(Animal *petient)
 {
     double illnesHealed = petient->beHealed();
     double constexpr vetFee = 200, baseFee = 50;
-    cout << "-pana: ";
-    petient->sayName();
-    cout << "jest juz zdrowa !" << endl;
-    if (illnesHealed == 0)
-        cout << "byla juz wczesniej zdrowa!\n ale i tak wizyta kosztuje: " << baseFee << endl;
-    else
-        cout << "calosc kosztow lecznia zwierzatka kosztowala : " << vetFee * (double)illnesHealed + baseFee<<endl;
+    cout << "-pana: " << petient->giveName() << " zostal uleczony, kosztowalo to:" << vetFee * (double)illnesHealed + baseFee << endl;
+    /*  if (illnesHealed == 0)
+          cout << "byla juz wczesniej zdrowa!\n ale i tak wizyta kosztuje: " << baseFee << endl;
+      else
+          cout << "jest juz zdrowa !" << endl;
+          */
     return vetFee * (double)illnesHealed + baseFee;
 }
 void Vet::getMonyForTreatment(double moneyForTreatment)
