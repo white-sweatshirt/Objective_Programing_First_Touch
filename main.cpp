@@ -6,13 +6,14 @@ void testList(ListHead *list)
     // tests lists using all the function combained for full range of list
     // if any fuction wont work it means that some element has failed
     // returns fully printed list into stdout
-    list->printList();
-    list->contains("111") ? cout << "jest 2\n" : cout << "nie ma 2\n";
-    list->contains("4") ? cout << "jest 4\n" : cout << "nie ma 4\n";
-    list->remove("2");
-
     if (!list)
         return;
+    list->printList();
+    list->printFromEnd();
+    list->contains("111") ? cout << "jest 2\n" : cout << "nie ma 2\n";
+    list->contains("4") ? cout << "jest 4\n" : cout << "nie ma 4\n";
+    list->remove("222");
+    list->remove("111");
     for (int i = 0; i < list->giveSize(); i++)
     {
         ListElement *element = list->getIndex(i);
@@ -23,6 +24,7 @@ void testList(ListHead *list)
         }
     }
     puts("");
+    list->printFromEnd();
 }
 void printSeparator()
 {

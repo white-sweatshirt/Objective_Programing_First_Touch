@@ -92,7 +92,7 @@ ListElement *ListHead::getIndex(int idx)
 
 	ListElement *walker = this->first;
 	int i = 0;
-	while (walker )
+	while (walker)
 	{
 		if (i == idx)
 			return walker;
@@ -101,12 +101,12 @@ ListElement *ListHead::getIndex(int idx)
 	}
 	return NULL;
 }
-ListElement * ListHead::getElement(string key)
+ListElement *ListHead::getElement(string key)
 {
-	 
+
 	ListElement *walker = this->first;
 	int i = 0;
-	while (walker )
+	while (walker)
 	{
 		if (walker->key == key)
 			return walker;
@@ -128,6 +128,7 @@ void ListHead::remove(string key)
 	if (walker->getKey() == key)
 	{
 		this->first = walker->next;
+		this->first->prev=NULL;
 		delete walker;
 		return;
 	}
@@ -141,8 +142,10 @@ void ListHead::remove(string key)
 		{
 			temp = walker;
 			walker = walker->next;
-			prev->next = walker;
-			walker->prev = prev;
+			if (prev)
+				prev->next = walker;
+			if (walker)
+				walker->prev = prev;
 			delete temp;
 			return;
 		}
@@ -171,8 +174,24 @@ void ListHead::printList()
 	ListElement *walker = this->first;
 	while (walker)
 	{
-		cout << walker->getKey() << "  ";
+		cout << walker->getKey() << " ";
 		walker = walker->next;
+	}
+	puts("");
+}
+
+void ListHead::printFromEnd()
+{
+	ListElement *walker = this->first;
+	if (!walker)
+		return;
+
+	while (walker->next)
+		walker = walker->next;
+	while (walker)
+	{
+		cout << walker->getKey() << " ";
+		walker = walker->prev;
 	}
 	puts("");
 }

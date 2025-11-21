@@ -31,6 +31,7 @@ public:
     void remove(string key);
     void clearAll();
     void printList();
+    void printFromEnd();
     ListHead();
     ~ListHead();
 };
