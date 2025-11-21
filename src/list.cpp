@@ -1,21 +1,29 @@
 #include "List.h"
- template <class t> void ensureThatPointerWasCreated(t p)
+template <class t>
+void ensureThatPointerWasCreated(t p)
 {
-	 // other less flashy implemation with void * in parametr list
-	 if (!p)
-		 exit(1);
+	// other less flashy implemation is (void *) in parametr list
+	if (!p)
+		exit(1);
 }
- ListElement::ListElement(string key)
- {
-	 this->key = key;
- }
- string ListElement::getKey()
+ListHead::ListHead()
+{
+	this->first = NULL;
+	this->size = 0;
+}
+ListElement::ListElement(string key)
+{
+	this->key = key;
+	this->next = NULL;
+	this->prev = NULL;
+}
+string ListElement::getKey()
 {
 	return this->key;
 }
 void ListHead::addToBegging(string key)
 {
-	ListElement* startNew = new ListElement(key);
+	ListElement *startNew = new ListElement(key);
 	ensureThatPointerWasCreated(startNew);
 	if (!this->first)
 	{
@@ -32,7 +40,7 @@ void ListHead::addToBegging(string key)
 void ListHead::addToEnd(string key)
 {
 	// i dont have to do anything constructor does job
-	ListElement* elementToAdd=new ListElement(key);
+	ListElement *elementToAdd = new ListElement(key);
 	ensureThatPointerWasCreated(elementToAdd);
 	if (!this->first)
 	{
@@ -40,7 +48,7 @@ void ListHead::addToEnd(string key)
 		this->first->next = NULL;
 		this->first->prev = NULL;
 	}
-	ListElement* walker, * prev;
+	ListElement *walker, *prev;
 	walker = prev = this->first;
 	while (walker)
 	{
@@ -53,7 +61,7 @@ void ListHead::addToEnd(string key)
 
 bool ListHead::contains(string key)
 {
-	ListElement* walker;
+	ListElement *walker;
 	walker = this->first;
 	while (walker)
 	{
@@ -64,9 +72,9 @@ bool ListHead::contains(string key)
 	return 0;
 }
 
-ListElement* ListHead::getIndex(int idx)
+ListElement *ListHead::getIndex(int idx)
 {
-	ListElement* walker = this->first;
+	ListElement *walker = this->first;
 	int i = 0;
 	while (walker)
 	{
@@ -79,31 +87,45 @@ ListElement* ListHead::getIndex(int idx)
 
 void ListHead::remove(string key)
 {
-	ListElement* prev,*walker,*temp = this->first;
+	// assumptions: so far none for me to write
+	// operation: finds and deletetes first matching key
+	// result: removing first element with matching key, mantains structure of list
+
+	if (!this->first)
+		return;
+
+	ListElement *prev, *walker, *temp = this->first;
 	walker = this->first;
+	if (walker->getKey() == key)
+	{
+		this->first = walker->next;
+		delete walker;
+		return;
+	}
+
 	while (walker)
 	{
 		prev = walker;
-		if (walker->getKey() == key)
+		walker = walker->next;
+		// this if uses special property that ListHead is friend of ListElement
+		if(walker->key==key)
 		{
-			temp = walker;
-			walker = walker->next;
-
-			if (walker)
-				walker->prev = prev;
-
-			prev->next = walker;
+			temp=walker;
+			walker=walker->next;
+			prev->next=walker;
+			walker->prev=prev;
 			delete temp;
 			return;
 		}
-		walker=walker->next;
+
 	}
 }
 
 void ListHead::clearAll()
 {
-	ListElement* walker = this->first;
-	ListElement* temp = walker;
+
+	ListElement *walker = this->first;
+	ListElement *temp = walker;
 	walker = walker->next;
 	while (temp)
 	{
@@ -116,10 +138,10 @@ void ListHead::clearAll()
 
 void ListHead::printList()
 {
-	ListElement* walker = this->first;
+	ListElement *walker = this->first;
 	while (walker)
 	{
-		cout << walker->getKey()<<"  ";
+		cout << walker->getKey() << "  ";
 		walker = walker->next;
 	}
 	puts("");

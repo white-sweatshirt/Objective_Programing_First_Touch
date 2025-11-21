@@ -7,4 +7,6 @@ set(srcFolder "${PROJECT_SOURCE_DIR}/src")
 
 add_subdirectory(src)
 
-add_executable(listExe ${srcFolder}/main.cpp)
+add_executable(listExe main.cpp)
+target_include_directories(listExe PUBLIC "${headersFolder}")
+target_link_libraries(listExe PUBLIC listLibrary)
