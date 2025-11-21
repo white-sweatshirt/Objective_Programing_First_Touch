@@ -4,7 +4,9 @@
 #include "person.h"
 #include "paitients.h"
 #include "employes.h"
-
+#include <vector>
+template <class t>
+void deleteInbuiltPointersInConteriners(t containerToDelete);
 class Customer : public Person
 { /*
      double moneyAtHand;
@@ -13,13 +15,15 @@ class Customer : public Person
  inherited
      */
 private:
-    Animal *pet; // ma swoje zwierzatko
+    vector <Animal *> pets; // ma swoje zwierzatko
 public:
     void askForHelpWithAnimal(Vet *doctor);
     double payFromHand(double costOfTreatment);
     void getLoan(double amount);
     void introduceYourself();
-    Customer(Animal *pet, double cash, string customerName, int age);
+    
+    void addAnimal(Animal * newpets);
+    Customer(Animal *pets, double cash, string customerName, int age);
     ~Customer();
 };
 

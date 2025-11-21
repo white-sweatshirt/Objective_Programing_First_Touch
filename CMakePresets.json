@@ -2,14 +2,14 @@
     "version": 8,
     "configurePresets": [
         {
-            "name": "ad",
-            "displayName": "Custom configure preset",
+            "name": "veterinary",
+            "displayName": "veterinary",
             "description": "Sets Ninja generator, build and install directory",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/out/veterinary",
+            "binaryDir": "${sourceDir}/${presetName}",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}${presetName}/install/"
             }
         }
     ]

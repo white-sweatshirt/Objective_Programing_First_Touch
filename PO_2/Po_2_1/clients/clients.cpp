@@ -27,11 +27,11 @@ double Customer::payFromHand(double costOfTreatment)
 {
     if (this->moneyAtHand < costOfTreatment)
     {
-        cout << "ide do bakomatu!" << endl;
+        cout << "-ide do bakomatu!" << endl;
         getLoan(costOfTreatment - moneyAtHand);
     }
     else
-        cout << "mam przy sobie!" << endl;
+        cout << "-mam przy sobie!" << endl;
     moneyAtHand -= costOfTreatment;
 
     return costOfTreatment;
