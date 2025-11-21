@@ -16,13 +16,13 @@ double Vet::serveCustomer(Animal *petient)
 {
     double illnesHealed = petient->beHealed();
     double constexpr vetFee = 200, baseFee = 50;
-    cout << "pana: ";
-    petient->giveName();
+    cout << "-pana: ";
+    petient->sayName();
     cout << "jest juz zdrowa !" << endl;
     if (illnesHealed == 0)
         cout << "byla juz wczesniej zdrowa!\n ale i tak wizyta kosztuje: " << baseFee << endl;
     else
-        cout << " calosc kosztowala : " << vetFee * (double)illnesHealed + baseFee;
+        cout << "calosc kosztow lecznia zwierzatka kosztowala : " << vetFee * (double)illnesHealed + baseFee<<endl;
     return vetFee * (double)illnesHealed + baseFee;
 }
 void Vet::getMonyForTreatment(double moneyForTreatment)

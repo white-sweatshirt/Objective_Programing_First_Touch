@@ -1,8 +1,8 @@
 #include "clients.h"
 #include "employes.h"
-#include "list"
+#include <vector>
 
-//plans: I am thinking about large General Class of Making a visit with vet i.e abstract way of cabinet
+// plans: I am thinking about large General Class of Making a visit with vet i.e abstract way of cabinet
 void sperateConversions(void)
 {
     int constexpr numberOfSeperators = 20;
@@ -10,7 +10,7 @@ void sperateConversions(void)
         cout << "=";
     cout << endl;
 }
-void addPlaceHoleders(list<Customer *> &waitingLine)
+void addPlaceHoleders(vector<Customer *> &waitingLine)
 {
     string customerName = "Andrzej";
     string dogName = "Reksio";
@@ -29,24 +29,32 @@ void addPlaceHoleders(list<Customer *> &waitingLine)
         waitingLine.push_back(customerToAdd);
     }
 }
-void serveCustomers(list<Customer *> &waitingLine, Vet *vet)
+void serveCustomers(vector<Customer *> &waitingLine, Vet *vet)
 {
+    static int visitNumber = 0;
+
     for (auto customerCurrentlyServed : waitingLine)
     {
-        customerCurrentlyServed->askForHelpWithAnimal(vet);
+        cout << "wizyta w klinice nr : " << visitNumber++ << endl;
+        customerCurrentlyServed->askForHelpWithAnimals(vet);
         sperateConversions();
     }
 }
+
 int main(void)
 {
-    list<Customer *> waitingLine;
+    vector<Customer *> waitingLine;
     Vet *flitz;
     waitingLine.push_back(new Customer(new Dog("Reksio"), 2000, "alex", 19));
     waitingLine.push_back(new Customer(new Parrot("Jack Sparrow"), 300, "Jhony Deep", 62));
 
     addPlaceHoleders(waitingLine);
 
-    flitz = new Vet("Fryderyk", 34, "masters");
+    waitingLine[2]->removeAnimal("Pimpek");
+    waitingLine[3]->removeAnimal("PimpekMaly");
+    auto start = waitingLine.begin();
+
+    flitz = new Vet("Fryderyk", 34, "doctor");
     Vet *filp = new Vet("Filip", 23, "masters");
     flitz->introduceYourself();
 

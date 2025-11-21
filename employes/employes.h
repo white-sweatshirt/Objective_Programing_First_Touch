@@ -9,6 +9,7 @@ class Vet : public Person
     // inherited :string name ,int age, string degree
     // degree i.e master , doctor
     string degree;
+
 public:
     Vet(string name, int age, string degree);
     void introduceYourself();

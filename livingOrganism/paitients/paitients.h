@@ -9,9 +9,10 @@ protected:
     string name;
 
 public:
-    virtual void giveName();
+    virtual void sayName();
     virtual int beHealed();
     virtual void giveVoice();
+    virtual string giveName();
 };
 class Dog : public Animal
 {
@@ -22,7 +23,7 @@ class Dog : public Animal
 public:
     int beHealed();
     void giveVoice();
-    void giveName();
+    void sayName();
     Dog(string name);
 };
 class Parrot : public Animal
@@ -34,6 +35,6 @@ public:
     Parrot(string name);
     int beHealed();
     void giveVoice();
-    void giveName();
+    void sayName();
 };
 #endif

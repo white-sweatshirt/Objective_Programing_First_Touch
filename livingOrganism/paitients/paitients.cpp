@@ -3,9 +3,13 @@ void Animal::giveVoice()
 {
     cout << "generic sound " << endl;
 }
-void Animal::giveName()
+void Animal::sayName()
 {
     cout << "zwierzatko  " << name << endl;
+}
+string Animal::giveName()
+{
+    return this->name;
 }
 int Animal::beHealed()
 {
@@ -22,7 +26,7 @@ Dog::Dog(string name)
     this->stomAche = 1;
     this->tailHurts = 1;
 }
-void Dog::giveName()
+void Dog::sayName()
 {
     cout << "pieska " << name << endl;
 }
@@ -54,7 +58,7 @@ Parrot::Parrot(string name)
     this->feathersWithoutColor = 1;
     this->stomAche = 1;
 }
-void Parrot::giveName()
+void Parrot::sayName()
 {
     cout << "papuge  " << this->name << endl;
 }
