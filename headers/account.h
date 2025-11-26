@@ -7,7 +7,10 @@ class Account
     double cashOnAccount;
     Person * owner;
     public:
-    double withdrawCashFromAccount();
+    double withdrawAllMoneyFromAccount();
+    double withdrawCashFromAccount(double amonuntToWithdraw);
     void depositMoneyInAccount(double money);
+    Account::Account(Person *owner,double cash);
+    Account::~Account();
 };
 #endif

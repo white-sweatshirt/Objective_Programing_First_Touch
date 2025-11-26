@@ -9,7 +9,6 @@ void checkAllMethodsInDivision(DivisonOfBank &unit)
     cout << "przed zmianami: " << endl;
     unit.showAllInfo();
 
-    unit.hirePeople(5);
 
     unit.depositFunds(1090);
     unit.depositFunds(-123);
