@@ -12,12 +12,10 @@ bool isItPositive(t number)
 void Bank::showAllInfo()
 {
 }
-DivisonOfBank::DivisonOfBank(int divisonNumber, Boss *startingBoss, string cityName, double startingFunds, int numberStaff, double totalSalary)
+DivisonOfBank::DivisonOfBank(int divisonNumber, Boss *startingBoss, string cityName, double startingFunds)
 {
-
     this->numberOfDivison = divisonNumber;
     this->localFunds = startingFunds;
-    this->totalSalary = totalSalary;
     this->cityName = cityName;
     this->boss = startingBoss; // ensure safe initial state
 }
@@ -28,9 +26,13 @@ void DivisonOfBank::changeBoss(Boss *newBoss)
     this->boss = newBoss;
 }
 
-void DivisonOfBank::layOffAll(int numberToLayOff)
+void DivisonOfBank::layOffAll()
 {
-    this->workers.clear();
+    // workers who cease to existe are deleted from dataBase
+    // what if destroy workres and theirs account remeain ?
+    for(auto w:workers)
+        delete w;
+    workers.clear();
 }
 void DivisonOfBank::hirePerson(Worker *newWorker)
 {
@@ -61,6 +63,7 @@ double DivisonOfBank::calculateAvarageSalary()
     double sum = 0.0;
     for (auto w : workers)
         sum += w->getSalary();
+    sum+=boss->getSalary();
     return sum / (double)(workers.size());
 }
 
@@ -92,7 +95,6 @@ void DivisonOfBank::showAllInfo()
 DivisonOfBank::~DivisonOfBank()
 {
     // clear employee records and free boss pointer if allocated externally
-    workers.clear();
     delete this->boss;
     this->boss = NULL;
     for (auto p : workers)

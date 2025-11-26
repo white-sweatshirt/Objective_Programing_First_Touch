@@ -3,24 +3,20 @@
 
 #include "people.h"
 #include <vector>
+#include <list>
 
 using namespace std;
 
 
 class Bank
 {
-private:
-    DivisonOfBank *listOfSubsidoriues;
+protected:
     string name;
-
     // pointer to boss for the bank
     Boss *boss;
-
-protected:
     int totalEmployers;
-
 public:
-    void showAllInfo();
+     virtual void showAllInfo();
 };
 
 class DivisonOfBank : public Bank
@@ -33,14 +29,12 @@ private:
     // place for workers (vector of Worker)
     vector<Worker *> workers;
     // pointer to boss for this division
-    Boss *boss;
-
 public:
-    DivisonOfBank(int divisonNumber, Boss *newBoss, string cityName, double startingFunds, int numberStaff, double totalSalary);
+    DivisonOfBank(int divisonNumber, Boss *newBoss, string cityName, double startingFunds);
     ~DivisonOfBank();
 
     void changeBoss(Boss *newBOss);
-    void layOffAll(int numberToLayOff);
+    void layOffAll();
     void hirePerson(Worker *newWorker);
     void depositFunds(double funds);
     double withdrawFunds(double funds);
