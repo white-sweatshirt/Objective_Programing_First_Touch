@@ -7,17 +7,28 @@ void checkAllMethodsInDivision(DivisonOfBank &unit)
     // assumes that unit is refence to class of DivisonOfBank
     // there is no direct checking of isIt positive in this fuction only indriect by calling other
     cout << "przed zmianami: " << endl;
-    string customerName = "Janek";
-    Customer *dummyCustomer = new Customer("Janek", "tuts");
+    Customer *customers[peopleInVector];
+    string exampleName = "Jan";
+    string exampleLastName = "Duda";
+    for (int i = 0; i < peopleInVector; i++)
+    {
+        customers[i] = new Customer(exampleName, exampleLastName, i + 100);
+        exampleLastName += "1";
+        exampleName += "1";
+    }
+
     unit.showAllInfo();
     for (int i = 0; i < peopleInVector; i++)
     {
         unit.hirePerson(new Worker("Stefamn", "Batory", 1000));
-        
+        unit.depositFunds(customers[i]->giveMoneyFromHand(), customers[i]->giveId());
     }
+
     cout << "------------------" << endl
          << "po zmianach: " << endl;
     unit.showAllInfo();
+    for (int i = 0; i < peopleInVector; i++)
+        delete customers[i];
 }
 int main(void)
 {

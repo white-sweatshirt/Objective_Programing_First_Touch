@@ -63,6 +63,7 @@ class Customer:public Person
     int customerId;
     public:
     Customer(string name,string lastName,double startingCash);
+    Customer();
     ~Customer();
     int giveId();
     void getId(int id);

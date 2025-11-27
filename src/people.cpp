@@ -22,6 +22,7 @@ double Customer::giveMoneyFromHand()
     this->moneyAtHand = 0;
     return temp;
 }
+Customer::Customer(){}
 Customer::Customer(string name, string lastName, double startingCash) : Person(name, lastName)
 {
     this->customerId = 0;
