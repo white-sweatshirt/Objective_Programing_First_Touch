@@ -47,25 +47,42 @@ int DivisonOfBank::createAccount()
     int static id = 0;
     return id++;
 }
-void DivisonOfBank::depositFunds(double funds, Customer *customer)
+int DivisonOfBank::depositFunds(double funds, int id)
 {
+    // returns id of user
+    bool wasThereTransaction = 0;
     if (isItPositive(funds))
     {
+        if (id == 0)
+            id = createAccount();
+        for (auto w : clientsAccounts)
+        {
+            if (w->giveId() == id)
+            {
+                w->depositMoneyInAccount(funds);
+                wasThereTransaction = 1;
+                break;
+            }
+        }
+        if (!wasThereTransaction)
+            clientsAccounts.push_back(new Account(id, funds));
         this->localFunds += funds;
     }
     else
         cerr << "uzyj funkcji withdrawFunds(double funds) aby wycofac fundusze" << endl;
+    return id;
 }
-void DivisonOfBank::withdrawFunds(double funds, Customer *customer)
+double DivisonOfBank::withdrawFunds(double funds, int id)
 {
     for (auto w : clientsAccounts)
     {
-        if (w->giveId() == customer->giveId())
+        if (w->giveId() == id)
         {
             this->localFunds -= w->withdrawCashFromAccount(funds);
-            customer->getMoney(w->withdrawCashFromAccount(funds));
+            return w->withdrawCashFromAccount(funds);
         }
     }
+    return 0.0;
 }
 
 double DivisonOfBank::calculateAvarageSalary()
@@ -84,14 +101,14 @@ void DivisonOfBank::showAllInfo()
     if (this->boss)
     {
         this->boss->introduceYourself();
-        cout << "jestem szefem :" << endl;
+        cout << "jestem szefem banku " << endl;
     }
     else
     {
         cout << "Brak szefa dla tego oddzialu." << endl;
     }
 
-    cout << "nr. odzialu to: " << this->numberOfDivison << endl;
+    cout << "nr. odzialu: " << this->numberOfDivison << endl;
     cout << "miejscowosc w ktorej jest odzial: " << this->cityName << endl;
     cout << "ilosc osob zatrudnionych to: " << workers.size() << endl;
     cout << "calkowite fundusze znajdujace sie w odziale: " << this->localFunds << endl;
@@ -101,6 +118,10 @@ void DivisonOfBank::showAllInfo()
     for (auto w : workers)
     {
         w->introduceYourself();
+    }
+    for (auto w : clientsAccounts)
+    {
+        cout << "klient o id powierzyl nam" << w->cashOnAccount << endl;
     }
 }
 

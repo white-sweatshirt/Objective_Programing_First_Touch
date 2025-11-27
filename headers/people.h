@@ -62,12 +62,11 @@ class Customer:public Person
     double moneyAtHand;
     int customerId;
     public:
-    Customer(string name,string lastName);
+    Customer(string name,string lastName,double startingCash);
     ~Customer();
     int giveId();
     void getId(int id);
-    void depositFundsToBank(DivisonOfBank *unit);
-    void withdrawMoneyFromBank(DivisonOfBank *unit);
     void getMoney(double amount);
+    double giveMoneyFromHand();
 };
 #endif

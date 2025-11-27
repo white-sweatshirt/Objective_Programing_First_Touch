@@ -4,8 +4,9 @@
 class Account
 {
 private:
+    friend DivisonOfBank;
     double cashOnAccount;
-    int idOfOwner;
+    int idOfOwner; 
 
 public:
     double withdrawAllMoneyFromAccount();

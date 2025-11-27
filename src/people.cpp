@@ -16,20 +16,16 @@ void Person::introduceYourself()
 {
     cout << "Name: " << name << " " << lastName << endl;
 }
-void Customer::depositFundsToBank(DivisonOfBank *unit)
+double Customer::giveMoneyFromHand()
 {
-    unit->depositFunds(this->moneyAtHand, this);
+    double temp = this->moneyAtHand;
     this->moneyAtHand = 0;
+    return temp;
 }
-void Customer::withdrawMoneyFromBank(DivisonOfBank *unit)
-{
-    // to be changed as bank should remeber how much it owns to
-    // any customer.
-    unit->withdrawFunds(1000, this);
-}
-Customer::Customer(string name, string lastName) : Person(name, lastName)
+Customer::Customer(string name, string lastName, double startingCash) : Person(name, lastName)
 {
     this->customerId = 0;
+    this->moneyAtHand = startingCash;
 }
 Customer::~Customer()
 {
