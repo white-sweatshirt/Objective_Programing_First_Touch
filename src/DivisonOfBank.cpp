@@ -14,6 +14,7 @@ void Bank::showAllInfo()
 }
 DivisonOfBank::DivisonOfBank(int divisonNumber, Boss *startingBoss, string cityName, double startingFunds)
 {
+    this->totalEmployers = 0;
     this->numberOfDivison = divisonNumber;
     this->localFunds = startingFunds;
     this->cityName = cityName;
@@ -30,7 +31,7 @@ void DivisonOfBank::layOffAll()
 {
     // workers who cease to existe are deleted from dataBase
     // what if destroy workres and theirs account remeain ?
-    for(auto w:workers)
+    for (auto w : workers)
         delete w;
     workers.clear();
 }
@@ -41,15 +42,25 @@ void DivisonOfBank::hirePerson(Worker *newWorker)
     else
         cerr << "brak pracownika do najecia! \n";
 }
-void DivisonOfBank::depositFunds(double funds)
+int DivisonOfBank::createAccount()
+{
+    int static id = 0;
+    return id++;
+}
+void DivisonOfBank::depositFunds(double funds, Customer *customer)
 {
     if (isItPositive(funds))
         this->localFunds += funds;
     else
         cerr << "uzyj funkcji withdrawFunds(double funds) aby wycofac fundusze" << endl;
 }
-double DivisonOfBank::withdrawFunds(double funds)
+double DivisonOfBank::withdrawFunds(double funds, Customer *customer)
 {
+    if (customer->giveId() == 0)
+    {
+        customer->getId(createAccount());
+        clientsAccounts.push_back(new Account(customer->giveId(), funds));
+    }
     if (isItPositive(funds))
         return this->localFunds -= funds;
     else
@@ -63,7 +74,7 @@ double DivisonOfBank::calculateAvarageSalary()
     double sum = 0.0;
     for (auto w : workers)
         sum += w->getSalary();
-    sum+=boss->getSalary();
+    sum += boss->getSalary();
     return sum / (double)(workers.size());
 }
 

@@ -2,6 +2,7 @@
 #define DIVISON_OF_BANK_H
 
 #include "people.h"
+#include "account.h"
 #include <vector>
 #include <list>
 
@@ -28,6 +29,8 @@ private:
     double localFunds;
     // place for workers (vector of Worker)
     vector<Worker *> workers;
+    list <Account *> clientsAccounts;
+    int createAccount();
     // pointer to boss for this division
 public:
     DivisonOfBank(int divisonNumber, Boss *newBoss, string cityName, double startingFunds);
@@ -36,8 +39,8 @@ public:
     void changeBoss(Boss *newBOss);
     void layOffAll();
     void hirePerson(Worker *newWorker);
-    void depositFunds(double funds);
-    double withdrawFunds(double funds);
+    void depositFunds(double funds,Customer *customer);
+    double withdrawFunds(double funds,Customer * customer);
 
     void showAllInfo();
 };

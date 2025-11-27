@@ -5,12 +5,13 @@ class Account
 {
     private:
     double cashOnAccount;
-    Person * owner;
+    int idOfOwner;
     public:
     double withdrawAllMoneyFromAccount();
     double withdrawCashFromAccount(double amonuntToWithdraw);
     void depositMoneyInAccount(double money);
-    Account::Account(Person *owner,double cash);
+    void getId(int id);
+    Account::Account(int id,double cash);
     Account::~Account();
 };
 #endif

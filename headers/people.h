@@ -11,13 +11,11 @@ class Person
 protected:
     string name;
     string lastName;
-    double moneyAtHand;
 
 public:
     Person();
     Person(const string &name, const string &lastName);
-    void depotMoneuToBank(DivisonOfBank *unit);
-    void withdrawMoneyFromBank(DivisonOfBank *unit);
+
     ~Person();
 
     void introduceYourself();
@@ -33,10 +31,10 @@ public:
     Worker(string name, string lastName, double salary);
     virtual ~Worker();
 
-    virtual void setSalary(double s);
-    virtual double getSalary();
+     void setSalary(double s);
+     double getSalary();
 
-    void introduceYourself();
+     void introduceYourself();
 };
 
 // Added Boss class inheriting from Person
@@ -57,5 +55,19 @@ public:
 
     void introduceYourself();
 };
+class Customer:public Person
+{
+    // class responsibable for solving dilema of deleting worker but not
+    // workers account.
+    double moneyAtHand;
+    int customerId;
+    public:
+    Customer(string name,string lastName);
+    ~Customer();
+    int giveId();
+    void getId(int id);
+    void depositFundsToBank(DivisonOfBank *unit);
+    void withdrawMoneyFromBank(DivisonOfBank *unit);
 
+};
 #endif

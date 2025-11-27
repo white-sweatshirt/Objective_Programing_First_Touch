@@ -1,17 +1,13 @@
 #include "account.h"
 
-Account::Account(Person *owner, double cash)
+Account::Account(int id, double cash)
 {
-    this->owner = owner;
+    this->idOfOwner = id;
     this->cashOnAccount = cash;
 }
 
 Account::~Account()
-{
-    // done in order not delete owner , a person still exits after
-    // clousure of account all be it bank ...
-    this->owner = NULL;
-}
+{}
 
 double Account::withdrawAllMoneyFromAccount()
 {
