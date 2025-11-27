@@ -29,7 +29,7 @@ private:
 public:
     Worker();
     Worker(string name, string lastName, double salary);
-    virtual ~Worker();
+     ~Worker();
 
      void setSalary(double s);
      double getSalary();
