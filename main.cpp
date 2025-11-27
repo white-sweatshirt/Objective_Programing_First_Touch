@@ -16,12 +16,15 @@ void checkAllMethodsInDivision(DivisonOfBank &unit)
         exampleLastName += "1";
         exampleName += "1";
     }
-
+    string nameWorker = "Stefamn";
+    string lastNameWorker = "Batory";
     unit.showAllInfo();
     for (int i = 0; i < peopleInVector; i++)
     {
-        unit.hirePerson(new Worker("Stefamn", "Batory", 1000));
+        unit.hirePerson(new Worker(nameWorker, lastNameWorker, 1000));
         unit.depositFunds(customers[i]->giveMoneyFromHand(), customers[i]->giveId());
+        nameWorker+="2";
+        lastNameWorker+="2";
     }
 
     cout << "------------------" << endl

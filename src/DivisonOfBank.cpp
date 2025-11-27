@@ -121,7 +121,7 @@ void DivisonOfBank::showAllInfo()
     }
     for (auto w : clientsAccounts)
     {
-        cout << "klient o id powierzyl nam" << w->cashOnAccount << endl;
+        cout << "klient o id " << w->giveId() << " powierzyl nam" << w->cashOnAccount << endl;
     }
 }
 
