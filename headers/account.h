@@ -3,15 +3,17 @@
 #include "people.h"
 class Account
 {
-    private:
+private:
     double cashOnAccount;
     int idOfOwner;
-    public:
+
+public:
     double withdrawAllMoneyFromAccount();
     double withdrawCashFromAccount(double amonuntToWithdraw);
     void depositMoneyInAccount(double money);
+    int giveId();
     void getId(int id);
-    Account::Account(int id,double cash);
-    Account::~Account();
+    Account(int id, double cash);
+    ~Account();
 };
 #endif

@@ -50,21 +50,22 @@ int DivisonOfBank::createAccount()
 void DivisonOfBank::depositFunds(double funds, Customer *customer)
 {
     if (isItPositive(funds))
+    {
         this->localFunds += funds;
+    }
     else
         cerr << "uzyj funkcji withdrawFunds(double funds) aby wycofac fundusze" << endl;
 }
-double DivisonOfBank::withdrawFunds(double funds, Customer *customer)
+void DivisonOfBank::withdrawFunds(double funds, Customer *customer)
 {
-    if (customer->giveId() == 0)
+    for (auto w : clientsAccounts)
     {
-        customer->getId(createAccount());
-        clientsAccounts.push_back(new Account(customer->giveId(), funds));
+        if (w->giveId() == customer->giveId())
+        {
+            this->localFunds -= w->withdrawCashFromAccount(funds);
+            customer->getMoney(w->withdrawCashFromAccount(funds));
+        }
     }
-    if (isItPositive(funds))
-        return this->localFunds -= funds;
-    else
-        cerr << "uzyj depositFunds(double funds) zdeponowac fundusze" << endl;
 }
 
 double DivisonOfBank::calculateAvarageSalary()
@@ -110,5 +111,8 @@ DivisonOfBank::~DivisonOfBank()
     this->boss = NULL;
     for (auto p : workers)
         delete p;
+    for (auto w : clientsAccounts)
+        delete w;
+    clientsAccounts.clear();
     workers.clear();
 }

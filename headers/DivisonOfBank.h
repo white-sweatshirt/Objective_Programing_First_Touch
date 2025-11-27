@@ -40,7 +40,7 @@ public:
     void layOffAll();
     void hirePerson(Worker *newWorker);
     void depositFunds(double funds,Customer *customer);
-    double withdrawFunds(double funds,Customer * customer);
+    void withdrawFunds(double funds,Customer * customer);
 
     void showAllInfo();
 };

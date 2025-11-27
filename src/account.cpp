@@ -15,10 +15,17 @@ double Account::withdrawAllMoneyFromAccount()
     this->cashOnAccount = 0.0;
     return cashOnAccount;
 }
-
+int Account::giveId()
+{
+    return this->idOfOwner;
+}
 double Account::withdrawCashFromAccount(double amonuntToWithdraw)
 {
     double cash;
+    if(amonuntToWithdraw<0)
+    {
+        return 0.0;
+    }
     cash = (amonuntToWithdraw < this->cashOnAccount) ? amonuntToWithdraw : cashOnAccount;
     this->cashOnAccount -= cash;
     return cash;

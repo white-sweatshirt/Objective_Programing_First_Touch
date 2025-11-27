@@ -25,7 +25,7 @@ void Customer::withdrawMoneyFromBank(DivisonOfBank *unit)
 {
     // to be changed as bank should remeber how much it owns to
     // any customer.
-    this->moneyAtHand = unit->withdrawFunds(1000, this);
+    unit->withdrawFunds(1000, this);
 }
 Customer::Customer(string name, string lastName) : Person(name, lastName)
 {
@@ -41,6 +41,13 @@ int Customer::giveId()
 void Customer::getId(int id)
 {
     this->customerId = id;
+}
+void Customer::getMoney(double amount)
+{
+    if (amount > 0)
+        this->moneyAtHand += amount;
+    else
+        cerr << "probwano dac ujemna liczbe! \n";
 }
 /* Worker */
 Worker::Worker()

@@ -68,6 +68,6 @@ class Customer:public Person
     void getId(int id);
     void depositFundsToBank(DivisonOfBank *unit);
     void withdrawMoneyFromBank(DivisonOfBank *unit);
-
+    void getMoney(double amount);
 };
 #endif
