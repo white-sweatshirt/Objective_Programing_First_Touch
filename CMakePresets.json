@@ -2,11 +2,11 @@
     "version": 8,
     "configurePresets": [
         {
-            "name": "bankDivisions",
-            "displayName": "bankDivisions",
+            "name": "fairyTale",
+            "displayName": "Custom configure preset",
             "description": "Sets Ninja generator, build and install directory",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build/",
+            "binaryDir": "${sourceDir}/build/${presetName}",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}"

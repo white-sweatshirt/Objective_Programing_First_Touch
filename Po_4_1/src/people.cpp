@@ -22,7 +22,7 @@ double Customer::giveMoneyFromHand()
     this->moneyAtHand = 0;
     return temp;
 }
-Customer::Customer(){}
+Customer::Customer() {}
 Customer::Customer(string name, string lastName, double startingCash) : Person(name, lastName)
 {
     this->customerId = 0;
@@ -47,6 +47,10 @@ void Customer::getMoney(double amount)
         cerr << "probwano dac ujemna liczbe! \n";
 }
 /* Worker */
+double Worker::operator+(Worker const &a)
+{
+    return this->salary + a.salary;
+}
 Worker::Worker()
 {
 }

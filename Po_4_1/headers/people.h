@@ -29,12 +29,12 @@ private:
 public:
     Worker();
     Worker(string name, string lastName, double salary);
-     ~Worker();
+    ~Worker();
+    double operator+(Worker const & a);
+    void setSalary(double s);
+    double getSalary();
 
-     void setSalary(double s);
-     double getSalary();
-
-     void introduceYourself();
+    void introduceYourself();
 };
 
 // Added Boss class inheriting from Person
@@ -55,14 +55,15 @@ public:
 
     void introduceYourself();
 };
-class Customer:public Person
+class Customer : public Person
 {
     // class responsibable for solving dilema of deleting worker but not
     // workers account.
     double moneyAtHand;
     int customerId;
-    public:
-    Customer(string name,string lastName,double startingCash);
+
+public:
+    Customer(string name, string lastName, double startingCash);
     Customer();
     ~Customer();
     int giveId();
