@@ -8,6 +8,6 @@ class Scene
     public:
     void createHome();
     void introducecesBearsToHome();
-    
+    void getChanged();
 };
 #endif
