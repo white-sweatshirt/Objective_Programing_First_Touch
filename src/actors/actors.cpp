@@ -4,6 +4,11 @@ Actor::Actor(string startingPlace, string nameOfActor) : nameOfActor(nameOfActor
 {
     this->map = NULL;
 }
+Actor::Actor(string startingPlace,string nameOfActor,Map* map): nameOfActor(nameOfActor),
+    placeOfBeing(startingPlace)
+{
+    this->map=map;
+}
 Actor::~Actor()
 {
 }
@@ -59,4 +64,9 @@ void Actor::tryToStealMapFrom(Actor *mapHolder)
         this->map = mapHolder->loseMap();
         cout << this->nameOfActor << "zdobyl mape";
     }
+}
+ template<class friendClass> void Actor::transferMapOwnerShip(friendClass *ally)
+{
+    Map* map1=this->map;
+    ally->getMap(map);
 }

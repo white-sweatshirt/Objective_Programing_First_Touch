@@ -17,14 +17,18 @@ public:
     /*methods*/
     virtual void goToOtherActor(Actor *other);
     virtual bool sayWheterYouHaveMap();
-    virtual void getMap();
+    virtual void getMap(Map * map);
     virtual void goToNewPlace(string newPlace);
     virtual string giveName();
     virtual void attackActor(Actor *a);
     virtual void tryToStealMapFrom(Actor *mapHolder);
     virtual bool checkWheterIsFriend(Actor *actorTocheck);
+    template<class friendClass> void transferMapOwnerShip(friendClass *ally);
     virtual Map* loseMap();
+    virtual Map*throwMap();
+    
     Actor(string startingPlace, string nameOfActor);
+    Actor(string startingPlace,string nameOfActor,Map *map);
     ~Actor();
 };
 
