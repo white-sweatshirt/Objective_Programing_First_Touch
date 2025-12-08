@@ -1,7 +1,11 @@
 #include "protagonists.h"
 /******************************/
-Protagonist::Protagonist(string name, string startingLocation, Map *map) : Actor(name, startingLocation, map)
+Protagonist::Protagonist(string name, string startingLocation, Map *map) : Actor(name, startingLocation, map),
+isStressed(false)
+{}
+Protagonist::Protagonist()
 {
+    this->isStressed=false;
 }
 void Protagonist::doTherapy(Protagonist *target)
 {
@@ -16,10 +20,11 @@ void Protagonist::talkWithGhost(GhostOfPast *ghost)
 void Protagonist::throwPodrigeOnVillan(Bear *villanBear, string heatLevel)
 {
     cout << "rzucam owsianka w " << villanBear->giveName() << endl;
-    
+    villanBear->complainAboutPorridge(heatLevel);
 }
 Protagonist::~Protagonist()
-{}
+{
+}
 void Protagonist::tryToStealMapFrom(Actor *target)
 {
     if (!checkWheterIsFriend(target))
@@ -30,7 +35,13 @@ void Protagonist::tryToStealMapFrom(Actor *target)
     else
         cout << "probowalem zabrac mape sojusznikowi /n";
 }
+GhostOfPast::GhostOfPast(string whatIDid) : whatIDid(whatIDid)
+{}
 void GhostOfPast::tellAboutItsellfToHero(Protagonist *hero)
 {
-    cout << "jestem duchem twojej przeszlosci bylem: " << this->whatItDid << endl;
+    cout << "jestem duchem twojej przeszlosci bylem: " << this->whatIDid << endl;
+}
+GhostOfPast::~GhostOfPast()
+{
+     
 }

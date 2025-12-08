@@ -28,6 +28,8 @@ public:
     virtual Map*throwMap();
     Actor(string startingPlace, string nameOfActor);
     Actor(string startingPlace,string nameOfActor,Map *map);
+    Actor();
+    Actor::Actor(string name);
     ~Actor();
 };
 

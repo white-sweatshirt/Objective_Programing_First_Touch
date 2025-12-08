@@ -1,16 +1,27 @@
 #include "actors.h"
+Actor::Actor()
+{
+}
+
+Actor::Actor(string name) : nameOfActor(name)
+{
+}
+
 Actor::Actor(string startingPlace, string nameOfActor) : nameOfActor(nameOfActor),
                                                          placeOfBeing(startingPlace)
 {
     this->map = NULL;
 }
-Actor::Actor(string startingPlace,string nameOfActor,Map* map): nameOfActor(nameOfActor),
-    placeOfBeing(startingPlace)
+
+Actor::Actor(string startingPlace, string nameOfActor, Map *map) : nameOfActor(nameOfActor),
+                                                                   placeOfBeing(startingPlace)
 {
-    this->map=map;
+    this->map = map;
 }
 Actor::~Actor()
 {
+    for (auto w : alies)
+        alies.pop_back();
 }
 
 void Actor::attackActor(Actor *a)
@@ -44,12 +55,26 @@ bool Actor::checkWheterIsFriend(Actor *actorTocheck)
             return true;
     return false;
 }
+
+void Actor::getMap(Map* map)
+{
+    this->map=map;
+}
+
 Map *Actor::loseMap()
 {
     Map *map = this->map;
     this->map = NULL;
     return map;
 }
+
+Map * Actor::throwMap()
+{
+    Map* mapis=this->map;
+    this->map=NULL;
+    return mapis;
+}
+
 void Actor::tryToStealMapFrom(Actor *mapHolder)
 {
     if (checkWheterIsFriend(mapHolder))
@@ -65,8 +90,10 @@ void Actor::tryToStealMapFrom(Actor *mapHolder)
         cout << this->nameOfActor << "zdobyl mape";
     }
 }
- template<class friendClass> void Actor::transferMapOwnerShip(friendClass *ally)
+template <class friendClass>
+void Actor::transferMapOwnerShip(friendClass *ally)
 {
-    Map* map1=this->map;
+    Map *map1 = this->map;
+    this->map = NULL;
     ally->getMap(map);
 }
