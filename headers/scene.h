@@ -9,5 +9,6 @@ class Scene
     void createHome();
     void introducecesBearsToHome();
     void getChanged();
+    void createCrystalCave();
 };
 #endif

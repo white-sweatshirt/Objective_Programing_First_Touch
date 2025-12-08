@@ -11,7 +11,9 @@ public:
     void beHappyAboutReturnToHome();
     void eatsPorridge();
     void goesToSleep();
-    void tryToCatch();
+    void tryToCatch(Actor *target);
+    void addToFamily(Actor *memberToAdd);
+    void complainAboutPorridge(string heatLevel);
     Bear(string name,string location,Map* map);
 };
 class humanVillan : public Actor
@@ -20,5 +22,6 @@ class humanVillan : public Actor
 
 public:
     void cryForFamily(vector <Bear*>bearsSurrogitiveFamilly);
+    void takeGoonWithYou(string nameOfGoon);
 };
 #endif

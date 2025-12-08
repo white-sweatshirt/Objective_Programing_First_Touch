@@ -26,7 +26,6 @@ public:
     template<class friendClass> void transferMapOwnerShip(friendClass *ally);
     virtual Map* loseMap();
     virtual Map*throwMap();
-    
     Actor(string startingPlace, string nameOfActor);
     Actor(string startingPlace,string nameOfActor,Map *map);
     ~Actor();
