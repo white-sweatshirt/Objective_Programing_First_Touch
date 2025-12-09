@@ -43,13 +43,17 @@ humanVillan::humanVillan(string name, string location) : Actor(name, location)
 humanVillan::humanVillan(string name, string location, Map *map) : Actor(name, location, map)
 {
 }
+void humanVillan::captureHero(Actor *hero)
+{
+    this->prisonier=hero;
+}
 void humanVillan::takeGoonWithYou(string nameOfGoon)
 {
     goons.push_back(new Actor(nameOfActor));
 }
 void humanVillan::askForHelpWithThief(vector<Bear *> &bearsSurrogitiveFamilly, Actor *thief)
 {
-    cout << "brac go " << thief->giveName() << endl;
+    cout << "-brac go " << thief->giveName() << endl;
     for (auto bear : bearsSurrogitiveFamilly)
         bear->attackActor(thief);
 }

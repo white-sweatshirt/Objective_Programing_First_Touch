@@ -24,10 +24,13 @@ public:
 class humanVillan : public Actor
 {
     vector<Actor *> goons;
+    Actor * prisonier;
 
 public:
     humanVillan(string name,string locationOfBeing);
     humanVillan(string name,string location,Map * map);
+
+    void captureHero(Actor *toCapture);
     void askForHelpWithThief(vector<Bear *>& bearsSurrogitiveFamilly,Actor *thief);
     void takeGoonWithYou(string nameOfGoon);
     

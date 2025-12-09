@@ -1,7 +1,9 @@
 #include "protagonists.h"
 /******************************/
-Protagonist::Protagonist(string name, string startingLocation, Map *map) : Actor(name, startingLocation, map),
-                                                                           isStressed(false)
+Protagonist::Protagonist(string name, string startingLocation, Map *map) : Actor(name, startingLocation, map), isStressed(false)
+{
+}
+Protagonist::Protagonist(string name, string startingLocation, Map *map, string roadTo) : Actor(name, startingLocation, map), isStressed(false), possiableRoadToStar(roadTo)
 {
 }
 Protagonist::Protagonist()
@@ -26,6 +28,10 @@ void Protagonist::throwPodrigeOnVillan(Bear *villanBear, string heatLevel)
 Protagonist::~Protagonist()
 {
 }
+void Protagonist::readMagicalChangingSceneMap(Scene *oldScene)
+{
+    oldScene->getChanged(possiableRoadToStar);
+}
 void Protagonist::tryToStealMapFrom(Actor *target)
 {
     if (!checkWheterIsFriend(target))
@@ -36,6 +42,11 @@ void Protagonist::tryToStealMapFrom(Actor *target)
     else
         cout << "probowalem zabrac mape sojusznikowi /n";
 }
+void Protagonist::danceWithOther(Actor *partner)
+{
+    cout << this->giveName() << " tancze z " << partner->giveName();
+}
+
 void Protagonist::makePlansForCapturingFlag(Protagonist *team[], int peopleInTeam)
 {
     cout << this->giveName() << " proponuje przejac mape teraz\n";

@@ -18,10 +18,12 @@ public:
     void doTherapy(Protagonist *target);
     void throwPodrigeOnVillan(Bear *villanBear, string heatLevel);
     void tryToStealMapFrom(Actor *mapHolder);
-    void readMapByExtensionChangeScene(Scene *current);
+    void readMagicalChangingSceneMap(Scene *current);
     void talkWithGhost(GhostOfPast *ghost);
-
+    void danceWithOther(Actor *partner);
+    
     Protagonist(string name, string startingLocation, Map *map);
+    Protagonist(string name, string startingLocation, Map *map, string roadTo);
     Protagonist();
     ~Protagonist();
 };
