@@ -9,4 +9,4 @@ add_subdirectory(src)
 
 add_executable(fairyTale main.cpp)
 target_include_directories(fairyTale PUBLIC "${headersFolder}")
-target_link_libraries(fairyTale PUBLIC Mcguffin PUBLIC Scene PUBLIC Actors )
+target_link_libraries(fairyTale  PUBLIC Actors PUBLIC Scene )

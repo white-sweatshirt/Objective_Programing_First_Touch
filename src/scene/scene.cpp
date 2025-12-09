@@ -15,7 +15,7 @@ string Scene::giveLocation()
 vector<GhostOfPast *> *Scene::createCrystalCave()
 {
     this->currentState = "Krysztalowa jaskinia Kot w Butach walczy z swoja przeszlosica!\n";
-    vector<GhostOfPast *> *a;
+    vector<GhostOfPast *> *a=new vector<GhostOfPast*>;
     a->push_back(new GhostOfPast("Blem samolubny i zapotrzony w siebie"));
     a->push_back(new GhostOfPast("Jestem Bylem zbyt zapotrzeony w to jak mnie odbierano i nic wiecej"));
     a->push_back(new GhostOfPast("Tylko sipewalem i o nic nie dbalem"));
@@ -23,4 +23,5 @@ vector<GhostOfPast *> *Scene::createCrystalCave()
     a->push_back(new GhostOfPast("Zbytnio duzo gralem w karty"));
     a->push_back(new GhostOfPast("Przejmowalem sie jedynie silownia"));
     a->push_back(new GhostOfPast("Tylko zabawa byla mi w glowie"));
+    return a;
 }

@@ -4,7 +4,6 @@
 #include "actors.h"
 #include "villans.h"
 #include "scene.h"
-class Actor;
 class GhostOfPast;
 class Protagonist : public Actor
 {

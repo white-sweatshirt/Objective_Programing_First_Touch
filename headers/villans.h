@@ -4,8 +4,6 @@
 #include "actors.h"
 #include "mcguffin.h"
 
-typedef enum a{FALSE,TRUE} boolean;
-
 class Bear : public Actor
 {
 private:

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
 #include "mcguffin.h"
 class Map;
 class Actor
