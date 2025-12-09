@@ -80,5 +80,4 @@ void Death::scareHero(Protagonist *hero)
 void Death::destroyGhost(GhostOfPast *ghost)
 {
     cout << "niszcze duszka dla wiekszego efektu\n";
-    delete ghost;
 }

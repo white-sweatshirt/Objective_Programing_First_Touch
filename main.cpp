@@ -5,6 +5,16 @@ void seperateConversations()
 {
     cout << "\n****************************************\n";
 }
+
+template <class pointerToVector>
+void clearVectorOfPointers(pointerToVector place)
+{
+    // deletion function in order to standarise deletion of vector of pointers
+    for (auto w : place)
+        delete w;
+    place.clear();
+}
+
 int main(void)
 {
     Scene *scene = new Scene();
@@ -66,16 +76,24 @@ int main(void)
     pussInBooots->goToNewPlace(scene->giveLocation());
     vector<GhostOfPast *> *ghosts = scene->createCrystalCave();
 
-    Death * death=new Death();
+    Death *death = new Death();
     seperateConversations();
 
     for (auto ghost : *ghosts)
         pussInBooots->talkWithGhost(ghost);
-    
+
     death->scareHero(pussInBooots);
-    for(auto ghost:*ghosts)
+
+    for (auto ghost : *ghosts)
         death->destroyGhost(ghost);
-        
+
+    clearVectorOfPointers(bearFamily);
+    clearVectorOfPointers(*ghosts);
+
+    delete pussInBooots;
+    delete kittyCat;
+    delete death;
+    delete goldie;
     delete ghosts;
     return 0;
 }
