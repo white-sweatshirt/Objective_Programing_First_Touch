@@ -2,8 +2,8 @@
 #define VILLANS_H
 
 #include "actors.h"
+#include "mcguffin.h"
 
-class Actor;
 typedef enum a{FALSE,TRUE} boolean;
 
 class Bear : public Actor
