@@ -1,11 +1,17 @@
 #ifndef PROTAGONISTS_H
 #define PROTAGONISTS_H
 
+// foward declaration of classes in order for 
+// two files to use each other at the same time
+class Bear;
+class humanVillan;
+class Scene;
+class GhostOfPast;
+
 #include "actors.h"
 #include "villans.h"
-class Scene;
 #include "scene.h"
-class GhostOfPast;
+
 class Protagonist : public Actor
 {
     // nad anglia bitwa londyn sie smazy/ a ja w dozynki bawie sie na plazy/
@@ -21,7 +27,8 @@ public:
     void readMagicalChangingSceneMap(Scene *current);
     void talkWithGhost(GhostOfPast *ghost);
     void danceWithOther(Actor *partner);
-    
+    Protagonist* freeHeroFromCaptureOfVIllan(humanVillan *captor);
+
     Protagonist(string name, string startingLocation, Map *map);
     Protagonist(string name, string startingLocation, Map *map, string roadTo);
     Protagonist();

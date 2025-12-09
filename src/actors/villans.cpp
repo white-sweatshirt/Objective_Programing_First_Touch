@@ -39,13 +39,22 @@ void Bear::tryToCatch(Actor *target)
 
 humanVillan::humanVillan(string name, string location) : Actor(name, location)
 {
+    this->prisonier = nullptr;
 }
 humanVillan::humanVillan(string name, string location, Map *map) : Actor(name, location, map)
 {
+    this->prisonier = nullptr;
 }
-void humanVillan::captureHero(Actor *hero)
+void humanVillan::captureHero(Protagonist **hero)
 {
-    this->prisonier=hero;
+    this->prisonier =* hero;
+    *hero=nullptr;
+}
+Protagonist * humanVillan::loseControlOverHero()
+{
+    Protagonist *p=this->prisonier;
+    this->prisonier=nullptr;
+    return p;
 }
 void humanVillan::takeGoonWithYou(string nameOfGoon)
 {

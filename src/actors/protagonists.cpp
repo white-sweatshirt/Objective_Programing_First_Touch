@@ -30,7 +30,10 @@ Protagonist::~Protagonist()
 }
 void Protagonist::readMagicalChangingSceneMap(Scene *oldScene)
 {
+    if(map)
     oldScene->getChanged(possiableRoadToStar);
+    else
+    cout<<"zmiana krajobrazu tylko z mapa!";
 }
 void Protagonist::tryToStealMapFrom(Actor *target)
 {
@@ -46,7 +49,11 @@ void Protagonist::danceWithOther(Actor *partner)
 {
     cout << this->giveName() << " tancze z " << partner->giveName();
 }
+Protagonist* Protagonist::freeHeroFromCaptureOfVIllan(humanVillan *captor)
+{
+    return captor->loseControlOverHero();
 
+}
 void Protagonist::makePlansForCapturingFlag(Protagonist *team[], int peopleInTeam)
 {
     cout << this->giveName() << " proponuje przejac mape teraz\n";

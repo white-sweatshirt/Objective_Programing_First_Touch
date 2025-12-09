@@ -3,6 +3,7 @@
 
 class Map
 {
+  // dummy class meant as reperesenting map in more easy way
 protected:
   //  Actor *owner;
 

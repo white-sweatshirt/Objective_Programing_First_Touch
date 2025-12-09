@@ -1,6 +1,10 @@
 #include "scene.h"
 #include "actors.h"
 
+void seperateConversations()
+{
+    cout << "\n****************************************\n";
+}
 int main(void)
 {
     Scene *scene = new Scene();
@@ -14,15 +18,15 @@ int main(void)
 
     humanVillan *goldie = new humanVillan("Zlotowlosa", scene->giveLocation(), new Map());
 
-    Protagonist *pussInBooots = new Protagonist("Puss in Boots", "przed domkiem", NULL);
+    Protagonist *pussInBooots = new Protagonist("Kot w butach", "przed domkiem", NULL);
     Protagonist *kittyCat = new Protagonist("Kitti", "przed domkiem", NULL);
-    Protagonist *peunito = new Protagonist("Peunito", "przed domkiem", NULL);
-    Protagonist *protagonistTeam[] = {pussInBooots, kittyCat, peunito};
+    Protagonist *perritio = new Protagonist("perritio", "przed domkiem", NULL);
+    Protagonist *protagonistTeam[] = {pussInBooots, kittyCat, perritio};
 
     for (auto bear : bearFamily)
         bear->goesToSleep();
 
-    peunito->doTherapy(pussInBooots);
+    perritio->doTherapy(pussInBooots);
     kittyCat->makePlansForCapturingFlag(protagonistTeam, sizeof(protagonistTeam) / sizeof(protagonistTeam[0]));
     pussInBooots->tryToStealMapFrom(goldie);
     for (auto bear : bearFamily)
@@ -35,16 +39,40 @@ int main(void)
 
     pussInBooots->transferMapOwnerShip(kittyCat);
     scene->getChanged("Latajacy domek");
-
+    seperateConversations();
     Map *map = kittyCat->throwMap();
     cout << "zmiana sceneri teraz: " << scene->giveLocation() << endl;
     pussInBooots->throwPodrigeOnVillan(bearFamily[0], "za zinmna");
     pussInBooots->throwPodrigeOnVillan(bearFamily[1], "za goraca");
     kittyCat->throwPodrigeOnVillan(bearFamily[2], "W sam raz");
-    kittyCat->danceWithOther(pussInBooots);
 
+    kittyCat->danceWithOther(pussInBooots);
     pussInBooots->getMap(map);
     pussInBooots->readMagicalChangingSceneMap(scene);
 
+    seperateConversations();
+
+    goldie->captureHero(&perritio);
+
+    // perrito is captured and as such is not acessable
+
+    goldie->goToNewPlace("Pod mostem miesce zasadzki");
+    for (auto bear : bearFamily)
+        bear->goToNewPlace("Pod mostem miesce zasadzki");
+    seperateConversations();
+    kittyCat->goToOtherActor(goldie);
+    perritio = kittyCat->freeHeroFromCaptureOfVIllan(goldie);
+
+    pussInBooots->goToNewPlace(scene->giveLocation());
+    vector<GhostOfPast *> *ghosts = scene->createCrystalCave();
+
+    seperateConversations();
+
+    for (auto ghost : *ghosts)
+        pussInBooots->talkWithGhost(ghost);
+    
+    for (auto w : *ghosts)
+        delete w;
+    delete ghosts;
     return 0;
 }

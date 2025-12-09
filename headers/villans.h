@@ -4,6 +4,11 @@
 #include "actors.h"
 #include "mcguffin.h"
 
+class Protagonist;
+class GhostOfPast;
+
+#include "protagonists.h"
+
 class Bear : public Actor
 {
 private:
@@ -24,13 +29,14 @@ public:
 class humanVillan : public Actor
 {
     vector<Actor *> goons;
-    Actor * prisonier;
+    Protagonist* prisonier;
 
 public:
     humanVillan(string name,string locationOfBeing);
     humanVillan(string name,string location,Map * map);
 
-    void captureHero(Actor *toCapture);
+    Protagonist*  loseControlOverHero();
+    void captureHero(Protagonist **toCapture);
     void askForHelpWithThief(vector<Bear *>& bearsSurrogitiveFamilly,Actor *thief);
     void takeGoonWithYou(string nameOfGoon);
     
