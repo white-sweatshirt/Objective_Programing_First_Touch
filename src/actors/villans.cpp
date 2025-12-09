@@ -74,7 +74,7 @@ humanVillan::~humanVillan()
 
 void Death::scareHero(Protagonist *hero)
 {
-    cout << "buj sie mnie : ";
+    cout << "buj sie mnie : "<<this->giveName();
     hero->getStressed();
 }
 void Death::destroyGhost(GhostOfPast *ghost)

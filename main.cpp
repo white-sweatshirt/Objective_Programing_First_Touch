@@ -6,9 +6,11 @@ void seperateConversations()
     cout << "\n****************************************\n";
 }
 
-template <class pointerToVector>
-void clearVectorOfPointers(pointerToVector place)
+template <class vectorOfPointers>
+void clearVectorOfPointers(vectorOfPointers &place)
 {
+    // this function assumes that place is a standard vector with method of clear
+    // results in cleared vetor of pointers
     // deletion function in order to standarise deletion of vector of pointers
     for (auto w : place)
         delete w;
@@ -81,7 +83,7 @@ int main(void)
 
     for (auto ghost : *ghosts)
         pussInBooots->talkWithGhost(ghost);
-
+    seperateConversations();
     death->scareHero(pussInBooots);
 
     for (auto ghost : *ghosts)
