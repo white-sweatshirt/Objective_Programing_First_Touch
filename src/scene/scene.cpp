@@ -8,6 +8,12 @@ void Scene::introducecesBearsToHome()
     cout << "Drogie Misie jestesmy u was w domu" << endl
          << this->currentState << endl;
 }
+
+void Scene::getChanged(string newScene)
+{
+    this->currentState=newScene;
+}
+
 string Scene::giveLocation()
 {
     return this->currentState;
@@ -16,7 +22,7 @@ vector<GhostOfPast *> *Scene::createCrystalCave()
 {
     this->currentState = "Krysztalowa jaskinia Kot w Butach walczy z swoja przeszlosica!\n";
     vector<GhostOfPast *> *a=new vector<GhostOfPast*>;
-    a->push_back(new GhostOfPast("Blem samolubny i zapotrzony w siebie"));
+    a->push_back(new GhostOfPast("Bylem samolubny i zapotrzony w siebie"));
     a->push_back(new GhostOfPast("Jestem Bylem zbyt zapotrzeony w to jak mnie odbierano i nic wiecej"));
     a->push_back(new GhostOfPast("Tylko sipewalem i o nic nie dbalem"));
     a->push_back(new GhostOfPast("Zajmowalem sie jedynie dobrym jedzeniem"));

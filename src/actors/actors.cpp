@@ -7,13 +7,13 @@ Actor::Actor(string name) : nameOfActor(name)
 {
 }
 
-Actor::Actor(string startingPlace, string nameOfActor) : nameOfActor(nameOfActor),
+Actor::Actor(string nameOfActor, string startingPlace) : nameOfActor(nameOfActor),
                                                          placeOfBeing(startingPlace)
 {
     this->map = NULL;
 }
 
-Actor::Actor(string startingPlace, string nameOfActor, Map *map) : nameOfActor(nameOfActor),
+Actor::Actor(string nameOfActor, string startingPlace, Map *map) : nameOfActor(nameOfActor),
                                                                    placeOfBeing(startingPlace)
 {
     this->map = map;
@@ -28,9 +28,14 @@ void Actor::attackActor(Actor *a)
 {
     cout << this->giveName() << " attacking " << a->giveName();
 }
+string Actor::givePosition()
+{
+    return this->placeOfBeing;
+}
 void Actor::goToOtherActor(Actor *otherActor)
 {
     cout << this->nameOfActor << " jestem kolo " << otherActor->giveName() << endl;
+    this->placeOfBeing = "blisko " + otherActor->placeOfBeing;
 }
 void Actor::goToNewPlace(string newPlace)
 {
@@ -56,9 +61,12 @@ bool Actor::checkWheterIsFriend(Actor *actorTocheck)
     return false;
 }
 
-void Actor::getMap(Map* map)
+void Actor::getMap(Map *map)
 {
-    this->map=map;
+    if (map)
+        this->map = map;
+    else
+        cerr << "no map to pick up" << endl;
 }
 
 Map *Actor::loseMap()
@@ -68,10 +76,10 @@ Map *Actor::loseMap()
     return map;
 }
 
-Map * Actor::throwMap()
+Map *Actor::throwMap()
 {
-    Map* mapis=this->map;
-    this->map=NULL;
+    Map *mapis = this->map;
+    this->map = NULL;
     return mapis;
 }
 
@@ -90,8 +98,7 @@ void Actor::tryToStealMapFrom(Actor *mapHolder)
         cout << this->nameOfActor << "zdobyl mape";
     }
 }
-template <class friendClass>
-void Actor::transferMapOwnerShip(friendClass *ally)
+void Actor::transferMapOwnerShip(Actor *ally)
 {
     Map *map1 = this->map;
     this->map = NULL;

@@ -3,24 +3,29 @@
 
 #include "actors.h"
 #include "villans.h"
+class Scene;
 #include "scene.h"
 class GhostOfPast;
 class Protagonist : public Actor
 {
+    // nad anglia bitwa londyn sie smazy/ a ja w dozynki bawie sie na plazy/
 private:
     bool isStressed;
+    string possiableRoadToStar;
 
 public:
+    void makePlansForCapturingFlag(Protagonist *team[], int peopleInTeam);
+    void doTherapy(Protagonist *target);
     void throwPodrigeOnVillan(Bear *villanBear, string heatLevel);
     void tryToStealMapFrom(Actor *mapHolder);
-    void doTherapy(Protagonist *target);
+    void readMapByExtensionChangeScene(Scene *current);
     void talkWithGhost(GhostOfPast *ghost);
-    void makePlansForCapturingFlag(Protagonist *team[], int peopleInTeam);
+
     Protagonist(string name, string startingLocation, Map *map);
     Protagonist();
     ~Protagonist();
 };
-class GhostOfPast : public Protagonist
+class GhostOfPast
 {
 private:
     string whatIDid;

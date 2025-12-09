@@ -14,7 +14,7 @@ public:
     void createHome();
     void introducecesBearsToHome();
     string giveLocation();
-    void getChanged();
+    void getChanged(string newState);
     vector<GhostOfPast *> *createCrystalCave();
 };
 #endif

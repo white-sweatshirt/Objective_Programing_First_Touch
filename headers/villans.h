@@ -7,7 +7,6 @@
 class Bear : public Actor
 {
 private:
-    vector<Actor *> family;
     bool isConcious;
     bool eatenPorridge;
 
@@ -15,8 +14,8 @@ public:
     void beHappyAboutReturnToHome();
     void eatPorridge();
     void goesToSleep();
+    void wakeUp();
     void tryToCatch(Actor *target);
-    void addToFamily(Actor *memberToAdd);
     void complainAboutPorridge(string heatLevel);
     Bear(string name, string location, Map *map);
     Bear(string name,string location);
@@ -29,8 +28,9 @@ class humanVillan : public Actor
 public:
     humanVillan(string name,string locationOfBeing);
     humanVillan(string name,string location,Map * map);
-    void cryToFamily(vector<Actor *> bearsSurrogitiveFamilly);
+    void askForHelpWithThief(vector<Bear *>& bearsSurrogitiveFamilly,Actor *thief);
     void takeGoonWithYou(string nameOfGoon);
+    
     ~humanVillan();
 };
 #endif
