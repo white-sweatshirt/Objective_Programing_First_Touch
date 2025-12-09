@@ -26,7 +26,7 @@ Actor::~Actor()
 
 void Actor::attackActor(Actor *a)
 {
-    cout << this->giveName() << " attacking " << a->giveName();
+    cout << this->giveName() << " attacking " << a->giveName() << endl;
 }
 string Actor::givePosition()
 {
@@ -39,7 +39,8 @@ void Actor::goToOtherActor(Actor *otherActor)
 }
 void Actor::goToNewPlace(string newPlace)
 {
-    cout << this->giveName() << " idzie z" << this->placeOfBeing << " do " << newPlace;
+    cout << this->giveName() << " idzie od " << this->placeOfBeing << " do " << newPlace;
+    cout << endl;
     this->placeOfBeing = newPlace;
 }
 string Actor::giveName()

@@ -5,7 +5,7 @@ Bear::Bear(string name, string location, Map *map) : Actor(name, location, map)
     this->eatenPorridge = false;
     this->isConcious = true;
 }
-Bear::Bear(string name, string location) : Actor(location, name)
+Bear::Bear(string name, string location) : Actor(name, location)
 {
 }
 Bear::~Bear()
@@ -17,7 +17,7 @@ void Bear::beHappyAboutReturnToHome()
 }
 void Bear::complainAboutPorridge(string heatLevel)
 {
-    cout << "oberwalem owsianka bedaca" << heatLevel << endl;
+    cout << "oberwalem owsianka " << heatLevel << endl;
 }
 void Bear::eatPorridge()
 {
@@ -34,7 +34,7 @@ void Bear::wakeUp()
 void Bear::tryToCatch(Actor *target)
 {
     // w bajce nie ma nu pagadim
-    cout << "nu pogadim " << target->giveName() << endl;
+    cout << this->giveName() << "zaraz cie zlapienu pogadim " << target->giveName() << endl;
 }
 
 humanVillan::humanVillan(string name, string location) : Actor(name, location)
@@ -47,13 +47,13 @@ humanVillan::humanVillan(string name, string location, Map *map) : Actor(name, l
 }
 void humanVillan::captureHero(Protagonist **hero)
 {
-    this->prisonier =* hero;
-    *hero=nullptr;
+    this->prisonier = *hero;
+    *hero = nullptr;
 }
-Protagonist * humanVillan::loseControlOverHero()
+Protagonist *humanVillan::loseControlOverHero()
 {
-    Protagonist *p=this->prisonier;
-    this->prisonier=nullptr;
+    Protagonist *p = this->prisonier;
+    this->prisonier = nullptr;
     return p;
 }
 void humanVillan::takeGoonWithYou(string nameOfGoon)
@@ -70,4 +70,15 @@ humanVillan::~humanVillan()
 {
     for (auto a : goons)
         delete a;
+}
+
+void Death::scareHero(Protagonist *hero)
+{
+    cout << "buj sie mnie : ";
+    hero->getStressed();
+}
+void Death::destroyGhost(GhostOfPast *ghost)
+{
+    cout << "niszcze duszka dla wiekszego efektu\n";
+    delete ghost;
 }

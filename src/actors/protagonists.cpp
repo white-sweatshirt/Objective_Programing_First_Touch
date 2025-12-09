@@ -1,18 +1,32 @@
 #include "protagonists.h"
 /******************************/
+
 Protagonist::Protagonist(string name, string startingLocation, Map *map) : Actor(name, startingLocation, map), isStressed(false)
 {
+    this->isStressed = false;
 }
+
 Protagonist::Protagonist(string name, string startingLocation, Map *map, string roadTo) : Actor(name, startingLocation, map), isStressed(false), possiableRoadToStar(roadTo)
 {
+    this->isStressed = false;
 }
+
 Protagonist::Protagonist()
+{
+    this->isStressed = false;
+}
+void Protagonist::getStressed()
+{
+    this->isStressed = true;
+}
+void Protagonist::getTherapy()
 {
     this->isStressed = false;
 }
 void Protagonist::doTherapy(Protagonist *target)
 {
-    cout << this->giveName() << "staram sie pomoc: " << target->giveName() << endl;
+    cout << this->giveName() << " staram sie pomoc: " << target->giveName() << endl;
+    target->getTherapy();
 }
 void Protagonist::talkWithGhost(GhostOfPast *ghost)
 {
@@ -30,10 +44,10 @@ Protagonist::~Protagonist()
 }
 void Protagonist::readMagicalChangingSceneMap(Scene *oldScene)
 {
-    if(map)
-    oldScene->getChanged(possiableRoadToStar);
+    if (map)
+        oldScene->getChanged(possiableRoadToStar);
     else
-    cout<<"zmiana krajobrazu tylko z mapa!";
+        cout << "zmiana krajobrazu tylko z mapa!";
 }
 void Protagonist::tryToStealMapFrom(Actor *target)
 {
@@ -49,10 +63,9 @@ void Protagonist::danceWithOther(Actor *partner)
 {
     cout << this->giveName() << " tancze z " << partner->giveName();
 }
-Protagonist* Protagonist::freeHeroFromCaptureOfVIllan(humanVillan *captor)
+Protagonist *Protagonist::freeHeroFromCaptureOfVIllan(humanVillan *captor)
 {
     return captor->loseControlOverHero();
-
 }
 void Protagonist::makePlansForCapturingFlag(Protagonist *team[], int peopleInTeam)
 {

@@ -20,7 +20,7 @@ int main(void)
 
     Protagonist *pussInBooots = new Protagonist("Kot w butach", "przed domkiem", NULL);
     Protagonist *kittyCat = new Protagonist("Kitti", "przed domkiem", NULL);
-    Protagonist *perritio = new Protagonist("perritio", "przed domkiem", NULL);
+    Protagonist *perritio = new Protagonist("Perritio", "przed domkiem", NULL);
     Protagonist *protagonistTeam[] = {pussInBooots, kittyCat, perritio};
 
     for (auto bear : bearFamily)
@@ -66,13 +66,16 @@ int main(void)
     pussInBooots->goToNewPlace(scene->giveLocation());
     vector<GhostOfPast *> *ghosts = scene->createCrystalCave();
 
+    Death * death=new Death();
     seperateConversations();
 
     for (auto ghost : *ghosts)
         pussInBooots->talkWithGhost(ghost);
     
-    for (auto w : *ghosts)
-        delete w;
+    death->scareHero(pussInBooots);
+    for(auto ghost:*ghosts)
+        death->destroyGhost(ghost);
+        
     delete ghosts;
     return 0;
 }

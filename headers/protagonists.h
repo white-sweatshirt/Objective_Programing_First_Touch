@@ -22,6 +22,9 @@ private:
 public:
     void makePlansForCapturingFlag(Protagonist *team[], int peopleInTeam);
     void doTherapy(Protagonist *target);
+    void getStressed();
+    void getTherapy();
+
     void throwPodrigeOnVillan(Bear *villanBear, string heatLevel);
     void tryToStealMapFrom(Actor *mapHolder);
     void readMagicalChangingSceneMap(Scene *current);
