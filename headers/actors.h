@@ -5,6 +5,7 @@
 #include <vector>
 using namespace std;
 #include "mcguffin.h"
+class Map;
 class Actor
 {
 protected:
@@ -29,7 +30,7 @@ public:
     Actor(string startingPlace, string nameOfActor);
     Actor(string startingPlace,string nameOfActor,Map *map);
     Actor();
-    Actor::Actor(string name);
+    Actor(string name);
     ~Actor();
 };
 

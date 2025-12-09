@@ -1,7 +1,10 @@
 #ifndef PROTAGONISTS_H
 #define PROTAGONISTS_H
+
 #include "actors.h"
 #include "villans.h"
+#include "scene.h"
+class Actor;
 class GhostOfPast;
 class Protagonist : public Actor
 {
@@ -13,6 +16,7 @@ public:
     void tryToStealMapFrom(Actor *mapHolder);
     void doTherapy(Protagonist *target);
     void talkWithGhost(GhostOfPast *ghost);
+    void makePlansForCapturingFlag(Protagonist *team[], int peopleInTeam);
     Protagonist(string name, string startingLocation, Map *map);
     Protagonist();
     ~Protagonist();

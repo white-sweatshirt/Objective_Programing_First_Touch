@@ -1,7 +1,13 @@
 #include "villans.h"
 
 Bear::Bear(string name, string location, Map *map) : Actor(name, location, map)
-{}
+{
+    this->eatenPorridge = false;
+    this->isConcious = true;
+}
+Bear::Bear(string name, string location) : Actor(location, name)
+{
+}
 Bear::~Bear()
 {
     for (auto w : family)
@@ -13,7 +19,7 @@ void Bear::beHappyAboutReturnToHome()
 }
 void Bear::complainAboutPorridge(string heatLevel)
 {
-    cout << "owsianka byla " << heatLevel << endl;
+    cout << "oberwalem owsianka bedaca" << heatLevel << endl;
 }
 void Bear::eatPorridge()
 {
@@ -32,6 +38,13 @@ void Bear::tryToCatch(Actor *target)
 void Bear::addToFamily(Actor *meberToAdd)
 {
     family.push_back(meberToAdd);
+}
+
+humanVillan::humanVillan(string name, string location) : Actor(location, name)
+{
+}
+humanVillan::humanVillan(string name, string location, Map *map) : Actor(location, name, map)
+{
 }
 void humanVillan::takeGoonWithYou(string nameOfGoon)
 {
