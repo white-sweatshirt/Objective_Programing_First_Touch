@@ -38,6 +38,7 @@ public:
     Protagonist *loseControlOverHero();
     void captureHero(Protagonist **toCapture);
     void askForHelpWithThief(vector<Bear *> &bearsSurrogitiveFamilly, Actor *thief);
+    void tryToStealMapFrom(Actor *target);
     void takeGoonWithYou(string nameOfGoon);
     void sendGoonsToAttack(Actor *target);
     ~humanVillan();

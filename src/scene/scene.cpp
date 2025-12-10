@@ -36,3 +36,7 @@ vector<GhostOfPast *> *Scene::createCrystalCave()
     a->push_back(new GhostOfPast("Tylko zabawa byla mi w glowie"));
     return a;
 }
+void Scene::createEndingScene()
+{
+    this->currentState="Polanka pod gwiazdami";
+}

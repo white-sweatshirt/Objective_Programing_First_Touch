@@ -10,6 +10,8 @@ Bear::Bear(string name, string location) : Actor(name, location)
 }
 Bear::~Bear()
 {
+    if(map)
+        delete map;
 }
 void Bear::beHappyAboutReturnToHome()
 {
@@ -33,8 +35,7 @@ void Bear::wakeUp()
 }
 void Bear::tryToCatch(Actor *target)
 {
-    // w bajce nie ma nu pagadim
-    cout << this->giveName() << "zaraz cie zlapienu pogadim " << target->giveName() << endl;
+    cout << this->giveName() << " probuje zlapac " << target->giveName() << endl;
 }
 
 humanVillan::humanVillan(string name, string location) : Actor(name, location)
@@ -71,18 +72,27 @@ void humanVillan::sendGoonsToAttack(Actor *target)
     for(auto attacker:goons)
         attacker->attackActor(target);
 }
+void humanVillan::tryToStealMapFrom(Actor * target)
+{
+    cout<<this->giveName()<<" niezbyt zgrabnie ukradlem mape "<<target->giveName()<<endl;
+    map=target->loseMap();
+}
 humanVillan::~humanVillan()
 {
     for (auto a : goons)
         delete a;
+    if(prisonier)
+        delete prisonier;
+    if(map)
+        delete map;
 }
 
 void Death::scareHero(Protagonist *hero)
 {
-    cout << "buj sie mnie : "<<this->giveName();
+    cout << "buj sie smierci: "<<hero->giveName()<<endl;
     hero->getStressed();
 }
 void Death::destroyGhost(GhostOfPast *ghost)
 {
-    cout << "niszcze duszka dla wiekszego efektu\n";
+    cout <<"smierc niszczy duszka dla wiekszego efektu!\n";
 }

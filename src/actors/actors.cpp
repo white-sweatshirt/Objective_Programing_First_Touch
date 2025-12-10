@@ -5,6 +5,7 @@ Actor::Actor()
 
 Actor::Actor(string name) : nameOfActor(name)
 {
+    this->map=nullptr;
 }
 
 Actor::Actor(string nameOfActor, string startingPlace) : nameOfActor(nameOfActor),
@@ -20,12 +21,13 @@ Actor::Actor(string nameOfActor, string startingPlace, Map *map) : nameOfActor(n
 }
 Actor::~Actor()
 {
-
+    if (map)
+        delete map;
 }
 
 void Actor::attackActor(Actor *a)
 {
-    cout << this->giveName() << " attacking " << a->giveName() << endl;
+    cout << this->giveName() << " atakuje " << a->giveName() << endl;
 }
 string Actor::givePosition()
 {
@@ -53,7 +55,6 @@ bool Actor::sayWheterYouHaveMap()
     else
         return false;
 }
-
 
 void Actor::getMap(Map *map)
 {

@@ -1,6 +1,23 @@
 #include "scene.h"
 #include "actors.h"
-
+/* Opis Bajki:
+ Puss in Boots: The Last Wish follows Puss as he faces something he’s never
+ taken seriously before: the fact that he is down to the last of his nine lives.
+  After years of treating danger as a joke and living recklessly,
+ he’s suddenly confronted by the terrifying Wolf — the embodiment of Death —
+who forces him to acknowledge his fear and vulnerability.
+In the final scenes, after a journey spent chasing the magical Wishing Star,
+Puss realizes that what he truly needs isn’t another set of lives but the courage to
+ value the one life he has left. Instead of running from Death or trying to cheat it,
+  he chooses to stand and fight for the life he finally appreciates.
+   He also chooses companionship over ego, embracing a future with Kitty Softpaws
+   and his found family.
+The film’s overall theme centers on gratitude, humility, and the recognition that life’s worth
+ comes not from having infinite chances, but from cherishing the single chance you have —
+ something Puss learns only when he finally faces his mortality head-on.
+ Zaprezentowany tutaj fragment dotyczy koncowki filmu , sceny zostaly dobrane tak aby
+ maksymalizowac zrozumnie przez glownego bohatera wartosc przedstawionych w filmie.
+*/
 void seperateConversations()
 {
     cout << "\n****************************************\n";
@@ -30,7 +47,7 @@ int main(void)
 
     humanVillan *goldie = new humanVillan("Zlotowlosa", scene->giveLocation(), new Map());
 
-    Protagonist *pussInBooots = new Protagonist("Kot w butach", "przed domkiem", nullptr);
+    Protagonist *pussInBooots = new Protagonist("Kot w butach", "przed domkiem", nullptr, "Jaskinia przeszlosci");
     Protagonist *kittyCat = new Protagonist("Kitti", "przed domkiem", nullptr);
     Protagonist *perritio = new Protagonist("Perritio", "przed domkiem", nullptr);
     Protagonist *protagonistTeam[] = {pussInBooots, kittyCat, perritio};
@@ -40,7 +57,7 @@ int main(void)
 
     perritio->doTherapy(pussInBooots);
     kittyCat->makePlansForCapturingFlag(protagonistTeam, sizeof(protagonistTeam) / sizeof(protagonistTeam[0]));
-    
+
     pussInBooots->goToNewPlace(scene->giveLocation());
     kittyCat->goToNewPlace(scene->giveLocation());
     pussInBooots->tryToStealMapFrom(goldie);
@@ -91,8 +108,9 @@ int main(void)
 
     for (auto ghost : *ghosts)
         death->destroyGhost(ghost);
-    // znowu lece no i dobra / tylko wrocic mam na obiad
+
     scene->changeToFinalScene();
+    seperateConversations();
     pussInBooots->goToNewPlace(scene->giveLocation());
     kittyCat->goToNewPlace(scene->giveLocation());
     perritio->goToNewPlace(scene->giveLocation());
@@ -106,15 +124,19 @@ int main(void)
     jackHorner->takeGoonWithYou("Anonim2");
 
     jackHorner->sendGoonsToAttack(pussInBooots);
-    kittyCat->attackActor(jackHorner);
 
     for (auto bear : bearFamily)
         pussInBooots->attackActor(bear);
-    
+    jackHorner->tryToStealMapFrom(pussInBooots);
+    kittyCat->attackActor(jackHorner);
+    kittyCat->tryToStealMapFrom(jackHorner);
+
     death->scareHero(pussInBooots);
     death->attackActor(pussInBooots);
     pussInBooots->attackActor(death);
-
+    scene->createEndingScene();
+    cout << "jestesmy na koncu filmu\nteraz jestemy na: " << scene->giveLocation();
+    pussInBooots->celebrateVictory(protagonistTeam, sizeof(protagonistTeam) / sizeof(protagonistTeam[0]));
     clearVectorOfPointers(*ghosts);
     clearVectorOfPointers(bearFamily);
 
@@ -123,5 +145,6 @@ int main(void)
     delete death;
     delete goldie;
     delete ghosts;
+    delete jackHorner;
     return 0;
 }

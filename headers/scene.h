@@ -15,6 +15,7 @@ public:
     void introducecesBearsToHome();
     void getChanged(string newState);
     void changeToFinalScene();
+    void createEndingScene();
     string giveLocation();
     vector<GhostOfPast *> *createCrystalCave();
 };

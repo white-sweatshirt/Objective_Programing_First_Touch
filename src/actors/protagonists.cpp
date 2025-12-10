@@ -41,6 +41,8 @@ void Protagonist::throwPodrigeOnVillan(Bear *villanBear, string heatLevel)
 }
 Protagonist::~Protagonist()
 {
+    if (map)
+        delete map;
 }
 void Protagonist::readMagicalChangingSceneMap(Scene *oldScene)
 {
@@ -73,6 +75,14 @@ void Protagonist::makePlansForCapturingFlag(Protagonist *team[], int peopleInTea
     for (int i = 0; i < peopleInTeam; i++)
         if (this != *(team + i))
             cout << (*(team + i))->giveName() << " zgadza sie z propzycja !\n";
+}
+void Protagonist::celebrateVictory(Protagonist *team[], int peopleInTeam)
+{
+    cout << "udalo sie znalezilismy to czego szukalismy \n";
+    cout << this->giveName() << " cieszy sie ze ma takich przyjaciol: " << endl;
+    for (int i = 0; i < peopleInTeam; i++)
+        if (team[i] != this)
+            cout << "- " << team[i]->giveName();
 }
 GhostOfPast::GhostOfPast(string whatIDid) : whatIDid(whatIDid)
 {
