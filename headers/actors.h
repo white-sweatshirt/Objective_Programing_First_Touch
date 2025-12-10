@@ -14,7 +14,6 @@ protected:
     string const nameOfActor;
     string placeOfBeing;
     Map *map;
-    vector<Actor *> alies;
 
 public:
     /*methods*/
@@ -26,7 +25,6 @@ public:
     virtual string giveName();
     virtual void attackActor(Actor *a);
     virtual void tryToStealMapFrom(Actor *mapHolder);
-    virtual bool checkWheterIsFriend(Actor *actorTocheck);
     void transferMapOwnerShip(Actor *ally);
     virtual Map *loseMap();
     virtual Map *throwMap();

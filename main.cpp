@@ -24,15 +24,15 @@ int main(void)
     scene->introducecesBearsToHome();
 
     vector<Bear *> bearFamily;
-    bearFamily.push_back(new Bear("Brat", scene->giveLocation()));
-    bearFamily.push_back(new Bear("Ojciec", scene->giveLocation()));
-    bearFamily.push_back(new Bear("Matka", scene->giveLocation()));
+    bearFamily.push_back(new Bear("Brat mis", scene->giveLocation()));
+    bearFamily.push_back(new Bear("Ojciec mis", scene->giveLocation()));
+    bearFamily.push_back(new Bear("Matka mis", scene->giveLocation()));
 
     humanVillan *goldie = new humanVillan("Zlotowlosa", scene->giveLocation(), new Map());
 
-    Protagonist *pussInBooots = new Protagonist("Kot w butach", "przed domkiem", NULL);
-    Protagonist *kittyCat = new Protagonist("Kitti", "przed domkiem", NULL);
-    Protagonist *perritio = new Protagonist("Perritio", "przed domkiem", NULL);
+    Protagonist *pussInBooots = new Protagonist("Kot w butach", "przed domkiem", nullptr);
+    Protagonist *kittyCat = new Protagonist("Kitti", "przed domkiem", nullptr);
+    Protagonist *perritio = new Protagonist("Perritio", "przed domkiem", nullptr);
     Protagonist *protagonistTeam[] = {pussInBooots, kittyCat, perritio};
 
     for (auto bear : bearFamily)
@@ -40,6 +40,9 @@ int main(void)
 
     perritio->doTherapy(pussInBooots);
     kittyCat->makePlansForCapturingFlag(protagonistTeam, sizeof(protagonistTeam) / sizeof(protagonistTeam[0]));
+    
+    pussInBooots->goToNewPlace(scene->giveLocation());
+    kittyCat->goToNewPlace(scene->giveLocation());
     pussInBooots->tryToStealMapFrom(goldie);
     for (auto bear : bearFamily)
         bear->wakeUp();
@@ -88,9 +91,32 @@ int main(void)
 
     for (auto ghost : *ghosts)
         death->destroyGhost(ghost);
+    // znowu lece no i dobra / tylko wrocic mam na obiad
+    scene->changeToFinalScene();
+    pussInBooots->goToNewPlace(scene->giveLocation());
+    kittyCat->goToNewPlace(scene->giveLocation());
+    perritio->goToNewPlace(scene->giveLocation());
 
-    clearVectorOfPointers(bearFamily);
+    for (auto bear : bearFamily)
+        bear->goToNewPlace(scene->giveLocation());
+    goldie->goToNewPlace(scene->giveLocation());
+    humanVillan *jackHorner = new humanVillan("Jack Horner", scene->giveLocation(), nullptr);
+
+    jackHorner->takeGoonWithYou("Anonim1");
+    jackHorner->takeGoonWithYou("Anonim2");
+
+    jackHorner->sendGoonsToAttack(pussInBooots);
+    kittyCat->attackActor(jackHorner);
+
+    for (auto bear : bearFamily)
+        pussInBooots->attackActor(bear);
+    
+    death->scareHero(pussInBooots);
+    death->attackActor(pussInBooots);
+    pussInBooots->attackActor(death);
+
     clearVectorOfPointers(*ghosts);
+    clearVectorOfPointers(bearFamily);
 
     delete pussInBooots;
     delete kittyCat;

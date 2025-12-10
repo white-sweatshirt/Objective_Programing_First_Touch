@@ -3,6 +3,11 @@ void Scene::createHome()
 {
     this->currentState = "Domek 3 misiow";
 }
+void Scene::changeToFinalScene()
+{
+    cout << "zmieniamy scene na ostateczna!\n";
+    this->currentState="Krater upadlej gwiazdy";
+}
 void Scene::introducecesBearsToHome()
 {
     cout << "Drogie Misie jestesmy u was w domu" << endl

@@ -51,13 +51,13 @@ void Protagonist::readMagicalChangingSceneMap(Scene *oldScene)
 }
 void Protagonist::tryToStealMapFrom(Actor *target)
 {
-    if (!checkWheterIsFriend(target))
+    if (target->sayWheterYouHaveMap())
     {
         cout << "mistrzowsko podbieram mape " << target->giveName() << endl;
         this->map = target->loseMap();
     }
     else
-        cout << "probowalem zabrac mape sojusznikowi /n";
+        cout << "cel nie maial mapy " << endl;
 }
 void Protagonist::danceWithOther(Actor *partner)
 {

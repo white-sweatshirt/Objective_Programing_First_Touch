@@ -20,8 +20,7 @@ Actor::Actor(string nameOfActor, string startingPlace, Map *map) : nameOfActor(n
 }
 Actor::~Actor()
 {
-    for (auto w : alies)
-        alies.pop_back();
+
 }
 
 void Actor::attackActor(Actor *a)
@@ -54,13 +53,7 @@ bool Actor::sayWheterYouHaveMap()
     else
         return false;
 }
-bool Actor::checkWheterIsFriend(Actor *actorTocheck)
-{
-    for (auto w : this->alies)
-        if (w == actorTocheck)
-            return true;
-    return false;
-}
+
 
 void Actor::getMap(Map *map)
 {
@@ -86,13 +79,7 @@ Map *Actor::throwMap()
 
 void Actor::tryToStealMapFrom(Actor *mapHolder)
 {
-    if (checkWheterIsFriend(mapHolder))
-    {
-        cout << "podaj mape " << mapHolder->giveName();
-    }
-    else
-        cout << this->nameOfActor << "probuje ukrasc mape od: " << mapHolder->giveName();
-
+    cout << this->nameOfActor << "probuje ukrasc mape od: " << mapHolder->giveName();
     if (mapHolder->sayWheterYouHaveMap())
     {
         this->map = mapHolder->loseMap();

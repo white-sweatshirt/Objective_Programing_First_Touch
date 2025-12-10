@@ -66,6 +66,11 @@ void humanVillan::askForHelpWithThief(vector<Bear *> &bearsSurrogitiveFamilly, A
     for (auto bear : bearsSurrogitiveFamilly)
         bear->attackActor(thief);
 }
+void humanVillan::sendGoonsToAttack(Actor *target)
+{
+    for(auto attacker:goons)
+        attacker->attackActor(target);
+}
 humanVillan::~humanVillan()
 {
     for (auto a : goons)

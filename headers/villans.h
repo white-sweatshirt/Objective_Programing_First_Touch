@@ -39,7 +39,7 @@ public:
     void captureHero(Protagonist **toCapture);
     void askForHelpWithThief(vector<Bear *> &bearsSurrogitiveFamilly, Actor *thief);
     void takeGoonWithYou(string nameOfGoon);
-
+    void sendGoonsToAttack(Actor *target);
     ~humanVillan();
 };
 class Death : public Actor

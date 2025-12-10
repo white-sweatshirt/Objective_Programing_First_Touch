@@ -13,8 +13,9 @@ class Scene
 public:
     void createHome();
     void introducecesBearsToHome();
-    string giveLocation();
     void getChanged(string newState);
+    void changeToFinalScene();
+    string giveLocation();
     vector<GhostOfPast *> *createCrystalCave();
 };
 #endif
