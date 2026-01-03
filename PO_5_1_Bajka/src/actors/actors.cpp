@@ -11,7 +11,7 @@ Actor::Actor(string name) : nameOfActor(name)
 Actor::Actor(string nameOfActor, string startingPlace) : nameOfActor(nameOfActor),
                                                          placeOfBeing(startingPlace)
 {
-    this->map = NULL;
+    this->map = nullptr;
 }
 
 Actor::Actor(string nameOfActor, string startingPlace, Map *map) : nameOfActor(nameOfActor),
@@ -67,14 +67,14 @@ void Actor::getMap(Map *map)
 Map *Actor::loseMap()
 {
     Map *map = this->map;
-    this->map = NULL;
+    this->map = nullptr;
     return map;
 }
 
 Map *Actor::throwMap()
 {
     Map *mapis = this->map;
-    this->map = NULL;
+    this->map = nullptr;
     return mapis;
 }
 
@@ -90,6 +90,6 @@ void Actor::tryToStealMapFrom(Actor *mapHolder)
 void Actor::transferMapOwnerShip(Actor *ally)
 {
     Map *map1 = this->map;
-    this->map = NULL;
+    this->map = nullptr;
     ally->getMap(map);
 }
