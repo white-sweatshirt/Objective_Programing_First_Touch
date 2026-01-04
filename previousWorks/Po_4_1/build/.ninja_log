@@ -1,0 +1,7 @@
+# ninja log v6
+25	542	7866536900977771	src/CMakeFiles/DivisonOfBank.dir/account.cpp.obj	8378d35fa2a67017
+14	695	7866536900877749	src/CMakeFiles/DivisonOfBank.dir/people.cpp.obj	57879ea1d2b2a4ad
+35	711	7866536901077770	CMakeFiles/Divsion.dir/main.cpp.obj	4b456469084575d5
+3	837	7866536900767759	src/CMakeFiles/DivisonOfBank.dir/DivisonOfBank.cpp.obj	956411aa31d01cf5
+837	1025	7866536909105005	src/libDivisonOfBank.a	cbda2df5a92605e8
+1025	1215	7866536910982937	Divsion.exe	94e65b6500da54b8
