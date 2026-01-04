@@ -7,7 +7,7 @@
 
 #ifndef __UMLClassDiagram_1_User_h
 #define __UMLClassDiagram_1_User_h
-#include "Events.h"
+#include "Event.h"
 #include "Post.h"
 #include "User.h"
 #include "userGroup.h"
@@ -15,13 +15,12 @@ class UserGroup;
 class User
 {
 protected:
-   short photos;
    int amountOfLogins;
    deque <string> notifications;
    vector<User *> friendsList;
    vector<Post *> postList;
    vector<UserGroup *> userGroups;
-   list<Events *> events;
+   list<Event *> events;
    list<Voteings *> votings;
 
 public:
@@ -29,12 +28,15 @@ public:
    void createPost(void);
    void postToo(void);
 
+   void addUserToFriendsList(User * newFriend);
+   void removeUserFromFriendsList(User * exFriend);
+
    virtual void voteInPoll(void);
    Voteings *createPool();
 
    virtual bool deleteGroup(void);
    virtual bool addUserToGroup(UserGroup * group,User * userToAdd);
-   virtual void deleteActivity(Post * activity);
+   virtual bool deleteActivity(Post * activity);// bool gives sucessful delition or not
    virtual int removeUserFromGroup(void);
 
    void readNotification(void);

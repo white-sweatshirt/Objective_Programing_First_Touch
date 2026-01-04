@@ -1,30 +1,18 @@
 /***********************************************************************
- * Module:  membersOfGroup.cpp
+ * Module:  MemberOfGroup.cpp
  * Author:  WhiteSweatShirt
  * Modified: niedziela, 4 stycznia 2026 15:06:52
- * Purpose: Implementation of the class membersOfGroup
+ * Purpose: Implementation of the class MemberOfGroup
  ***********************************************************************/
 
-#include "membersOfGroup.h"
+#include "MemberOfGroup.h"
 
-////////////////////////////////////////////////////////////////////////
-// Name:       membersOfGroup::checkWheterUserIsMember()
-// Purpose:    Implementation of membersOfGroup::checkWheterUserIsMember()
-// Return:     void*
-////////////////////////////////////////////////////////////////////////
-
-void* membersOfGroup::checkWheterUserIsMember(void)
+User *MemberOfGroup::giveUserPointer(void)
 {
-   // TODO : implement
+   return this->user;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       membersOfGroup::sayIfUserIsAdmin()
-// Purpose:    Implementation of membersOfGroup::sayIfUserIsAdmin()
-// Return:     bool
-////////////////////////////////////////////////////////////////////////
-
-bool membersOfGroup::sayIfUserIsAdmin(void)
+bool MemberOfGroup::sayIfUserIsAdmin(void)
 {
-   // TODO : implement
+   return (this->adminPrivileges == true) ? true : false;
 }

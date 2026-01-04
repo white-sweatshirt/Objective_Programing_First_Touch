@@ -16,7 +16,7 @@ public:
    bool removePost(void);
    bool blockAccount(void);
    bool removeAccount(void);
-   void deletePost(void);
+   bool deleteActivity(Post *activity);
    int lookThroughStatistics(void);
 };
 

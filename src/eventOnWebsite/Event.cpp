@@ -1,33 +1,33 @@
 /***********************************************************************
- * Module:  Events.cpp
+ * Module:  Event.cpp
  * Author:  WhiteSweatShirt
  * Modified: niedziela, 4 stycznia 2026 15:09:52
- * Purpose: Implementation of the class Events
+ * Purpose: Implementation of the class Event
  ***********************************************************************/
-#include "Events.h"
+#include "Event.h"
 
 
-int Events::sendNotyfication(void)
+int Event::sendNotyfication(void)
 {
    // TODO : implement
 }
 
 
 
-int Events::setLocation(void)
+int Event::setLocation(void)
 {
    // TODO : implement
 }
 
 
 
-int Events::addParticipant(void)
+int Event::addParticipant(void)
 {
    // TODO : implement
 }
 
 
-int Events::sendReminder(void)
+int Event::sendReminder(void)
 {
    // TODO : implement
 }

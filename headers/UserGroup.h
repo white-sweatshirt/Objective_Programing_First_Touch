@@ -9,10 +9,10 @@
 #define __UMLClassDiagram_1_UserGroup_h
 
 #include "Post.h"
-#include "Events.h"
+#include "Event.h"
 #include "MemberOfGroup.h"
 #include <deque>
-class Events;
+class Event;
 class MemberOfGroup;
 class Voteings;
 class Post;
@@ -21,28 +21,31 @@ class UserGroup
 {
 
 private:
-   int members;
-   list<Events *> eventsInGroup; // to do implement events data structure
+   int numberOfMembers;
+   list<Event *> eventsInGroup; // to do implement events data structure
    vector<MemberOfGroup *> membersOfGroup;
    deque<Voteings *> votings;
-   deque<Post *> post;
+   deque<Post *> postLists;
+   list<User *> notificationsList;
+   Post *checkIfPostExitsts(Post *post);
+   bool veryfiyAdminPrivilges(User *personToVerify);
 
 public:
    // bool in functions is meant to
    // represent failure of suceess of action
    bool addPersonToNotyfications(User *personToAdd);
-   bool removePersonFromNotfications(void);
-   bool addPersonToGroup(void);
+   void removePersonFromNotfications(User *personToRemove);
+   bool addPersonToGroup(User *personToAdd);
    bool removePersonFromGroup(void);
 
    Post *createPost(void);
-   Events *createEvent(void);
+   Event *createEvent(void);
    Voteings *createVoting(void);
-   bool deletePost(void);
+   void deletePost(User *userRequestingDeletion, Post *postToDelete);
 
-   bool veryfiyAdminPrivilges(void);
    bool addAdmin(void);
    int veryfiyIfThereAreAnyAdmins(void);
+   UserGroup(User *creator);
 };
 
 #endif

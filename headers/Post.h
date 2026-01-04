@@ -7,38 +7,34 @@
 
 #ifndef __UMLClassDiagram_1_Post_h
 #define __UMLClassDiagram_1_Post_h
-
+#include "User.h"
 #include <iostream>
 #include <vector>
 #include <list>
-
+#include <queue>
+class User;
 using namespace std;
 class Post
 {
 private:
 protected:
-   int pepoleMentioned;
-   std::string contetns;
-   int picturesLink;
+   std::string contents;
    int groupAscooscion;
    int likeToDislikeRatio;
    User *postOwner;
+   list<User *> mentionList;
 
 public:
-   void addPersonToMention(void);
-   void removePersonFromMentioned(void);
+   void addPersonToMention(User *person);
+   void removePersonFromMentioned(User *person);
    User *givePostOwner(void);
    bool checkWheterPersonIsOwner(User *actor);
 
-   void giveLikeToDislikeRatio(void);
+   int giveLikeToDislikeRatio(void);
 
    std::string givePostContents(void);
-   void modyfiyContetns(void);
-   bool addPictureLink(void);
-   bool removePictureLink(void);
-
-   void deletePost(void);
-   Post(User *owner);
+   void modifyContents(std::string newContents,User *editor);
+   Post(User *owner,string contents);
    ~Post();
 };
 /***********************************************************************
@@ -49,11 +45,6 @@ public:
  ***********************************************************************/
 class Voteings : public Post
 {
-public:
-   int checkWheterUserVoted(void);
-   int voteByUser(void);
-   int setEndDate(void);
-   std::string giveResult(void);
 
 protected:
 private:
@@ -62,7 +53,13 @@ private:
    int currenamountOfLead;
    bool oneUserOneVote;
    std::string endDate;
-   std::string result;
+   int result;
+   list <User *> usersWhoHadVoted;
+public:
+   bool checkWheterUserVoted(User *user);
+   int voteByUser(User *user);
+   void setEndDate(string date);
+   int giveResult(void);
 };
 
 #endif

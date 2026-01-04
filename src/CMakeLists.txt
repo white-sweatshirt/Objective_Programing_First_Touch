@@ -1,0 +1,2 @@
+add_subdirectory(eventOnWebsite)
+add_subdirectory(people)
