@@ -7,44 +7,38 @@
 
 #ifndef __UMLClassDiagram_1_User_h
 #define __UMLClassDiagram_1_User_h
-
-class Events;
-class Post;
-class Votings;
-
+#include "Events.h"
+#include "Post.h"
+#include "User.h"
+#include "userGroup.h"
+class UserGroup;
 class User
 {
-   
-private:
-
-   protected:
+protected:
    short photos;
-   short friends;
-   int favoritePosts;
    int amountOfLogins;
-   
-   Post** ownsPost;
-
+   deque <string> notifications;
+   vector<User *> friendsList;
+   vector<Post *> postList;
+   vector<UserGroup *> userGroups;
+   list<Events *> events;
+   list<Voteings *> votings;
 
 public:
    void createGroup(void);
    void createPost(void);
    void postToo(void);
+
+   virtual void voteInPoll(void);
+   Voteings *createPool();
+
+   virtual bool deleteGroup(void);
+   virtual bool addUserToGroup(UserGroup * group,User * userToAdd);
+   virtual void deleteActivity(Post * activity);
+   virtual int removeUserFromGroup(void);
+
    void readNotification(void);
-   bool setVisbiltyForPost(void);
-   void addPictureToAlbum(void);
-   void flirtPostsBy(void);
-   void setNotificationsPrefences(void);
-   void deletePost(void);
-   int removeUserFromGroup(void);
-   void voteInPoll(void);
-   bool deleteGroup(void);
-   char addUserToGroup(void);
-
-   Events** events;
-   Votings** votings;
-
-
+   bool setVisbiltyForPost(Post * post);
 };
 
 #endif

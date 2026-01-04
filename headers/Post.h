@@ -7,36 +7,47 @@
 
 #ifndef __UMLClassDiagram_1_Post_h
 #define __UMLClassDiagram_1_Post_h
+
 #include <iostream>
+#include <vector>
+#include <list>
+
 using namespace std;
 class Post
 {
-   private:
-
-   protected:
+private:
+protected:
    int pepoleMentioned;
    std::string contetns;
    int picturesLink;
    int groupAscooscion;
+   int likeToDislikeRatio;
+   User *postOwner;
 
 public:
    void addPersonToMention(void);
    void removePersonFromMentioned(void);
-   void deletePost(void);
-   void* postOwner(void);
+   User *givePostOwner(void);
    bool checkWheterPersonIsOwner(User *actor);
+
+   void giveLikeToDislikeRatio(void);
+
+   std::string givePostContents(void);
    void modyfiyContetns(void);
-   std::string readPost(void);
+   bool addPictureLink(void);
+   bool removePictureLink(void);
 
-
+   void deletePost(void);
+   Post(User *owner);
+   ~Post();
 };
 /***********************************************************************
- * Module:  Votings.h
+ * Module:  Voteings.h
  * Author:  WhiteSweatShirt
  * Modified: niedziela, 4 stycznia 2026 14:59:35
- * Purpose: Declaration of the class Votings
+ * Purpose: Declaration of the class Voteings
  ***********************************************************************/
-class Votings : public Post
+class Voteings : public Post
 {
 public:
    int checkWheterUserVoted(void);
@@ -52,9 +63,6 @@ private:
    bool oneUserOneVote;
    std::string endDate;
    std::string result;
-
-
 };
-
 
 #endif

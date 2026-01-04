@@ -11,16 +11,16 @@
 class Events : public Post
 {
 private:
-   int location;
-   int participants;
+   string location;
+   vector<User *> participants;
    std::string date;
 
-protected:
 public:
    int sendNotyfication(void);
-   int setLocation(void);
+   int setLocation(string newLocation);
    int addParticipant(void);
    int sendReminder(void);
+   
 };
 
 #endif

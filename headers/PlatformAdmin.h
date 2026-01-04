@@ -8,8 +8,7 @@
 #ifndef __UMLClassDiagram_1_PlatformAdmin_h
 #define __UMLClassDiagram_1_PlatformAdmin_h
 
-#include <User.h>
-
+#include "User.h"
 class PlatformAdmin : public User
 {
 public:
@@ -19,13 +18,6 @@ public:
    bool removeAccount(void);
    void deletePost(void);
    int lookThroughStatistics(void);
-
-protected:
-private:
-   short listOfReports;
-   char notifications;
-
-
 };
 
 #endif
