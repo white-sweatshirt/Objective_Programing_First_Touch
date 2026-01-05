@@ -15,15 +15,7 @@ void Post::addPersonToMention(User *person)
 void Post::removePersonFromMentioned(User *person)
 
 {
-   for (auto w : this->mentionList)
-   {
-      if (w == person)
-      {
-         swap(this->mentionList.back(), w);
-         this->mentionList.pop_back();
-         return;
-      }
-   }
+   mentionList.remove(person);
 }
 User *Post::givePostOwner(void)
 {
@@ -53,6 +45,7 @@ Post::Post(User *owner, string contents)
 }
 Post::~Post()
 {
+   this->groupAscooscion;
 }
 bool Voteings::checkWheterUserVoted(User *user)
 {
@@ -64,14 +57,18 @@ bool Voteings::checkWheterUserVoted(User *user)
    return false;
 }
 
-int Voteings::voteByUser(User *user)
+void Voteings::voteByUser(User *user, bool forAvganist)
 {
-   if (!checkWheterUserVoted(user))
+   if (oneUserOneVote)
    {
-      this->usersWhoHadVoted.push_back(user);
-      return 1;
+      if (!checkWheterUserVoted(user))
+      {
+         this->usersWhoHadVoted.push_back(user);
+         this->currenamountOfLead += (forAvganist == 1 ? 1 : -1);
+      }
    }
-   return 0;
+   else
+      this->currenamountOfLead += (forAvganist == 1 ? 1 : -1);
 }
 
 void Voteings::setEndDate(string date)

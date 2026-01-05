@@ -17,6 +17,7 @@ public:
    bool blockAccount(void);
    bool removeAccount(void);
    bool deleteActivity(Post *activity);
+   bool deleteActivity(Post *activity, UserGroup *groupOnWithIsPosted);
    int lookThroughStatistics(void);
 };
 

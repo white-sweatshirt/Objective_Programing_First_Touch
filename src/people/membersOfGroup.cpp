@@ -11,7 +11,6 @@ User *MemberOfGroup::giveUserPointer(void)
 {
    return this->user;
 }
-
 bool MemberOfGroup::sayIfUserIsAdmin(void)
 {
    return (this->adminPrivileges == true) ? true : false;

@@ -16,7 +16,8 @@ private:
 public:
    User *giveUserPointer(void);
    bool sayIfUserIsAdmin(void);
-   void giveAdminPrivilges(bool setAdminPrivilges);
+   MemberOfGroup * givePointerToMember(User *user);
+   void giveAdminPrivilges();
    MemberOfGroup(User*user,bool giveAdminPrivilges);
 };
 

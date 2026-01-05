@@ -57,11 +57,15 @@ bool PlatformAdmin::removeAccount(void)
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void PlatformAdmin::deletePost(void)
+bool PlatformAdmin::deleteActivity(Post * activity)
 {
-   // TODO : implement
+   
 }
 
+bool PlatformAdmin::deleteActivity(Post *acticity, UserGroup *wheretoDeketeFrom)
+{
+
+}
 ////////////////////////////////////////////////////////////////////////
 // Name:       PlatformAdmin::lookThroughStatistics()
 // Purpose:    Implementation of PlatformAdmin::lookThroughStatistics()

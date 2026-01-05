@@ -19,7 +19,7 @@ class Post
 private:
 protected:
    std::string contents;
-   int groupAscooscion;
+   UserGroup * groupAscooscion;
    int likeToDislikeRatio;
    User *postOwner;
    list<User *> mentionList;
@@ -48,7 +48,6 @@ class Voteings : public Post
 
 protected:
 private:
-   int participants;
    int optionsOfVoting;
    int currenamountOfLead;
    bool oneUserOneVote;
@@ -57,7 +56,7 @@ private:
    list <User *> usersWhoHadVoted;
 public:
    bool checkWheterUserVoted(User *user);
-   int voteByUser(User *user);
+   void voteByUser(User *user,bool forAvganist);
    void setEndDate(string date);
    int giveResult(void);
 };

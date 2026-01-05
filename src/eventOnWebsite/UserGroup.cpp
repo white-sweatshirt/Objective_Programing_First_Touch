@@ -38,9 +38,21 @@ Post *UserGroup::checkIfPostExitsts(Post *post)
          return checkedPost;
    return nullptr;
 }
-bool UserGroup::removePersonFromGroup(void)
+bool UserGroup::removePersonFromGroup(User *personToRemove, User *requestingUser)
 {
-   // TODO : implement
+   if (veryfiyAdminPrivilges(requestingUser) || personToRemove == requestingUser)
+      return false;
+   for (auto checkedMember:membersOfGroup)
+   {
+      if (checkedMember->giveUserPointer() == personToRemove)
+      {
+         swap(this->membersOfGroup.back(),checkedMember);
+         this->membersOfGroup.pop_back();
+         this->numberOfMembers--;
+         return true;
+      }
+   }
+   return false;
 }
 
 void UserGroup::deletePost(User *userRequestingDeletion, Post *postToDelete)
@@ -51,15 +63,18 @@ void UserGroup::deletePost(User *userRequestingDeletion, Post *postToDelete)
       if (veryfiyAdminPrivilges(userRequestingDeletion))
          delete postToDelete;
 }
-
-Event* UserGroup::createEvent(void)
+void UserGroup::addPostToGroup(Post *post)
 {
-   
+   this->postLists.push_back(post);
+}
+void UserGroup::addEventToGroup(Event *event)
+{
+   this->eventsInGroup.push_back(event);
 }
 
-void UserGroup::createVoting(void)
+void UserGroup::addVotingToGroup(Voteings *voting)
 {
-   // TODO : implement
+   this->votings.push_back(voting);
 }
 
 bool UserGroup::addAdmin(void)
@@ -67,10 +82,6 @@ bool UserGroup::addAdmin(void)
    // TODO : implement
 }
 
-int UserGroup::veryfiyIfThereAnyAdmins(void)
-{
-   // TODO : implement
-}
 UserGroup::UserGroup(User *creator)
 {
    this->numberOfMembers = 1;

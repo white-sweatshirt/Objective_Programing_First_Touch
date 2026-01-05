@@ -36,15 +36,14 @@ public:
    bool addPersonToNotyfications(User *personToAdd);
    void removePersonFromNotfications(User *personToRemove);
    bool addPersonToGroup(User *personToAdd);
-   bool removePersonFromGroup(void);
+   bool removePersonFromGroup(User *personToRemove, User *requestingUser);
 
-   Post *createPost(void);
-   Event *createEvent(void);
-   Voteings *createVoting(void);
+   void addPostToGroup(Post *post);
+   void addEventToGroup(Event *event);
+   void addVotingToGroup(Voteings *voting);
    void deletePost(User *userRequestingDeletion, Post *postToDelete);
 
    bool addAdmin(void);
-   int veryfiyIfThereAreAnyAdmins(void);
    UserGroup(User *creator);
 };
 

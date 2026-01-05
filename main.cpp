@@ -1,7 +1,10 @@
 #include "Post.h"
-
-int main() 
+#include "User.h"
+#include "PlatformAdmin.h"
+int main()
 {
-    vector<User*> users;
+    vector<User *> users;
+    User *adminAsSheep = new PlatformAdmin();
+    PlatformAdmin *adminAsWolf = new PlatformAdmin();
     return 0;
 }

@@ -12,16 +12,17 @@ void User::createGroup(void)
 }
 
 
-void User::createPost(void)
+void User::createPost(string contetns)
 {
-   // TODO : implement
+   postList.push_back(new Post(this, contetns));
 }
 
-
-void User::postToo(void)
+void User::createPost(UserGroup *groupInWichToPost, string contents)
 {
-   // TODO : implement
+   postList.push_back(new Post(this, contents));
+   groupInWichToPost->addPostToGroup(postList.back());
 }
+
 
 
 void User::readNotification(void)
@@ -29,15 +30,6 @@ void User::readNotification(void)
    // TODO : implement
 }
 
-bool User::setVisbiltyForPost(void)
-{
-   // TODO : implement
-}
-
-void User::addPictureToAlbum(void)
-{
-   // TODO : implement
-}
 
 
 void User::flirtPostsBy(void)
@@ -52,13 +44,17 @@ void User::setNotificationsPrefences(void)
 }
 
 
-void User::deletePost(void)
+bool User::deleteActivity(Post *postToDelete)
 {
-   // TODO : implement
+
+
 }
 
+bool User::deleteActivity(Post * activityToDelete,UserGroup *groupOnWithItIsPosted)
+{
 
-int User::removeUserFromGroup(void)
+}
+void  User::removeUserFromGroup(void)
 {
    // TODO : implement
 }
@@ -76,7 +72,7 @@ bool User::deleteGroup(void)
 }
 
 
-char User::addUserToGroup(void)
+bool User::addUserToGroup(UserGroup *group, User *userToAdd)
 {
-   // TODO : implement
+  
 }
