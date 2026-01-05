@@ -10,7 +10,14 @@ void Event::setLocation(string setNewLocation)
 {
    // TODO : implement
 }
-
+void Event::show()
+{
+   cout<<"date of event: "<<this->date<<endl;
+   cout<<"location of event: "<<this->location<<endl;
+   cout<<"*************"<<endl;
+   cout<<"participants: "<<endl;
+   showContentsOfContainer(this->participants); 
+}
 
 
 void Event::addParticipant(void)

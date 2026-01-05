@@ -8,7 +8,6 @@
 
 bool UserGroup::veryfiyAdminPrivilges(User *personToVerify)
 {
-
 }
 
 bool UserGroup::addPersonToGroup(User *personToAdd)
@@ -39,11 +38,11 @@ bool UserGroup::removePersonFromGroup(User *personToRemove, User *requestingUser
 {
    if (veryfiyAdminPrivilges(requestingUser) || personToRemove == requestingUser)
       return false;
-   for (auto checkedMember:membersOfGroup)
+   for (auto checkedMember : membersOfGroup)
    {
       if (checkedMember->giveUserPointer() == personToRemove)
       {
-         swap(this->membersOfGroup.back(),checkedMember);
+         swap(this->membersOfGroup.back(), checkedMember);
          this->membersOfGroup.pop_back();
          this->numberOfMembers--;
          return true;
@@ -51,9 +50,17 @@ bool UserGroup::removePersonFromGroup(User *personToRemove, User *requestingUser
    }
    return false;
 }
-
-void UserGroup::deletePost(User *userRequestingDeletion, Post *postToDelete)
+void UserGroup::removePostFromGroupMemory(Post *postToRemove)
 {
+   this->postLists.remove(postToRemove);
+}
+bool UserGroup::checkIfUserHasPremissonToDelete(User *userRequestingDeletion,
+                                                Post *postToDelete)
+{
+   if(this->veryfiyAdminPrivilges(userRequestingDeletion))
+      return true;
+   else
+      return false;
 }
 void UserGroup::addPostToGroup(Post *post)
 {

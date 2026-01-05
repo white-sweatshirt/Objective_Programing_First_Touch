@@ -6,6 +6,7 @@
  ***********************************************************************/
 #include "User.h"
 
+
 void User::createGroup(void)
 {
    // TODO : implement
@@ -74,5 +75,19 @@ void User::deleteGroup(void)
 
 void User::addUserToGroup(UserGroup *group, User *userToAdd)
 {
-  
+   group->addPersonToGroup(userToAdd);
 }
+
+string User::giveName(void)
+{
+   return this->name;
+}
+void User::addUserToFriendsList(User *newFriend)
+{
+   friendsList.push_back(newFriend);
+}
+User::User(string name)
+{
+   this->name = name;
+   this->amountOfLogins = 0;
+}  

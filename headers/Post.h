@@ -8,38 +8,42 @@
 #ifndef __UMLClassDiagram_1_Post_h
 #define __UMLClassDiagram_1_Post_h
 
-
 // zasada przy urzywaniu programownia obiektowego zawsze deklaruj fowardowo
 // wszystkie klasy z ktorych korzystarz we wszystkich
 // plikach ktore pochodza od innego pliku
-class User;
-class UserGroup;
-class Post;
 
 #include <iostream>
 #include <vector>
 #include <list>
 #include <queue>
 using namespace std;
-#include "User.h"
 class User;
+class UserGroup;
+// meant to use with speciazlization of Post class
+template <typename vectorOfPointersToClassesWithShow>
+void showContentsOfContainer(vectorOfPointersToClassesWithShow a);
+
 class Post
+// while using pointers to something always  use fowarding and do not do loops
 {
 protected:
-   
    UserGroup *groupAscooscion;
    list<User *> mentionList;
+   User *postOwner;
+   int likeToDislikeRatio;
+   string contents;
 
 public:
    void addPersonToMention(User *person);
    void removePersonFromMentioned(User *person);
    User *givePostOwner(void);
-
+   virtual void show();
    int giveLikeToDislikeRatio(void);
-
+   bool checkWheterPersonIsOwner(User *person);
    std::string givePostContents(void);
    void modifyContents(std::string newContents, User *editor);
    Post(User *owner, string contents);
+   Post(User *owner, UserGroup *whereItWasPosted, string contents);
    ~Post();
 };
 
@@ -49,7 +53,7 @@ public:
  * Modified: niedziela, 4 stycznia 2026 14:59:35
  * Purpose: Declaration of the class Voteings
  ***********************************************************************/
-class Voteings : public Activity
+class Voteings : public Post
 {
 
 protected:

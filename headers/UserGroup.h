@@ -11,7 +11,6 @@ class Event;
 class Post;
 class MemberOfGroup;
 class Voteings;
-#include "Activity.h"
 #include "Event.h"
 #include "MemberOfGroup.h"
 class UserGroup
@@ -22,7 +21,7 @@ private:
    list<Event *> eventsInGroup; // to do implement events data structure
    vector<MemberOfGroup *> membersOfGroup;
    deque<Voteings *> votings;
-   deque<Post *> postLists;
+   list<Post *> postLists;
    list<User *> notificationsList;
    Post *checkIfPostExitsts(Post *post);
    bool veryfiyAdminPrivilges(User *personToVerify);
@@ -35,10 +34,11 @@ public:
    bool addPersonToGroup(User *personToAdd);
    bool removePersonFromGroup(User *personToRemove, User *requestingUser);
 
+   void removePostFromGroupMemory(Post *post);
    void addPostToGroup(Post *post);
    void addEventToGroup(Event *event);
    void addVotingToGroup(Voteings *voting);
-   void deletePost(User *userRequestingDeletion, Post *postToDelete);
+   bool checkIfUserHasPremissonToDelete(User *userRequestingDeletion, Post *postToDelete);
 
    bool addAdmin(void);
    UserGroup(User *creator);

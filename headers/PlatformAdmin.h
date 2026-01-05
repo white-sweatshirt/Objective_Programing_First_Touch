@@ -22,6 +22,7 @@ public:
    void deleteActivity(Post *activity);
    void deleteActivity(Post *activity, UserGroup *groupOnWithIsPosted);
    int lookThroughStatistics(void);
+   PlatformAdmin(string name);
 };
 
 #endif
