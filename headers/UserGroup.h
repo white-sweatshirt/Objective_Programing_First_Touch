@@ -8,14 +8,16 @@
 #ifndef __UMLClassDiagram_1_UserGroup_h
 #define __UMLClassDiagram_1_UserGroup_h
 
-#include "Post.h"
-#include "Event.h"
-#include "MemberOfGroup.h"
-#include <deque>
 class Event;
 class MemberOfGroup;
 class Voteings;
 class Post;
+
+#include "Post.h"
+#include "Event.h"
+#include "MemberOfGroup.h"
+
+
 
 class UserGroup
 {

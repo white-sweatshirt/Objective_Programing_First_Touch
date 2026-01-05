@@ -7,18 +7,22 @@
 
 #ifndef __UMLClassDiagram_1_membersOfGroup_h
 #define __UMLClassDiagram_1_membersOfGroup_h
+
+class User;
+
 #include "User.h"
+
 class MemberOfGroup
 {
 private:
    bool adminPrivileges;
    User *user;
+
 public:
    User *giveUserPointer(void);
    bool sayIfUserIsAdmin(void);
-   MemberOfGroup * givePointerToMember(User *user);
    void giveAdminPrivilges();
-   MemberOfGroup(User*user,bool giveAdminPrivilges);
+   MemberOfGroup(User *user, bool giveAdminPrivilges);
 };
 
 #endif

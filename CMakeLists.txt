@@ -6,7 +6,7 @@ set (headersFolder "${PROJECT_SOURCE_DIR}/headers")
 
 add_subdirectory(src)
 add_executable(socialMedia main.cpp)
-target_link_libraries(socialMedia People EventOnWebsite)
+target_link_libraries(socialMedia PUBLIC People PUBLIC EventOnWebsite)
 target_include_directories(socialMedia PUBLIC ${headersFolder})
 include(CTest)
 enable_testing()

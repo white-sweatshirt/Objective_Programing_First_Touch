@@ -7,11 +7,15 @@
 
 #ifndef __UMLClassDiagram_1_User_h
 #define __UMLClassDiagram_1_User_h
-#include "Event.h"
-#include "Post.h"
-#include "User.h"
-#include "userGroup.h"
+
+class Voteings;
 class UserGroup;
+class Event;
+#include "Post.h"
+#include "Event.h"
+#include "UserGroup.h"
+
+
 class User
 {
 protected:
@@ -36,12 +40,12 @@ public:
    virtual void voteInPoll(void);
    void createPool();
 
-   virtual bool deleteGroup(void);
-   virtual bool addUserToGroup(UserGroup *group, User *userToAdd);
-   virtual bool deleteActivity(Post *activity); //  gives true on sucess and false on failure
+   virtual void deleteGroup(void);
+   virtual void addUserToGroup(UserGroup *group, User *userToAdd);
+   virtual void deleteActivity(Post *activity); //  gives true on sucess and false on failure
     //used to delete post from specific group where user is a admin or tries to exicse admin
     // privlges
-   virtual bool deleteActivity(Post *acticity, UserGroup *wheretoDeketeFrom);
+   virtual void deleteActivity(Post *acticity, UserGroup *wheretoDeketeFrom);
    virtual void removeUserFromGroup(void);
 
    // Not Implemented:

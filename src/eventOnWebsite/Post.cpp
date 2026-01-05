@@ -17,6 +17,7 @@ void Post::removePersonFromMentioned(User *person)
 {
    mentionList.remove(person);
 }
+
 User *Post::givePostOwner(void)
 {
    return this->postOwner;
@@ -45,7 +46,6 @@ Post::Post(User *owner, string contents)
 }
 Post::~Post()
 {
-   this->groupAscooscion;
 }
 bool Voteings::checkWheterUserVoted(User *user)
 {

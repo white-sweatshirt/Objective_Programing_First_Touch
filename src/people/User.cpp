@@ -44,13 +44,13 @@ void User::setNotificationsPrefences(void)
 }
 
 
-bool User::deleteActivity(Post *postToDelete)
+void User::deleteActivity(Post *postToDelete)
 {
 
 
 }
 
-bool User::deleteActivity(Post * activityToDelete,UserGroup *groupOnWithItIsPosted)
+void User::deleteActivity(Post * activityToDelete,UserGroup *groupOnWithItIsPosted)
 {
 
 }
@@ -66,13 +66,13 @@ void User::voteInPoll(void)
 }
 
 
-bool User::deleteGroup(void)
+void User::deleteGroup(void)
 {
    // TODO : implement
 }
 
 
-bool User::addUserToGroup(UserGroup *group, User *userToAdd)
+void User::addUserToGroup(UserGroup *group, User *userToAdd)
 {
   
 }

@@ -1,4 +1,4 @@
-##ifndef ACTORS_H
+#ifndef ACTORS_H
 #define ACTORS_H
 
 #include <iostream>

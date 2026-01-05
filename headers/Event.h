@@ -7,8 +7,10 @@
 
 #ifndef __UMLClassDiagram_1_Event_h
 #define __UMLClassDiagram_1_Event_h
-#include "Post.h"
-class Event : public Post
+
+#include "User.h"
+
+class Event
 {
 private:
    string location;
@@ -16,8 +18,7 @@ private:
    std::string date;
 
 public:
-   int sendNotyfication(void);
-   int setLocation(string newLocation);
+   void setLocation(string newLocation);
    int addParticipant(void);
    int sendReminder(void);
    

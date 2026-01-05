@@ -8,16 +8,18 @@
 #ifndef __UMLClassDiagram_1_PlatformAdmin_h
 #define __UMLClassDiagram_1_PlatformAdmin_h
 
+#include "Post.h"
 #include "User.h"
+
 class PlatformAdmin : public User
 {
 public:
    void lookThroughReports(void);
-   bool removePost(void);
-   bool blockAccount(void);
-   bool removeAccount(void);
-   bool deleteActivity(Post *activity);
-   bool deleteActivity(Post *activity, UserGroup *groupOnWithIsPosted);
+   void removePost(void);
+   void blockAccount(void);
+   void removeAccount(void);
+   void deleteActivity(Post *activity);
+   void deleteActivity(Post *activity, UserGroup *groupOnWithIsPosted);
    int lookThroughStatistics(void);
 };
 

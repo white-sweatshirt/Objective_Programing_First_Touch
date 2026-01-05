@@ -8,10 +8,7 @@
 
 bool UserGroup::veryfiyAdminPrivilges(User *personToVerify)
 {
-   for (auto member : this->membersOfGroup)
-      if (member->giveUserPointer() == personToVerify)
-         return member->sayIfUserIsAdmin();
-   return false;
+
 }
 
 bool UserGroup::addPersonToGroup(User *personToAdd)
@@ -57,11 +54,6 @@ bool UserGroup::removePersonFromGroup(User *personToRemove, User *requestingUser
 
 void UserGroup::deletePost(User *userRequestingDeletion, Post *postToDelete)
 {
-   if (!checkIfPostExitsts(postToDelete))
-      return;
-   if (!userRequestingDeletion->deleteActivity(postToDelete))
-      if (veryfiyAdminPrivilges(userRequestingDeletion))
-         delete postToDelete;
 }
 void UserGroup::addPostToGroup(Post *post)
 {

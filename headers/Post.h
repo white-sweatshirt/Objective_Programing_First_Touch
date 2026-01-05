@@ -7,13 +7,18 @@
 
 #ifndef __UMLClassDiagram_1_Post_h
 #define __UMLClassDiagram_1_Post_h
-#include "User.h"
+
 #include <iostream>
 #include <vector>
 #include <list>
 #include <queue>
-class User;
 using namespace std;
+
+class User;
+
+#include "User.h"
+#include "UserGroup.h"
+
 class Post
 {
 private:

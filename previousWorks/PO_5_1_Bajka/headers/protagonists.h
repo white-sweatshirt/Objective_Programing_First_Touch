@@ -1,4 +1,4 @@
-##ifndef PROTAGONISTS_H
+#ifndef PROTAGONISTS_H
 #define PROTAGONISTS_H
 
 // foward declaration of classes in order for

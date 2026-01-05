@@ -1,4 +1,4 @@
-##ifndef VILLANS_H
+#ifndef VILLANS_H
 #define VILLANS_H
 
 #include "actors.h"

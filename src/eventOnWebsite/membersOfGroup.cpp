@@ -15,3 +15,8 @@ bool MemberOfGroup::sayIfUserIsAdmin(void)
 {
    return (this->adminPrivileges == true) ? true : false;
 }
+MemberOfGroup::MemberOfGroup(User *user, bool giveAdminPrivilges)
+{
+   this->user=user;
+   this->adminPrivileges=giveAdminPrivilges;
+}

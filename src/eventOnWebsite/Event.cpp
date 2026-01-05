@@ -6,15 +6,7 @@
  ***********************************************************************/
 #include "Event.h"
 
-
-int Event::sendNotyfication(void)
-{
-   // TODO : implement
-}
-
-
-
-int Event::setLocation(void)
+void Event::setLocation(string setNewLocation)
 {
    // TODO : implement
 }
