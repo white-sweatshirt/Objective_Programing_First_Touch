@@ -20,8 +20,7 @@ int main()
     users[0]->addUserToGroup(users[0]->giveGroupLink(0), users[1]);
     users[1]->createPost(users[0]->giveGroupLink(0), "Hi User0!");
     
-    for(auto w:users)
-        delete w;
+    killVectorOfPointers(users);
     delete adminAsSheep;
     delete adminAsWolf;
     return 0;

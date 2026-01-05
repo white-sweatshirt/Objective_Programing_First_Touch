@@ -32,3 +32,7 @@ void Event::sendReminder(void)
 {
    // TODO : implement
 }
+Event::~Event()
+{
+   this->participants.clear();
+}

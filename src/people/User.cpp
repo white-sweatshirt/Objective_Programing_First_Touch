@@ -5,26 +5,8 @@
  * Purpose: Implementation of the class User
  ***********************************************************************/
 #include "User.h"
-template <typename vectorOfPointersToClass, typename pointerTypeToRemove>
-void killElementOfVector(vectorOfPointersToClass & a, pointerTypeToRemove b)
-{
-   for (auto it : a)
-   {
-      if (it == b)
-      {
-         swap(it, a.back());
-         a.pop_back();
-         return;
-      }
-   }
-}
-template <typename vectorOfPointers>
-void killVectorOfPointers(vectorOfPointers & killedVector)
-{
-   for(auto w:killedVector)
-      delete w;
-   killedVector.clear();
-}
+
+
 void User::createGroup(void)
 {
    userGroups.push_back(new UserGroup(this));
@@ -57,7 +39,32 @@ void User::createPost(UserGroup *groupInWichToPost, string contents)
    ownedPosts.push_back(new Post(this, contents));
    groupInWichToPost->addPostToGroup(ownedPosts.back());
 }
-
+void User::createEvent(Event *newEvent)
+{
+   events.push_back(newEvent);
+}
+void User::createEvent(UserGroup *groupInWichToCreateEvent, Event *newEvent)
+{
+   events.push_back(newEvent);
+   groupInWichToCreateEvent->addEventToGroup(newEvent);
+}
+void User::joinEvent(Event *eventToJoin)
+{
+   eventToJoin->addParticipant(this);
+}
+void User::createVoting(Voteings *newVoting)
+{
+   votings.push_back(newVoting);
+}
+void User::createVoting(UserGroup *groupInWichToCreateVoting, Voteings *newVoting)
+{
+   votings.push_back(newVoting);
+   groupInWichToCreateVoting->addVotingToGroup(newVoting);
+}
+void User::removeUserFromFriendsList(User *exFriend)
+{
+   killElementOfVector(friendsList, exFriend);
+}
 void User::readNotification(void)
 {
    // TODO : implement

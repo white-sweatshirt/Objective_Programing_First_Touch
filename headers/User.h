@@ -12,11 +12,31 @@ class Post;
 class UserGroup;
 class Voteings;
 #include "UserGroup.h"
-template <typename vectorOfPointersToClass, typename pointerTypeToRemove >
-void killElementOfVector(vectorOfPointersToClass & a,pointerTypeToRemove);
+// due to bug in some compilers(my compiler g++) there is a need to include full definition
+// of template functions
+// in this header file , other solutions would be to put them in a separate file *.cpp
+// and include it here
+template <class vectorOfPointers>
+void killVectorOfPointers(vectorOfPointers &killedVector)
+{
+   for (auto w : killedVector)
+      delete w;
+   killedVector.clear();
+}
 
-template <typename vectorOfPointers>
-void killVectorOfPointers(vectorOfPointers & killedVector);
+template <class vectorOfPointersToClass, class pointerTypeToRemove>
+void killElementOfVector(vectorOfPointersToClass &a, pointerTypeToRemove b)
+{
+   for (auto it : a)
+   {
+      if (it == b)
+      {
+         swap(it, a.back());
+         a.pop_back();
+         return;
+      }
+   }
+}
 
 class User
 {
@@ -33,17 +53,23 @@ protected:
 
 public:
    void createGroup(void);
+   void joinGroup(UserGroup *groupToJoin);
+
    void createPost(string contetns);
    void createPost(UserGroup *groupInWichToPost, string contents);
-   void joinGroup(UserGroup *groupToJoin);
-   
+   void createEvent(Event *newEvent);
+   void createEvent(UserGroup *groupInWichToCreateEvent, Event *newEvent);
+   void joinEvent(Event *eventToJoin);
+   void createVoting(Voteings *newVoting);
+   void createVoting(UserGroup *groupInWichToCreateVoting, Voteings *newVoting);
+
    void addUserToFriendsList(User *newFriend);
    void removeUserFromFriendsList(User *exFriend);
    void reportPostToAdmin(Post *reportedPost, User *admin);
 
    virtual void voteInPoll(void);
    void createPool();
-   virtual UserGroup * giveGroupLink(int indexOf);
+   virtual UserGroup *giveGroupLink(int indexOf);
    virtual void deleteGroup(void);
    virtual void addUserToGroup(UserGroup *group, User *userToAdd);
    virtual void deleteActivity(Post *activity);
