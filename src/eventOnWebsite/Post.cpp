@@ -4,7 +4,6 @@
  * Modified: niedziela, 4 stycznia 2026 15:27:46
  * Purpose: Implementation of the class Post
  ***********************************************************************/
-#include "User.h"
 #include "Post.h"
 template <typename vectorOfPointersToClassesWithShow>
 void showContentsOfContainer(vectorOfPointersToClassesWithShow  a)
@@ -107,4 +106,24 @@ void Voteings::setEndDate(string date)
 int Voteings::giveResult(void)
 {
    return this->result;
+}
+void Voteings::setRulesOfVoting(bool oneVotePerUser)
+{
+   this->oneUserOneVote = oneVotePerUser;
+}
+void Voteings::show(void)
+{
+   cout << "Voting Post owner: " << this->postOwner << endl;
+   cout << "Voting Post contents: " << this->contents << endl;
+   cout << "Current amount of lead: " << this->currenamountOfLead << endl;
+   cout << "End date: " << this->endDate << endl;
+   cout << "Users who voted: " << endl;
+   for (auto w : this->usersWhoHadVoted)
+      cout << w->giveName() << endl;
+}
+Voteings::Voteings(User *owner, string contents, bool oneVotePerUser)
+    : Post(owner, contents)
+{
+   this->oneUserOneVote = oneVotePerUser;
+   this->currenamountOfLead = 0;
 }

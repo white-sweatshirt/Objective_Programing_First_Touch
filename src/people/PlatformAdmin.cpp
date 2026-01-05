@@ -12,11 +12,6 @@ void PlatformAdmin::lookThroughReports(void)
    // TODO : implement
 }
 
-void PlatformAdmin::removePost(void)
-{
-   // TODO : implement
-}
-
 void PlatformAdmin::blockAccount(void)
 {
    // TODO : implement
@@ -29,12 +24,14 @@ void PlatformAdmin::removeAccount(void)
 
 void PlatformAdmin::deleteActivity(Post *activity)
 {
+   if(activity)
+      delete activity;
 }
 
 void PlatformAdmin::deleteActivity(Post *acticity, UserGroup *wheretoDeketeFrom)
 {
    wheretoDeketeFrom->removePostFromGroupMemory(acticity);
-   
+   delete acticity;
 }
 
 int PlatformAdmin::lookThroughStatistics(void)

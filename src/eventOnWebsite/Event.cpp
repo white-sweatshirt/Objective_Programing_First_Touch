@@ -20,12 +20,14 @@ void Event::show()
 }
 
 
-void Event::addParticipant(void)
+void Event::addParticipant(User *newParticipant)
 {
-   // TODO : implement
+   this->participants.push_back(newParticipant);
 }
-
-
+void Event::removePersonFromParticipants(User *participantToRemove)
+{
+   killElementOfVector(this->participants,participantToRemove);
+}
 void Event::sendReminder(void)
 {
    // TODO : implement

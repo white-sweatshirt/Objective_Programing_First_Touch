@@ -12,7 +12,8 @@ class Post;
 class UserGroup;
 class Voteings;
 #include "UserGroup.h"
-
+template <typename vectorOfPointersToClass, typename pointerTypeToRemove >
+void killElementOfVector(vectorOfPointersToClass a,pointerTypeToRemove);
 class User
 {
 protected:
@@ -30,7 +31,8 @@ public:
    void createGroup(void);
    void createPost(string contetns);
    void createPost(UserGroup *groupInWichToPost, string contents);
-
+   void joinGroup(UserGroup *groupToJoin);
+   
    void addUserToFriendsList(User *newFriend);
    void removeUserFromFriendsList(User *exFriend);
    void reportPostToAdmin(Post *reportedPost, User *admin);

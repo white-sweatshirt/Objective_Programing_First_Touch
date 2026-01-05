@@ -70,6 +70,9 @@ public:
    void voteByUser(User *user, bool forAvganist);
    void setEndDate(string date);
    int giveResult(void);
+   void setRulesOfVoting(bool oneVotePerUser);
+   virtual void show(void);
+   Voteings(User *owner, string contents, bool oneVotePerUser);
 };
-
+#include "User.h"
 #endif

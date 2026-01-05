@@ -13,7 +13,8 @@ private:
 
 public:
    void setLocation(string newLocation);
-   void addParticipant(void);
+   void addParticipant(User *newParticipant);
+   void removePersonFromParticipants(User *participantToRemove);
    void sendReminder(void);
    void show();
    

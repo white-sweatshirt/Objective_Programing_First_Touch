@@ -20,3 +20,7 @@ MemberOfGroup::MemberOfGroup(User *user, bool giveAdminPrivilges)
    this->user=user;
    this->adminPrivileges=giveAdminPrivilges;
 }
+void MemberOfGroup::giveAdminPrivilges()
+{
+   this->adminPrivileges=true;
+}

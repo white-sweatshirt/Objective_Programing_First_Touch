@@ -16,7 +16,6 @@ class PlatformAdmin : public User
 {
 public:
    void lookThroughReports(void);
-   void removePost(void);
    void blockAccount(void);
    void removeAccount(void);
    void deleteActivity(Post *activity);

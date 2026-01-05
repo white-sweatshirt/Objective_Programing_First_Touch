@@ -5,13 +5,27 @@
  * Purpose: Implementation of the class User
  ***********************************************************************/
 #include "User.h"
-
-
+template <typename vectorOfPointersToClass, typename pointerTypeToRemove>
+void killElementOfVector(vectorOfPointersToClass a, pointerTypeToRemove b)
+{
+   for (auto it : a)
+   {
+      if (it == b)
+      {
+         swap(it, a.back());
+         a.pop_back();
+         return;
+      }
+   }
+}
 void User::createGroup(void)
 {
    // TODO : implement
 }
-
+void User::joinGroup(UserGroup *groupToJoin)
+{
+   groupToJoin->addPersonToGroup(this);
+}
 
 void User::createPost(string contetns)
 {
@@ -24,57 +38,56 @@ void User::createPost(UserGroup *groupInWichToPost, string contents)
    groupInWichToPost->addPostToGroup(postList.back());
 }
 
-
-
 void User::readNotification(void)
 {
    // TODO : implement
 }
-
-
 
 void User::flirtPostsBy(void)
 {
    // TODO : implement
 }
 
-
 void User::setNotificationsPrefences(void)
 {
    // TODO : implement
 }
 
-
 void User::deleteActivity(Post *postToDelete)
 {
-
-
+   if (postToDelete)
+      if (postToDelete->checkWheterPersonIsOwner(this))
+         delete postToDelete;
 }
 
-void User::deleteActivity(Post * activityToDelete,UserGroup *groupOnWithItIsPosted)
+void User::deleteActivity(Post *postToDelete, UserGroup *groupOnWithItIsPosted)
 {
-
+   if (postToDelete == nullptr || groupOnWithItIsPosted == nullptr)
+      return;
+   if (postToDelete->checkWheterPersonIsOwner(this))
+      delete postToDelete;
+   else if (groupOnWithItIsPosted->checkIfUserHasPremissonToDelete(this, postToDelete))
+      delete postToDelete;
 }
-void  User::removeUserFromGroup(void)
+void User::removeUserFromGroup(void)
 {
    // TODO : implement
 }
-
 
 void User::voteInPoll(void)
 {
    // TODO : implement
 }
 
-
 void User::deleteGroup(void)
 {
    // TODO : implement
 }
 
-
 void User::addUserToGroup(UserGroup *group, User *userToAdd)
 {
+   if (group == nullptr || userToAdd == nullptr)
+      return;
    group->addPersonToGroup(userToAdd);
 }
 
@@ -90,4 +103,4 @@ User::User(string name)
 {
    this->name = name;
    this->amountOfLogins = 0;
-}  
+}

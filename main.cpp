@@ -1,6 +1,10 @@
 #include "Post.h"
 #include "User.h"
+#include "UserGroup.h"
+#include "Event.h"
+#include "MemberOfGroup.h"
 #include "PlatformAdmin.h"
+
 int main()
 {
     vector<User *> users;
