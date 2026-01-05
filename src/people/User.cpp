@@ -6,7 +6,7 @@
  ***********************************************************************/
 #include "User.h"
 template <typename vectorOfPointersToClass, typename pointerTypeToRemove>
-void killElementOfVector(vectorOfPointersToClass a, pointerTypeToRemove b)
+void killElementOfVector(vectorOfPointersToClass & a, pointerTypeToRemove b)
 {
    for (auto it : a)
    {
@@ -18,9 +18,29 @@ void killElementOfVector(vectorOfPointersToClass a, pointerTypeToRemove b)
       }
    }
 }
+template <typename vectorOfPointers>
+void killVectorOfPointers(vectorOfPointers & killedVector)
+{
+   for(auto w:killedVector)
+      delete w;
+   killedVector.clear();
+}
 void User::createGroup(void)
 {
-   // TODO : implement
+   userGroups.push_back(new UserGroup(this));
+}
+void User::reportPostToAdmin(Post *reportedPost, User *admin)
+{
+   if(reportedPost == nullptr || admin == nullptr)
+      return;
+   // perfect world in with reported post are aloweys truthly reoprted
+   admin->deleteActivity(reportedPost);
+}
+UserGroup * User::giveGroupLink(int indexOfGroup)
+{
+   if (indexOfGroup < 0 || indexOfGroup >= userGroups.size())
+      return nullptr;
+   return userGroups[indexOfGroup];
 }
 void User::joinGroup(UserGroup *groupToJoin)
 {
@@ -29,13 +49,13 @@ void User::joinGroup(UserGroup *groupToJoin)
 
 void User::createPost(string contetns)
 {
-   postList.push_back(new Post(this, contetns));
+   ownedPosts.push_back(new Post(this, contetns));
 }
 
 void User::createPost(UserGroup *groupInWichToPost, string contents)
 {
-   postList.push_back(new Post(this, contents));
-   groupInWichToPost->addPostToGroup(postList.back());
+   ownedPosts.push_back(new Post(this, contents));
+   groupInWichToPost->addPostToGroup(ownedPosts.back());
 }
 
 void User::readNotification(void)

@@ -31,7 +31,7 @@ public:
    // represent failure of suceess of action
    bool addPersonToNotyfications(User *personToAdd);
    void removePersonFromNotfications(User *personToRemove);
-   bool addPersonToGroup(User *personToAdd);
+   void addPersonToGroup(User *personToAdd);
    bool removePersonFromGroup(User *personToRemove, User *requestingUser);
 
    void removePostFromGroupMemory(Post *post);

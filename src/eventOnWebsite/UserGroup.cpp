@@ -8,9 +8,17 @@
 
 bool UserGroup::veryfiyAdminPrivilges(User *personToVerify)
 {
+   for (auto member : this->membersOfGroup)
+   {
+      if (member->giveUserPointer() == personToVerify)
+      {
+         return member->sayIfUserIsAdmin();
+      }
+   }
+   return false;
 }
 
-bool UserGroup::addPersonToGroup(User *personToAdd)
+void UserGroup::addPersonToGroup(User *personToAdd)
 {
    this->membersOfGroup.push_back(new MemberOfGroup(personToAdd, false));
    this->numberOfMembers++;

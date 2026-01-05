@@ -13,7 +13,11 @@ class UserGroup;
 class Voteings;
 #include "UserGroup.h"
 template <typename vectorOfPointersToClass, typename pointerTypeToRemove >
-void killElementOfVector(vectorOfPointersToClass a,pointerTypeToRemove);
+void killElementOfVector(vectorOfPointersToClass & a,pointerTypeToRemove);
+
+template <typename vectorOfPointers>
+void killVectorOfPointers(vectorOfPointers & killedVector);
+
 class User
 {
 protected:
@@ -21,7 +25,7 @@ protected:
    string name;
    deque<string> notifications;
    vector<User *> friendsList;
-   vector<Post *> postList;
+   vector<Post *> ownedPosts;
    vector<UserGroup *> userGroups;
    list<Event *> events;
    list<Voteings *> votings;
@@ -39,7 +43,7 @@ public:
 
    virtual void voteInPoll(void);
    void createPool();
-
+   virtual UserGroup * giveGroupLink(int indexOf);
    virtual void deleteGroup(void);
    virtual void addUserToGroup(UserGroup *group, User *userToAdd);
    virtual void deleteActivity(Post *activity);
