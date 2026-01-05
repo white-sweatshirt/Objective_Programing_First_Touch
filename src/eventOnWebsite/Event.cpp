@@ -13,13 +13,13 @@ void Event::setLocation(string setNewLocation)
 
 
 
-int Event::addParticipant(void)
+void Event::addParticipant(void)
 {
    // TODO : implement
 }
 
 
-int Event::sendReminder(void)
+void Event::sendReminder(void)
 {
    // TODO : implement
 }

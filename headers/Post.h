@@ -8,47 +8,45 @@
 #ifndef __UMLClassDiagram_1_Post_h
 #define __UMLClassDiagram_1_Post_h
 
-#include <iostream>
-#include <vector>
-#include <list>
-#include <queue>
-using namespace std;
 
+// zasada przy urzywaniu programownia obiektowego zawsze deklaruj fowardowo
+// wszystkie klasy z ktorych korzystarz we wszystkich
+// plikach ktore pochodza od innego pliku
 class User;
+class UserGroup;
+class Post;
 
+#include "Activity.h"
 #include "User.h"
 #include "UserGroup.h"
 
-class Post
+class Post: public Activity
 {
-private:
 protected:
-   std::string contents;
-   UserGroup * groupAscooscion;
-   int likeToDislikeRatio;
-   User *postOwner;
+   
+   UserGroup *groupAscooscion;
    list<User *> mentionList;
 
 public:
    void addPersonToMention(User *person);
    void removePersonFromMentioned(User *person);
    User *givePostOwner(void);
-   bool checkWheterPersonIsOwner(User *actor);
 
    int giveLikeToDislikeRatio(void);
 
    std::string givePostContents(void);
-   void modifyContents(std::string newContents,User *editor);
-   Post(User *owner,string contents);
+   void modifyContents(std::string newContents, User *editor);
+   Post(User *owner, string contents);
    ~Post();
 };
+
 /***********************************************************************
  * Module:  Voteings.h
  * Author:  WhiteSweatShirt
  * Modified: niedziela, 4 stycznia 2026 14:59:35
  * Purpose: Declaration of the class Voteings
  ***********************************************************************/
-class Voteings : public Post
+class Voteings : public Activity
 {
 
 protected:
@@ -58,10 +56,11 @@ private:
    bool oneUserOneVote;
    std::string endDate;
    int result;
-   list <User *> usersWhoHadVoted;
+   list<User *> usersWhoHadVoted;
+
 public:
    bool checkWheterUserVoted(User *user);
-   void voteByUser(User *user,bool forAvganist);
+   void voteByUser(User *user, bool forAvganist);
    void setEndDate(string date);
    int giveResult(void);
 };

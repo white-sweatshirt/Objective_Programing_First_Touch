@@ -7,13 +7,13 @@
 
 #ifndef __UMLClassDiagram_1_User_h
 #define __UMLClassDiagram_1_User_h
-
-class Voteings;
-class UserGroup;
 class Event;
+class Post;
+class UserGroup;
+class Voteings;
 #include "Post.h"
-#include "Event.h"
 #include "UserGroup.h"
+#include "Event.h"
 
 
 class User

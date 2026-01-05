@@ -7,9 +7,7 @@
 
 #ifndef __UMLClassDiagram_1_membersOfGroup_h
 #define __UMLClassDiagram_1_membersOfGroup_h
-
 class User;
-
 #include "User.h"
 
 class MemberOfGroup

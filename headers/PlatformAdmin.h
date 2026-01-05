@@ -7,7 +7,8 @@
 
 #ifndef __UMLClassDiagram_1_PlatformAdmin_h
 #define __UMLClassDiagram_1_PlatformAdmin_h
-
+class Post;
+class User;
 #include "Post.h"
 #include "User.h"
 
