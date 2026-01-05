@@ -16,11 +16,14 @@ class User;
 class UserGroup;
 class Post;
 
-#include "Activity.h"
+#include <iostream>
+#include <vector>
+#include <list>
+#include <queue>
+using namespace std;
 #include "User.h"
-#include "UserGroup.h"
-
-class Post: public Activity
+class User;
+class Post
 {
 protected:
    
