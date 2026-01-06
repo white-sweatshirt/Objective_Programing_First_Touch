@@ -1,2 +1,2 @@
-all Dates IN files show date on with file was generated using power designer it doesnot 
+all dates of edition in files.Where generated using powerdesigner it doesnot 
 accuratly portray date in with file was last edited!.
