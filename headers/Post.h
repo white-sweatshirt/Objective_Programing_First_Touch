@@ -20,12 +20,7 @@ using namespace std;
 class User;
 class UserGroup;
 // meant to use with speciazlization of  Post class
-template <typename vectorOfPointersToClassesWithShow>
-void showContentsOfContainer(vectorOfPointersToClassesWithShow a)
-{
-   for (auto w : a)
-      w->show();
-}
+
 class Post
 // while using pointers to something always  use fowarding and do not do loops
 {
