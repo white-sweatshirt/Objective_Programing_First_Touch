@@ -50,6 +50,7 @@ void Post::show()
    cout << "Mentioned users: " << endl;
    for (auto w : this->mentionList)
       cout << w->giveName() << endl;
+   cout<<"-----------------------"<<endl;
 }
 Post::Post(User *owner, string contents)
 {
@@ -118,6 +119,7 @@ void Voteings::show(void)
    cout << "Users who voted: " << endl;
    for (auto w : this->usersWhoHadVoted)
       cout << w->giveName() << endl;
+   cout<<"-----------------------"<<endl;
 }
 Voteings::Voteings(User *owner, string contents, bool oneVotePerUser)
     : Post(owner, contents)

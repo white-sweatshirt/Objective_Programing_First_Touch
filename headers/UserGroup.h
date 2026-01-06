@@ -26,9 +26,8 @@ private:
    list<User *> notificationsList;
    Post *checkIfPostExitsts(Post *post);
 
-   bool verifyMemberShip(User *personToVerify);
-
 public:
+   bool verifyMemberShip(User *personToVerify);
    bool veryfiyAdminPrivilges(User *personToVerify);
    // bool in functions is meant to
    // represent failure of suceess of action
@@ -48,8 +47,7 @@ public:
    void addEventToGroup(Event *event);
    void removeVotingFromGroupMemory(Voteings *voting);
    void addVotingToGroup(Voteings *voting);
-   
-  
+
    bool addAdmin(void);
    UserGroup(User *creator);
    ~UserGroup();

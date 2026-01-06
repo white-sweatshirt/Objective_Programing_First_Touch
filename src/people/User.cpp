@@ -19,26 +19,43 @@ void User::reportPostToAdmin(Post *reportedPost, User *admin)
 }
 UserGroup *User::giveGroupLink(int indexOfGroup)
 {
-   if (indexOfGroup < 0 || indexOfGroup >= userGroups.size() && userGroups.size() > 0)
+   if (userGroups.empty())
+      return nullptr;
+   if (indexOfGroup < 0 || indexOfGroup >= userGroups.size())
       return nullptr;
    return userGroups[indexOfGroup];
 }
 void User::joinGroup(UserGroup *groupToJoin)
 {
+   if (groupToJoin == nullptr)
+      return;
    groupToJoin->addPersonToGroup(this);
+   this->userGroups.push_back(groupToJoin);
+}
+void User::leaveGroup(UserGroup *groupToLeave)
+{
+   if (groupToLeave)
+   {
+      removeElemetOfVector(this->userGroups, groupToLeave);
+      removeUserFromGroup(this, this, groupToLeave);
+   }
+}
+void User::post(Post *newPost)
+{
+   if (newPost == nullptr)
+      return;
+   ownedPosts.push_back(newPost);
 }
 
-void User::createPost(string contetns)
+void User::post(UserGroup *groupInWichToPost, Post *newPost)
 {
-   ownedPosts.push_back(new Post(this, contetns));
-}
-
-void User::createPost(UserGroup *groupInWichToPost, string contents)
-{
-   ownedPosts.push_back(new Post(this, contents));
-   groupInWichToPost->addPostToGroup(ownedPosts.back());
+   if (newPost == nullptr || groupInWichToPost == nullptr)
+      return;
+   ownedPosts.push_back(newPost);
+   groupInWichToPost->addPostToGroup(newPost);
    ownedPosts.back()->setGroupAssociation(groupInWichToPost);
 }
+
 void User::createEvent(Event *newEvent)
 {
    if (newEvent == nullptr)
@@ -47,10 +64,11 @@ void User::createEvent(Event *newEvent)
 }
 void User::createEvent(UserGroup *groupInWichToCreateEvent, Event *newEvent)
 {
-   if (newEvent == nullptr)
+   if (newEvent == nullptr || groupInWichToCreateEvent == nullptr)
       return;
    events.push_back(newEvent);
-   groupInWichToCreateEvent->addEventToGroup(newEvent);
+   if (groupInWichToCreateEvent->verifyMemberShip(this))
+      groupInWichToCreateEvent->addEventToGroup(newEvent);
 }
 void User::joinEvent(Event *eventToJoin)
 {
@@ -79,15 +97,18 @@ void User::removeUserFromFriendsList(User *exFriend)
 }
 void User::showAllEventsInGroup(UserGroup *group)
 {
-   group->showAllEventsInGroup();
+   if (group)
+      group->showAllEventsInGroup();
 }
 void User::showAllPostsInGroup(UserGroup *group)
 {
-   group->showAllPostsInGroup();
+   if (group)
+      group->showAllPostsInGroup();
 }
 void User::showAllVotingsInGroup(UserGroup *group)
 {
-   group->showAllVotingsInGroup();
+   if (group)
+      group->showAllVotingsInGroup();
 }
 Post *User::givePostLink(int indexOfPost)
 {
@@ -97,7 +118,8 @@ Post *User::givePostLink(int indexOfPost)
 }
 void User::removePostFromOwnedPosts(Post *postToRemove)
 {
-   removeElemetOfVector(ownedPosts, postToRemove);
+   if (postToRemove)
+      removeElemetOfVector(ownedPosts, postToRemove);
 }
 void User::show()
 {

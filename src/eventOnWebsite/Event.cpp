@@ -12,11 +12,13 @@ void Event::setLocation(string setNewLocation)
 }
 void Event::show()
 {
+   cout<<"host of event: "<<this->postOwner->giveName()<<endl;
+   cout<<"contents of event : "<<this->contents<<endl;
    cout<<"date of event: "<<this->date<<endl;
    cout<<"location of event: "<<this->location<<endl;
-   cout<<"*************"<<endl;
    cout<<"participants: "<<endl;
    showContentsOfContainer(this->participants); 
+   cout<<"-----------------------"<<endl;
 }
 
 
@@ -32,6 +34,7 @@ void Event::sendReminder(void)
 {
    // TODO : implement
 }
+
 Event::~Event()
 {
    this->participants.clear();

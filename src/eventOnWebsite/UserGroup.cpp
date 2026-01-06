@@ -35,7 +35,6 @@ void UserGroup::removePersonFromNotfications(User *personToRemove)
          this->notificationsList.remove(w);
          return;
       }
-   
 }
 Post *UserGroup::checkIfPostExitsts(Post *post)
 {
@@ -52,13 +51,14 @@ bool UserGroup::removePersonFromGroup(User *personToRemove)
          swap(this->membersOfGroup.back(), checkedMember);
          this->membersOfGroup.pop_back();
          this->numberOfMembers--;
+
          return true;
       }
    return false;
 }
 void UserGroup::removePostFromGroupMemory(Post *postToRemove)
 {
-   
+
    this->postLists.remove(postToRemove);
 }
 void UserGroup::removeEventFromGroupMemory(Event *event)
@@ -112,11 +112,13 @@ UserGroup::UserGroup(User *creator)
 }
 UserGroup::~UserGroup()
 {
-   killVectorOfPointers(this->membersOfGroup);
-   for( auto w : this->postLists)
+   // unstandard deletion
+   for (auto w : this->membersOfGroup)
+      w->giveUserPointer()->leaveGroup(this);
+   for (auto w : this->postLists)
       w->setGroupAssociation(nullptr);
-   for( auto w : this->eventsInGroup)
+   for (auto w : this->eventsInGroup)
       w->setGroupAssociation(nullptr);
-   for( auto w : this->votings)
+   for (auto w : this->votings)
       w->setGroupAssociation(nullptr);
 }

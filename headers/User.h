@@ -30,10 +30,11 @@ protected:
 public:
    void createGroup(void);
    void joinGroup(UserGroup *groupToJoin);
+   void leaveGroup(UserGroup *groupToLeave);
 
    void removePostFromOwnedPosts(Post *postToRemove);
-   void createPost(string contetns);
-   void createPost(UserGroup *groupInWichToPost, string contents);
+   void post(Post *newPost);
+   void post(UserGroup *groupInWichToPost, Post *newPost);
    void createEvent(Event *newEvent);
    void createEvent(UserGroup *groupInWichToCreateEvent, Event *newEvent);
    void joinEvent(Event *eventToJoin);
