@@ -44,7 +44,7 @@ void PlatformAdmin::removeUserFromGroup(User *userToRemove, User *requestingUser
 {
    if (group == nullptr || userToRemove == nullptr || requestingUser == nullptr)
       return;
-   group->removePersonFromGroup(userToRemove, requestingUser);
+   group->removePersonFromGroup(userToRemove);
 }
 int PlatformAdmin::lookThroughStatistics(void)
 {

@@ -26,7 +26,7 @@ void Event::addParticipant(User *newParticipant)
 }
 void Event::removePersonFromParticipants(User *participantToRemove)
 {
-   killElementOfVector(this->participants,participantToRemove);
+   removeElemetOfVector(this->participants,participantToRemove);
 }
 void Event::sendReminder(void)
 {

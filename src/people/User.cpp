@@ -75,7 +75,7 @@ void User::removeUserFromFriendsList(User *exFriend)
 {
    if (exFriend == nullptr)
       return;
-   killElementOfVector(friendsList, exFriend);
+   removeElemetOfVector(friendsList, exFriend);
 }
 void User::showAllEventsInGroup(UserGroup *group)
 {
@@ -95,6 +95,10 @@ Post *User::givePostLink(int indexOfPost)
       return nullptr;
    return ownedPosts[indexOfPost];
 }
+void User::removePostFromOwnedPosts(Post *postToRemove)
+{
+   removeElemetOfVector(ownedPosts, postToRemove);
+}
 void User::show()
 {
    std::cout << "User name: " << this->name << std::endl;
@@ -106,7 +110,7 @@ User::~User()
       if (w->veryfiyAdminPrivilges(this))
          delete w;
       else
-         w->removePersonFromGroup(this, this);
+         w->removePersonFromGroup(this);
 
    friendsList.clear();
    for (auto w : this->events)
@@ -114,7 +118,6 @@ User::~User()
          w->removePersonFromParticipants(this);
    for (auto w : this->votings)
       deleteActivity(w);
-   
 }
 void User::readNotification(void)
 {
@@ -156,12 +159,16 @@ bool User::deleteActivity(Post *postToDelete, UserGroup *groupOnWithItIsPosted)
       delete postToDelete;
       return true;
    }
+   return false;
 }
-void User::removeUserFromGroup(User *userToRemove,User *requestingUser,UserGroup *group)
+void User::removeUserFromGroup(User *userToRemove, User *requestingUser, UserGroup *group)
 {
-   if(this->userGroups.size() == 0)
+   if (this->userGroups.size() == 0)
       return;
-      
+   if (group == nullptr || userToRemove == nullptr || requestingUser == nullptr)
+      return;
+   if (group->veryfiyAdminPrivilges(requestingUser) || userToRemove == requestingUser)
+      group->removePersonFromGroup(userToRemove);
 }
 
 void User::voteInPoll(void)

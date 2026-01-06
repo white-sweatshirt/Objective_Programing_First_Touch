@@ -24,8 +24,9 @@ void killVectorOfPointers(vectorOfPointers &killedVector)
    killedVector.clear();
 }
 
+// it doesnt delte pointer it just removed it from vector
 template <class vectorOfPointersToClass, class pointerTypeToRemove>
-void killElementOfVector(vectorOfPointersToClass &a, pointerTypeToRemove b)
+void removeElemetOfVector(vectorOfPointersToClass &a, pointerTypeToRemove b)
 {
    for (auto it : a)
       if (it == b)
@@ -53,6 +54,7 @@ public:
    void createGroup(void);
    void joinGroup(UserGroup *groupToJoin);
 
+   void removePostFromOwnedPosts(Post *postToRemove);
    void createPost(string contetns);
    void createPost(UserGroup *groupInWichToPost, string contents);
    void createEvent(Event *newEvent);

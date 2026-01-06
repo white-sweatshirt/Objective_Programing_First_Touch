@@ -44,12 +44,9 @@ Post *UserGroup::checkIfPostExitsts(Post *post)
          return checkedPost;
    return nullptr;
 }
-bool UserGroup::removePersonFromGroup(User *personToRemove, User *requestingUser)
+bool UserGroup::removePersonFromGroup(User *personToRemove)
 {
-   if (veryfiyAdminPrivilges(requestingUser) || personToRemove == requestingUser)
-      return false;
    for (auto checkedMember : membersOfGroup)
-   {
       if (checkedMember->giveUserPointer() == personToRemove)
       {
          swap(this->membersOfGroup.back(), checkedMember);
@@ -57,7 +54,6 @@ bool UserGroup::removePersonFromGroup(User *personToRemove, User *requestingUser
          this->numberOfMembers--;
          return true;
       }
-   }
    return false;
 }
 void UserGroup::removePostFromGroupMemory(Post *postToRemove)
@@ -71,7 +67,7 @@ void UserGroup::removeEventFromGroupMemory(Event *event)
 }
 void UserGroup::removeVotingFromGroupMemory(Voteings *voting)
 {
-   killElementOfVector(this->votings, voting);
+   removeElemetOfVector(this->votings, voting);
 }
 
 void UserGroup::addPostToGroup(Post *post)
@@ -117,4 +113,10 @@ UserGroup::UserGroup(User *creator)
 UserGroup::~UserGroup()
 {
    killVectorOfPointers(this->membersOfGroup);
+   for( auto w : this->postLists)
+      w->setGroupAssociation(nullptr);
+   for( auto w : this->eventsInGroup)
+      w->setGroupAssociation(nullptr);
+   for( auto w : this->votings)
+      w->setGroupAssociation(nullptr);
 }

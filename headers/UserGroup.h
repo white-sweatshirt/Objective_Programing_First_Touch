@@ -35,7 +35,7 @@ public:
    bool addPersonToNotyfications(User *personToAdd);
    void removePersonFromNotfications(User *personToRemove);
    void addPersonToGroup(User *personToAdd);
-   bool removePersonFromGroup(User *personToRemove, User *requestingUser);
+   bool removePersonFromGroup(User *personToRemove);
 
    void showAllPostsInGroup(void);
    void showAllEventsInGroup(void);

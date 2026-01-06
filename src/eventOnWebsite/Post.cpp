@@ -67,6 +67,7 @@ Post::Post(User *owner, UserGroup *whereItWasPosted, string contents)
 }
 Post::~Post()
 {
+   this->postOwner->removePostFromOwnedPosts(this);
    this->postOwner = nullptr;
    if (this->groupAscooscion)
       this->groupAscooscion->removePostFromGroupMemory(this);
