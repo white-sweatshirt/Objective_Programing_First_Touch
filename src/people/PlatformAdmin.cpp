@@ -22,18 +22,30 @@ void PlatformAdmin::removeAccount(void)
    // TODO : implement
 }
 
-void PlatformAdmin::deleteActivity(Post *activity)
+bool PlatformAdmin::deleteActivity(Post *activity)
 {
    if (activity)
+   {
       delete activity;
+      return true;
+   }
+   return false;
 }
 
-void PlatformAdmin::deleteActivity(Post *acticity, UserGroup *wheretoDeketeFrom)
+bool PlatformAdmin::deleteActivity(Post *acticity, UserGroup *wheretoDeketeFrom)
 {
+   if (acticity == nullptr || wheretoDeketeFrom == nullptr)
+      return false;
    wheretoDeketeFrom->removePostFromGroupMemory(acticity);
    delete acticity;
+   return true;
 }
-
+void PlatformAdmin::removeUserFromGroup(User *userToRemove, User *requestingUser, UserGroup *group)
+{
+   if (group == nullptr || userToRemove == nullptr || requestingUser == nullptr)
+      return;
+   group->removePersonFromGroup(userToRemove, requestingUser);
+}
 int PlatformAdmin::lookThroughStatistics(void)
 {
    // TODO : implement

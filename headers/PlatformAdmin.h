@@ -18,8 +18,9 @@ public:
    void lookThroughReports(void);
    void blockAccount(void);
    void removeAccount(void);
-   void deleteActivity(Post *activity);
-   void deleteActivity(Post *activity, UserGroup *groupOnWithIsPosted);
+   bool deleteActivity(Post *activity);
+   bool deleteActivity(Post *activity, UserGroup *groupOnWithIsPosted);
+   void removeUserFromGroup(User *userToRemove, User *requestingUser, UserGroup *group);
    int lookThroughStatistics(void);
    PlatformAdmin(string name);
    void show();

@@ -34,5 +34,7 @@ void Event::sendReminder(void)
 }
 Event::~Event()
 {
+   if(this->groupAscooscion)
+      this->groupAscooscion->removeEventFromGroupMemory(this);
    this->participants.clear();
 }

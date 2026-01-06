@@ -5,6 +5,7 @@
  * Purpose: Implementation of the class UserGroup
  ***********************************************************************/
 #include "UserGroup.h"
+
 bool UserGroup::verifyMemberShip(User *personToVerify)
 {
    for (auto member : this->membersOfGroup)
@@ -61,16 +62,18 @@ bool UserGroup::removePersonFromGroup(User *personToRemove, User *requestingUser
 }
 void UserGroup::removePostFromGroupMemory(Post *postToRemove)
 {
+   
    this->postLists.remove(postToRemove);
 }
-bool UserGroup::checkIfUserHasPremissonToDelete(User *userRequestingDeletion,
-                                                Post *postToDelete)
+void UserGroup::removeEventFromGroupMemory(Event *event)
 {
-   if (this->veryfiyAdminPrivilges(userRequestingDeletion))
-      return true;
-   else
-      return false;
+   this->eventsInGroup.remove(event);
 }
+void UserGroup::removeVotingFromGroupMemory(Voteings *voting)
+{
+   killElementOfVector(this->votings, voting);
+}
+
 void UserGroup::addPostToGroup(Post *post)
 {
    this->postLists.push_back(post);
@@ -110,4 +113,8 @@ UserGroup::UserGroup(User *creator)
 {
    this->numberOfMembers = 1;
    this->membersOfGroup.push_back(new MemberOfGroup(creator, true));
+}
+UserGroup::~UserGroup()
+{
+   killVectorOfPointers(this->membersOfGroup);
 }

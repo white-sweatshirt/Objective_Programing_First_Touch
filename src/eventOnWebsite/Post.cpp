@@ -38,6 +38,10 @@ void Post::modifyContents(std::string newContents, User *editor)
    if (checkWheterPersonIsOwner(editor))
       this->contents = newContents;
 }
+void Post::setGroupAssociation(UserGroup *group)
+{
+   this->groupAscooscion = group;
+}
 void Post::show()
 {
    cout << "Post owner: " << this->postOwner->giveName() << endl;
@@ -54,7 +58,7 @@ Post::Post(User *owner, string contents)
    this->postOwner = owner;
    this->contents = contents;
 }
-Post::Post(User *owner,UserGroup* whereItWasPosted ,string contents)
+Post::Post(User *owner, UserGroup *whereItWasPosted, string contents)
 {
    this->likeToDislikeRatio = 0;
    this->groupAscooscion = whereItWasPosted;
@@ -63,18 +67,17 @@ Post::Post(User *owner,UserGroup* whereItWasPosted ,string contents)
 }
 Post::~Post()
 {
-   this->postOwner=nullptr;
-   this->groupAscooscion->removePostFromGroupMemory(this);
-   this->groupAscooscion=nullptr;
+   this->postOwner = nullptr;
+   if (this->groupAscooscion)
+      this->groupAscooscion->removePostFromGroupMemory(this);
+   this->groupAscooscion = nullptr;
    this->mentionList.clear();
 }
 bool Voteings::checkWheterUserVoted(User *user)
 {
    for (auto w : this->usersWhoHadVoted)
-   {
       if (w == user)
          return true;
-   }
    return false;
 }
 

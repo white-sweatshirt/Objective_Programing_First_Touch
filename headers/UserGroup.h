@@ -13,6 +13,7 @@ class MemberOfGroup;
 class Voteings;
 #include "Event.h"
 #include "MemberOfGroup.h"
+#include "User.h"
 class UserGroup
 {
 
@@ -24,11 +25,11 @@ private:
    list<Post *> postLists;
    list<User *> notificationsList;
    Post *checkIfPostExitsts(Post *post);
-   
-   bool veryfiyAdminPrivilges(User *personToVerify);
+
    bool verifyMemberShip(User *personToVerify);
 
 public:
+   bool veryfiyAdminPrivilges(User *personToVerify);
    // bool in functions is meant to
    // represent failure of suceess of action
    bool addPersonToNotyfications(User *personToAdd);
@@ -43,12 +44,15 @@ public:
 
    void removePostFromGroupMemory(Post *post);
    void addPostToGroup(Post *post);
+   void removeEventFromGroupMemory(Event *event);
    void addEventToGroup(Event *event);
+   void removeVotingFromGroupMemory(Voteings *voting);
    void addVotingToGroup(Voteings *voting);
-   bool checkIfUserHasPremissonToDelete(User *userRequestingDeletion, Post *postToDelete);
-
+   
+  
    bool addAdmin(void);
    UserGroup(User *creator);
+   ~UserGroup();
 };
 
 #endif

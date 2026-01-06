@@ -21,7 +21,7 @@ class User;
 class UserGroup;
 // meant to use with speciazlization of  Post class
 template <typename vectorOfPointersToClassesWithShow>
-void showContentsOfContainer(vectorOfPointersToClassesWithShow  a)
+void showContentsOfContainer(vectorOfPointersToClassesWithShow a)
 {
    for (auto w : a)
       w->show();
@@ -45,6 +45,7 @@ public:
    bool checkWheterPersonIsOwner(User *person);
    std::string givePostContents(void);
    void modifyContents(std::string newContents, User *editor);
+   void setGroupAssociation(UserGroup *group);
    Post(User *owner, string contents);
    Post(User *owner, UserGroup *whereItWasPosted, string contents);
    ~Post();

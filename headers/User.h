@@ -28,14 +28,12 @@ template <class vectorOfPointersToClass, class pointerTypeToRemove>
 void killElementOfVector(vectorOfPointersToClass &a, pointerTypeToRemove b)
 {
    for (auto it : a)
-   {
       if (it == b)
       {
          swap(it, a.back());
          a.pop_back();
          return;
       }
-   }
 }
 
 class User
@@ -64,7 +62,7 @@ public:
    void createVoting(UserGroup *groupInWichToCreateVoting, Voteings *newVoting);
    virtual void voteInPoll(void);
    Post *givePostLink(int indexOfPost);
-   
+
    void showAllPostsInGroup(UserGroup *group);
    void showAllEventsInGroup(UserGroup *group);
    void showAllVotingsInGroup(UserGroup *group);
@@ -77,13 +75,13 @@ public:
    virtual UserGroup *giveGroupLink(int indexOf);
    virtual void deleteGroup(void);
    virtual void addUserToGroup(UserGroup *group, User *userToAdd);
-   virtual void deleteActivity(Post *activity);
+   virtual bool deleteActivity(Post *activity);
    virtual void show();
    // used to delete post from specific group where user is a admin
    // or tries to exicse admin
    // privileges
-   virtual void deleteActivity(Post *acticity, UserGroup *wheretoDeketeFrom);
-   virtual void removeUserFromGroup(void);
+   virtual bool deleteActivity(Post *acticity, UserGroup *wheretoDeketeFrom);
+   virtual void removeUserFromGroup(User *userToRemove, User *requestingUser, UserGroup *group);
    User(string name);
 
    string giveName(void);
@@ -92,6 +90,7 @@ public:
    void readNotification(void);
    bool setVisbiltyForPost(Post *post);
    void flirtPostsBy(void);
+   ~User();
 };
 
 #endif

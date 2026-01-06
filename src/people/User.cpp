@@ -19,7 +19,7 @@ void User::reportPostToAdmin(Post *reportedPost, User *admin)
 }
 UserGroup *User::giveGroupLink(int indexOfGroup)
 {
-   if (indexOfGroup < 0 || indexOfGroup >= userGroups.size())
+   if (indexOfGroup < 0 || indexOfGroup >= userGroups.size() && userGroups.size() > 0)
       return nullptr;
    return userGroups[indexOfGroup];
 }
@@ -37,6 +37,7 @@ void User::createPost(UserGroup *groupInWichToPost, string contents)
 {
    ownedPosts.push_back(new Post(this, contents));
    groupInWichToPost->addPostToGroup(ownedPosts.back());
+   ownedPosts.back()->setGroupAssociation(groupInWichToPost);
 }
 void User::createEvent(Event *newEvent)
 {
@@ -98,6 +99,23 @@ void User::show()
 {
    std::cout << "User name: " << this->name << std::endl;
 }
+User::~User()
+{
+   killVectorOfPointers(this->ownedPosts);
+   for (auto w : this->userGroups)
+      if (w->veryfiyAdminPrivilges(this))
+         delete w;
+      else
+         w->removePersonFromGroup(this, this);
+
+   friendsList.clear();
+   for (auto w : this->events)
+      if (!deleteActivity(w))
+         w->removePersonFromParticipants(this);
+   for (auto w : this->votings)
+      deleteActivity(w);
+   
+}
 void User::readNotification(void)
 {
    // TODO : implement
@@ -113,25 +131,37 @@ void User::setNotificationsPrefences(void)
    // TODO : implement
 }
 
-void User::deleteActivity(Post *postToDelete)
+bool User::deleteActivity(Post *postToDelete)
 {
    if (postToDelete)
       if (postToDelete->checkWheterPersonIsOwner(this))
+      {
          delete postToDelete;
+         return true;
+      }
+   return false;
 }
 
-void User::deleteActivity(Post *postToDelete, UserGroup *groupOnWithItIsPosted)
+bool User::deleteActivity(Post *postToDelete, UserGroup *groupOnWithItIsPosted)
 {
    if (postToDelete == nullptr || groupOnWithItIsPosted == nullptr)
-      return;
+      return false;
    if (postToDelete->checkWheterPersonIsOwner(this))
+   {
       delete postToDelete;
-   else if (groupOnWithItIsPosted->checkIfUserHasPremissonToDelete(this, postToDelete))
+      return true;
+   }
+   else if (groupOnWithItIsPosted->veryfiyAdminPrivilges(this))
+   {
       delete postToDelete;
+      return true;
+   }
 }
-void User::removeUserFromGroup(void)
+void User::removeUserFromGroup(User *userToRemove,User *requestingUser,UserGroup *group)
 {
-   // TODO : implement
+   if(this->userGroups.size() == 0)
+      return;
+      
 }
 
 void User::voteInPoll(void)
@@ -141,7 +171,6 @@ void User::voteInPoll(void)
 
 void User::deleteGroup(void)
 {
-   // TODO : implement
 }
 
 void User::addUserToGroup(UserGroup *group, User *userToAdd)

@@ -24,3 +24,7 @@ void MemberOfGroup::giveAdminPrivilges()
 {
    this->adminPrivileges=true;
 }
+MemberOfGroup::~MemberOfGroup()
+{
+   this->user=nullptr;
+}

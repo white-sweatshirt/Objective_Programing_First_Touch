@@ -21,6 +21,7 @@ public:
    bool sayIfUserIsAdmin(void);
    void giveAdminPrivilges();
    MemberOfGroup(User *user, bool giveAdminPrivilges);
+   ~MemberOfGroup();
 };
 
 #endif
