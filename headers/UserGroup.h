@@ -24,7 +24,9 @@ private:
    list<Post *> postLists;
    list<User *> notificationsList;
    Post *checkIfPostExitsts(Post *post);
+   
    bool veryfiyAdminPrivilges(User *personToVerify);
+   bool verifyMemberShip(User *personToVerify);
 
 public:
    // bool in functions is meant to
@@ -33,6 +35,11 @@ public:
    void removePersonFromNotfications(User *personToRemove);
    void addPersonToGroup(User *personToAdd);
    bool removePersonFromGroup(User *personToRemove, User *requestingUser);
+
+   void showAllPostsInGroup(void);
+   void showAllEventsInGroup(void);
+   void showAllVotingsInGroup(void);
+   void show(void);
 
    void removePostFromGroupMemory(Post *post);
    void addPostToGroup(Post *post);

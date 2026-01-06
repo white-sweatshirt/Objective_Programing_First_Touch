@@ -5,13 +5,7 @@
  * Purpose: Implementation of the class Post
  ***********************************************************************/
 #include "Post.h"
-template <typename vectorOfPointersToClassesWithShow>
-void showContentsOfContainer(vectorOfPointersToClassesWithShow  a)
-{
-   for (auto w : a)
-      w->show();
-   
-}
+
 void Post::addPersonToMention(User *person)
 {
    this->mentionList.push_back(person);
@@ -46,7 +40,7 @@ void Post::modifyContents(std::string newContents, User *editor)
 }
 void Post::show()
 {
-   cout << "Post owner: " << this->postOwner << endl;
+   cout << "Post owner: " << this->postOwner->giveName() << endl;
    cout << "Post contents: " << this->contents << endl;
    cout << "Like to dislike ratio: " << this->likeToDislikeRatio << endl;
    cout << "Mentioned users: " << endl;

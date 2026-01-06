@@ -5,16 +5,18 @@
  * Purpose: Implementation of the class UserGroup
  ***********************************************************************/
 #include "UserGroup.h"
-
+bool UserGroup::verifyMemberShip(User *personToVerify)
+{
+   for (auto member : this->membersOfGroup)
+      if (member->giveUserPointer() == personToVerify)
+         return true;
+   return false;
+}
 bool UserGroup::veryfiyAdminPrivilges(User *personToVerify)
 {
    for (auto member : this->membersOfGroup)
-   {
       if (member->giveUserPointer() == personToVerify)
-      {
          return member->sayIfUserIsAdmin();
-      }
-   }
    return false;
 }
 
@@ -27,13 +29,12 @@ void UserGroup::addPersonToGroup(User *personToAdd)
 void UserGroup::removePersonFromNotfications(User *personToRemove)
 {
    for (auto w : this->notificationsList)
-   {
       if (w == personToRemove)
       {
          this->notificationsList.remove(w);
          return;
       }
-   }
+   
 }
 Post *UserGroup::checkIfPostExitsts(Post *post)
 {
@@ -65,7 +66,7 @@ void UserGroup::removePostFromGroupMemory(Post *postToRemove)
 bool UserGroup::checkIfUserHasPremissonToDelete(User *userRequestingDeletion,
                                                 Post *postToDelete)
 {
-   if(this->veryfiyAdminPrivilges(userRequestingDeletion))
+   if (this->veryfiyAdminPrivilges(userRequestingDeletion))
       return true;
    else
       return false;
@@ -87,6 +88,22 @@ void UserGroup::addVotingToGroup(Voteings *voting)
 bool UserGroup::addAdmin(void)
 {
    // TODO : implement
+}
+void UserGroup::showAllPostsInGroup(void)
+{
+   showContentsOfContainer(this->postLists);
+}
+void UserGroup::showAllEventsInGroup(void)
+{
+   showContentsOfContainer(this->eventsInGroup);
+}
+void UserGroup::showAllVotingsInGroup(void)
+{
+   showContentsOfContainer(this->votings);
+}
+void UserGroup::show(void)
+{
+   cout << "User Group with " << this->numberOfMembers << " members." << endl;
 }
 
 UserGroup::UserGroup(User *creator)

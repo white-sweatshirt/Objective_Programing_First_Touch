@@ -24,7 +24,7 @@ void PlatformAdmin::removeAccount(void)
 
 void PlatformAdmin::deleteActivity(Post *activity)
 {
-   if(activity)
+   if (activity)
       delete activity;
 }
 
@@ -41,4 +41,8 @@ int PlatformAdmin::lookThroughStatistics(void)
 PlatformAdmin::PlatformAdmin(string name)
     : User(name)
 {
+}
+void PlatformAdmin::show()
+{
+   cout << "I am Admin that is all you need to know!" << endl;
 }

@@ -62,29 +62,36 @@ public:
    void joinEvent(Event *eventToJoin);
    void createVoting(Voteings *newVoting);
    void createVoting(UserGroup *groupInWichToCreateVoting, Voteings *newVoting);
+   virtual void voteInPoll(void);
+   Post *givePostLink(int indexOfPost);
+   
+   void showAllPostsInGroup(UserGroup *group);
+   void showAllEventsInGroup(UserGroup *group);
+   void showAllVotingsInGroup(UserGroup *group);
 
    void addUserToFriendsList(User *newFriend);
    void removeUserFromFriendsList(User *exFriend);
    void reportPostToAdmin(Post *reportedPost, User *admin);
-
-   virtual void voteInPoll(void);
    void createPool();
+
    virtual UserGroup *giveGroupLink(int indexOf);
    virtual void deleteGroup(void);
    virtual void addUserToGroup(UserGroup *group, User *userToAdd);
    virtual void deleteActivity(Post *activity);
+   virtual void show();
    // used to delete post from specific group where user is a admin
    // or tries to exicse admin
-   // privlges
+   // privileges
    virtual void deleteActivity(Post *acticity, UserGroup *wheretoDeketeFrom);
    virtual void removeUserFromGroup(void);
+   User(string name);
+
    string giveName(void);
    // Not Implemented:
    void setNotificationsPrefences(void);
    void readNotification(void);
    bool setVisbiltyForPost(Post *post);
    void flirtPostsBy(void);
-   User(string name);
 };
 
 #endif

@@ -19,7 +19,12 @@ int main()
     users[0]->addUserToFriendsList(users[1]);
     users[0]->addUserToGroup(users[0]->giveGroupLink(0), users[1]);
     users[1]->createPost(users[0]->giveGroupLink(0), "Hi User0!");
-    
+    users[1]->showAllPostsInGroup(users[0]->giveGroupLink(0));
+    users[0]->addUserToFriendsList(users[2]);
+    users[2]->reportPostToAdmin(users[1]->givePostLink(0), adminAsSheep);
+    cout << "*************************************" << endl;
+    cout << "After reporting post to admin as sheep:" << endl;
+    users[0]->showAllPostsInGroup(users[0]->giveGroupLink(0));
     killVectorOfPointers(users);
     delete adminAsSheep;
     delete adminAsWolf;

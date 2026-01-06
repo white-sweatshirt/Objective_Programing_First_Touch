@@ -6,19 +6,18 @@
  ***********************************************************************/
 #include "User.h"
 
-
 void User::createGroup(void)
 {
    userGroups.push_back(new UserGroup(this));
 }
 void User::reportPostToAdmin(Post *reportedPost, User *admin)
 {
-   if(reportedPost == nullptr || admin == nullptr)
+   if (reportedPost == nullptr || admin == nullptr)
       return;
    // perfect world in with reported post are aloweys truthly reoprted
    admin->deleteActivity(reportedPost);
 }
-UserGroup * User::giveGroupLink(int indexOfGroup)
+UserGroup *User::giveGroupLink(int indexOfGroup)
 {
    if (indexOfGroup < 0 || indexOfGroup >= userGroups.size())
       return nullptr;
@@ -41,29 +40,63 @@ void User::createPost(UserGroup *groupInWichToPost, string contents)
 }
 void User::createEvent(Event *newEvent)
 {
+   if (newEvent == nullptr)
+      return;
    events.push_back(newEvent);
 }
 void User::createEvent(UserGroup *groupInWichToCreateEvent, Event *newEvent)
 {
+   if (newEvent == nullptr)
+      return;
    events.push_back(newEvent);
    groupInWichToCreateEvent->addEventToGroup(newEvent);
 }
 void User::joinEvent(Event *eventToJoin)
 {
+   if (eventToJoin == nullptr)
+      return;
    eventToJoin->addParticipant(this);
 }
 void User::createVoting(Voteings *newVoting)
 {
+   if (newVoting == nullptr)
+      return;
    votings.push_back(newVoting);
 }
 void User::createVoting(UserGroup *groupInWichToCreateVoting, Voteings *newVoting)
 {
+   if (newVoting == nullptr)
+      return;
    votings.push_back(newVoting);
    groupInWichToCreateVoting->addVotingToGroup(newVoting);
 }
 void User::removeUserFromFriendsList(User *exFriend)
 {
+   if (exFriend == nullptr)
+      return;
    killElementOfVector(friendsList, exFriend);
+}
+void User::showAllEventsInGroup(UserGroup *group)
+{
+   group->showAllEventsInGroup();
+}
+void User::showAllPostsInGroup(UserGroup *group)
+{
+   group->showAllPostsInGroup();
+}
+void User::showAllVotingsInGroup(UserGroup *group)
+{
+   group->showAllVotingsInGroup();
+}
+Post *User::givePostLink(int indexOfPost)
+{
+   if (indexOfPost < 0 || indexOfPost >= ownedPosts.size())
+      return nullptr;
+   return ownedPosts[indexOfPost];
+}
+void User::show()
+{
+   std::cout << "User name: " << this->name << std::endl;
 }
 void User::readNotification(void)
 {
