@@ -22,6 +22,7 @@ public:
    bool deleteActivity(Post *activity, UserGroup *groupOnWithIsPosted);
    void removeUserFromGroup(User *userToRemove, User *requestingUser, UserGroup *group);
    int lookThroughStatistics(void);
+   void deleteGroup(UserGroup *GroupToDelete);
    PlatformAdmin(string name);
    void show();
 };

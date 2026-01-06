@@ -49,10 +49,9 @@ public:
    void addUserToFriendsList(User *newFriend);
    void removeUserFromFriendsList(User *exFriend);
    void reportPostToAdmin(Post *reportedPost, User *admin);
-   void createPool();
 
    virtual UserGroup *giveGroupLink(int indexOf);
-   virtual void deleteGroup(void);
+   virtual void deleteGroup(UserGroup *groupToDelete);
    virtual void addUserToGroup(UserGroup *group, User *userToAdd);
    virtual bool deleteActivity(Post *activity);
    virtual void show();

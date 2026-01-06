@@ -17,6 +17,8 @@ public:
    void removePersonFromParticipants(User *participantToRemove);
    void sendReminder(void);
    void show();
+   Event(User *owner, string contents);
+   Event(User *owner,string contents, string location);
    ~Event();
 };
 

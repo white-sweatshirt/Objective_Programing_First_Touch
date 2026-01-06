@@ -4,7 +4,12 @@
 #include "Event.h"
 #include "MemberOfGroup.h"
 #include "PlatformAdmin.h"
+#include "TemplateLib.h"
 
+void printSeparator()
+{
+    cout << "****************************" << endl;
+}
 int main()
 {
     vector<User *> users;
@@ -22,11 +27,20 @@ int main()
     users[1]->showAllPostsInGroup(users[0]->giveGroupLink(0));
     users[0]->addUserToFriendsList(users[2]);
     users[2]->reportPostToAdmin(users[1]->givePostLink(0), adminAsSheep);
-    cout << "*************************************" << endl;
+    printSeparator();
+
     cout << "After reporting post to admin as sheep:" << endl;
     users[0]->showAllPostsInGroup(users[0]->giveGroupLink(0));
+    printSeparator();
+
+    users[2]->joinGroup(users[0]->giveGroupLink(0));
+    users[2]->createEvent(users[0]->giveGroupLink(0), new Event(users[2], "Event at Park"));
+    users[0]->showAllEventsInGroup(users[0]->giveGroupLink(0));
+    printSeparator();
+
     killVectorOfPointers(users);
     delete adminAsSheep;
     delete adminAsWolf;
+
     return 0;
 }

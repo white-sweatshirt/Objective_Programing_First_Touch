@@ -54,6 +54,11 @@ PlatformAdmin::PlatformAdmin(string name)
     : User(name)
 {
 }
+void PlatformAdmin::deleteGroup(UserGroup *GroupToDelete)
+{
+   if (GroupToDelete)
+      delete GroupToDelete;
+}
 void PlatformAdmin::show()
 {
    cout << "I am Admin that is all you need to know!" << endl;

@@ -34,7 +34,13 @@ void Event::sendReminder(void)
 }
 Event::~Event()
 {
-   if(this->groupAscooscion)
-      this->groupAscooscion->removeEventFromGroupMemory(this);
    this->participants.clear();
+}
+Event::Event(User *owner, string contents):Post(owner,contents)
+{
+
+}
+Event::Event(User *owner,string contents, string location):Post(owner,contents)
+{
+   this->location=location;
 }

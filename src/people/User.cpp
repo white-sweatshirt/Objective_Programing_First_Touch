@@ -176,8 +176,10 @@ void User::voteInPoll(void)
    // TODO : implement
 }
 
-void User::deleteGroup(void)
+void User::deleteGroup(UserGroup *groupToDelete)
 {
+   if (groupToDelete && groupToDelete->veryfiyAdminPrivilges(this))
+      delete groupToDelete;
 }
 
 void User::addUserToGroup(UserGroup *group, User *userToAdd)
