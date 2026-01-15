@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  User.h
- * Author:  franc
+ * Author:  WhiteSweatShirt
  * Modified: niedziela, 4 stycznia 2026 15:16:58
  * Purpose: Declaration of the class User
  ***********************************************************************/

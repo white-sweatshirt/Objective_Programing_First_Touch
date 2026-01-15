@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  UserGroup.cpp
- * Author:  franc
+ * Author:  WhiteSweatShirt
  * Modified: niedziela, 4 stycznia 2026 15:05:54
  * Purpose: Implementation of the class UserGroup
  ***********************************************************************/
