@@ -1,12 +1,12 @@
 /***********************************************************************
  * Module:  Location.cpp
  * Author:  franc
- * Modified: poniedzia³ek, 26 stycznia 2026 19:50:19
+ * Modified: poniedziaï¿½ek, 26 stycznia 2026 19:50:19
  * Purpose: Implementation of the class Location
  ***********************************************************************/
 
 #include "Items.h"
-#include "PlaceOFImportance.h"
+#include "ImportantPlace.h"
 #include "Location.h"
 
 ////////////////////////////////////////////////////////////////////////

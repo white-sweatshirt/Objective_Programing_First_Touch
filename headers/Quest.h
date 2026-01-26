@@ -3,13 +3,15 @@
 
 #include <string>
 
-class Quest {
+class Quest
+{
 public:
     virtual void sayWhatNeedsToBeDone() = 0;
     virtual void checkFulfillmentCondition() = 0;
     virtual ~Quest() = default;
 };
-class KillingQuest : public Quest {
+class KillingQuest : public Quest
+{
 private:
     std::string enemyToKill;
 
@@ -18,7 +20,8 @@ public:
     void checkFulfillmentCondition() override;
     ~KillingQuest() override = default;
 };
-class SearchQuest : public Quest {
+class SearchQuest : public Quest
+{
 private:
     std::string itemToFind;
 
@@ -27,7 +30,8 @@ public:
     void checkFulfillmentCondition() override;
     ~SearchQuest() override = default;
 };
-class HuntingQuest : public Quest {
+class HuntingQuest : public Quest
+{
 private:
     std::string creatureToKill;
 

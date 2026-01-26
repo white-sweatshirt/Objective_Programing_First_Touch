@@ -2,33 +2,47 @@
 // done purly for trying something else I am aware that this is not standard.
 #include <string>
 
-class Weapon {
+class Items
+{
+public:
+    void equipItem(void);
+};
+
+class Weapon
+{
 protected:
     std::string name;
     double damageMultiplier;
 
 public:
-    virtual void useInAttack() = 0;
+    virtual void giveAttackBonus();
     virtual ~Weapon() = default;
 };
-class RangedWeapon : public Weapon {
+class RangedWeapon : public Weapon, public Items
+{
 public:
     void equipItem();
-    void giveAttackBonus();
-    ~RangedWeapon() override = default;
+    // overide for compiler check if this function is virutral
+    void giveAttackBonus() override;
+    ~RangedWeapon();
 };
-class MeeleWeapon : public Weapon {
+class MeeleWeapon : public Weapon, public Items
+{
 public:
     void equipItem();
-    void giveAttackBonus();
+    void giveAttackBonus() override;
     void giveDefenseBonus();
-    ~MeeleWeapon() override = default;
+    ~MeeleWeapon();
 };
-class MagicWeapon : public Weapon {
+class MagicWeapon : public Weapon, public Items
+{
+private:
+    double additonalDemage;
+    void giveAdditionalAttack();
+
 public:
     void equipItem();
-    void giveAdditionalAttack();
-    void giveAttackBonus();
-    ~MagicWeapon() override = default;
-};
 
+    void giveAttackBonus() override;
+    ~MagicWeapon();
+};

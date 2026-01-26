@@ -31,8 +31,20 @@ protected:
 private:
    int creaturesLayOuts;
    int enemisLocation;
-
+};
+class Swamp : public Location
+{
+public:
+protected:
+private:
 
 };
+class Town : public Location
+{
+public:
+protected:
+private:
+   std::vector<NPC*> vectorOfNPCs;
 
+};
 #endif

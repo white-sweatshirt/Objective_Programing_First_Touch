@@ -32,6 +32,7 @@ class Archer : public ActiveActor
 {
 public:
 protected:
+void riposte();
 private:
 
 };
