@@ -1,22 +1,39 @@
-/***********************************************************************
- * Module:  Quest.h
- * Author:  franc
- * Modified: poniedzia³ek, 26 stycznia 2026 20:00:05
- * Purpose: Declaration of the class Quest
- ***********************************************************************/
+#ifndef QUEST_H
+#define QUEST_H
 
-#if !defined(__UMLClassDiagram_1_Quest_h)
-#define __UMLClassDiagram_1_Quest_h
+#include <string>
 
-class Quest
-{
+class Quest {
 public:
-protected:
-private:
-   int amountToFinsh;
-   int checkFinshingConditon;
-
-
+    virtual void sayWhatNeedsToBeDone() = 0;
+    virtual void checkFulfillmentCondition() = 0;
+    virtual ~Quest() = default;
 };
+class KillingQuest : public Quest {
+private:
+    std::string enemyToKill;
 
-#endif
+public:
+    void sayWhatNeedsToBeDone() override;
+    void checkFulfillmentCondition() override;
+    ~KillingQuest() override = default;
+};
+class SearchQuest : public Quest {
+private:
+    std::string itemToFind;
+
+public:
+    void sayWhatNeedsToBeDone() override;
+    void checkFulfillmentCondition() override;
+    ~SearchQuest() override = default;
+};
+class HuntingQuest : public Quest {
+private:
+    std::string creatureToKill;
+
+public:
+    void sayWhatNeedsToBeDone() override;
+    void checkFulfillmentCondition() override;
+    ~HuntingQuest() override = default;
+};
+#endif // QUEST_H

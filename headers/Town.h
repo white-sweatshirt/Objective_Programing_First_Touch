@@ -1,23 +1,23 @@
 /***********************************************************************
  * Module:  Town.h
  * Author:  franc
- * Modified: poniedzia³ek, 26 stycznia 2026 19:51:10
+ * Modified: poniedziaï¿½ek, 26 stycznia 2026 19:51:10
  * Purpose: Declaration of the class Town
  ***********************************************************************/
 
-#if !defined(__UMLClassDiagram_1_Town_h)
-#define __UMLClassDiagram_1_Town_h
+#ifndef TOWN_H
+#define TOWN_H
 
 #include <Location.h>
-
+#include <vector>
+class NPC;
 class Town : public Location
 {
 public:
 protected:
 private:
-   vecto<NPC*> vectorOfNPCs;
-
+   std::vector<NPC*> vectorOfNPCs;
 
 };
-
+#include "NPC.h"
 #endif

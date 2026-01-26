@@ -1,27 +1,27 @@
-/***********************************************************************
- * Module:  NPC.h
- * Author:  franc
- * Modified: poniedzia³ek, 26 stycznia 2026 19:36:49
- * Purpose: Declaration of the class NPC
- ***********************************************************************/
+#ifndef NPC_H
+#define NPC_H
 
-#if !defined(__UMLClassDiagram_1_NPC_h)
-#define __UMLClassDiagram_1_NPC_h
+#include <vector>
+#include <iostream>
 
-class Items;
-
-class NPC
-{
+class NPC {
 public:
-   void dogeAttacks(void);
-
-   Items** items;
-
-protected:
-private:
-   int Attribute_2;
-
-
+    virtual void giveOptionsInDialogue() = 0;
+    virtual ~NPC() = default;
 };
 
-#endif
+class NPCHealer : public NPC {
+public:
+    void giveOptionsInDialogue() override;
+    void healForSmallFee();
+    ~NPCHealer() override = default;
+};
+class NPCQuestGiver : public NPC {
+public:
+    void giveOptionsInDialogue() override;
+    void giveQuest();
+    void giveRewardForQuest();
+    ~NPCQuestGiver() override = default;
+};
+
+#endif // NPC_H

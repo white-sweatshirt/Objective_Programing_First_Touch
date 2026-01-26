@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  ActiveActor.cpp
  * Author:  franc
- * Modified: poniedzia³ek, 26 stycznia 2026 20:09:16
+ * Modified: poniedziaï¿½ek, 26 stycznia 2026 20:09:16
  * Purpose: Implementation of the class ActiveActor
  ***********************************************************************/
 
@@ -16,6 +16,7 @@
 int ActiveActor::dieAndGiveExp(void)
 {
    // TODO : implement
+   return 0; // Added return statement
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -36,6 +37,10 @@ void ActiveActor::Attack(void)
 ////////////////////////////////////////////////////////////////////////
 
 void ActiveActor::defendYourself(void)
+{
+   // TODO : implement
+}
+void Archer::riposte(void)
 {
    // TODO : implement
 }

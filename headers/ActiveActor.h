@@ -1,12 +1,12 @@
 /***********************************************************************
  * Module:  ActiveActor.h
  * Author:  franc
- * Modified: poniedzia³ek, 26 stycznia 2026 20:09:16
+ * Modified: poniedziaï¿½ek, 26 stycznia 2026 20:09:16
  * Purpose: Declaration of the class ActiveActor
  ***********************************************************************/
 
-#if !defined(__UMLClassDiagram_1_ActiveActor_h)
-#define __UMLClassDiagram_1_ActiveActor_h
+#ifndef ACTIVE_ACTOR_H
+#define ACTIVE_ACTOR_H
 
 class ActiveActor
 {
@@ -17,6 +17,26 @@ public:
 
 protected:
 private:
+
+};
+
+class Warrior : public ActiveActor
+{
+public:
+protected:
+private:
+
+};
+
+class Archer : public ActiveActor
+{
+public:
+protected:
+private:
+
+};
+class Wizzard:public ActiveActor
+{
 
 };
 

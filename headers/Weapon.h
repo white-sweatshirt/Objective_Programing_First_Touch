@@ -1,21 +1,34 @@
-/***********************************************************************
- * Module:  Weapon.h
- * Author:  franc
- * Modified: poniedzia³ek, 26 stycznia 2026 19:58:16
- * Purpose: Declaration of the class Weapon
- ***********************************************************************/
+#pragma once
+// done purly for trying something else I am aware that this is not standard.
+#include <string>
 
-#if !defined(__UMLClassDiagram_1_Weapon_h)
-#define __UMLClassDiagram_1_Weapon_h
-
-class Weapon
-{
-public:
-   int giveAttackBoost(void);
-
+class Weapon {
 protected:
-private:
+    std::string name;
+    double damageMultiplier;
 
+public:
+    virtual void useInAttack() = 0;
+    virtual ~Weapon() = default;
+};
+class RangedWeapon : public Weapon {
+public:
+    void equipItem();
+    void giveAttackBonus();
+    ~RangedWeapon() override = default;
+};
+class MeeleWeapon : public Weapon {
+public:
+    void equipItem();
+    void giveAttackBonus();
+    void giveDefenseBonus();
+    ~MeeleWeapon() override = default;
+};
+class MagicWeapon : public Weapon {
+public:
+    void equipItem();
+    void giveAdditionalAttack();
+    void giveAttackBonus();
+    ~MagicWeapon() override = default;
 };
 
-#endif

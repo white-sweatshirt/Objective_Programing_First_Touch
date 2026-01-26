@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Location.h
  * Author:  franc
- * Modified: poniedzia³ek, 26 stycznia 2026 19:50:19
+ * Modified: poniedziaï¿½ek, 26 stycznia 2026 19:50:19
  * Purpose: Declaration of the class Location
  ***********************************************************************/
 
@@ -21,6 +21,17 @@ public:
 
 protected:
 private:
+
+};
+
+class DarkFortress : public Location
+{
+public:
+protected:
+private:
+   int creaturesLayOuts;
+   int enemisLocation;
+
 
 };
 

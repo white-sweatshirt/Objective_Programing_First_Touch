@@ -1,15 +1,15 @@
 /***********************************************************************
  * Module:  PlaceOFImportance.h
  * Author:  franc
- * Modified: poniedzia³ek, 26 stycznia 2026 19:54:42
+ * Modified: poniedziaï¿½ek, 26 stycznia 2026 19:54:42
  * Purpose: Declaration of the class PlaceOFImportance
  ***********************************************************************/
 
-#if !defined(__UMLClassDiagram_1_PlaceOFImportance_h)
-#define __UMLClassDiagram_1_PlaceOFImportance_h
-
-#include <ActiveActor.h>
+#ifndef PLACE_OF_IMPORTANCE_H
+#define PLACE_OF_IMPORTANCE_H
 #include <NPC.h>
+
+class ActiveActor;
 
 class PlaceOFImportance
 {
@@ -20,9 +20,7 @@ protected:
 private:
    ActiveActor * interestingOppone;
    NPC * interestingNPC;
-   string whatIsInteresting;
-
-
+   std::string whatIsInteresting; // Fixed type declaration
 };
 
 #endif

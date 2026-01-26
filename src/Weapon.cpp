@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Weapon.cpp
  * Author:  franc
- * Modified: poniedzia³ek, 26 stycznia 2026 19:58:16
+ * Modified: poniedziaï¿½ek, 26 stycznia 2026 19:58:16
  * Purpose: Implementation of the class Weapon
  ***********************************************************************/
 
@@ -16,4 +16,5 @@
 int Weapon::giveAttackBoost(void)
 {
    // TODO : implement
+   return 0; // Added return statement
 }

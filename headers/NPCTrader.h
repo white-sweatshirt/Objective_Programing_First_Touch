@@ -1,27 +1,32 @@
-/***********************************************************************
- * Module:  NPCTrader.h
- * Author:  franc
- * Modified: poniedzia³ek, 26 stycznia 2026 17:02:26
- * Purpose: Declaration of the class NPCTrader
- ***********************************************************************/
+#ifndef NPCTRADER_H
+#define NPCTRADER_H
 
-#if !defined(__UMLClassDiagram_1_NPCTrader_h)
-#define __UMLClassDiagram_1_NPCTrader_h
+#include "NPC.h"
 
-#include <NPC.h>
 
-class NPCTrader : public NPC
-{
-public:
-   void sellItem(void);
-   void buyItem(void);
-   void giveSelection(void);
-
-protected:
+class NPCTrader : public NPC {
 private:
-   int listOfItems;
+    std::vector<std::string> itemListToSell;
+    double penaltyRate = 0.1; // 10% penalty for buying items from the player
 
-
+public:
+    void giveOptionsInDialogue() override;
+    void sellItem();
+    void buyItem();
+    void giveSelection();
+    ~NPCTrader() override = default;
+};
+class NPCCrafter : public NPC {
+public:
+    void giveOptionsInDialogue() override;
+    void craftItem(const std::string& itemName, double goldCost);
+    ~NPCCrafter() override = default;
+};
+class NPCShopKeeper : public NPCTrader {
+public:
+    void giveOptionsInDialogue() override;
+    void checkInventory();
+    ~NPCShopKeeper() override = default;
 };
 
-#endif
+#endif // NPCTRADER_H
