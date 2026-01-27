@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "ActiveActor.h"
 
-class PlayerArcher : public Archer, public Player
+class PlayerArcher : public virtual Archer, public virtual Player
 {
 public:
     ~PlayerArcher() override = default;
@@ -11,7 +11,7 @@ public:
     int specialAttack(ActiveActor * actor) override; // New virtual module for special attack
 };
 
-class PlayerWizzard : public Wizzard, public Player
+class PlayerWizzard : public virtual Wizzard, public virtual Player
 {
 public:
     ~PlayerWizzard() override = default;
@@ -19,7 +19,7 @@ public:
     int specialAttack(ActiveActor * actor) override; // New virtual module for special attack
 };
 
-class PlayerWarrior : public Warrior, public Player
+class PlayerWarrior : public virtual Warrior, public virtual Player
 {
 public:
     ~PlayerWarrior() override = default;

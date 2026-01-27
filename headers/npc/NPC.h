@@ -4,6 +4,8 @@
 #include <vector>
 #include <iostream>
 class ActiveActor;
+class Player;
+class Quest;
 class NPC
 {
 private:

@@ -1,24 +1,28 @@
 #pragma once
-// done purly for trying something else 
-//I am aware that this is not standard.
+// done purly for trying something else
+// I am aware that this is not standard.
 #include <string>
 
 class Items
 {
+    double value;
+
 public:
     virtual void equipItem(void);
+    double giveValue(void);
     virtual int calculateBonus(int stat); // Pure virtual function for stat-based bonus
 };
 
-class Weapon: public Items
+class Weapon : public Items
 {
 protected:
     std::string name;
     int damageBonus;
 
 public:
-    
-    virtual ~Weapon() = default;
+    Weapon(std::string name, int damgeBonus);
+    void show();
+    ~Weapon();
 };
 
 class RangedWeapon : public Weapon
@@ -28,7 +32,7 @@ private:
 
 public:
     void equipItem();
-    int calculateBonus(int agility) override; 
+    int calculateBonus(int agility) override;
     ~RangedWeapon();
 };
 
@@ -39,7 +43,7 @@ private:
 
 public:
     void equipItem();
-    int calculateBonus(int strength) override; 
+    int calculateBonus(int strength) override;
     ~MeeleWeapon();
 };
 

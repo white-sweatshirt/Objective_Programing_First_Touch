@@ -7,6 +7,7 @@
 
 #ifndef ACTIVE_ACTOR_H
 #define ACTIVE_ACTOR_H
+#include "TemplateLib.h"
 class NPC;
 class NPCHealer;
 class ActiveActor
@@ -25,16 +26,17 @@ protected:
    double money;
 
 public:
+   ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility) ;
    int dieAndGiveExp(void);
    virtual int Attack(ActiveActor *actor);
    virtual void askForHealing(NPCHealer *npc);
    virtual bool payForHealing(double amount);
-   void defendYourself(void);
+   void defendYourself(int attackPoints);
    virtual int specialAttack(ActiveActor *target);
    void resetSpecialAttack();
 };
 
-class Warrior : public ActiveActor
+class Warrior : public virtual ActiveActor
 {
 public:
    int Attack(ActiveActor *actor);
@@ -44,7 +46,7 @@ protected:
 private:
 };
 
-class Archer : public ActiveActor
+class Archer : public virtual ActiveActor
 {
 public:
    int Attack(ActiveActor *actor);
@@ -55,7 +57,7 @@ protected:
 
 private:
 };
-class Wizzard : public ActiveActor
+class Wizzard : public virtual  ActiveActor
 {
 public:
    int Attack(ActiveActor *actor);

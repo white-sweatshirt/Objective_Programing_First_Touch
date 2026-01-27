@@ -3,15 +3,20 @@
 
 #include <string>
 
+class Location; // Forward declaration of Location class
+
 class Quest
 {
 protected:
-    bool complated;
+    bool complited;
     double reward;
+    Location *location; // Pointer to the location
 public:
-    virtual void sayWhatNeedsToBeDone() ;
-    virtual bool checkFulfillmentCondition() ;
-    double  giveReward();
+    virtual void sayWhatNeedsToBeDone();
+    virtual bool checkFulfillmentCondition();
+    double giveReward();
+    void setLocation(Location *loc); // Modified to accept a Location pointer
+    bool isFulfilled();
     virtual ~Quest() = default;
 };
 class KillingQuest : public Quest
@@ -21,7 +26,7 @@ private:
 
 public:
     void sayWhatNeedsToBeDone() override;
-    
+
     ~KillingQuest() override = default;
 };
 class SearchQuest : public Quest
@@ -40,7 +45,7 @@ private:
 
 public:
     void sayWhatNeedsToBeDone() override;
-    
+
     ~HuntingQuest() override = default;
 };
 #endif // QUEST_H

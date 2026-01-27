@@ -6,7 +6,15 @@
  ***********************************************************************/
 
 #include "ActiveActor.h"
-#include "NPC.h"
+ActiveActor::ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility)
+    : hP(hP), maxHp(maxHp), strenght(strenght), inteligence(inteligence), agility(agility)
+{
+    level = 1;
+    currentExp = 0;
+    timeToSpecialAttack = 0;
+    money = 0.0;
+}
+
 int ActiveActor::dieAndGiveExp(void)
 {
    return level * 10;
@@ -14,16 +22,17 @@ int ActiveActor::dieAndGiveExp(void)
 
 int ActiveActor::Attack(ActiveActor *actor)
 {
-   // abstarct place holder
+   return strenght;
 }
 
-void ActiveActor::defendYourself(void)
+void ActiveActor::defendYourself(int attackPoints)
 {
-   // abstarct place holder
+   if(attackPoints>0)
+      this->hP-=attackPoints-this->strenght;
 }
 void Archer::riposte(void)
 {
-   // abstarct place holder
+   // TODO : implement
 }
 
 int Warrior::Attack(ActiveActor *actor)
@@ -41,19 +50,4 @@ int Wizzard::Attack(ActiveActor *actor)
    return inteligence + agility;
 }
 
-void ActiveActor::askForHealing(NPCHealer *healer)
-{
-   {
-      healer->healPlayerForFee(this);
-   }
-}
-bool ActiveActor::payForHealing(double amount)
-{
-   if (this->money > amount)
-   {
-      this->money -= amount;
-      return true;
-   }
-   else
-      return false;
-}
+

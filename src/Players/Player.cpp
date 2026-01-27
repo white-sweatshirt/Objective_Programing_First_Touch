@@ -1,6 +1,17 @@
 #include "Player.h"
 #include "Location.h"
 #include "TemplateLib.h"
+#include "Quest.h"
+#include "NPCTrader.h"
+#include "NPC.h"
+#include "Weapon.h"
+
+Player::Player(std::string customName)
+    : ActiveActor(100, 100, 4, 4, 4), name(customName), level(1),
+      experience(0), expToNextLevel(30), money(0)
+{
+}
+
 void Player::goToNewPlace(Location *newPlace)
 {
     this->placeOfBeing = newPlace;
@@ -42,12 +53,47 @@ void Player::equipItem(Items *item)
 void Player::getMonetaryReward(double reward)
 {
     if (reward > 0)
-        this-> money+= reward;
+        this->money += reward;
     else
         return;
 }
 void Player::giveFulliedQuestsToNPC(NPCQuestGiver *npc)
 {
-    for(auto w:this->questList)
-        npc->giveRewardForQuest(this,w);
+    for (auto w : this->questList)
+        npc->giveRewardForQuest(this, w);
+}
+void Player::receiveQuest(Quest *quest)
+{
+    if (quest)
+        questList.push_back(quest);
+    
+}
+
+void Player::gainExperienceFromEnemy(int exp)
+{
+    experience += exp;
+    checkLevelUp();
+}
+
+void Player::checkLevelUp()
+{
+    if (experience >= expToNextLevel)
+    {
+        level++;
+        experience -= expToNextLevel;
+        expToNextLevel += 30; // Increment threshold for next level
+        strenght += 4;
+        agility += 4;
+        inteligence += 4;
+    }
+}
+void Player::sellItem(Items *item, NPCTrader *trader)
+{
+    if (!item || !trader)
+        return;
+
+    templateLib::removeElemetOfVector(this->items, item);
+
+    double value = item->giveValue()* (1.0 - trader->giveFee());
+    money += value;
 }

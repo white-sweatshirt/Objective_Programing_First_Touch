@@ -1,13 +1,13 @@
 #include "NPCTrader.h"
-
+#include "Player.h"
 void NPCTrader::giveOptionsInDialogue()
 {
     // Implementation of dialogue options
 }
 
-void NPCTrader::sellItem()
+void NPCTrader::sellItem(Player *player)
 {
-    // Implementation of selling items
+    
 }
 
 void NPCTrader::buyItem(Item *item)
@@ -20,14 +20,29 @@ void NPCTrader::giveSelection()
     // Implementation of giving selection
 }
 
-void NPCShopKeeper::giveSelection(void)
+double NPCTrader::giveFee()
 {
-    // TODO : implement
+    return penaltyRate; // Return the penalty rate (e.g., 10%)
 }
 
-void NPCShopKeeper::sellItem(void)
+void NPCShopKeeper::generateItems()
 {
-    // TODO : implement
+    items.push_back(new Weapon("Wizard Staff", 10));
+    items.push_back(new Weapon("Wizard Wand", 8));
+    items.push_back(new Weapon("Warrior Sword", 12));
+    items.push_back(new Weapon("Warrior Shield", 10));
+    items.push_back(new Weapon("Archer Bow", 9));
+    items.push_back(new Weapon("Archer Crossbow", 11));
+}
+
+void NPCShopKeeper::giveSelection(void)
+{
+    templateLib::showContentsOfContainer(this->items);
+}
+
+void NPCShopKeeper::sellItem(Player *player)
+{
+    
 }
 
 void NPCShopKeeper::buyItem(Item *item)
@@ -37,4 +52,17 @@ void NPCShopKeeper::buyItem(Item *item)
 void NPCCrafter::destroyItem(Item *item)
 {
     // TODO : implement
+}
+void NPCCrafter::createItem(Player* player, int damageBonus)
+{
+    if (!player)
+        return;
+
+    double cost = damageBonus * 3.0;
+    if (player->getMoney() >= cost)
+    {
+        player->reduceMoney(cost);
+        Items* newItem = new Weapon("Crafted Weapon", damageBonus);
+        player->addItemToInventory(newItem);
+    }
 }

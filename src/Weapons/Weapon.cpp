@@ -10,6 +10,14 @@
 void Items::equipItem(void)
 
 {}
+double Items::giveValue(void)
+{
+    return this->value;
+}
+void Weapon::show()
+{
+    std::cout << "Weapon: " << name << ", Damage Bonus: " << damageBonus << std::endl;
+}
 int RangedWeapon::calculateBonus(int agility)
 {
     return damageBonus + (agility * agilityBonus);
