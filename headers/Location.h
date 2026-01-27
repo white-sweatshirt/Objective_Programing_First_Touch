@@ -7,21 +7,21 @@
 
 #ifndef LOCATION_H
 #define LOCATION_H
-
+#include<iostream>
+#include <vector>
 class Items;
 class PlaceOFImportance;
+class NPC;
 
 class Location
 {
+   protected:
+   std::string description;
 public:
-   void tellAboutInterestingLocations(void);
+   virtual void tellAboutInterestingLocations(void);
 
    Items** items;
-   PlaceOFImportance** placeOFImportance;
-
-protected:
-private:
-
+   std::vector<PlaceOFImportance*> interestingPlaces;
 };
 
 class DarkFortress : public Location
@@ -38,6 +38,8 @@ class Town : public Location
 {
 
    std::vector<NPC*> vectorOfNPCs;
+   void tellAboutInterestingLocations(void) override;
 
 };
+
 #endif

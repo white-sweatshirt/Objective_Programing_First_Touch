@@ -7,41 +7,50 @@
 
 #ifndef ACTIVE_ACTOR_H
 #define ACTIVE_ACTOR_H
-
+class NPC;
 class ActiveActor
 {
-private:
-int hP;
-int level
-
+protected:
+   int maxHp;
+   int hP;
+   int level;
+   int strenght;
+   int inteligence;
+   int agility;
+   int currentExp;
+   int timeToSpecialAttack;
 public:
    int dieAndGiveExp(void);
-   void Attack(void);
+   virtual int Attack(ActiveActor *actor);
+   virtual void askForHealing(NPC *npc);
    void defendYourself(void);
-
-
-
+   virtual int specialAttack();
+   void resetSpecialAttack();
 };
 
 class Warrior : public ActiveActor
 {
 public:
+   int Attack(ActiveActor *actor);
+
 protected:
 private:
-
 };
 
 class Archer : public ActiveActor
 {
 public:
+   int Attack(ActiveActor *actor);
+
 protected:
-void riposte();
+   void riposte();
+
 private:
-
 };
-class Wizzard:public ActiveActor
+class Wizzard : public ActiveActor
 {
-
+public:
+   int Attack(ActiveActor *actor);
 };
 
 #endif

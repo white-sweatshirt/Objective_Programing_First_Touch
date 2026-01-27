@@ -1,48 +1,56 @@
 #pragma once
-// done purly for trying something else I am aware that this is not standard.
+// done purly for trying something else 
+//I am aware that this is not standard.
 #include <string>
 
 class Items
 {
 public:
-    void equipItem(void);
+    virtual void equipItem(void);
+    virtual int calculateBonus(int stat); // Pure virtual function for stat-based bonus
 };
 
-class Weapon
+class Weapon: public Items
 {
 protected:
     std::string name;
-    double damageMultiplier;
+    int damageBonus;
 
 public:
-    virtual void giveAttackBonus();
+    
     virtual ~Weapon() = default;
 };
-class RangedWeapon : public Weapon, public Items
-{
-public:
-    void equipItem();
-    // overide for compiler check if this function is virutral
-    void giveAttackBonus() override;
-    ~RangedWeapon();
-};
-class MeeleWeapon : public Weapon, public Items
-{
-public:
-    void equipItem();
-    void giveAttackBonus() override;
-    void giveDefenseBonus();
-    ~MeeleWeapon();
-};
-class MagicWeapon : public Weapon, public Items
+
+class RangedWeapon : public Weapon
 {
 private:
-    double additonalDemage;
-    void giveAdditionalAttack();
+    int agilityBonus;
 
 public:
     void equipItem();
+    int calculateBonus(int agility) override; 
+    ~RangedWeapon();
+};
 
-    void giveAttackBonus() override;
+class MeeleWeapon : public Weapon
+{
+private:
+    int strenghtBonus;
+
+public:
+    void equipItem();
+    int calculateBonus(int strength) override; 
+    ~MeeleWeapon();
+};
+
+class MagicWeapon : public Weapon
+{
+private:
+    int magicalMultiplier;
+    double additionalDamage;
+
+public:
+    void equipItem();
+    int calculateBonus(int intelligence) override;
     ~MagicWeapon();
 };

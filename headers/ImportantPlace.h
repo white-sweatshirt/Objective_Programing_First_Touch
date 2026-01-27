@@ -14,11 +14,13 @@ class ActiveActor;
 class PlaceOFImportance
 {
 private:
-   ActiveActor *interestingOppone;
-   NPC *interestingNPC;
-   std::string whatIsInteresting; // Fixed type declaration
+    ActiveActor* interestingOppone;
+    NPC* interestingNPC;
+    std::string whatIsInteresting;
+
 public:
-   void giveOption(void);
+    void giveOption(void);
+    void show() const; // Method to display details of the place
 };
 
 #endif

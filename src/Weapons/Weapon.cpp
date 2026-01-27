@@ -6,15 +6,21 @@
  ***********************************************************************/
 
 #include "Weapon.h"
+#include "Player.h"
+void Items::equipItem(void)
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Weapon::giveAttackBoost()
-// Purpose:    Implementation of Weapon::giveAttackBoost()
-// Return:     int
-////////////////////////////////////////////////////////////////////////
-
-void Weapon::giveAttackBonus(void)
+{}
+int RangedWeapon::calculateBonus(int agility)
 {
-   // TODO : implement
-   // Added return statement
+    return damageBonus + (agility * agilityBonus);
+}
+
+int MeeleWeapon::calculateBonus(int strength)
+{
+    return damageBonus + (strength * strenghtBonus);
+}
+
+int MagicWeapon::calculateBonus(int intelligence)
+{
+    return damageBonus + static_cast<int>(intelligence * magicalMultiplier + additionalDamage);
 }

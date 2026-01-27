@@ -1,31 +1,34 @@
 #include <vector>
-#include <iostream> 
-
+#include <iostream>
+#include <list>
 #ifndef PLAYER_H
 #define PLAYER_H
-#include <list>
-class NPC; 
+class NPC;
 class Items;
-class Weapon; 
+class Weapon;
+class Location;
 
-class Player {
+class Player
+{
 protected:
     std::string name;
     int level;
     double experience;
     std::vector<std::string> questList;
-    std::string placeOfBeing;
+    Location* placeOfBeing;
     NPC* npc;
-    std::list <Items*> items; 
-    Weapon* weapon; 
+    std::list<Items*> items;
+    Items* weapon;
 
 public:
-    virtual void goToNewPlace(const std::string& newPlace);
+    virtual void goToNewPlace(Location * newPlace);
     virtual void interactWithNPC(NPC* npc);
     virtual void gainExperience(double amount);
+    void sellItem(Items *itemToSell);
+    void askLocationToShowInterestingPlaces(); // New method
+    void equipItem(Items *itemToEquip);
     virtual ~Player() = default;
 };
-
 
 #include "Weapon.h"
 #include "NPC.h"
