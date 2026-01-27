@@ -26,7 +26,7 @@ public:
     virtual ~Player() = default;
 };
 
-#include "Items.h"
+
 #include "Weapon.h"
 #include "NPC.h"
 #endif // PLAYER_H

@@ -10,13 +10,16 @@
 
 class ActiveActor
 {
+private:
+int hP;
+int level
+
 public:
    int dieAndGiveExp(void);
    void Attack(void);
    void defendYourself(void);
 
-protected:
-private:
+
 
 };
 

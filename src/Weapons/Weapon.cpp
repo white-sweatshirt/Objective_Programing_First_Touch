@@ -13,8 +13,8 @@
 // Return:     int
 ////////////////////////////////////////////////////////////////////////
 
-int Weapon::giveAttackBoost(void)
+void Weapon::giveAttackBonus(void)
 {
    // TODO : implement
-   return 0; // Added return statement
+   // Added return statement
 }

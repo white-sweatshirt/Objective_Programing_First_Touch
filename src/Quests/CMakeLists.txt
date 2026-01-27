@@ -1,8 +1,6 @@
 set(QUEST_SOURCES
     Quest.cpp
-    HuntingQuest.cpp
-    SearchQuest.cpp
-    KillingQuest.cpp
 )
 
-add_library(Quests DYNAMIC ${QUEST_SOURCES})
+add_library(Quests  ${QUEST_SOURCES})
+target_include_directories(Quests PUBLIC ${Headers})

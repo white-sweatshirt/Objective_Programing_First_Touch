@@ -5,8 +5,8 @@
  * Purpose: Declaration of the class Location
  ***********************************************************************/
 
-#if !defined(__UMLClassDiagram_1_Location_h)
-#define __UMLClassDiagram_1_Location_h
+#ifndef LOCATION_H
+#define LOCATION_H
 
 class Items;
 class PlaceOFImportance;
@@ -26,24 +26,17 @@ private:
 
 class DarkFortress : public Location
 {
-public:
-protected:
-private:
+
    int creaturesLayOuts;
    int enemisLocation;
 };
 class Swamp : public Location
 {
-public:
-protected:
-private:
 
 };
 class Town : public Location
 {
-public:
-protected:
-private:
+
    std::vector<NPC*> vectorOfNPCs;
 
 };

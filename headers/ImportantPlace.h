@@ -7,20 +7,18 @@
 
 #ifndef PLACE_OF_IMPORTANCE_H
 #define PLACE_OF_IMPORTANCE_H
-#include <NPC.h>
+#include "NPC.h"
 
 class ActiveActor;
 
 class PlaceOFImportance
 {
+private:
+   ActiveActor *interestingOppone;
+   NPC *interestingNPC;
+   std::string whatIsInteresting; // Fixed type declaration
 public:
    void giveOption(void);
-
-protected:
-private:
-   ActiveActor * interestingOppone;
-   NPC * interestingNPC;
-   std::string whatIsInteresting; // Fixed type declaration
 };
 
 #endif

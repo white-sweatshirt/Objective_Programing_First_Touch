@@ -3,20 +3,25 @@
 
 #include <vector>
 #include <iostream>
-
-class NPC {
+class ActiveActor;
+class NPC
+{
 public:
-    virtual void giveOptionsInDialogue() = 0;
+    virtual void giveOptionsInDialogue();
+    
     virtual ~NPC() = default;
 };
 
-class NPCHealer : public NPC {
+class NPCHealer : public NPC
+{
 public:
     void giveOptionsInDialogue() override;
-    void healForSmallFee();
+    void healPlayerForFee(ActiveActor *pCharacter);
+
     ~NPCHealer() override = default;
 };
-class NPCQuestGiver : public NPC {
+class NPCQuestGiver : public NPC
+{
 public:
     void giveOptionsInDialogue() override;
     void giveQuest();
