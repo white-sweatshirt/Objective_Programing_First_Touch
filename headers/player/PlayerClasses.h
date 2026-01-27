@@ -8,7 +8,7 @@ class PlayerArcher : public Archer, public Player
 public:
     ~PlayerArcher() override = default;
     int calculateWeaponBonus();
-    int specialAttack() override; // New virtual module for special attack
+    int specialAttack(ActiveActor * actor) override; // New virtual module for special attack
 };
 
 class PlayerWizzard : public Wizzard, public Player
@@ -16,7 +16,7 @@ class PlayerWizzard : public Wizzard, public Player
 public:
     ~PlayerWizzard() override = default;
     int calculateWeaponBonus();
-    int specialAttack() override; // New virtual module for special attack
+    int specialAttack(ActiveActor * actor) override; // New virtual module for special attack
 };
 
 class PlayerWarrior : public Warrior, public Player
@@ -24,7 +24,7 @@ class PlayerWarrior : public Warrior, public Player
 public:
     ~PlayerWarrior() override = default;
     int calculateWeaponBonus();
-    int specialAttack() override; // New virtual module for special attack
+    int specialAttack(ActiveActor * actor) override; // New virtual module for special attack
 };
 
 #endif

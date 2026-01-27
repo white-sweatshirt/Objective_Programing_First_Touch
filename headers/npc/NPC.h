@@ -17,6 +17,8 @@ public:
 
 class NPCHealer : public NPC
 {
+    private:
+    double healingFee;
 public:
     void giveOptionsInDialogue() override;
     void healPlayerForFee(ActiveActor *pCharacter);
@@ -27,8 +29,8 @@ class NPCQuestGiver : public NPC
 {
 public:
     void giveOptionsInDialogue() override;
-    void giveQuest();
-    void giveRewardForQuest();
+    void giveQuest(Player *player);
+    void giveRewardForQuest(Player *player,Quest *realisedQuest);
     void show() override;
     ~NPCQuestGiver() override = default;
 };

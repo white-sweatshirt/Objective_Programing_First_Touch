@@ -3,6 +3,8 @@
 void Quest::sayWhatNeedsToBeDone()
 {
 }
-void Quest::checkFulfillmentCondition()
+bool Quest::checkFulfillmentCondition()
 {
+    return this->complated;
 }
+

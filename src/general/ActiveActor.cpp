@@ -6,55 +6,54 @@
  ***********************************************************************/
 
 #include "ActiveActor.h"
-
-////////////////////////////////////////////////////////////////////////
-// Name:       ActiveActor::dieAndGiveExp()
-// Purpose:    Implementation of ActiveActor::dieAndGiveExp()
-// Return:     int
-////////////////////////////////////////////////////////////////////////
-
+#include "NPC.h"
 int ActiveActor::dieAndGiveExp(void)
 {
-   return level *10;
+   return level * 10;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       ActiveActor::Attack()
-// Purpose:    Implementation of ActiveActor::Attack()
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-int ActiveActor::Attack(ActiveActor * actor)
+int ActiveActor::Attack(ActiveActor *actor)
 {
-   // TODO : implement
+   // abstarct place holder
 }
-
-////////////////////////////////////////////////////////////////////////
-// Name:       ActiveActor::defendYourself()
-// Purpose:    Implementation of ActiveActor::defendYourself()
-// Return:     void
-////////////////////////////////////////////////////////////////////////
 
 void ActiveActor::defendYourself(void)
 {
-   // TODO : implement
+   // abstarct place holder
 }
 void Archer::riposte(void)
 {
-   // TODO : implement
+   // abstarct place holder
 }
 
 int Warrior::Attack(ActiveActor *actor)
 {
-    return strenght + agility;
+   return strenght + agility;
 }
 
 int Archer::Attack(ActiveActor *actor)
 {
-    return inteligence + agility;
+   return inteligence + agility;
 }
 
 int Wizzard::Attack(ActiveActor *actor)
 {
-    return inteligence + agility;
+   return inteligence + agility;
+}
+
+void ActiveActor::askForHealing(NPCHealer *healer)
+{
+   {
+      healer->healPlayerForFee(this);
+   }
+}
+bool ActiveActor::payForHealing(double amount)
+{
+   if (this->money > amount)
+   {
+      this->money -= amount;
+      return true;
+   }
+   else
+      return false;
 }

@@ -5,9 +5,13 @@
 
 class Quest
 {
+protected:
+    bool complated;
+    double reward;
 public:
-    virtual void sayWhatNeedsToBeDone() = 0;
-    virtual void checkFulfillmentCondition() = 0;
+    virtual void sayWhatNeedsToBeDone() ;
+    virtual bool checkFulfillmentCondition() ;
+    double  giveReward();
     virtual ~Quest() = default;
 };
 class KillingQuest : public Quest
@@ -17,7 +21,7 @@ private:
 
 public:
     void sayWhatNeedsToBeDone() override;
-    void checkFulfillmentCondition() override;
+    
     ~KillingQuest() override = default;
 };
 class SearchQuest : public Quest
@@ -27,7 +31,6 @@ private:
 
 public:
     void sayWhatNeedsToBeDone() override;
-    void checkFulfillmentCondition() override;
     ~SearchQuest() override = default;
 };
 class HuntingQuest : public Quest
@@ -37,7 +40,7 @@ private:
 
 public:
     void sayWhatNeedsToBeDone() override;
-    void checkFulfillmentCondition() override;
+    
     ~HuntingQuest() override = default;
 };
 #endif // QUEST_H

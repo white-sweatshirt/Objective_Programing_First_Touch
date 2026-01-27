@@ -32,10 +32,22 @@ void Player::equipItem(Items *item)
 
     if (item == nullptr)
         return;
-    if (this->weapon != nullptr&& this->weapon!=item)
+    if (this->weapon != nullptr && this->weapon != item)
     {
         this->items.push_back(weapon);
         this->weapon = item;
         templateLib::removeElemetOfVector(this->items, item);
     }
+}
+void Player::getMonetaryReward(double reward)
+{
+    if (reward > 0)
+        this-> money+= reward;
+    else
+        return;
+}
+void Player::giveFulliedQuestsToNPC(NPCQuestGiver *npc)
+{
+    for(auto w:this->questList)
+        npc->giveRewardForQuest(this,w);
 }

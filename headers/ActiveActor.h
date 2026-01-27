@@ -8,8 +8,11 @@
 #ifndef ACTIVE_ACTOR_H
 #define ACTIVE_ACTOR_H
 class NPC;
+class NPCHealer;
 class ActiveActor
 {
+   friend NPCHealer;
+
 protected:
    int maxHp;
    int hP;
@@ -19,12 +22,15 @@ protected:
    int agility;
    int currentExp;
    int timeToSpecialAttack;
+   double money;
+
 public:
    int dieAndGiveExp(void);
    virtual int Attack(ActiveActor *actor);
-   virtual void askForHealing(NPC *npc);
+   virtual void askForHealing(NPCHealer *npc);
+   virtual bool payForHealing(double amount);
    void defendYourself(void);
-   virtual int specialAttack();
+   virtual int specialAttack(ActiveActor *target);
    void resetSpecialAttack();
 };
 
@@ -32,6 +38,7 @@ class Warrior : public ActiveActor
 {
 public:
    int Attack(ActiveActor *actor);
+   int specialAttack(ActiveActor *target) override;
 
 protected:
 private:
@@ -41,6 +48,7 @@ class Archer : public ActiveActor
 {
 public:
    int Attack(ActiveActor *actor);
+   int specialAttack(ActiveActor *target) override;
 
 protected:
    void riposte();
@@ -51,6 +59,7 @@ class Wizzard : public ActiveActor
 {
 public:
    int Attack(ActiveActor *actor);
+   int specialAttack(ActiveActor *target) override;
 };
 
 #endif
