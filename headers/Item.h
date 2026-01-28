@@ -3,17 +3,17 @@
 // I am aware that this is not standard.
 #include <string>
 
-class Items
+class Item
 {
     double value;
-
 public:
     virtual void equipItem(void);
     double giveValue(void);
     virtual int calculateBonus(int stat); // Pure virtual function for stat-based bonus
+    virtual void show();
 };
 
-class Weapon : public Items
+class Weapon : public Item
 {
 protected:
     std::string name;
@@ -21,7 +21,7 @@ protected:
 
 public:
     Weapon(std::string name, int damgeBonus);
-    void show();
+    void show() override;
     ~Weapon();
 };
 
@@ -33,6 +33,7 @@ private:
 public:
     void equipItem();
     int calculateBonus(int agility) override;
+    RangedWeapon(std::string name,int damegeBonus);
     ~RangedWeapon();
 };
 
@@ -44,6 +45,7 @@ private:
 public:
     void equipItem();
     int calculateBonus(int strength) override;
+    MeeleWeapon(std::string name,int damegeBonus);
     ~MeeleWeapon();
 };
 
@@ -57,4 +59,5 @@ public:
     void equipItem();
     int calculateBonus(int intelligence) override;
     ~MagicWeapon();
+    MagicWeapon(std::string name,int damegeBonus);
 };

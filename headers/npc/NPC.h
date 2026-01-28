@@ -8,9 +8,11 @@ class Player;
 class Quest;
 class NPC
 {
+    //virtural class
 private:
     std::string name;
-
+protected:
+virtual void showOptions(void);
 public:
     virtual void giveOptionsInDialogue();
     virtual void show();
@@ -21,14 +23,18 @@ class NPCHealer : public NPC
 {
     private:
     double healingFee;
+     void showOptions(void)override;
 public:
     void giveOptionsInDialogue() override;
     void healPlayerForFee(ActiveActor *pCharacter);
     void show() override;
     ~NPCHealer() override = default;
 };
+#include <list>
 class NPCQuestGiver : public NPC
 {
+    private:
+     void showOptions(void)override;
 public:
     void giveOptionsInDialogue() override;
     void giveQuest(Player *player);

@@ -8,35 +8,39 @@ class Weapon;
 class NPCTrader : public NPC
 {
 protected:
-    std::vector<std::string> itemListToSell;
-    std::vector<Weapon *> items;
+    std::vector<Item *> items;
     double penaltyRate = 0.1; // 10% penalty for buying items from the player
 
 public:
     virtual void giveOptionsInDialogue() override;
     virtual void sellItem(Player *player);
-    virtual void buyItem(Item *item);
+    virtual double buyItem(Item *item);
     virtual void giveSelection();
+    void show(void)override;
     double giveFee();
     ~NPCTrader();
 };
-class NPCCrafter final : public NPC // final makes it imposiable for it to be virutral
+class NPCCrafter final : public NPCTrader // final makes it imposiable for it to be virutral
 {
+private:
 public:
     void giveOptionsInDialogue() override;
     void createItem(Player *player, int damageBonus);
+    void createItem(Player *player, int damageBonus, std::string customName);
     void destroyItem(Item *item);
+    void show(void) override;
     ~NPCCrafter();
 };
 class NPCShopKeeper : public NPCTrader
 {
+private:
 public:
     void giveOptionsInDialogue() override;
-    void checkInventory();
     void giveSelection(void) override;
     void sellItem(Player *player) final; // makes it impossiable to overwrite function in inheritance
-    void buyItem(Item *item) override;
+    double buyItem(Item *item) override;
     void generateItems();
+    void show(void) override;
     ~NPCShopKeeper();
 };
 

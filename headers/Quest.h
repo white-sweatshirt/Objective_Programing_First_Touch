@@ -12,30 +12,31 @@ protected:
     double reward;
     Location *location; // Pointer to the location
 public:
-    virtual void sayWhatNeedsToBeDone();
+    virtual void show();
     virtual bool checkFulfillmentCondition();
     double giveReward();
     void setLocation(Location *loc); // Modified to accept a Location pointer
-    bool isFulfilled();
     virtual ~Quest() = default;
 };
 class KillingQuest : public Quest
 {
 private:
-    std::string enemyToKill;
-
+    int creaturesKilled;
+    int craeturesToKill;
 public:
-    void sayWhatNeedsToBeDone() override;
-
-    ~KillingQuest() override = default;
+    void show() override;
+    void addKilling();
+    KillingQuest();
+    ~KillingQuest();
 };
 class SearchQuest : public Quest
 {
 private:
-    std::string itemToFind;
-
+    int itemsFounded;
+    int itemsMeantToBeFound;
 public:
-    void sayWhatNeedsToBeDone() override;
+    void show() override;
+    void addItemFinded();
     ~SearchQuest() override = default;
 };
 class HuntingQuest : public Quest
@@ -44,8 +45,9 @@ private:
     std::string creatureToKill;
 
 public:
-    void sayWhatNeedsToBeDone() override;
-
+    void show() override;
+    
     ~HuntingQuest() override = default;
 };
 #endif // QUEST_H
+#include "ActiveActor.h"

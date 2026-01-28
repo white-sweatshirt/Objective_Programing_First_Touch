@@ -23,14 +23,17 @@ protected:
    int agility;
    int currentExp;
    int timeToSpecialAttack;
+   int timeCurrentlyWaitedToAttack;
    double money;
 
 public:
-   ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility) ;
+   ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility);
    int dieAndGiveExp(void);
    virtual int Attack(ActiveActor *actor);
-   virtual void askForHealing(NPCHealer *npc);
-   virtual bool payForHealing(double amount);
+
+   void askForHealing(NPCHealer *npc);
+   bool payForSth(double amount);
+
    void defendYourself(int attackPoints);
    virtual int specialAttack(ActiveActor *target);
    void resetSpecialAttack();
@@ -57,7 +60,7 @@ protected:
 
 private:
 };
-class Wizzard : public virtual  ActiveActor
+class Wizzard : public virtual ActiveActor
 {
 public:
    int Attack(ActiveActor *actor);

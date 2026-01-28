@@ -1,5 +1,5 @@
 set(WEAPON_SOURCES
-    Weapon.cpp
+    Item.cpp
 )
 
 add_library(Weapons ${WEAPON_SOURCES})

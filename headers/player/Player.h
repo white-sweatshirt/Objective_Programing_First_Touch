@@ -6,7 +6,7 @@
 class NPC;
 class NPCTrader;
 class NPCQuestGiver;
-class Items;
+class Item;
 class Weapon;
 class Location;
 class Quest;
@@ -20,9 +20,8 @@ protected:
     double experience;
     std::vector<Quest *> questList; // Corrected type
     Location *placeOfBeing;
-    NPC *npc;
-    std::list<Items *> items;
-    Items *weapon;
+    std::list<Item *> items;
+    Item *weapon;
     double money;
 
     void checkLevelUp(); // Added protected method
@@ -31,7 +30,8 @@ public:
     Player( std::string customName); // Added constructor declaration
    
     void receiveQuest(Quest *quest);
-    void receiveMoneyForQuest(Quest *quest, NPCQuestGiver *npc);
+    void reciveMoney(double amount);
+    void fullfillQuests(NPCQuestGiver * npc);
     void gainExperienceFromEnemy(int exp);
 
     virtual void goToNewPlace(Location *newPlace);
@@ -40,15 +40,15 @@ public:
     
     void askLocationToShowInterestingPlaces();
     void giveFulliedQuestsToNPC(NPCQuestGiver *npc);
-    void equipItem(Items *itemToEquip);
+    void equipItem(Item *itemToEquip);
     void getMonetaryReward(double reward);
-    void sellItem(Items *item, NPCTrader *trader);
-    void addItemToInventory(Items *item);
-    double getMoney();
-    void reduceMoney(double cost);
-    virtual ~Player() = default;
+    void sellItem(Item *item, NPCTrader *trader);
+    void addItemToInventory(Item *item);
+    double giveAccountStatus(void);
+    void payForSth(double amount);
+     ~Player();
 };
 
-#include "Weapon.h"
+#include "Item.h"
 #include "NPC.h"
 #endif // PLAYER_H

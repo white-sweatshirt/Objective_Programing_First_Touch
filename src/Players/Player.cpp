@@ -4,7 +4,7 @@
 #include "Quest.h"
 #include "NPCTrader.h"
 #include "NPC.h"
-#include "Weapon.h"
+#include "Item.h"
 
 Player::Player(std::string customName)
     : ActiveActor(100, 100, 4, 4, 4), name(customName), level(1),
@@ -30,15 +30,11 @@ void Player::gainExperience(double amount)
 void Player::askLocationToShowInterestingPlaces()
 {
     if (placeOfBeing)
-    {
         placeOfBeing->tellAboutInterestingLocations();
-    }
     else
-    {
         std::cout << "You are not in any location." << std::endl;
-    }
 }
-void Player::equipItem(Items *item)
+void Player::equipItem(Item *item)
 {
 
     if (item == nullptr)
@@ -57,6 +53,15 @@ void Player::getMonetaryReward(double reward)
     else
         return;
 }
+void Player::addItemToInventory(Item *item)
+{
+    this->items.push_back(item);
+}
+void Player::reciveMoney(double amount)
+{
+    if (amount > 0)
+        this->money += amount;
+}
 void Player::giveFulliedQuestsToNPC(NPCQuestGiver *npc)
 {
     for (auto w : this->questList)
@@ -66,7 +71,6 @@ void Player::receiveQuest(Quest *quest)
 {
     if (quest)
         questList.push_back(quest);
-    
 }
 
 void Player::gainExperienceFromEnemy(int exp)
@@ -81,19 +85,24 @@ void Player::checkLevelUp()
     {
         level++;
         experience -= expToNextLevel;
-        expToNextLevel += 30; // Increment threshold for next level
+        expToNextLevel += 30; 
         strenght += 4;
         agility += 4;
         inteligence += 4;
     }
 }
-void Player::sellItem(Items *item, NPCTrader *trader)
+void Player::sellItem(Item *item, NPCTrader *trader)
 {
     if (!item || !trader)
         return;
 
     templateLib::removeElemetOfVector(this->items, item);
 
-    double value = item->giveValue()* (1.0 - trader->giveFee());
+    double value = item->giveValue() * (1.0 - trader->giveFee());
     money += value;
+}
+Player::~Player()
+{
+    templateLib::killVectorOfPointers(this->items);
+    templateLib::killVectorOfPointers(this->questList);
 }
