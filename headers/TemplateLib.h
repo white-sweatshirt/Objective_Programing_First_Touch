@@ -59,21 +59,21 @@ namespace templateLib
    template <class T>
    int getStandardChoiceResult(T *objectOnWithIoperate, void (T::*showMenu)(void), int lowerLimit, int upperLimit)
    {
-      std::string choice;
+      char choice;
       int i = 0;
       int constexpr numberToNotSeeMenu = 10;
-      objectOnWithIoperate->*showMenu();
+      (objectOnWithIoperate->*showMenu)();
       do
       {
          if (i == numberToNotSeeMenu)
          {
-            objectOnWithIoperate->*showMenu();
+            (objectOnWithIoperate->*showMenu)();
             i = 0;
          }
          else
             i++;
-         std::cin>>choice;
-         
+         choice = getchar();
+         ignoreToNextEnter();
       } while (choice < lowerLimit || choice > upperLimit);
       return choice;
    }

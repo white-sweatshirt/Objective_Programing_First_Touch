@@ -11,14 +11,16 @@ Player::Player(std::string customName)
       experience(0), expToNextLevel(30), money(0)
 {
 }
-void Player::showGeneralPosibilites(void)
+void Player::showInventory(void)
 {
+    std::cout << "pokazywanie ekwypinku: " << std::endl;
+    templateLib::showContentsOfContainer(this->items);
+}
+void Player::showAllQuests(void)
+{
+    templateLib::showContentsOfContainer(this->questList);
+}
 
-}
-void Player::goToNewPlace(Location *newPlace)
-{
-    this->placeOfBeing = newPlace;
-}
 bool Player::payForSth(double amount)
 {
     if (amount > this->money)
@@ -40,13 +42,6 @@ void Player::gainExperience(double amount)
     experience += amount;
 }
 
-void Player::askLocationToShowInterestingPlaces()
-{
-    if (placeOfBeing)
-        placeOfBeing->tellAboutInterestingLocations();
-    else
-        std::cout << "You are not in any location." << std::endl;
-}
 void Player::equipItem(Item *item)
 {
 
@@ -116,8 +111,6 @@ void Player::sellItem(Item *item, NPCTrader *trader)
 }
 Player::~Player()
 {
-    this->sublocation = nullptr;
-    this->placeOfBeing = nullptr;
     templateLib::killVectorOfPointers(this->items);
     templateLib::killVectorOfPointers(this->questList);
 }

@@ -22,19 +22,24 @@ private:
     bool playerInFight;
     Player *pc; // pc - player character
     NPC *npc;
-    ActiveActor * opponent;
+    ActiveActor *opponent;
     ImportantPlace *currentSublocation;
     Location *currentLocation;
 
 protected:
     void showGeneralPosibilites(void);
-     void showGoingMenu();
+    void showGoingMenu();
+    void showInventoryMenu(void);
     void showFightingOptions(void);
-    void showTradingOptions(void);
+    void showInteractionOptions(void);
     void showSubLocationOptions(void);
-public:
-    void askForUserInput(void (UserInterface::*menuOption)(void));
-    bool checkIfUserFights(void);
+    void askLocationToShowInterestingPlaces();
+    void simulatePlayerFight(void);
+    void redetictFromMainMenu(int choice);
 
+public:
+    void askForUserInput();
+    bool checkIfUserFights(void);
+    ~UserInterface();
 };
 #endif

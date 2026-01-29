@@ -7,6 +7,8 @@ void NPCTrader::getUserToChoseOption(Player *player)
 
 void NPCTrader::sellItem(Player *player, int numberChosen)
 {
+    if(player->payForSth(items[numberChosen]->giveValue()))
+        player->addItemToInventory(items[numberChosen]);
 }
 NPCTrader::~NPCTrader()
 {

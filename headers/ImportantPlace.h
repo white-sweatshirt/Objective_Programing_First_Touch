@@ -14,13 +14,15 @@ class ActiveActor;
 class PlaceOFImportance
 {
 private:
-    ActiveActor* interestingOppone;
+    ActiveActor* enemy ;
     NPC* interestingNPC;
-    std::string whatIsInteresting;
+    std::string description;
 
 public:
     void giveOption(void);
     void show() const; // Method to display details of the place
+    ActiveActor * giveAntagonist(void);
+    NPC* giveNPC(void);
 };
 
 #endif

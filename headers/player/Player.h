@@ -19,9 +19,6 @@ protected:
     std::string name;
     int level;
     
-    Location *placeOfBeing;
-    ImportantPlace *sublocation;
-    
     double expToNextLevel;
     double experience;
 
@@ -45,19 +42,19 @@ public:
     void fullfillQuests(NPCQuestGiver *npc);
     void gainExperienceFromEnemy(int exp);
 
-    virtual void goToNewPlace(Location *newPlace);
     virtual void interactWithNPC(NPC *npc);
     virtual void gainExperience(double amount);
 
-    void askLocationToShowInterestingPlaces();
     void giveFulliedQuestsToNPC(NPCQuestGiver *npc);
     void equipItem(Item *itemToEquip);
     void getMonetaryReward(double reward);
     void sellItem(Item *item, NPCTrader *trader);
-
-    void giveSellsOptions();
+    void runForLife();
+    void showAllQuests(void);
     void addItemToInventory(Item *item);
+    void showInventory(void);
     bool payForSth(double amount);
+
     virtual ~Player();
 };
 
