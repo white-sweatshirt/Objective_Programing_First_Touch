@@ -29,7 +29,7 @@ protected:
 public:
    ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility);
    int dieAndGiveExp(void);
-   virtual int Attack(ActiveActor *actor);
+   virtual void Attack(ActiveActor *actor);
 
    void askForHealing(NPCHealer *npc);
    bool payForSth(double amount);
@@ -42,7 +42,7 @@ public:
 class Warrior : public virtual ActiveActor
 {
 public:
-   int Attack(ActiveActor *actor);
+   void Attack(ActiveActor *actor) override;
    int specialAttack(ActiveActor *target) override;
 
 protected:
@@ -52,7 +52,8 @@ private:
 class Archer : public virtual ActiveActor
 {
 public:
-   int Attack(ActiveActor *actor);
+   void
+    Attack(ActiveActor *actor) override;
    int specialAttack(ActiveActor *target) override;
 
 protected:
@@ -63,7 +64,7 @@ private:
 class Wizzard : public virtual ActiveActor
 {
 public:
-   int Attack(ActiveActor *actor);
+   void Attack(ActiveActor *actor) override;
    int specialAttack(ActiveActor *target) override;
 };
 

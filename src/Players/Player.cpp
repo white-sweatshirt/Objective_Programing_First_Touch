@@ -11,15 +11,28 @@ Player::Player(std::string customName)
       experience(0), expToNextLevel(30), money(0)
 {
 }
+void Player::showGeneralPosibilites(void)
+{
 
+}
 void Player::goToNewPlace(Location *newPlace)
 {
     this->placeOfBeing = newPlace;
 }
-
-void Player::interactWithNPC(NPC *npc)
+bool Player::payForSth(double amount)
 {
-    npc->giveOptionsInDialogue();
+    if (amount > this->money)
+    {
+        std::cout << name << " nie stac na ta czynosc" << std::endl;
+        return false;
+    }
+    else
+    {
+        if (amount > 0)
+            this->money -= amount;
+        else
+            std::cout << "probowano zaplacic ujemna ilosc pieniedzy! " << std::endl;
+    }
 }
 
 void Player::gainExperience(double amount)
@@ -37,9 +50,9 @@ void Player::askLocationToShowInterestingPlaces()
 void Player::equipItem(Item *item)
 {
 
-    if (item == nullptr)
+    if (!item)
         return;
-    if (this->weapon != nullptr && this->weapon != item)
+    if (this->weapon && this->weapon != item)
     {
         this->items.push_back(weapon);
         this->weapon = item;
@@ -85,7 +98,7 @@ void Player::checkLevelUp()
     {
         level++;
         experience -= expToNextLevel;
-        expToNextLevel += 30; 
+        expToNextLevel += 30;
         strenght += 4;
         agility += 4;
         inteligence += 4;
@@ -103,6 +116,8 @@ void Player::sellItem(Item *item, NPCTrader *trader)
 }
 Player::~Player()
 {
+    this->sublocation = nullptr;
+    this->placeOfBeing = nullptr;
     templateLib::killVectorOfPointers(this->items);
     templateLib::killVectorOfPointers(this->questList);
 }

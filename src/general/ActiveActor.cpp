@@ -33,9 +33,9 @@ int ActiveActor::dieAndGiveExp(void)
    return level * 10;
 }
 
-int ActiveActor::Attack(ActiveActor *actor)
+void ActiveActor::Attack(ActiveActor *actor)
 {
-   return strenght;
+   actor->defendYourself(strenght);
 }
 
 void ActiveActor::defendYourself(int attackPoints)
@@ -45,20 +45,20 @@ void ActiveActor::defendYourself(int attackPoints)
 }
 void Archer::riposte(void)
 {
-   // TODO : implement
+   
 }
 
-int Warrior::Attack(ActiveActor *actor)
+void Warrior::Attack(ActiveActor *actor)
 {
-   return strenght + agility;
+   actor->defendYourself(strenght + agility);
 }
 
-int Archer::Attack(ActiveActor *actor)
+void Archer::Attack(ActiveActor *actor)
 {
-   return inteligence + agility;
+   actor->defendYourself(strenght + inteligence);
 }
 
-int Wizzard::Attack(ActiveActor *actor)
+void Wizzard::Attack(ActiveActor *actor)
 {
-   return inteligence + agility;
+   actor->defendYourself(inteligence + agility);
 }

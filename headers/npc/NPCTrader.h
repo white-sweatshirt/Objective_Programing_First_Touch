@@ -10,38 +10,31 @@ class NPCTrader : public NPC
 protected:
     std::vector<Item *> items;
     double penaltyRate = 0.1; // 10% penalty for buying items from the player
+    virtual void showOptions(void) override;
+    virtual void interprateChoice(int choice) override;
+    virtual void interprateChoice(int choice , int itemsSold,Player *pc) ;
 
 public:
-    virtual void giveOptionsInDialogue() override;
-    virtual void sellItem(Player *player);
+    virtual void getUserToChoseOption(Player *pc) override;
+    void sellItem(Player *player,int numberChosen);
     virtual double buyItem(Item *item);
-    virtual void giveSelection();
-    void show(void)override;
+    void generateItems();
+    void show(void) override;
     double giveFee();
     ~NPCTrader();
 };
 class NPCCrafter final : public NPCTrader // final makes it imposiable for it to be virutral
 {
 private:
+    void showOptions(void) override;
+
 public:
-    void giveOptionsInDialogue() override;
+    void getUserToChoseOption(Player *pc) override;
     void createItem(Player *player, int damageBonus);
     void createItem(Player *player, int damageBonus, std::string customName);
     void destroyItem(Item *item);
     void show(void) override;
     ~NPCCrafter();
-};
-class NPCShopKeeper : public NPCTrader
-{
-private:
-public:
-    void giveOptionsInDialogue() override;
-    void giveSelection(void) override;
-    void sellItem(Player *player) final; // makes it impossiable to overwrite function in inheritance
-    double buyItem(Item *item) override;
-    void generateItems();
-    void show(void) override;
-    ~NPCShopKeeper();
 };
 
 #endif // NPCTRADER_H

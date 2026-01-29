@@ -8,24 +8,30 @@ class Player;
 class Quest;
 class NPC
 {
-    //virtural class
-private:
-    std::string name;
+    // virtural class:
+
 protected:
-virtual void showOptions(void);
+    virtual void showOptions(void);
+    virtual void interprateChoice(int choice) ;
+    std::string name;
+
 public:
-    virtual void giveOptionsInDialogue();
+    void takeUserInput(void);
+    virtual void askForUserInput(void);
+    virtual void getUserToChoseOption(Player *pc);
     virtual void show();
     virtual ~NPC() = default;
 };
 
 class NPCHealer : public NPC
 {
-    private:
+private:
     double healingFee;
-     void showOptions(void)override;
+    void showOptions(void) override;
+    virtual void interprateChoice(int choice) override;
+
 public:
-    void giveOptionsInDialogue() override;
+    void getUserToChoseOption(Player *pc) override;
     void healPlayerForFee(ActiveActor *pCharacter);
     void show() override;
     ~NPCHealer() override = default;
@@ -33,14 +39,16 @@ public:
 #include <list>
 class NPCQuestGiver : public NPC
 {
-    private:
-     void showOptions(void)override;
+private:
+    void showOptions(void) override;
+    virtual void interprateChoice(int choice) override;
+
 public:
-    void giveOptionsInDialogue() override;
+    void getUserToChoseOption(Player *pc) override;
     void giveQuest(Player *player);
-    void giveRewardForQuest(Player *player,Quest *realisedQuest);
+    void giveRewardForQuest(Player *player, Quest *realisedQuest);
     void show() override;
-    ~NPCQuestGiver() override = default;
+    virtual ~NPCQuestGiver() override = default;
 };
 
 #endif // NPC_H

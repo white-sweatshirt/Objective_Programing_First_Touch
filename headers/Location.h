@@ -7,39 +7,19 @@
 
 #ifndef LOCATION_H
 #define LOCATION_H
-#include<iostream>
+#include <iostream>
 #include <vector>
-class Items;
+#include <list>
+class Item;
 class PlaceOFImportance;
 class NPC;
 
 class Location
 {
-   protected:
+protected:
    std::string description;
+   std::list<PlaceOFImportance *> interestingPlaces;
 public:
-   virtual void tellAboutInterestingLocations(void);
-
-   Items** items;
-   std::vector<PlaceOFImportance*> interestingPlaces;
+   int tellAboutInterestingLocations(void);
 };
-
-class DarkFortress : public Location
-{
-
-   int creaturesLayOuts;
-   int enemisLocation;
-};
-class Swamp : public Location
-{
-
-};
-class Town : public Location
-{
-
-   std::vector<NPC*> vectorOfNPCs;
-   void tellAboutInterestingLocations(void) override;
-
-};
-
 #endif

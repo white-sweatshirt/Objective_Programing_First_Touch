@@ -10,9 +10,18 @@ void ignoreToNextEnter()
 int getStandardChoiceResult(void (*showMenu)(void), int lowerLimit, int upperLimit)
 {
     char choice;
+    int i = 0;
+    int constexpr numberToNotSeeMenu = 10;
+    showMenu();
     do
     {
-        showMenu();
+        if (i == numberToNotSeeMenu)
+        {
+            showMenu();
+            i = 0;
+        }
+        else
+            i++;
         choice = getchar();
         ignoreToNextEnter();
     } while (choice < lowerLimit || choice > upperLimit);

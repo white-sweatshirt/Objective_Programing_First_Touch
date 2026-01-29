@@ -1,6 +1,6 @@
 #pragma once
 // done purly for trying something else
-// I am aware that this is not standard.
+// I am aware that this is not technicly standard.
 #include <string>
 
 class Item
