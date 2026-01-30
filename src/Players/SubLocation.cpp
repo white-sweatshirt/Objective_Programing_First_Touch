@@ -47,4 +47,10 @@ ActiveActor * SubLocation::giveAntagonist(void)
 {
     return this->enemy;
 }
-
+SubLocation::~SubLocation(void)
+{
+    if(enemy)
+        delete enemy;
+    if(interestingNPC)
+        delete interestingNPC;
+}

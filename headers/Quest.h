@@ -16,7 +16,7 @@ public:
     virtual bool checkFulfillmentCondition();
     double giveReward();
     void setLocation(Location *loc); // Modified to accept a Location pointer
-    virtual ~Quest() = default;
+    virtual ~Quest();
 };
 class KillingQuest : public Quest
 {

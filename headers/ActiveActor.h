@@ -39,6 +39,7 @@ public:
    virtual bool defendYourself(int attackPoints);
    virtual bool specialAttack(ActiveActor *target);
    void resetSpecialAttack();
+   ~ActiveActor() = default;
 };
 
 class Warrior : public virtual ActiveActor

@@ -11,6 +11,7 @@ public:
     double giveValue(void);
     virtual int calculateBonus(int stat); // Pure virtual function for stat-based bonus
     virtual void show();
+    virtual ~Item() = default;
 };
 
 class Weapon : public Item
@@ -22,7 +23,7 @@ protected:
 public:
     Weapon(std::string name, int damgeBonus);
     void show() override;
-    ~Weapon();
+    ~Weapon()override = default;// setting deconstror to deflaut
 };
 
 class RangedWeapon : public Weapon
@@ -34,7 +35,7 @@ public:
     void equipItem();
     int calculateBonus(int agility) override;
     RangedWeapon(std::string name,int damegeBonus);
-    ~RangedWeapon();
+    ~RangedWeapon()=default;
 };
 
 class MeeleWeapon : public Weapon
@@ -46,7 +47,7 @@ public:
     void equipItem();
     int calculateBonus(int strength) override;
     MeeleWeapon(std::string name,int damegeBonus);
-    ~MeeleWeapon();
+    ~MeeleWeapon()= default;
 };
 
 class MagicWeapon : public Weapon
@@ -56,8 +57,7 @@ private:
     double additionalDamage;
 
 public:
-    void equipItem();
     int calculateBonus(int intelligence) override;
-    ~MagicWeapon();
+    ~MagicWeapon() = default;
     MagicWeapon(std::string name,int damegeBonus);
 };

@@ -3,11 +3,7 @@
 #include "Player.h"
 #include "Quest.h"
 #include "Menu.h"
-void NPC::getUserToChoseOption()
-{
-    std::cout << "I am just poor NPC I have no purpouse <<ins"
-              << "ert inteligent one liner>>" << std::endl;
-}
+
 void NPC::show()
 {
     std::cout << "Jestem " << this->name;

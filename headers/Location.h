@@ -21,5 +21,6 @@ protected:
    std::list<SubLocation *> interestingPlaces;
 public:
    int tellAboutInterestingLocations(void);
+   ~Location();
 };
 #endif

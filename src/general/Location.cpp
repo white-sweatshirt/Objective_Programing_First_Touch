@@ -16,3 +16,7 @@ int Location::tellAboutInterestingLocations(void)
    int nPlaces=templateLib::showContentsOfContainerWithCounter(this->interestingPlaces);
    return nPlaces;
 }
+Location::~Location()
+{
+      templateLib::killVectorOfPointers(this->interestingPlaces);
+}

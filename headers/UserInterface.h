@@ -16,7 +16,7 @@ class Quest;
 // vector of possiable locations where player might go.
 // choices in general menu would produce sub menus implemented in function pointers
 // that would be specyfied menus (not sure about it->)for in those functions
-
+#include <list>
 class UserInterface
 {
 private:
@@ -26,7 +26,7 @@ private:
     ActiveActor *opponent;
     SubLocation *currentSublocation;
     Location *currentLocation;
-    list <Location *> allLocations;
+    std::list <Location *> allLocations;
 protected:
     void showGeneralPosibilites(void);
     void showGoingMenu(void);

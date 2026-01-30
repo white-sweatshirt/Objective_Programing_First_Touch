@@ -27,10 +27,7 @@ double NPCTrader::giveFee()
 {
     return penaltyRate; // Return the penalty rate (e.g., 10%)
 }
-void NPCTrader::sellItem(Player *player, int numberChosen)
-{
-    items[numberChosen]->giveValue();
-}
+
 
 double NPCTrader::buyItem(Item *item)
 {
@@ -49,10 +46,6 @@ void NPCTrader::generateItems()
     items.push_back(new RangedWeapon("Archer Bow", 9));
     items.push_back(new RangedWeapon("Archer Crossbow", 11));
     items.push_back(new RangedWeapon("Flame-Thrower", 300));
-}
-
-void NPCTrader::getUserToChoseOption(Player *player)
-{
 }
 
 void NPCTrader::showSellingOptions()
@@ -196,4 +189,8 @@ void NPCCrafter::createItem(Player *player, int damageBonus, std::string customN
         Item *newItem = new Weapon(customName, damageBonus);
         player->addItemToInventory(newItem);
     }
+}
+NPCCrafter::~NPCCrafter(void)
+{
+    
 }

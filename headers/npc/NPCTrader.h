@@ -21,7 +21,7 @@ public:
     void generateItems();
     void show(void) override;
     double giveFee();
-    ~NPCTrader();
+    virtual ~NPCTrader();
 };
 
 // final makes it imposiable for class to be inherited

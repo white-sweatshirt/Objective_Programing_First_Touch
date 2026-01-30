@@ -75,7 +75,7 @@ void UserInterface::redetictFromMainMenu(int choice)
         pc->giveVitalInfo();
     case 3:
         this->npc->askForUserInput();
-            
+
         break;
 
     case 4:
@@ -119,10 +119,9 @@ void UserInterface::simulatePlayerFight(void)
     {
         this->pc->gainExperience(opponent->dieAndGiveExp());
         delete opponent;
-    
+
         this->pc->checkLevelUp();
         this->playerInFight = false;
-
     }
 }
 #include <stdlib.h>
@@ -138,5 +137,10 @@ void UserInterface::askForUserInput()
 }
 UserInterface::~UserInterface()
 {
-
+    templateLib::killVectorOfPointers(allLocations);
+    opponent = nullptr;
+    currentSublocation = nullptr;
+    templateLib::killVectorOfPointers(allLocations);
+    delete pc;
+    pc = nullptr;
 }

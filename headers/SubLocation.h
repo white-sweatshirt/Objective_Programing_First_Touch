@@ -27,6 +27,7 @@ public:
     SubLocation(ActiveActor *opponent, NPC *npc,std::string desc);
     SubLocation(ActiveActor *opponent, NPC *npc);
     NPC* giveNPC(void);
+    ~SubLocation();
 };
 
 #endif

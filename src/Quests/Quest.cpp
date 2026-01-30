@@ -1,5 +1,8 @@
 #include "Quest.h"
-
+Quest::~Quest(void)
+{
+    this->location=nullptr;
+}
 void Quest::show()
 {
 }
