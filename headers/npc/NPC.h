@@ -27,7 +27,7 @@ class NPCHealer : public NPC
 {
 private:
     double healingFee;
-    void showOptions(void) override;
+    void showOptions(void) ;
     virtual void interprateChoice(int choice) override;
 
 public:

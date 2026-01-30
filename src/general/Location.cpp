@@ -5,7 +5,7 @@
  * Purpose: Implementation of the class Location
  ***********************************************************************/
 #include "Location.h"
-#include "ImportantPlace.h"
+#include "SubLocation.h"
 #include "TemplateLib.h"
 
 int Location::tellAboutInterestingLocations(void)

@@ -4,7 +4,7 @@ class ActiveActor;
 class Player;
 class NPC;
 class Location;
-class ImportantPlace;
+class SubLocation;
 class Quest;
 // what if i would put all interaction with user in giant class named user interface
 // that class would store information about :
@@ -16,6 +16,7 @@ class Quest;
 // vector of possiable locations where player might go.
 // choices in general menu would produce sub menus implemented in function pointers
 // that would be specyfied menus (not sure about it->)for in those functions
+
 class UserInterface
 {
 private:
@@ -23,13 +24,14 @@ private:
     Player *pc; // pc - player character
     NPC *npc;
     ActiveActor *opponent;
-    ImportantPlace *currentSublocation;
+    SubLocation *currentSublocation;
     Location *currentLocation;
-
+    list <Location *> allLocations;
 protected:
     void showGeneralPosibilites(void);
-    void showGoingMenu();
+    void showGoingMenu(void);
     void showInventoryMenu(void);
+    
     void showFightingOptions(void);
     void showInteractionOptions(void);
     void showSubLocationOptions(void);
@@ -39,7 +41,6 @@ protected:
 
 public:
     void askForUserInput();
-    bool checkIfUserFights(void);
     ~UserInterface();
 };
 #endif

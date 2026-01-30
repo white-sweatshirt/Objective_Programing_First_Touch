@@ -14,7 +14,7 @@ Player::Player(std::string customName)
 void Player::showInventory(void)
 {
     std::cout << "pokazywanie ekwypinku: " << std::endl;
-    templateLib::showContentsOfContainer(this->items);
+    templateLib::showContentsOfContainerWithCounter(this->items);
 }
 void Player::showAllQuests(void)
 {
@@ -108,6 +108,14 @@ void Player::sellItem(Item *item, NPCTrader *trader)
 
     double value = item->giveValue() * (1.0 - trader->giveFee());
     money += value;
+}
+Item *Player::choseSellingItem(void)
+{
+    int choice =-1;
+    choice =templateLib::getStandardChoiceResult(this,showInventory,0,items.size()-1);
+    Item* chosenItem=items[choice];
+    templateLib::removeElemetOfVector(items,items[choice]);
+    return chosenItem;
 }
 Player::~Player()
 {

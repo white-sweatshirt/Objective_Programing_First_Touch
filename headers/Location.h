@@ -11,14 +11,14 @@
 #include <vector>
 #include <list>
 class Item;
-class PlaceOFImportance;
+class SubLocation;
 class NPC;
 
 class Location
 {
 protected:
    std::string description;
-   std::list<PlaceOFImportance *> interestingPlaces;
+   std::list<SubLocation *> interestingPlaces;
 public:
    int tellAboutInterestingLocations(void);
 };

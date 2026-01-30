@@ -1,8 +1,8 @@
 /***********************************************************************
- * Module:  PlaceOFImportance.h
+ * Module:  SubLocation.h
  * Author:  franc
  * Modified: poniedzia�ek, 26 stycznia 2026 19:54:42
- * Purpose: Declaration of the class PlaceOFImportance
+ * Purpose: Declaration of the class SubLocation
  ***********************************************************************/
 
 #ifndef PLACE_OF_IMPORTANCE_H
@@ -11,7 +11,7 @@
 
 class ActiveActor;
 
-class PlaceOFImportance
+class SubLocation
 {
 private:
     ActiveActor* enemy ;
@@ -19,9 +19,13 @@ private:
     std::string description;
 
 public:
-    void giveOption(void);
-    void show() const; // Method to display details of the place
+    void show(); 
     ActiveActor * giveAntagonist(void);
+    void setOponent(ActiveActor *opponet);
+    void setNPC(NPC *npc);
+    void setdesc(std::string desc);
+    SubLocation(ActiveActor *opponent, NPC *npc,std::string desc);
+    SubLocation(ActiveActor *opponent, NPC *npc);
     NPC* giveNPC(void);
 };
 

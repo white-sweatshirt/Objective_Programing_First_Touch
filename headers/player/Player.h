@@ -10,9 +10,9 @@ class Item;
 class Weapon;
 class Location;
 class Quest;
-class ImportantPlace;
+class SubLocation;
 #include "ActiveActor.h"
-
+#include <deque>
 class Player : public virtual ActiveActor
 {
 protected:
@@ -24,14 +24,10 @@ protected:
 
     std::vector<Quest *> questList;
     
-    std::list<Item *> items;
+    std::deque<Item *> items;
     Item *weapon;
     double money;
-
-
-
-    void checkLevelUp();
-
+    void showSellingOptions(void);
 public:
     Player(std::string customName); // Added constructor declaration
     // it will be in loop that will be telling whats
@@ -49,11 +45,12 @@ public:
     void equipItem(Item *itemToEquip);
     void getMonetaryReward(double reward);
     void sellItem(Item *item, NPCTrader *trader);
-    void runForLife();
+    Item* choseSellingItem(void);
     void showAllQuests(void);
     void addItemToInventory(Item *item);
     void showInventory(void);
     bool payForSth(double amount);
+    void checkLevelUp();
 
     virtual ~Player();
 };

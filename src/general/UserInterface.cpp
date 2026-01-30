@@ -75,6 +75,7 @@ void UserInterface::redetictFromMainMenu(int choice)
         pc->giveVitalInfo();
     case 3:
         this->npc->askForUserInput();
+            
         break;
 
     case 4:
@@ -105,10 +106,7 @@ void UserInterface::simulatePlayerFight(void)
     else if (choice == 1)
         this->pc->specialAttack(opponent);
     else
-    {
-        this->pc->runForLife();
         this->playerInFight = false;
-    }
     if (this->opponent->giveCurrentHp() > 0)
         this->opponent->attack(pc);
     else if (this->pc->giveCurrentHp() <= 0)
@@ -120,7 +118,11 @@ void UserInterface::simulatePlayerFight(void)
     else if (this->opponent->giveCurrentHp() <= 0)
     {
         this->pc->gainExperience(opponent->dieAndGiveExp());
+        delete opponent;
+    
+        this->pc->checkLevelUp();
         this->playerInFight = false;
+
     }
 }
 #include <stdlib.h>
@@ -133,4 +135,8 @@ void UserInterface::askForUserInput()
         return;
     }
     choice = templateLib::getStandardChoiceResult(this, showGeneralPosibilites, 0, 8);
+}
+UserInterface::~UserInterface()
+{
+
 }

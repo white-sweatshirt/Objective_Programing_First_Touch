@@ -77,5 +77,26 @@ namespace templateLib
       } while (choice < lowerLimit || choice > upperLimit);
       return choice;
    }
+   template <class T>
+   int getStandardChoiceResult(T *objectOnWithIoperate, void (T::*showMenu)(int max), int lowerLimit, int upperLimit)
+   {
+      char choice;
+      int i = 0;
+      int constexpr numberToNotSeeMenu = 10;
+      (objectOnWithIoperate->*showMenu)(upperLimit);
+      do
+      {
+         if (i == numberToNotSeeMenu)
+         {
+            (objectOnWithIoperate->*showMenu)(upperLimit);
+            i = 0;
+         }
+         else
+            i++;
+         choice = getchar();
+         ignoreToNextEnter();
+      } while (choice < lowerLimit || choice > upperLimit);
+      return choice;
+   }
 }
 #endif

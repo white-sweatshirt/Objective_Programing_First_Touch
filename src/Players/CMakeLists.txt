@@ -1,6 +1,6 @@
 set(PLAYER_SOURCES
     Player.cpp
-    ImportantPlace.cpp
+    SubLocation.cpp
 )
 
 add_library(Players  ${PLAYER_SOURCES} )
