@@ -14,19 +14,22 @@ class ActiveActor;
 class SubLocation
 {
 private:
-    ActiveActor* enemy ;
-    NPC* interestingNPC;
+    ActiveActor *enemy;
+    NPC *interestingNPC;
     std::string description;
 
 public:
-    void show(); 
-    ActiveActor * giveAntagonist(void);
+    void show();
+    ActiveActor *giveAntagonist(void);
     void setOponent(ActiveActor *opponet);
     void setNPC(NPC *npc);
     void setdesc(std::string desc);
-    SubLocation(ActiveActor *opponent, NPC *npc,std::string desc);
+    NPC *giveNPC(void);
+    
+    SubLocation(ActiveActor *opponent, NPC *npc, std::string desc);
     SubLocation(ActiveActor *opponent, NPC *npc);
-    NPC* giveNPC(void);
+    SubLocation(ActiveActor *opponent, std::string desc);
+    SubLocation(NPC *npc, std::string desc);
     ~SubLocation();
 };
 

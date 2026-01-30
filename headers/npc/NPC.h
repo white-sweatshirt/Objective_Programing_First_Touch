@@ -49,6 +49,7 @@ public:
     void giveRewardForQuest(Player *player, Quest *realisedQuest);
     void show() override;
     virtual ~NPCQuestGiver() override = default;
+    NPCQuestGiver() =default;
 };
 
 #endif // NPC_H

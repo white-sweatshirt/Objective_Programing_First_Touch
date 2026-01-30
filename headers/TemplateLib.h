@@ -50,17 +50,17 @@ namespace templateLib
       return i;
    }
 
-   void ignoreToNextEnter()
-   {
-      int c = -1;
-      while ((c = getchar()) != EOF && c != '\n')
-         ;
-   }
+   //void ignoreToNextEnter()
+   //{
+     
+   //}
+
    template <class T>
    int getStandardChoiceResult(T *objectOnWithIoperate, void (T::*showMenu)(void), int lowerLimit, int upperLimit)
    {
       char choice;
       int i = 0;
+       int c = -1;
       int constexpr numberToNotSeeMenu = 10;
       (objectOnWithIoperate->*showMenu)();
       do
@@ -73,7 +73,9 @@ namespace templateLib
          else
             i++;
          choice = getchar();
-         ignoreToNextEnter();
+         
+      while ((c = getchar()) != EOF && c != '\n')
+         ;
       } while (choice < lowerLimit || choice > upperLimit);
       return choice;
    }
@@ -94,7 +96,7 @@ namespace templateLib
          else
             i++;
          choice = getchar();
-         ignoreToNextEnter();
+         
       } while (choice < lowerLimit || choice > upperLimit);
       return choice;
    }

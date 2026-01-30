@@ -1,10 +1,13 @@
 #include "NPCTrader.h"
 #include "Player.h"
-#include "Menu.h"
-
+#include "Item.h"
+#include "TemplateLib.h"
+NPCTrader::NPCTrader()
+{
+}
 void NPCTrader::sellItem(Player *player, int numberChosen)
 {
-    if (player->payForSth(items[numberChosen]->giveValue()))
+    if (player->payForSth((items[numberChosen])->giveValue()))
         player->addItemToInventory(items[numberChosen]);
 }
 NPCTrader::~NPCTrader()

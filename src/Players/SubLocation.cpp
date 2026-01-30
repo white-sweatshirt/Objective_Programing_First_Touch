@@ -39,6 +39,17 @@ SubLocation::SubLocation(ActiveActor *opponent, NPC *npc)
 {
     this->description="Test Arena location";
 }
+SubLocation::SubLocation(ActiveActor *opponent,std::string desc):
+enemy(opponent),description(desc)
+{
+
+}
+SubLocation::SubLocation(NPC *npc,std::string desc):
+interestingNPC(npc),description(desc)
+{
+
+}
+
 NPC * SubLocation::giveNPC(void)
 {
     return this->interestingNPC;

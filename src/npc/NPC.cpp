@@ -2,7 +2,6 @@
 #include "ActiveActor.h"
 #include "Player.h"
 #include "Quest.h"
-#include "Menu.h"
 
 void NPC::show()
 {

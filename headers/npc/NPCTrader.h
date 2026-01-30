@@ -10,17 +10,19 @@ class NPCTrader : public NPC
 protected:
     std::vector<Item *> items;
     double penaltyRate = 0.1;
+
     void showSellingOptions(void) ;
     virtual void interprateChoice(int choice) override;
     virtual void interprateChoice(int choice ,Player *pc) ;
     virtual void showOptions(void);
+    void generateItems();
 public:
     virtual void getUserToChoseOption(Player *pc) override;
     void sellItem(Player *player,int numberChosen);
     virtual double buyItem(Item *item);
-    void generateItems();
     void show(void) override;
     double giveFee();
+    NPCTrader();
     virtual ~NPCTrader();
 };
 

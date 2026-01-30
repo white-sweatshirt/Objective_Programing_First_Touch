@@ -4,7 +4,11 @@
 #include "Location.h"
 #include "NPC.h"
 using namespace std;
+void UserInterface::addLocation(Location *loc)
+{
+    this->allLocations.push_back(loc);
 
+}
 void UserInterface::showGoingMenu()
 {
     cout << "0. idz do innej lokalizcji" << endl;

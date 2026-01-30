@@ -7,7 +7,6 @@
 
 #ifndef ACTIVE_ACTOR_H
 #define ACTIVE_ACTOR_H
-#include "TemplateLib.h"
 class NPC;
 class NPCHealer;
 class ActiveActor
@@ -28,6 +27,7 @@ protected:
 
 public:
    ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility);
+   ActiveActor();
    virtual void giveVitalInfo(void);
 
    int dieAndGiveExp(void);
@@ -47,27 +47,30 @@ class Warrior : public virtual ActiveActor
 public:
    virtual bool attack(ActiveActor *actor) override;
    virtual bool specialAttack(ActiveActor *target) override;
+      Warrior();
 
-protected:
-private:
 };
 
 class Archer : public virtual ActiveActor
 {
-public:
-   virtual bool attack(ActiveActor *actor) override;
-   virtual bool specialAttack(ActiveActor *target) override;
-
+   
 protected:
    void riposte();
 
-private:
+public:
+
+   virtual bool attack(ActiveActor *actor) override;
+   virtual bool specialAttack(ActiveActor *target) override;
+   Archer();
+
 };
 class Wizzard : public virtual ActiveActor
 {
 public:
    virtual bool attack(ActiveActor *actor) override;
    virtual bool specialAttack(ActiveActor *target) override;
+      Wizzard();
+
 };
 
 #endif

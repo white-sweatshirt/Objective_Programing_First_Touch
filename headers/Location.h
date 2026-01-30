@@ -19,8 +19,12 @@ class Location
 protected:
    std::string description;
    std::list<SubLocation *> interestingPlaces;
+
 public:
    int tellAboutInterestingLocations(void);
+   void addNewSublocation(SubLocation *sublocation);
+   Location(std::string desc);
+   Location() = default;
    ~Location();
 };
 #endif

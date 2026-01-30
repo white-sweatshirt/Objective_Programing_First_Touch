@@ -6,4 +6,5 @@ SET ( NPC_SOURCES
 )
 
 add_library(NPC  ${NPC_SOURCES})
-target_include_directories(NPC PUBLIC ${Headers})
+target_include_directories(NPC PRIVATE ${Headers})
+target_link_libraries(NPC  Items)

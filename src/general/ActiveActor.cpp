@@ -6,13 +6,25 @@
  ******* ****************************************************************/
 #include "NPC.h"
 #include "ActiveActor.h"
+#include "TemplateLib.h"
+
 ActiveActor::ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility)
     : hP(hP), maxHp(maxHp), strenght(strenght), inteligence(inteligence), agility(agility)
 {
    level = 1;
    currentExp = 0;
-   timeToSpecialAttack = 0;
-   money = 0.0;
+   timeCurrentlyWaitedToAttack = 0;
+   timeToSpecialAttack=100;
+   money = 200.0;
+}
+ActiveActor::ActiveActor()
+{
+   this->hP=100;
+   this->level=2;
+   this->inteligence=3;
+   this->strenght=3;
+   this->agility=5;
+   this->money =100;
 }
 void ActiveActor::giveVitalInfo(void)
 {
@@ -54,6 +66,7 @@ bool ActiveActor::defendYourself(int attackPoints)
       this->hP -= attackPoints - this->strenght;
    if (this->hP <= 0)
       return 0;
+   return true;
 }
 int ActiveActor::giveCurrentHp(void)
 {
@@ -61,16 +74,28 @@ int ActiveActor::giveCurrentHp(void)
 }
 void Archer::riposte(void)
 {}
+Warrior::Warrior(): ActiveActor()
+{
+
+}
+
 bool Warrior::attack(ActiveActor *actor)
 {
    return actor->defendYourself(strenght + agility) ? 0 : 1;
+}
+Archer::Archer():ActiveActor()
+{
+
 }
 
 bool Archer::attack(ActiveActor *actor)
 {
    return actor->defendYourself(strenght + inteligence) ? 0 : 1;
 }
+Wizzard::Wizzard():ActiveActor()
+{
 
+}
 bool Wizzard::attack(ActiveActor *actor)
 {
    return actor->defendYourself(inteligence + agility) ? 0 : 1;

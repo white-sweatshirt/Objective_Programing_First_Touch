@@ -10,13 +10,22 @@
 
 int Location::tellAboutInterestingLocations(void)
 {
-   // Use the template to show all interesting places
-   std::cout<<"Opis lokacji: "<<this->description<<std::endl;
-   std::cout<<"opis sublokacji: "<<std::endl;
-   int nPlaces=templateLib::showContentsOfContainerWithCounter(this->interestingPlaces);
-   return nPlaces;
+      // Use the template to show all interesting places
+      std::cout << "Opis lokacji: " << this->description << std::endl;
+      std::cout << "opis sublokacji: " << std::endl;
+      int nPlaces = templateLib::showContentsOfContainerWithCounter(this->interestingPlaces);
+      return nPlaces;
+}
+void Location::addNewSublocation(SubLocation *sublocation)
+{
+      this->interestingPlaces.push_back(sublocation);
 }
 Location::~Location()
 {
       templateLib::killVectorOfPointers(this->interestingPlaces);
+}
+Location::Location(std::string desc):
+description(desc)
+{
+
 }

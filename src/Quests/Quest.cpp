@@ -1,4 +1,5 @@
 #include "Quest.h"
+#include <iostream>
 Quest::~Quest(void)
 {
     this->location=nullptr;

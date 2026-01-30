@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ITEM_H
+#define ITEM_H
 // done purly for trying something else
 // I am aware that this is not technicly standard.
 #include <string>
@@ -61,3 +62,4 @@ public:
     ~MagicWeapon() = default;
     MagicWeapon(std::string name,int damegeBonus);
 };
+#endif

@@ -35,6 +35,7 @@ bool Player::payForSth(double amount)
         else
             std::cout << "probowano zaplacic ujemna ilosc pieniedzy! " << std::endl;
     }
+    return true;
 }
 
 void Player::gainExperience(double amount)

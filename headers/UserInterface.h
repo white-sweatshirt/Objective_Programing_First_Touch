@@ -41,6 +41,7 @@ protected:
 
 public:
     void askForUserInput();
+    void addLocation(Location *loc);
     ~UserInterface();
 };
 #endif
