@@ -141,7 +141,7 @@ void UserInterface::askForUserInput()
 }
 UserInterface::~UserInterface()
 {
-    templateLib::killVectorOfPointers(allLocations);
+    
     opponent = nullptr;
     currentSublocation = nullptr;
     templateLib::killVectorOfPointers(allLocations);

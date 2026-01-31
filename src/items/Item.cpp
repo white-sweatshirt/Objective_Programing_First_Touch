@@ -7,7 +7,9 @@
 
 #include "Item.h"
 #include "Player.h"
-
+Item::Item(double value):
+value(value)
+{}
 double Item::giveValue(void)
 {
     return this->value;
@@ -20,9 +22,17 @@ void Item::show()
 {
     std::cout << "posiadasz przedmiot o wartosc: " << value << std::endl;
 }
+Weapon::Weapon(std::string name, int damgeBonus)
+    :Item(damgeBonus*3), name(name), damageBonus(damgeBonus)
+{
+}
 void Weapon::show()
 {
     std::cout << "Weapon: " << name << ", Damage Bonus: " << damageBonus << std::endl;
+}
+void Weapon::setName(std::string name)
+{
+    this->name=name;
 }
 int RangedWeapon::calculateBonus(ActiveActor *const actor)
 {
@@ -39,10 +49,7 @@ int MagicWeapon::calculateBonus(ActiveActor *const actor)
     return damageBonus + static_cast<int>(actor->giveInteligence() * magicalMultiplier + additionalDamage);
 }
 
-Weapon::Weapon(std::string name, int damgeBonus)
-    : name(name), damageBonus(damgeBonus)
-{
-}
+
 
 RangedWeapon::RangedWeapon(std::string name, int damegeBonus)
     : Weapon(name, damegeBonus), agilityBonus(2)

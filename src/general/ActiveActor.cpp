@@ -14,18 +14,18 @@ ActiveActor::ActiveActor(int hP, int maxHp, int strenght, int inteligence, int a
    level = 1;
    currentExp = 0;
    timeCurrentlyWaitedToAttack = 0;
-   timeToSpecialAttack=100;
+   timeToSpecialAttack = 100;
    money = 200.0;
-   weapon=nullptr;
+   weapon = nullptr;
 }
 ActiveActor::ActiveActor()
 {
-   this->hP=100;
-   this->level=2;
-   this->inteligence=3;
-   this->strenght=3;
-   this->agility=5;
-   this->money =100;
+   this->hP = 100;
+   this->level = 2;
+   this->inteligence = 3;
+   this->strenght = 3;
+   this->agility = 5;
+   this->money = 100;
 }
 void ActiveActor::giveVitalInfo(void)
 {
@@ -79,13 +79,17 @@ bool ActiveActor::attack(ActiveActor *actor)
 }
 bool ActiveActor::specialAttack(ActiveActor *target)
 {
-   constexpr int specialMuliplayer = 2;
-   return target->defendYourself(specialMuliplayer*giveAttackPoints()) ? 0 : 1;
+   if (timeToSpecialAttack <= 0)
+   {
+      constexpr int specialMuliplayer = 2;
+      return target->defendYourself(specialMuliplayer * giveAttackPoints()) ? 0 : 1;
+   }
+   return false;
 }
 
 int Archer::giveAttackPoints(void)
 {
-   return (weapon?strenght + agility+weapon->calculateBonus(this) :strenght + agility);
+   return (weapon ? strenght + agility + weapon->calculateBonus(this) : strenght + agility);
 }
 int ActiveActor::giveInteligence(void)
 {
@@ -101,17 +105,20 @@ int ActiveActor::giveStrenght(void)
 {
    return this->strenght;
 }
-Archer::Archer():ActiveActor()
-{}
+Archer::Archer() : ActiveActor()
+{
+}
 int Warrior::giveAttackPoints(void)
 {
-   return (weapon?strenght + agility+weapon->calculateBonus(this) :strenght + agility);
+   return (weapon ? strenght + agility + weapon->calculateBonus(this) : strenght + agility);
 }
-Warrior::Warrior(): ActiveActor()
-{}
+Warrior::Warrior() : ActiveActor()
+{
+}
 int Wizzard::giveAttackPoints()
 {
-   return (weapon?inteligence + agility+weapon->calculateBonus(this) :inteligence + agility);
+   return (weapon ? inteligence + agility + weapon->calculateBonus(this) : inteligence + agility);
 }
-Wizzard::Wizzard():ActiveActor()
-{}
+Wizzard::Wizzard() : ActiveActor()
+{
+}

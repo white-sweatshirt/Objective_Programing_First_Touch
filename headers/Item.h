@@ -3,7 +3,7 @@
 // done purly for trying something else
 // I am aware that this is not technicly standard.
 #include <string>
-
+class ActiveActor;
 class Item
 {
     double value;
@@ -13,6 +13,8 @@ public:
     virtual int calculateBonus(ActiveActor *const actor); // Pure virtual function for stat-based bonus
     virtual void show();
     virtual ~Item() = default;
+    Item(double value);
+    
 };
 
 class Weapon : public Item
@@ -26,6 +28,7 @@ public:
     void show() override;
     // =0 zero dontets that this purly virutral function implemntetion
     virtual int calculateBonus(ActiveActor *const actor) = 0;
+    void setName(std::string desc);
     virtual ~Weapon() override = default; // setting deconstror to deflaut
 };
 

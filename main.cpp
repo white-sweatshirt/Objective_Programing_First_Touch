@@ -39,6 +39,7 @@ int main(void)
     
     nowCreatedLocation=nullptr;
     delete startingInterface;
+    
     //fi.
     return 0;
 }

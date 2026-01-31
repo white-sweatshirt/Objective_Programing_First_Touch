@@ -31,7 +31,6 @@ double NPCTrader::giveFee()
     return penaltyRate; // Return the penalty rate (e.g., 10%)
 }
 
-
 double NPCTrader::buyItem(Item *item)
 {
     double valueOfItem = item->giveValue();
@@ -92,11 +91,10 @@ void NPCTrader::getUserToChoseOption(Player *pc)
     std::cout << "mozesz kupic takie itemki wpisujac odpowiednia opcje: " << std::endl;
     choice = templateLib::getStandardChoiceResult(this, showOptions, 0, items.size());
 }
-void NPCCrafter::showCraftingOptions(void)
+void NPCCrafter::showCraftingNamesOptions(void)
 {
     std::cout << "0. bez nazwy tylko parametry" << std::endl;
     std::cout << "1. z nazwa z parametrem" << std::endl;
-    std::cout << "2. wyjdz z menu" << std::endl;
 }
 void NPCCrafter::showOptions(void)
 {
@@ -110,28 +108,17 @@ void NPCCrafter::giveMenuShowingMaxDemage(int maxDemage)
     std::cout << "min demage: " << 0 << std::endl;
     std::cout << "max demage: " << maxDemage << std::endl;
 }
-void NPCCrafter::interprateCraftingChoice(int choice, Player *pc)
+void NPCCrafter::showCraftingTypeOptions(void)
 {
-    constexpr int maxDemage = 1000;
-    int demageChosen = -1;
-    std::string name;
-    switch (choice)
-    {
-    case 0:
-
-        demageChosen = templateLib::getStandardChoiceResult(this, giveMenuShowingMaxDemage, 0, maxDemage);
-        createItem(pc, demageChosen);
-    case 1:
-        demageChosen = templateLib::getStandardChoiceResult(this, giveMenuShowingMaxDemage, 0, maxDemage);
-        std::cout << "podaj nazwe swej broni: " << std::endl;
-        std::cin>>name;
-        createItem(pc, demageChosen,name);
-        break;
-    case 2:
-        break;
-    default:
-        break;
-    }
+    std::cout << "0. Bron dystansowa" << std::endl;
+    std::cout << "1. Bron Magiczna" << std::endl;
+    std::cout << "2. Bron Bliskiego zwarcia" << std::endl;
+    std::cout << "3. oposc menu" << std::endl;
+}
+void NPCCrafter::getUserToChoseOption(Player *pc)
+{
+    int choice=templateLib::getStandardChoiceResult(this,showOptions,0,3);
+    interprateChoice(choice,pc);
 }
 void NPCCrafter::interprateChoice(int choice, Player *pc)
 {
@@ -142,8 +129,7 @@ void NPCCrafter::interprateChoice(int choice, Player *pc)
     case 0:
         // dynamic_cast allows to safly convert class member to one beging higher in hiearchy
         // cast required as showSellingOptions have no equlivalent in NPCCrafter
-        secundChoice = templateLib::getStandardChoiceResult(dynamic_cast<NPCTrader *>(this),
-                                                            showSellingOptions, 0, items.size() - 1);
+        secundChoice = templateLib::getStandardChoiceResult(dynamic_cast<NPCTrader *>(this), showSellingOptions, 0, items.size() - 1);
         sellItem(pc, secundChoice);
         break;
     case 1:
@@ -151,9 +137,58 @@ void NPCCrafter::interprateChoice(int choice, Player *pc)
         pc->getMonetaryReward(this->buyItem(chosenItem));
         break;
     case 2:
-        secundChoice = templateLib::getStandardChoiceResult(this, showCraftingOptions, 0, 2);
-        interprateCraftingChoice(choice, pc);
+        secundChoice = templateLib::getStandardChoiceResult(this, showCraftingTypeOptions, 0, 2);
+        interprateCrafingTypeOptins(choice, pc);
     case 3:
+        break;
+    default:
+        break;
+    }
+}
+
+void NPCCrafter::interprateCrafingTypeOptins(int choice, Player *pc)
+{
+    int constexpr maxDemage = 1000;
+    int demageChosen = templateLib::getStandardChoiceResult(this, giveMenuShowingMaxDemage, 0, maxDemage);
+    Weapon *tempPointer = nullptr;
+    switch (choice)
+    {
+    case 0:
+        tempPointer = new RangedWeapon("gen name", demageChosen);
+        break;
+    case 1:
+        tempPointer = new MeeleWeapon("gen name", demageChosen);
+    case 2:
+        tempPointer = new MagicWeapon("gen name", demageChosen);
+        break;
+    default:
+        break;
+    }
+    int nameChoice = -1;
+    if (pc->payForSth(tempPointer->giveValue()))
+    {
+        nameChoice = templateLib::getStandardChoiceResult(this, showCraftingNamesOptions, 0, 1);
+        interprateCraftingNamesChoice(choice, pc, tempPointer);
+    }
+    else
+        delete tempPointer;
+}
+void NPCCrafter::interprateCraftingNamesChoice(int choice, Player *pc, Weapon *weapon)
+{
+    constexpr int maxDemage = 1000;
+    int demageChosen = -1;
+    std::string name;
+    switch (choice)
+    {
+    case 0:
+
+        weapon->setName("Generic Weapon");
+        pc->addItemToInventory(weapon);
+    case 1:
+        std::cout << "podaj nazwe swej broni: " << std::endl;
+        std::cin >> name;
+        weapon->setName(name);
+        pc->addItemToInventory(weapon);
         break;
     default:
         break;
@@ -170,30 +205,7 @@ void NPCCrafter::destroyItem(Item *item)
 {
     delete item;
 }
-void NPCCrafter::createItem(Player *player, int damageBonus)
-{
-    if (!player)
-        return;
-    double cost = damageBonus * 3.0;
-    if (player->payForSth(cost))
-    {
-        Item *newItem = new Weapon("custom weapon 1", damageBonus);
-        player->addItemToInventory(newItem);
-    }
-}
 
-void NPCCrafter::createItem(Player *player, int damageBonus, std::string customName)
-{
-    if (!player)
-        return;
-    double cost = damageBonus * 3.0;
-    if (player->payForSth(cost))
-    {
-        Item *newItem = new Weapon(customName, damageBonus);
-        player->addItemToInventory(newItem);
-    }
-}
 NPCCrafter::~NPCCrafter(void)
 {
-    
 }

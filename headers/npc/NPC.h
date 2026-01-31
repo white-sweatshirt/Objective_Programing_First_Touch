@@ -12,7 +12,7 @@ class NPC
 
 protected:
     virtual void showOptions(void);
-    virtual void interprateChoice(int choice, Player *pc);
+    virtual void interprateChoice(int choice, Player *pc)=0;
 
     std::string name;
 

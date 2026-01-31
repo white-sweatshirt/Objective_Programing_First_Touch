@@ -13,9 +13,7 @@ void NPC::askForUserInput()
 void NPC::showOptions()
 {
 }
-void NPC::askForUserInput()
-{
-}
+
 void NPC::getUserToChoseOption(Player *cp)
 {
 }

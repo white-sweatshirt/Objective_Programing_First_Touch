@@ -30,14 +30,19 @@ class NPCCrafter final : public NPCTrader
 {
 private:
     void showOptions(void) override;
-    void showCraftingOptions() ;
-    void interprateCraftingChoice(int choice,Player *pc);
+    
+    void showCraftingNamesOptions() ;
+    void interprateCraftingNamesChoice(int choice, Player *pc,Weapon * weapon);
+    
+    void showCraftingTypeOptions(void);
+    void interprateCrafingTypeOptins(int choice,Player *pc);
+
+    
+    
     void giveMenuShowingMaxDemage(int maxDemage);
 public:
     void interprateChoice(int choice ,Player *pc) override ;
     void getUserToChoseOption(Player *pc) override;
-    void createItem(Player *player, int damageBonus);
-    void createItem(Player *player, int damageBonus, std::string customName);
     void destroyItem(Item *item);
     void show(void) override;
     ~NPCCrafter();

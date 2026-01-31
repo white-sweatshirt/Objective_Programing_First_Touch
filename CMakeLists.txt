@@ -13,5 +13,5 @@ set (Headers ${PROJECT_SOURCE_DIR}/headers
 add_subdirectory(src)
 
 add_executable(SimpleRPG main.cpp)
-target_link_libraries(SimpleRPG Items Quests Players NPC General)
 target_include_directories(SimpleRPG PUBLIC ${Headers})
+target_link_libraries(SimpleRPG Items Quests Players NPC General)

@@ -9,6 +9,7 @@
 #define ACTIVE_ACTOR_H
 class NPC;
 class NPCHealer;
+class Item;
 class ActiveActor
 {
    friend NPCHealer;
@@ -43,7 +44,6 @@ public:
    int calculateWeaponBonus(void);
    bool defendYourself(int attackPoints);
    bool specialAttack(ActiveActor *target);
-   virtual void resetSpecialAttack() = 0;
    ~ActiveActor() = default;
 };
 

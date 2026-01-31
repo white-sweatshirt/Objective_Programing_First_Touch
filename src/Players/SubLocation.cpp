@@ -42,12 +42,12 @@ SubLocation::SubLocation(ActiveActor *opponent, NPC *npc)
 SubLocation::SubLocation(ActiveActor *opponent,std::string desc):
 enemy(opponent),description(desc)
 {
-
+    this->interestingNPC=nullptr;
 }
 SubLocation::SubLocation(NPC *npc,std::string desc):
 interestingNPC(npc),description(desc)
 {
-
+    this->enemy=nullptr;
 }
 
 NPC * SubLocation::giveNPC(void)
