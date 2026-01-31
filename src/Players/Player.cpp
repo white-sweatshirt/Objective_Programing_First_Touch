@@ -112,11 +112,23 @@ void Player::sellItem(Item *item, NPCTrader *trader)
 }
 Item *Player::choseSellingItem(void)
 {
-    int choice =-1;
-    choice =templateLib::getStandardChoiceResult(this,showInventory,0,items.size()-1);
-    Item* chosenItem=items[choice];
-    templateLib::removeElemetOfVector(items,items[choice]);
+    int choice = -1;
+    choice = templateLib::getStandardChoiceResult(this, showInventory, 0, items.size() - 1);
+    Item *chosenItem = items[choice];
+    templateLib::removeElemetOfVector(items, items[choice]);
     return chosenItem;
+}
+void Player::fullfillQuests(NPCQuestGiver *npc)
+{
+    for (auto  w : this->questList)
+    {
+        npc->giveRewardForQuest(this, w);
+        if (w->checkFulfillmentCondition())
+        {
+            templateLib::removeElemetOfVector(this->questList, w);
+            delete w;
+        }
+    }
 }
 Player::~Player()
 {

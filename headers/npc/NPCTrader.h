@@ -12,8 +12,7 @@ protected:
     double penaltyRate = 0.1;
 
     void showSellingOptions(void) ;
-    virtual void interprateChoice(int choice) override;
-    virtual void interprateChoice(int choice ,Player *pc) ;
+    virtual void interprateChoice(int choice ,Player *pc)override ;
     virtual void showOptions(void);
     void generateItems();
 public:

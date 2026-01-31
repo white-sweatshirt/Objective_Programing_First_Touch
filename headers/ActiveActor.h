@@ -12,7 +12,6 @@ class NPCHealer;
 class ActiveActor
 {
    friend NPCHealer;
-
 protected:
    int maxHp;
    int hP;
@@ -25,52 +24,54 @@ protected:
    int timeCurrentlyWaitedToAttack;
    double money;
 
+   Item *weapon;
+   virtual int giveAttackPoints()=0;
+
 public:
    ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility);
    ActiveActor();
-   virtual void giveVitalInfo(void);
+   void giveVitalInfo(void);
 
    int dieAndGiveExp(void);
-   virtual bool attack(ActiveActor *actor);
+   bool attack(ActiveActor *actor);
    int giveCurrentHp(void);
    void askForHealing(NPCHealer *npc);
    bool payForSth(double amount);
-
-   virtual bool defendYourself(int attackPoints);
-   virtual bool specialAttack(ActiveActor *target);
-   void resetSpecialAttack();
+   int giveInteligence(void);
+   int giveAgility(void);
+   int giveStrenght(void);
+   int calculateWeaponBonus(void);
+   bool defendYourself(int attackPoints);
+   bool specialAttack(ActiveActor *target);
+   virtual void resetSpecialAttack() = 0;
    ~ActiveActor() = default;
 };
 
 class Warrior : public virtual ActiveActor
 {
-public:
-   virtual bool attack(ActiveActor *actor) override;
-   virtual bool specialAttack(ActiveActor *target) override;
-      Warrior();
+protected:
+   virtual int giveAttackPoints(void) override;
 
+public:
+   Warrior();
 };
 
 class Archer : public virtual ActiveActor
 {
-   
+
 protected:
-   void riposte();
+   virtual int giveAttackPoints() override;
 
 public:
-
-   virtual bool attack(ActiveActor *actor) override;
-   virtual bool specialAttack(ActiveActor *target) override;
    Archer();
-
 };
 class Wizzard : public virtual ActiveActor
 {
-public:
-   virtual bool attack(ActiveActor *actor) override;
-   virtual bool specialAttack(ActiveActor *target) override;
-      Wizzard();
+protected:
+   virtual int giveAttackPoints() override;
 
+public:
+   Wizzard();
 };
 
 #endif

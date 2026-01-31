@@ -2,7 +2,7 @@
 #include <iostream>
 Quest::~Quest(void)
 {
-    this->location=nullptr;
+    this->location = nullptr;
 }
 void Quest::show()
 {
@@ -30,6 +30,10 @@ void SearchQuest::addItemFinded()
     else
         complited = true;
 }
+SearchQuest::SearchQuest(int itemToFind) : itemsMeantToBeFound(itemToFind)
+{
+    this->itemsFounded = 0;
+}
 void SearchQuest::show()
 {
 
@@ -40,6 +44,10 @@ void KillingQuest::show()
 {
     std::cout << "musisz zabic tylu przeciwnikow" << this->craeturesToKill << std::endl;
     std::cout << "obcenie zabiles: " << this->creaturesKilled << std::endl;
+}
+KillingQuest::KillingQuest(int creaturesToKill) : craeturesToKill(creaturesToKill)
+{
+    this->creaturesKilled = 0;
 }
 KillingQuest::KillingQuest()
 {

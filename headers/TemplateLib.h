@@ -83,7 +83,7 @@ namespace templateLib
    int getStandardChoiceResult(T *objectOnWithIoperate, void (T::*showMenu)(int max), int lowerLimit, int upperLimit)
    {
       char choice;
-      int i = 0;
+      int i = 0,c=-1;
       int constexpr numberToNotSeeMenu = 10;
       (objectOnWithIoperate->*showMenu)(upperLimit);
       do
@@ -96,7 +96,8 @@ namespace templateLib
          else
             i++;
          choice = getchar();
-         
+         while ((c = getchar()) != EOF && c != '\n')
+         ;
       } while (choice < lowerLimit || choice > upperLimit);
       return choice;
    }

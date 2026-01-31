@@ -7,7 +7,7 @@
 #include "NPC.h"
 #include "ActiveActor.h"
 #include "TemplateLib.h"
-
+#include "Item.h"
 ActiveActor::ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility)
     : hP(hP), maxHp(maxHp), strenght(strenght), inteligence(inteligence), agility(agility)
 {
@@ -16,6 +16,7 @@ ActiveActor::ActiveActor(int hP, int maxHp, int strenght, int inteligence, int a
    timeCurrentlyWaitedToAttack = 0;
    timeToSpecialAttack=100;
    money = 200.0;
+   weapon=nullptr;
 }
 ActiveActor::ActiveActor()
 {
@@ -55,11 +56,6 @@ int ActiveActor::dieAndGiveExp(void)
    return level * 10;
 }
 
-bool ActiveActor::attack(ActiveActor *actor)
-{
-   return actor->defendYourself(strenght) ? 0 : 1;
-}
-
 bool ActiveActor::defendYourself(int attackPoints)
 {
    if (attackPoints > 0)
@@ -68,35 +64,54 @@ bool ActiveActor::defendYourself(int attackPoints)
       return 0;
    return true;
 }
+
+int ActiveActor::calculateWeaponBonus(void)
+{
+   return weapon->calculateBonus(this);
+}
 int ActiveActor::giveCurrentHp(void)
 {
    return this->hP;
 }
-void Archer::riposte(void)
-{}
-Warrior::Warrior(): ActiveActor()
-{
-
-}
-
-bool Warrior::attack(ActiveActor *actor)
-{
-   return actor->defendYourself(strenght + agility) ? 0 : 1;
-}
-Archer::Archer():ActiveActor()
-{
-
-}
-
-bool Archer::attack(ActiveActor *actor)
-{
-   return actor->defendYourself(strenght + inteligence) ? 0 : 1;
-}
-Wizzard::Wizzard():ActiveActor()
-{
-
-}
-bool Wizzard::attack(ActiveActor *actor)
+bool ActiveActor::attack(ActiveActor *actor)
 {
    return actor->defendYourself(inteligence + agility) ? 0 : 1;
 }
+bool ActiveActor::specialAttack(ActiveActor *target)
+{
+   constexpr int specialMuliplayer = 2;
+   return target->defendYourself(specialMuliplayer*giveAttackPoints()) ? 0 : 1;
+}
+
+int Archer::giveAttackPoints(void)
+{
+   return (weapon?strenght + agility+weapon->calculateBonus(this) :strenght + agility);
+}
+int ActiveActor::giveInteligence(void)
+{
+   return this->inteligence;
+}
+
+int ActiveActor::giveAgility(void)
+{
+   return this->agility;
+}
+
+int ActiveActor::giveStrenght(void)
+{
+   return this->strenght;
+}
+Archer::Archer():ActiveActor()
+{}
+int Warrior::giveAttackPoints(void)
+{
+   return (weapon?strenght + agility+weapon->calculateBonus(this) :strenght + agility);
+}
+Warrior::Warrior(): ActiveActor()
+{}
+int Wizzard::giveAttackPoints()
+{
+   return (weapon?inteligence + agility+weapon->calculateBonus(this) :inteligence + agility);
+}
+Wizzard::Wizzard():ActiveActor()
+{}

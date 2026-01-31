@@ -26,8 +26,9 @@ private:
 public:
     void show() override;
     void addKilling();
+    KillingQuest(int creaturesToKill);
     KillingQuest();
-    ~KillingQuest();
+    virtual ~KillingQuest()= default;
 };
 class SearchQuest : public Quest
 {
@@ -37,17 +38,8 @@ private:
 public:
     void show() override;
     void addItemFinded();
+    SearchQuest(int itemsToFind);
     ~SearchQuest() override = default;
-};
-class HuntingQuest : public Quest
-{
-private:
-    std::string creatureToKill;
-
-public:
-    void show() override;
-    
-    ~HuntingQuest() override = default;
 };
 #endif // QUEST_H
 #include "ActiveActor.h"

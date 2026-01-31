@@ -7,10 +7,10 @@
 class Item
 {
     double value;
+
 public:
-    virtual void equipItem(void);
     double giveValue(void);
-    virtual int calculateBonus(int stat); // Pure virtual function for stat-based bonus
+    virtual int calculateBonus(ActiveActor *const actor); // Pure virtual function for stat-based bonus
     virtual void show();
     virtual ~Item() = default;
 };
@@ -24,7 +24,9 @@ protected:
 public:
     Weapon(std::string name, int damgeBonus);
     void show() override;
-    ~Weapon()override = default;// setting deconstror to deflaut
+    // =0 zero dontets that this purly virutral function implemntetion
+    virtual int calculateBonus(ActiveActor *const actor) = 0;
+    virtual ~Weapon() override = default; // setting deconstror to deflaut
 };
 
 class RangedWeapon : public Weapon
@@ -33,10 +35,10 @@ private:
     int agilityBonus;
 
 public:
-    void equipItem();
-    int calculateBonus(int agility) override;
-    RangedWeapon(std::string name,int damegeBonus);
-    ~RangedWeapon()=default;
+    // const deklaruje ze nic nie zmienie w aktorze.
+    int calculateBonus(ActiveActor *const actor) override;
+    RangedWeapon(std::string name, int damegeBonus);
+    ~RangedWeapon() = default;
 };
 
 class MeeleWeapon : public Weapon
@@ -45,10 +47,9 @@ private:
     int strenghtBonus;
 
 public:
-    void equipItem();
-    int calculateBonus(int strength) override;
-    MeeleWeapon(std::string name,int damegeBonus);
-    ~MeeleWeapon()= default;
+    int calculateBonus(ActiveActor *const actor) override;
+    MeeleWeapon(std::string name, int damegeBonus);
+    ~MeeleWeapon() = default;
 };
 
 class MagicWeapon : public Weapon
@@ -58,8 +59,8 @@ private:
     double additionalDamage;
 
 public:
-    int calculateBonus(int intelligence) override;
+    int calculateBonus(ActiveActor *actor) override;
     ~MagicWeapon() = default;
-    MagicWeapon(std::string name,int damegeBonus);
+    MagicWeapon(std::string name, int damegeBonus);
 };
 #endif

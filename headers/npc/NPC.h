@@ -12,11 +12,12 @@ class NPC
 
 protected:
     virtual void showOptions(void);
-    virtual void interprateChoice(int choice) ;
+    virtual void interprateChoice(int choice, Player *pc);
+
     std::string name;
 
 public:
-    void takeUserInput(void);
+    
     virtual void askForUserInput(void);
     virtual void getUserToChoseOption(Player *pc);
     virtual void show();
@@ -28,10 +29,10 @@ class NPCHealer : public NPC
 private:
     double healingFee;
     void showOptions(void) ;
-    virtual void interprateChoice(int choice) override;
+    virtual void interprateChoice(int choice, Player *pc) override;
 
 public:
-    void getUserToChoseOption(Player *pc) override;
+    virtual void getUserToChoseOption(Player *pc);
     void healPlayerForFee(ActiveActor *pCharacter);
     void show() override;
     ~NPCHealer() override = default;
@@ -41,7 +42,7 @@ class NPCQuestGiver : public NPC
 {
 private:
     void showOptions(void) override;
-    virtual void interprateChoice(int choice) override;
+    virtual void interprateChoice(int choice, Player *pc) override;
 
 public:
     void getUserToChoseOption(Player *pc) override;

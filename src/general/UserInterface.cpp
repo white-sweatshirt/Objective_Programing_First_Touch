@@ -78,7 +78,7 @@ void UserInterface::redetictFromMainMenu(int choice)
 
         pc->giveVitalInfo();
     case 3:
-        this->npc->askForUserInput();
+        this->npc->getUserToChoseOption(pc);
 
         break;
 

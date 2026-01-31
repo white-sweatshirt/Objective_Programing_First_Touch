@@ -25,9 +25,7 @@ protected:
     std::vector<Quest *> questList;
     
     std::deque<Item *> items;
-    Item *weapon;
     double money;
-    void showSellingOptions(void);
 public:
     Player(std::string customName); // Added constructor declaration
     // it will be in loop that will be telling whats
@@ -38,7 +36,6 @@ public:
     void fullfillQuests(NPCQuestGiver *npc);
     void gainExperienceFromEnemy(int exp);
 
-    virtual void interactWithNPC(NPC *npc);
     virtual void gainExperience(double amount);
 
     void giveFulliedQuestsToNPC(NPCQuestGiver *npc);
@@ -46,6 +43,7 @@ public:
     void getMonetaryReward(double reward);
     void sellItem(Item *item, NPCTrader *trader);
     Item* choseSellingItem(void);
+    
     void showAllQuests(void);
     void addItemToInventory(Item *item);
     void showInventory(void);

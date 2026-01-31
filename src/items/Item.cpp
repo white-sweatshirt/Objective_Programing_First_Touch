@@ -7,44 +7,54 @@
 
 #include "Item.h"
 #include "Player.h"
-void Item::equipItem(void)
-{
-}
+
 double Item::giveValue(void)
 {
     return this->value;
+}
+int Item::calculateBonus(ActiveActor *wearer)
+{
+    return 0;
+}
+void Item::show()
+{
+    std::cout << "posiadasz przedmiot o wartosc: " << value << std::endl;
 }
 void Weapon::show()
 {
     std::cout << "Weapon: " << name << ", Damage Bonus: " << damageBonus << std::endl;
 }
-int RangedWeapon::calculateBonus(int agility)
+int RangedWeapon::calculateBonus(ActiveActor *const actor)
 {
-    return damageBonus + (agility * agilityBonus);
+    return damageBonus + (actor->giveAgility() * agilityBonus);
 }
 
-int MeeleWeapon::calculateBonus(int strength)
+int MeeleWeapon::calculateBonus(ActiveActor *const actor)
 {
-    return damageBonus + (strength * strenghtBonus);
+    return damageBonus + (actor->giveStrenght()* strenghtBonus);
 }
 
-int MagicWeapon::calculateBonus(int intelligence)
+int MagicWeapon::calculateBonus(ActiveActor *const actor)
 {
-    return damageBonus + static_cast<int>(intelligence * magicalMultiplier + additionalDamage);
+    return damageBonus + static_cast<int>(actor->giveInteligence() * magicalMultiplier + additionalDamage);
 }
 
 Weapon::Weapon(std::string name, int damgeBonus)
     : name(name), damageBonus(damgeBonus)
-{}
+{
+}
 
 RangedWeapon::RangedWeapon(std::string name, int damegeBonus)
     : Weapon(name, damegeBonus), agilityBonus(2)
-{}
+{
+}
 
 MeeleWeapon::MeeleWeapon(std::string name, int damegeBonus)
-    : Weapon(name, damegeBonus), strenghtBonus(3)
-{}
+    : Weapon(name, damegeBonus), strenghtBonus(2)
+{
+}
 
 MagicWeapon::MagicWeapon(std::string name, int damegeBonus)
     : Weapon(name, damegeBonus), magicalMultiplier(2), additionalDamage(5.0)
-{}
+{
+}
