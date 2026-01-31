@@ -16,7 +16,7 @@ class Quest;
 // vector of possiable locations where player might go.
 // choices in general menu would produce sub menus implemented in function pointers
 // that would be specyfied menus (not sure about it->)for in those functions
-#include <list>
+#include <deque>
 class UserInterface
 {
 private:
@@ -26,25 +26,31 @@ private:
     ActiveActor *opponent;
     SubLocation *currentSublocation;
     Location *currentLocation;
-    std::list<Location *> allLocations;
+    std::deque<Location *> allLocations;
 
 protected:
     void showGeneralPosibilites(void);
+
     void showGoingMenu(void);
+    void showPossiableLocationsDestinations(void);
+    void showPossiableSubLocationsDestinations(void);
+
+    void choseSublocationToVenture(void);
+    void choseLocationToVenture(void);
     void showInventoryMenu(void);
 
     void showFightingOptions(void);
     void showInteractionOptions(void);
-    void showSubLocationOptions(void);
-    void askLocationToShowInterestingPlaces();
-    void simulatePlayerFight(void);
-    void redetictFromMainMenu(int choice);
-    void showOptionsInCreatingProtagonist(void);
 
+    void simulatePlayerFight(bool &maintainGame);
+    void redetictFromMainMenu(int choice, bool &maintainGame);
+    void showOptionsInCreatingProtagonist(void);
+    void interprateChosenRoute(int choice);
 public:
     void createProtagonist(void);
-    void askForUserInput();
+    void askForUserInput(bool &maintainGame);
     void addLocation(Location *loc);
+    void performInitalSetUp();
     ~UserInterface();
 };
 #endif

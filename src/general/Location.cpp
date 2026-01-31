@@ -7,25 +7,32 @@
 #include "Location.h"
 #include "SubLocation.h"
 #include "TemplateLib.h"
-
-int Location::tellAboutInterestingLocations(void)
+void Location::show()
 {
-      // Use the template to show all interesting places
-      std::cout << "Opis lokacji: " << this->description << std::endl;
-      std::cout << "opis sublokacji: " << std::endl;
-      int nPlaces = templateLib::showContentsOfContainerWithCounter(this->interestingPlaces);
-      return nPlaces;
+      std::cout<<"opis lokacji: "<<this->description<<std::endl;
+      std::cout<<"ilosc sublokacji: "<<this->giveNumberOfSublocations();
 }
+
 void Location::addNewSublocation(SubLocation *sublocation)
 {
-      this->interestingPlaces.push_back(sublocation);
+      this->sublocations.push_back(sublocation);
 }
 Location::~Location()
 {
-      templateLib::killVectorOfPointers(this->interestingPlaces);
+      templateLib::killVectorOfPointers(this->sublocations);
 }
-Location::Location(std::string desc):
-description(desc)
+SubLocation *Location::giveSublocationWithNumber(int choice)
 {
-
+      return this->sublocations[choice];
+}
+void Location::showAllSublocations(void)
+{
+      templateLib::showContentsOfContainerWithCounter(this->sublocations);
+}
+int Location::giveNumberOfSublocations(void)
+{
+      return this->sublocations.size();
+}
+Location::Location(std::string desc) : description(desc)
+{
 }

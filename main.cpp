@@ -55,8 +55,9 @@ int main(void)
     srand(time(NULL));
     UserInterface *startingInterface = new UserInterface();
     setUpGame(startingInterface);
-    while(1)
-        startingInterface->askForUserInput();
+    bool maitainGame= true;
+    while(maitainGame)
+        startingInterface->askForUserInput(maitainGame);
     delete startingInterface;
     // fi.
     return 0;

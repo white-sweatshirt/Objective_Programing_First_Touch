@@ -8,8 +8,8 @@
 #include "ActiveActor.h"
 #include "TemplateLib.h"
 #include "Item.h"
-ActiveActor::ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility)
-    : hP(hP), maxHp(maxHp), strenght(strenght), inteligence(inteligence), agility(agility)
+ActiveActor::ActiveActor(int hP, int strenght, int inteligence, int agility)
+    : hP(hP), strenght(strenght), inteligence(inteligence), agility(agility)
 {
    level = 1;
    currentExp = 0;
@@ -20,11 +20,15 @@ ActiveActor::ActiveActor(int hP, int maxHp, int strenght, int inteligence, int a
    this->name = "Generic name";
 }
 
-ActiveActor::ActiveActor(int hP, int maxHp, int strenght, int inteligence,
+ActiveActor::ActiveActor(int hP, int strenght, int inteligence,
                          int agility, std::string name)
-    : hP(hP), maxHp(maxHp), strenght(strenght), inteligence(inteligence), agility(agility),
+    : hP(hP), strenght(strenght), inteligence(inteligence), agility(agility),
       name(name)
 {
+   if(hP>0)
+   this->maxHp=hP;
+   else
+   maxHp=hP=100;
    level = 1;
    currentExp = 0;
    timeCurrentlyWaitedToAttack = 0;
@@ -35,6 +39,7 @@ ActiveActor::ActiveActor(int hP, int maxHp, int strenght, int inteligence,
 ActiveActor::ActiveActor(std::string name)
 {
    this->hP = 100;
+   this->maxHp=hP;
    this->level = 2;
    this->inteligence = 3;
    this->strenght = 3;
@@ -44,6 +49,7 @@ ActiveActor::ActiveActor(std::string name)
 }
 ActiveActor::ActiveActor()
 {
+   this->maxHp=100;
    this->hP = 100;
    this->level = 2;
    this->inteligence = 3;

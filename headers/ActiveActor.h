@@ -44,10 +44,10 @@ public:
    int calculateWeaponBonus(void);
    bool defendYourself(int attackPoints);
    bool specialAttack(ActiveActor *target);
-   ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility);
+   ActiveActor(int hP, int strenght, int inteligence, int agility);
    ActiveActor();
    ActiveActor(std::string name);
-   ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility, std::string name);
+   ActiveActor(int hP, int strenght, int inteligence, int agility, std::string name);
    virtual ~ActiveActor() = default;
 };
 
