@@ -7,7 +7,7 @@
 #include "Item.h"
 
 Player::Player(std::string customName)
-    : ActiveActor(100, 100, 4, 4, 4,customName), level(1),
+    : ActiveActor(100, 4, 4, 4, customName), level(1),
       experience(0), expToNextLevel(30), money(0)
 {
 }
@@ -100,6 +100,13 @@ void Player::checkLevelUp()
         inteligence += 4;
     }
 }
+void Player::throwAwayItem(void)
+{
+    int choice = templateLib::getStandardChoiceResult(this, showInventory, 0, items.size() - 1);
+    Item *a = this->items[choice];
+    templateLib::removeElemetOfVector(items, a);
+    delete a;
+}
 void Player::sellItem(Item *item, NPCTrader *trader)
 {
     if (!item || !trader)
@@ -120,7 +127,7 @@ Item *Player::choseSellingItem(void)
 }
 void Player::fullfillQuests(NPCQuestGiver *npc)
 {
-    for (auto  w : this->questList)
+    for (auto w : this->questList)
     {
         npc->giveRewardForQuest(this, w);
         if (w->checkFulfillmentCondition())

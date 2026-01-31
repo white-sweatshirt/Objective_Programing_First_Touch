@@ -48,6 +48,7 @@ void setUpGame(UserInterface *startingInterface)
     nowCreatedLocation->addNewSublocation(new SubLocation(new Wizzard(), "Dark Wizzard Tower"));
     startingInterface->addLocation(nowCreatedLocation);
     startingInterface->createProtagonist();
+    startingInterface->performInitalSetUp();
     nowCreatedLocation = nullptr;
 }
 int main(void)

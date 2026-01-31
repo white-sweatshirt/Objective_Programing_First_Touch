@@ -4,6 +4,7 @@
 #include "TemplateLib.h"
 NPCTrader::NPCTrader()
 {
+    generateItems();
 }
 void NPCTrader::sellItem(Player *player, int numberChosen)
 {
@@ -90,6 +91,7 @@ void NPCTrader::getUserToChoseOption(Player *pc)
     std::cout << "Jestes w sklepie " << this->name;
     std::cout << "mozesz kupic takie itemki wpisujac odpowiednia opcje: " << std::endl;
     choice = templateLib::getStandardChoiceResult(this, showOptions, 0, items.size());
+    interprateChoice(choice,pc);
 }
 void NPCCrafter::showCraftingNamesOptions(void)
 {

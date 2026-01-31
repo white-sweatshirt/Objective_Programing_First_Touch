@@ -47,6 +47,7 @@ public:
     void showAllQuests(void);
     void addItemToInventory(Item *item);
     void showInventory(void);
+    void throwAwayItem(void);
     bool payForSth(double amount);
     void checkLevelUp();
 

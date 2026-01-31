@@ -47,6 +47,7 @@ namespace templateLib
       {
          std::cout << i << ". " << std::endl;
          w->show();
+         i++;
       }
       return i;
    }

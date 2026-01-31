@@ -40,12 +40,13 @@ protected:
     void showInventoryMenu(void);
 
     void showFightingOptions(void);
-    void showInteractionOptions(void);
 
     void simulatePlayerFight(bool &maintainGame);
     void redetictFromMainMenu(int choice, bool &maintainGame);
     void showOptionsInCreatingProtagonist(void);
     void interprateChosenRoute(int choice);
+    void InterprateChosenInventoryResult(int choice);
+
 public:
     void createProtagonist(void);
     void askForUserInput(bool &maintainGame);

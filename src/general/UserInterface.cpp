@@ -5,50 +5,14 @@
 #include "NPC.h"
 #include "PlayerClasses.h"
 #include "SubLocation.h"
+
 using namespace std;
+// maybe add class that would be resposibale just for showing functions of certain kind
 void UserInterface::addLocation(Location *loc)
 {
     this->allLocations.push_back(loc);
 }
-void UserInterface::showGoingMenu()
-{
-    cout << "0. idz do innej lokalizcji" << endl;
-    cout << "1. idzi do innej sublokacji" << endl;
-    cout << "2. Zostan gdzie jestes" << endl;
-}
-void UserInterface::showFightingOptions(void)
-{
-    cout << "0. Zatakuj przeciwnika" << endl;
-    cout << "1. Wykonaj atak specjalny" << endl;
-    cout << "2. Uciekaj (moga pojawic sie obrazenia)" << endl;
-}
-void UserInterface::showInteractionOptions(void)
-{
-    // if pointer to function wont work
-    cout << "0. kup bron/przedmiot" << endl;
-    cout << "1. sprzedaj bron/przedmiot " << endl;
-    cout << " 2. Zamow bron" << endl;
-    cout << "3. Zazadaj Nowego Questa" << endl;
-    cout << "4. zakoncz rozmowe" << endl;
-}
-void UserInterface::showPossiableLocationsDestinations(void)
-{
-    templateLib::showContentsOfContainerWithCounter(this->allLocations);
-}
-
-void UserInterface::showPossiableSubLocationsDestinations()
-{
-    if (this->currentLocation)
-        currentLocation->showAllSublocations();
-    else
-        std::cout << "You are not in any location." << std::endl;
-}
-void UserInterface::showInventoryMenu(void)
-{
-    cout << "0. Zobacz ekwipunek" << endl;
-    cout << "1. wyrzuc przedmiot" << endl;
-    cout << "2. zamknij ekwipunek" << endl;
-}
+/*general menu*/
 void UserInterface::showGeneralPosibilites(void)
 {
     cout << "0. Idz do lokacji" << endl;
@@ -60,6 +24,115 @@ void UserInterface::showGeneralPosibilites(void)
     cout << "6. Wczytaj gre" << endl;
     cout << "7. Zatakuj przeciwnika" << endl;
     cout << "8. Wyjdz z gry" << endl;
+}
+void UserInterface::askForUserInput(bool &maintainGame)
+{
+    int choice = -1;
+    if (this->playerInFight)
+    {
+        simulatePlayerFight(maintainGame);
+        return;
+    }
+    choice = templateLib::getStandardChoiceResult(this, showGeneralPosibilites, 0, 8);
+    cout << "wprowadzono: " << choice << endl;
+    redetictFromMainMenu(choice, maintainGame);
+}
+void UserInterface::redetictFromMainMenu(int choice, bool &maintainGame)
+{
+    int secundChoice = 0;
+    switch (choice)
+    {
+    case 0:
+        secundChoice = templateLib::getStandardChoiceResult(this, showGoingMenu, 0, 2);
+        interprateChosenRoute(choice);
+        break;
+
+    case 1:
+        secundChoice = templateLib::getStandardChoiceResult(this, showInventoryMenu, 0, 2);
+        InterprateChosenInventoryResult(secundChoice);
+        break;
+
+    case 2:
+        pc->giveVitalInfo();
+        break;
+
+    case 3:
+        if (npc)
+            this->npc->getUserToChoseOption(pc);
+        else
+            cout << "Brak npc do interakcji!" << endl;
+        break;
+
+    case 4:
+        pc->showAllQuests();
+        break;
+
+    case 5:
+        // nothing for now
+        break;
+    case 6:
+        // nothing for now
+        break;
+    case 7:
+        playerInFight = 1;
+        break;
+    case 8:
+        maintainGame = false;
+        break;
+    default:
+        break;
+    }
+}
+/*fighting functions*/
+void UserInterface::showFightingOptions(void)
+{
+    cout << "0. Zatakuj przeciwnika" << endl;
+    cout << "1. Wykonaj atak specjalny" << endl;
+    cout << "2. Uciekaj (moga pojawic sie obrazenia)" << endl;
+}
+void UserInterface::simulatePlayerFight(bool &maintainGame)
+{
+    int choice = templateLib::getStandardChoiceResult(this, showFightingOptions, 0, 2);
+    if (choice == 0)
+        this->pc->attack(this->opponent);
+
+    else if (choice == 1)
+        if (opponent)
+            this->pc->specialAttack(opponent);
+        else
+        {
+            cout << "nie ma opponenta w tej lokacji";
+            playerInFight = false;
+            return;
+        }
+    else
+        this->playerInFight = false;
+    if (this->opponent->giveCurrentHp() > 0)
+        this->opponent->attack(pc);
+    else if (this->pc->giveCurrentHp() <= 0)
+    {
+        cout << "Game over!" << endl;
+        maintainGame = false;
+    }
+    else if (this->opponent->giveCurrentHp() <= 0)
+    {
+        this->pc->gainExperience(opponent->dieAndGiveExp());
+        delete opponent;
+
+        this->pc->checkLevelUp();
+        this->playerInFight = false;
+    }
+}
+/*traveling functions*/
+void UserInterface::showGoingMenu()
+{
+    cout << "0. idz do innej lokalizcji" << endl;
+    cout << "1. idzi do innej sublokacji" << endl;
+    cout << "2. Zostan gdzie jestes" << endl;
+}
+void UserInterface::showPossiableLocationsDestinations(void)
+{
+    templateLib::showContentsOfContainerWithCounter(this->allLocations);
 }
 void UserInterface::choseSublocationToVenture(void)
 {
@@ -98,97 +171,38 @@ void UserInterface::interprateChosenRoute(int choice)
         break;
     }
 }
-
-void UserInterface::redetictFromMainMenu(int choice, bool &maintainGame)
+void UserInterface::showPossiableSubLocationsDestinations()
 {
-    int secundChoice = 0;
+    if (this->currentLocation)
+        currentLocation->showAllSublocations();
+    else
+        std::cout << "You are not in any location." << std::endl;
+}
+/*inventory options*/
+void UserInterface::showInventoryMenu(void)
+{
+    cout << "0. Zobacz ekwipunek" << endl;
+    cout << "1. wyrzuc przedmiot" << endl;
+    cout << "2. zamknij ekwipunek" << endl;
+}
+void UserInterface::InterprateChosenInventoryResult(int choice)
+{
     switch (choice)
     {
     case 0:
-        secundChoice = templateLib::getStandardChoiceResult(this, showGoingMenu, 0, 2);
-        interprateChosenRoute(choice);
+        pc->showInventory();
         break;
-
     case 1:
-        secundChoice = templateLib::getStandardChoiceResult(this, showInventoryMenu, 0, 2);
+        pc->throwAwayItem();
         break;
-
     case 2:
-        pc->giveVitalInfo();
         break;
-        
-    case 3:
-        if (npc)
-            this->npc->getUserToChoseOption(pc);
-        else
-            cout << "Brak npc do interakcji!" << endl;
-        break;
-
-    case 4:
-        pc->showAllQuests();
-        break;
-
-    case 5:
-        // nothing for now
-        break;
-    case 6:
-        // nothing for now
-        break;
-    case 7:
-        playerInFight = 1;
-        break;
-    case 8:
-        maintainGame = false;
     default:
         break;
     }
 }
-void UserInterface::simulatePlayerFight(bool &maintainGame)
-{
-    int choice = templateLib::getStandardChoiceResult(this, showFightingOptions, 0, 2);
-    if (choice == 0)
-        this->pc->attack(this->opponent);
-
-    else if (choice == 1)
-        if (opponent)
-            this->pc->specialAttack(opponent);
-        else
-        {
-            cout << "nie ma opponenta w tej lokacji";
-            playerInFight = false;
-            return;
-        }
-    else
-        this->playerInFight = false;
-    if (this->opponent->giveCurrentHp() > 0)
-        this->opponent->attack(pc);
-    else if (this->pc->giveCurrentHp() <= 0)
-    {
-        cout << "Game over!" << endl;
-        maintainGame = false;
-    }
-    else if (this->opponent->giveCurrentHp() <= 0)
-    {
-        this->pc->gainExperience(opponent->dieAndGiveExp());
-        delete opponent;
-
-        this->pc->checkLevelUp();
-        this->playerInFight = false;
-    }
-}
 #include <stdlib.h>
-void UserInterface::askForUserInput(bool &maintainGame)
-{
-    int choice = -1;
-    if (this->playerInFight)
-    {
-        simulatePlayerFight(maintainGame);
-        return;
-    }
-    choice = templateLib::getStandardChoiceResult(this, showGeneralPosibilites, 0, 8);
-    cout << "wprowadzono: " << choice << endl;
-    redetictFromMainMenu(choice, maintainGame);
-}
+/*set Up of adventure potentialy new class*/
 void UserInterface::showOptionsInCreatingProtagonist(void)
 {
     cout << "0. Utworz Bochatera walczacego w zwarciu" << endl;
@@ -232,6 +246,7 @@ void UserInterface::performInitalSetUp(void)
     this->npc = currentSublocation->giveNPC();
     this->opponent = currentSublocation->giveAntagonist();
 }
+
 UserInterface::~UserInterface()
 {
 
