@@ -13,6 +13,7 @@ class Item;
 class ActiveActor
 {
    friend NPCHealer;
+
 protected:
    int maxHp;
    int hP;
@@ -26,11 +27,11 @@ protected:
    double money;
 
    Item *weapon;
-   virtual int giveAttackPoints()=0;
+   virtual int giveAttackPoints() = 0;
 
 public:
    ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility);
-   ActiveActor();
+  
    void giveVitalInfo(void);
 
    int dieAndGiveExp(void);
@@ -44,7 +45,9 @@ public:
    int calculateWeaponBonus(void);
    bool defendYourself(int attackPoints);
    bool specialAttack(ActiveActor *target);
-   ~ActiveActor() = default;
+
+   ActiveActor();
+   virtual ~ActiveActor() = default;
 };
 
 class Warrior : public virtual ActiveActor
@@ -54,6 +57,7 @@ protected:
 
 public:
    Warrior();
+   virtual ~Warrior()  = default;
 };
 
 class Archer : public virtual ActiveActor
@@ -64,6 +68,7 @@ protected:
 
 public:
    Archer();
+   virtual ~Archer()  = default;
 };
 class Wizzard : public virtual ActiveActor
 {
@@ -72,6 +77,7 @@ protected:
 
 public:
    Wizzard();
+   virtual ~Wizzard()  = default;
 };
 
 #endif

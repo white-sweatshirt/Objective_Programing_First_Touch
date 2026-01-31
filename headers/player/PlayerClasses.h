@@ -6,20 +6,20 @@
 class PlayerArcher : public virtual Archer, public virtual Player
 {
 public:
-    ~PlayerArcher() override = default;
+    ~PlayerArcher()  = default;
     
 };
 
 class PlayerWizzard : public virtual Wizzard, public virtual Player
 {
 public:
-    ~PlayerWizzard() override = default;
+    ~PlayerWizzard()  = default;
 };
 
 class PlayerWarrior : public virtual Warrior, public virtual Player
 {
 public:
-    ~PlayerWarrior() override = default;
+    ~PlayerWarrior()  = default;
 };
 
 #endif

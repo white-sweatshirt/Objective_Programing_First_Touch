@@ -121,4 +121,5 @@ int Wizzard::giveAttackPoints()
 }
 Wizzard::Wizzard() : ActiveActor()
 {
+
 }
