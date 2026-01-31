@@ -6,4 +6,4 @@ set(PLAYER_SOURCES
 
 add_library(Players  ${PLAYER_SOURCES} )
 target_include_directories(Players PRIVATE ${Headers})
-target_link_libraries(Players General)
+target_link_libraries(Players General Numbers)

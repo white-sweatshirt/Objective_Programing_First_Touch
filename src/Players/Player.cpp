@@ -7,7 +7,7 @@
 #include "Item.h"
 
 Player::Player(std::string customName)
-    : ActiveActor(100, 100, 4, 4, 4), name(customName), level(1),
+    : ActiveActor(100, 100, 4, 4, 4,customName), level(1),
       experience(0), expToNextLevel(30), money(0)
 {
 }

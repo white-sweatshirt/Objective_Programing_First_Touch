@@ -7,6 +7,7 @@ class PlayerArcher : public virtual Archer, public virtual Player
 {
 public:
     ~PlayerArcher()  = default;
+    PlayerArcher(std::string name); 
     
 };
 
@@ -14,12 +15,14 @@ class PlayerWizzard : public virtual Wizzard, public virtual Player
 {
 public:
     ~PlayerWizzard()  = default;
+    PlayerWizzard(std::string name);
 };
 
 class PlayerWarrior : public virtual Warrior, public virtual Player
 {
 public:
     ~PlayerWarrior()  = default;
+    PlayerWarrior(std::string name);
 };
 
 #endif

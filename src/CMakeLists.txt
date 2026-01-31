@@ -1,3 +1,4 @@
+add_subdirectory(numbers)
 add_subdirectory(general)
 add_subdirectory(npc)
 add_subdirectory(players)

@@ -8,6 +8,7 @@
 // and include it here
 // namspace for grouping functions and preventing potenial overUse of name as well as for example
 #include <iostream>
+#include "numbers.h"
 namespace templateLib
 {
 
@@ -50,17 +51,18 @@ namespace templateLib
       return i;
    }
 
-   //void ignoreToNextEnter()
+   // void ignoreToNextEnter()
    //{
-     
+
    //}
 
    template <class T>
    int getStandardChoiceResult(T *objectOnWithIoperate, void (T::*showMenu)(void), int lowerLimit, int upperLimit)
    {
       char choice;
+      char bufer[MAX_TEXT];
       int i = 0;
-       int c = -1;
+      int c = -1;
       int constexpr numberToNotSeeMenu = 10;
       (objectOnWithIoperate->*showMenu)();
       do
@@ -72,10 +74,10 @@ namespace templateLib
          }
          else
             i++;
-         choice = getchar();
-         
-      while ((c = getchar()) != EOF && c != '\n')
-         ;
+         choice = getNaturalNumberFromKeyPad(bufer, MAX_TEXT);
+
+         while ((c = getchar()) != EOF && c != '\n')
+            ;
       } while (choice < lowerLimit || choice > upperLimit);
       return choice;
    }
@@ -83,7 +85,8 @@ namespace templateLib
    int getStandardChoiceResult(T *objectOnWithIoperate, void (T::*showMenu)(int max), int lowerLimit, int upperLimit)
    {
       char choice;
-      int i = 0,c=-1;
+      char buf[MAX_TEXT];
+      int i = 0, c = -1;
       int constexpr numberToNotSeeMenu = 10;
       (objectOnWithIoperate->*showMenu)(upperLimit);
       do
@@ -95,9 +98,9 @@ namespace templateLib
          }
          else
             i++;
-         choice = getchar();
+         choice = getNaturalNumberFromKeyPad(buf, MAX_TEXT);
          while ((c = getchar()) != EOF && c != '\n')
-         ;
+            ;
       } while (choice < lowerLimit || choice > upperLimit);
       return choice;
    }

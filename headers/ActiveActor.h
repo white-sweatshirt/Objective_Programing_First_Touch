@@ -15,6 +15,7 @@ class ActiveActor
    friend NPCHealer;
 
 protected:
+   std::string name;
    int maxHp;
    int hP;
    int level;
@@ -30,8 +31,6 @@ protected:
    virtual int giveAttackPoints() = 0;
 
 public:
-   ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility);
-  
    void giveVitalInfo(void);
 
    int dieAndGiveExp(void);
@@ -45,8 +44,10 @@ public:
    int calculateWeaponBonus(void);
    bool defendYourself(int attackPoints);
    bool specialAttack(ActiveActor *target);
-
+   ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility);
    ActiveActor();
+   ActiveActor(std::string name);
+   ActiveActor(int hP, int maxHp, int strenght, int inteligence, int agility, std::string name);
    virtual ~ActiveActor() = default;
 };
 
@@ -57,7 +58,7 @@ protected:
 
 public:
    Warrior();
-   virtual ~Warrior()  = default;
+   virtual ~Warrior() = default;
 };
 
 class Archer : public virtual ActiveActor
@@ -68,7 +69,7 @@ protected:
 
 public:
    Archer();
-   virtual ~Archer()  = default;
+   virtual ~Archer() = default;
 };
 class Wizzard : public virtual ActiveActor
 {
@@ -77,7 +78,7 @@ protected:
 
 public:
    Wizzard();
-   virtual ~Wizzard()  = default;
+   virtual ~Wizzard() = default;
 };
 
 #endif

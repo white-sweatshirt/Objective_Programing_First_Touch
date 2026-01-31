@@ -16,30 +16,48 @@
 #include "UserInterface.h"
 // to use plugs use <windows.h>
 using namespace std;
-// to solve your problems with compilation add defintions to all destructors and constructros
-// it is fault of compiler again... as well as all virtural methods all of them :(
-//https://stackoverflow.com/questions/3065154/undefined-reference-to-vtable - co sie jebie
+string produceNameForVillan(void)
+{
+    const string names[] = {"Sauron", "Vader", "Goon", "Pimpek", "Ivan", "Ceseri", "Rambo",
+                            "Nero", "Caligula", "Palpatine", "WhiteWalker", "Emyhr"
+                                                                            "Vladimir Harkonnen",
+                            "Gargamel", "Fred-Rautha"};
+    const string adjectives[] = {"Terrible", "Dark", "Wicked", "Foulmounth", "Cruel", "Scary", "Terror of World"};
+    return adjectives[rand() % (sizeof(adjectives) / sizeof(adjectives[0]))] + 
+    " " + names[rand() % (sizeof(names) / sizeof(names[0]))];
+}
+void setUpGame(UserInterface *startingInterface)
+{
+    Location *nowCreatedLocation = new Location("Starting Town");
+
+    nowCreatedLocation->addNewSublocation(new SubLocation(new NPCTrader(), "Sklep Handlarza"));
+    nowCreatedLocation->addNewSublocation(new SubLocation(new NPCCrafter(), "Smith"));
+    nowCreatedLocation->addNewSublocation(new SubLocation(new NPCQuestGiver, "Wise Old Wizzard's Tower"));
+    startingInterface->addLocation(nowCreatedLocation);
+
+    nowCreatedLocation = new Location("Dark Fortress");
+    nowCreatedLocation->addNewSublocation(new SubLocation(new Wizzard, "Corrupted Mage layar"));
+    nowCreatedLocation->addNewSublocation(new SubLocation(new Warrior, "Petty thief hanza"));
+    nowCreatedLocation->addNewSublocation(new SubLocation(new Archer, "Fallen RobinHood Hideout"));
+
+    startingInterface->addLocation(nowCreatedLocation);
+    nowCreatedLocation = new Location("Murky Village");
+    nowCreatedLocation->addNewSublocation(new SubLocation(new Warrior, "Arena"));
+    nowCreatedLocation->addNewSublocation(new SubLocation(new Archer, "Arena2"));
+    nowCreatedLocation->addNewSublocation(new SubLocation(new NPCHealer, "healers Dent"));
+    nowCreatedLocation->addNewSublocation(new SubLocation(new Wizzard(), "Dark Wizzard Tower"));
+    startingInterface->addLocation(nowCreatedLocation);
+    startingInterface->createProtagonist();
+    nowCreatedLocation = nullptr;
+}
 int main(void)
 {
     srand(time(NULL));
-    UserInterface *startingInterface=new UserInterface();
-    Location * nowCreatedLocation=new Location("Starting Town");
-    
-    nowCreatedLocation->addNewSublocation(new SubLocation(new NPCTrader(),"Sklep Handlarza"));
-    nowCreatedLocation->addNewSublocation(new SubLocation(new NPCCrafter(),"Smith"));
-    nowCreatedLocation->addNewSublocation(new SubLocation(new NPCQuestGiver,"Wise Old Wizzard's Tower"));
-    startingInterface->addLocation(nowCreatedLocation);
-    
-    nowCreatedLocation=new Location("Dark Fortress");
-    nowCreatedLocation->addNewSublocation(new SubLocation(new Wizzard,"Corrupted Mage layar"));
-    nowCreatedLocation->addNewSublocation(new SubLocation(new Warrior, "Petty thief hanza"));
-    nowCreatedLocation->addNewSublocation(new SubLocation(new Archer,"Fallen RobinHood"));
-
-    startingInterface->addLocation(nowCreatedLocation);
-    
-    nowCreatedLocation=nullptr;
+    UserInterface *startingInterface = new UserInterface();
+    setUpGame(startingInterface);
+    while(1)
+        startingInterface->askForUserInput();
     delete startingInterface;
-    
-    //fi.
+    // fi.
     return 0;
 }

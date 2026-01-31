@@ -16,7 +16,7 @@ class SubLocation;
 class Player : public virtual ActiveActor
 {
 protected:
-    std::string name;
+    
     int level;
     
     double expToNextLevel;

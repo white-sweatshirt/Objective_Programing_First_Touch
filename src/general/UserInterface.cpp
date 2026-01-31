@@ -3,11 +3,11 @@
 #include "Player.h"
 #include "Location.h"
 #include "NPC.h"
+#include "PlayerClasses.h"
 using namespace std;
 void UserInterface::addLocation(Location *loc)
 {
     this->allLocations.push_back(loc);
-
 }
 void UserInterface::showGoingMenu()
 {
@@ -139,9 +139,37 @@ void UserInterface::askForUserInput()
     }
     choice = templateLib::getStandardChoiceResult(this, showGeneralPosibilites, 0, 8);
 }
+void UserInterface::showOptionsInCreatingProtagonist(void)
+{
+    cout << "0. Utworz Bochatera walczacego w zwarciu" << endl;
+    cout << "1. Utworz bochatera lucznika" << endl;
+    cout << "2. utworz bochatera czarodzieja" << endl;
+}
+void UserInterface::createProtagonist()
+{
+    int choice = -1;
+    choice = templateLib::getStandardChoiceResult(this, showOptionsInCreatingProtagonist, 0, 2);
+    cout << "Podaj imie bochatera: ";
+    string name;
+    cin >> name;
+    switch (choice)
+    {
+    case 0:
+        this->pc = new PlayerWarrior(name);
+        break;
+    case 1:
+        this->pc = new PlayerArcher(name);
+        break;
+    case 2:
+        this->pc = new PlayerWizzard(name);
+        break;
+    default:
+        break;
+    }
+}
 UserInterface::~UserInterface()
 {
-    
+
     opponent = nullptr;
     currentSublocation = nullptr;
     templateLib::killVectorOfPointers(allLocations);

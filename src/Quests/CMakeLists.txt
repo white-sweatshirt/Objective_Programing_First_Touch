@@ -4,3 +4,4 @@ set(QUEST_SOURCES
 
 add_library(Quests   ${QUEST_SOURCES})
 target_include_directories(Quests PRIVATE ${Headers})
+target_link_libraries(Quests Numbers)

@@ -26,20 +26,23 @@ private:
     ActiveActor *opponent;
     SubLocation *currentSublocation;
     Location *currentLocation;
-    std::list <Location *> allLocations;
+    std::list<Location *> allLocations;
+
 protected:
     void showGeneralPosibilites(void);
     void showGoingMenu(void);
     void showInventoryMenu(void);
-    
+
     void showFightingOptions(void);
     void showInteractionOptions(void);
     void showSubLocationOptions(void);
     void askLocationToShowInterestingPlaces();
     void simulatePlayerFight(void);
     void redetictFromMainMenu(int choice);
+    void showOptionsInCreatingProtagonist(void);
 
 public:
+    void createProtagonist(void);
     void askForUserInput();
     void addLocation(Location *loc);
     ~UserInterface();

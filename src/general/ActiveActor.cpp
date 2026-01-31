@@ -17,6 +17,30 @@ ActiveActor::ActiveActor(int hP, int maxHp, int strenght, int inteligence, int a
    timeToSpecialAttack = 100;
    money = 200.0;
    weapon = nullptr;
+   this->name = "Generic name";
+}
+
+ActiveActor::ActiveActor(int hP, int maxHp, int strenght, int inteligence,
+                         int agility, std::string name)
+    : hP(hP), maxHp(maxHp), strenght(strenght), inteligence(inteligence), agility(agility),
+      name(name)
+{
+   level = 1;
+   currentExp = 0;
+   timeCurrentlyWaitedToAttack = 0;
+   timeToSpecialAttack = 100;
+   money = 200.0;
+   weapon = nullptr;
+}
+ActiveActor::ActiveActor(std::string name)
+{
+   this->hP = 100;
+   this->level = 2;
+   this->inteligence = 3;
+   this->strenght = 3;
+   this->agility = 3;
+   this->money = 100;
+   this->name = "Generic name 1";
 }
 ActiveActor::ActiveActor()
 {
@@ -24,7 +48,7 @@ ActiveActor::ActiveActor()
    this->level = 2;
    this->inteligence = 3;
    this->strenght = 3;
-   this->agility = 5;
+   this->agility = 3;
    this->money = 100;
 }
 void ActiveActor::giveVitalInfo(void)
@@ -121,5 +145,4 @@ int Wizzard::giveAttackPoints()
 }
 Wizzard::Wizzard() : ActiveActor()
 {
-
 }
