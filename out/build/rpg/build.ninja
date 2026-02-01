@@ -56,6 +56,8 @@ build CMakeFiles/SimpleRPG.dir/main.cpp.obj: CXX_COMPILER__SimpleRPG_unscanned_D
   INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/npc -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/player
   OBJECT_DIR = CMakeFiles\SimpleRPG.dir
   OBJECT_FILE_DIR = CMakeFiles\SimpleRPG.dir
+  TARGET_COMPILE_PDB = CMakeFiles\SimpleRPG.dir\
+  TARGET_PDB = SimpleRPG.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\SimpleRPG.dir
 
 
@@ -73,9 +75,10 @@ build SimpleRPG.exe: CXX_EXECUTABLE_LINKER__SimpleRPG_Debug CMakeFiles/SimpleRPG
   OBJECT_DIR = CMakeFiles\SimpleRPG.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\SimpleRPG.dir\
   TARGET_FILE = SimpleRPG.exe
   TARGET_IMPLIB = libSimpleRPG.dll.a
-  TARGET_PDB = SimpleRPG.exe.dbg
+  TARGET_PDB = SimpleRPG.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\SimpleRPG.dir
 
 
@@ -152,6 +155,8 @@ build src/numbers/CMakeFiles/Numbers.dir/numbers.cpp.obj: CXX_COMPILER__Numbers_
   INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/npc -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/player
   OBJECT_DIR = src\numbers\CMakeFiles\Numbers.dir
   OBJECT_FILE_DIR = src\numbers\CMakeFiles\Numbers.dir
+  TARGET_COMPILE_PDB = src\numbers\CMakeFiles\Numbers.dir\Numbers.pdb
+  TARGET_PDB = src\numbers\libNumbers.pdb
   TARGET_SUPPORT_DIR = src\numbers\CMakeFiles\Numbers.dir
 
 
@@ -168,8 +173,9 @@ build src/numbers/libNumbers.a: CXX_STATIC_LIBRARY_LINKER__Numbers_Debug src/num
   OBJECT_DIR = src\numbers\CMakeFiles\Numbers.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = src\numbers\CMakeFiles\Numbers.dir\Numbers.pdb
   TARGET_FILE = src\numbers\libNumbers.a
-  TARGET_PDB = Numbers.a.dbg
+  TARGET_PDB = src\numbers\libNumbers.pdb
   TARGET_SUPPORT_DIR = src\numbers\CMakeFiles\Numbers.dir
 
 
@@ -217,6 +223,8 @@ build src/general/CMakeFiles/General.dir/ActiveActor.cpp.obj: CXX_COMPILER__Gene
   INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/npc -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/player
   OBJECT_DIR = src\general\CMakeFiles\General.dir
   OBJECT_FILE_DIR = src\general\CMakeFiles\General.dir
+  TARGET_COMPILE_PDB = src\general\CMakeFiles\General.dir\General.pdb
+  TARGET_PDB = src\general\libGeneral.pdb
   TARGET_SUPPORT_DIR = src\general\CMakeFiles\General.dir
 
 build src/general/CMakeFiles/General.dir/Location.cpp.obj: CXX_COMPILER__General_unscanned_Debug C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/general/Location.cpp || cmake_object_order_depends_target_General
@@ -226,6 +234,8 @@ build src/general/CMakeFiles/General.dir/Location.cpp.obj: CXX_COMPILER__General
   INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/npc -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/player
   OBJECT_DIR = src\general\CMakeFiles\General.dir
   OBJECT_FILE_DIR = src\general\CMakeFiles\General.dir
+  TARGET_COMPILE_PDB = src\general\CMakeFiles\General.dir\General.pdb
+  TARGET_PDB = src\general\libGeneral.pdb
   TARGET_SUPPORT_DIR = src\general\CMakeFiles\General.dir
 
 build src/general/CMakeFiles/General.dir/UserInterface.cpp.obj: CXX_COMPILER__General_unscanned_Debug C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/general/UserInterface.cpp || cmake_object_order_depends_target_General
@@ -235,6 +245,8 @@ build src/general/CMakeFiles/General.dir/UserInterface.cpp.obj: CXX_COMPILER__Ge
   INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/npc -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/player
   OBJECT_DIR = src\general\CMakeFiles\General.dir
   OBJECT_FILE_DIR = src\general\CMakeFiles\General.dir
+  TARGET_COMPILE_PDB = src\general\CMakeFiles\General.dir\General.pdb
+  TARGET_PDB = src\general\libGeneral.pdb
   TARGET_SUPPORT_DIR = src\general\CMakeFiles\General.dir
 
 
@@ -251,8 +263,9 @@ build src/general/libGeneral.a: CXX_STATIC_LIBRARY_LINKER__General_Debug src/gen
   OBJECT_DIR = src\general\CMakeFiles\General.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = src\general\CMakeFiles\General.dir\General.pdb
   TARGET_FILE = src\general\libGeneral.a
-  TARGET_PDB = General.a.dbg
+  TARGET_PDB = src\general\libGeneral.pdb
   TARGET_SUPPORT_DIR = src\general\CMakeFiles\General.dir
 
 
@@ -300,6 +313,8 @@ build src/npc/CMakeFiles/NPC.dir/NPC.cpp.obj: CXX_COMPILER__NPC_unscanned_Debug 
   INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/npc -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/player
   OBJECT_DIR = src\npc\CMakeFiles\NPC.dir
   OBJECT_FILE_DIR = src\npc\CMakeFiles\NPC.dir
+  TARGET_COMPILE_PDB = src\npc\CMakeFiles\NPC.dir\NPC.pdb
+  TARGET_PDB = src\npc\libNPC.pdb
   TARGET_SUPPORT_DIR = src\npc\CMakeFiles\NPC.dir
 
 build src/npc/CMakeFiles/NPC.dir/NPCTrader.cpp.obj: CXX_COMPILER__NPC_unscanned_Debug C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/npc/NPCTrader.cpp || cmake_object_order_depends_target_NPC
@@ -309,6 +324,8 @@ build src/npc/CMakeFiles/NPC.dir/NPCTrader.cpp.obj: CXX_COMPILER__NPC_unscanned_
   INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/npc -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/player
   OBJECT_DIR = src\npc\CMakeFiles\NPC.dir
   OBJECT_FILE_DIR = src\npc\CMakeFiles\NPC.dir
+  TARGET_COMPILE_PDB = src\npc\CMakeFiles\NPC.dir\NPC.pdb
+  TARGET_PDB = src\npc\libNPC.pdb
   TARGET_SUPPORT_DIR = src\npc\CMakeFiles\NPC.dir
 
 
@@ -325,8 +342,9 @@ build src/npc/libNPC.a: CXX_STATIC_LIBRARY_LINKER__NPC_Debug src/npc/CMakeFiles/
   OBJECT_DIR = src\npc\CMakeFiles\NPC.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = src\npc\CMakeFiles\NPC.dir\NPC.pdb
   TARGET_FILE = src\npc\libNPC.a
-  TARGET_PDB = NPC.a.dbg
+  TARGET_PDB = src\npc\libNPC.pdb
   TARGET_SUPPORT_DIR = src\npc\CMakeFiles\NPC.dir
 
 
@@ -374,6 +392,8 @@ build src/players/CMakeFiles/Players.dir/Player.cpp.obj: CXX_COMPILER__Players_u
   INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/npc -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/player
   OBJECT_DIR = src\players\CMakeFiles\Players.dir
   OBJECT_FILE_DIR = src\players\CMakeFiles\Players.dir
+  TARGET_COMPILE_PDB = src\players\CMakeFiles\Players.dir\Players.pdb
+  TARGET_PDB = src\players\libPlayers.pdb
   TARGET_SUPPORT_DIR = src\players\CMakeFiles\Players.dir
 
 build src/players/CMakeFiles/Players.dir/PlayerClasses.cpp.obj: CXX_COMPILER__Players_unscanned_Debug C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/players/PlayerClasses.cpp || cmake_object_order_depends_target_Players
@@ -383,6 +403,8 @@ build src/players/CMakeFiles/Players.dir/PlayerClasses.cpp.obj: CXX_COMPILER__Pl
   INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/npc -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/player
   OBJECT_DIR = src\players\CMakeFiles\Players.dir
   OBJECT_FILE_DIR = src\players\CMakeFiles\Players.dir
+  TARGET_COMPILE_PDB = src\players\CMakeFiles\Players.dir\Players.pdb
+  TARGET_PDB = src\players\libPlayers.pdb
   TARGET_SUPPORT_DIR = src\players\CMakeFiles\Players.dir
 
 build src/players/CMakeFiles/Players.dir/SubLocation.cpp.obj: CXX_COMPILER__Players_unscanned_Debug C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/players/SubLocation.cpp || cmake_object_order_depends_target_Players
@@ -392,6 +414,8 @@ build src/players/CMakeFiles/Players.dir/SubLocation.cpp.obj: CXX_COMPILER__Play
   INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/npc -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/player
   OBJECT_DIR = src\players\CMakeFiles\Players.dir
   OBJECT_FILE_DIR = src\players\CMakeFiles\Players.dir
+  TARGET_COMPILE_PDB = src\players\CMakeFiles\Players.dir\Players.pdb
+  TARGET_PDB = src\players\libPlayers.pdb
   TARGET_SUPPORT_DIR = src\players\CMakeFiles\Players.dir
 
 
@@ -408,8 +432,9 @@ build src/players/libPlayers.a: CXX_STATIC_LIBRARY_LINKER__Players_Debug src/pla
   OBJECT_DIR = src\players\CMakeFiles\Players.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = src\players\CMakeFiles\Players.dir\Players.pdb
   TARGET_FILE = src\players\libPlayers.a
-  TARGET_PDB = Players.a.dbg
+  TARGET_PDB = src\players\libPlayers.pdb
   TARGET_SUPPORT_DIR = src\players\CMakeFiles\Players.dir
 
 
@@ -457,6 +482,8 @@ build src/quests/CMakeFiles/Quests.dir/Quest.cpp.obj: CXX_COMPILER__Quests_unsca
   INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/npc -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/player
   OBJECT_DIR = src\quests\CMakeFiles\Quests.dir
   OBJECT_FILE_DIR = src\quests\CMakeFiles\Quests.dir
+  TARGET_COMPILE_PDB = src\quests\CMakeFiles\Quests.dir\Quests.pdb
+  TARGET_PDB = src\quests\libQuests.pdb
   TARGET_SUPPORT_DIR = src\quests\CMakeFiles\Quests.dir
 
 
@@ -473,8 +500,9 @@ build src/quests/libQuests.a: CXX_STATIC_LIBRARY_LINKER__Quests_Debug src/quests
   OBJECT_DIR = src\quests\CMakeFiles\Quests.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = src\quests\CMakeFiles\Quests.dir\Quests.pdb
   TARGET_FILE = src\quests\libQuests.a
-  TARGET_PDB = Quests.a.dbg
+  TARGET_PDB = src\quests\libQuests.pdb
   TARGET_SUPPORT_DIR = src\quests\CMakeFiles\Quests.dir
 
 
@@ -522,6 +550,8 @@ build src/items/CMakeFiles/Items.dir/Item.cpp.obj: CXX_COMPILER__Items_unscanned
   INCLUDES = -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/npc -IC:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/headers/player
   OBJECT_DIR = src\items\CMakeFiles\Items.dir
   OBJECT_FILE_DIR = src\items\CMakeFiles\Items.dir
+  TARGET_COMPILE_PDB = src\items\CMakeFiles\Items.dir\Items.pdb
+  TARGET_PDB = src\items\libItems.pdb
   TARGET_SUPPORT_DIR = src\items\CMakeFiles\Items.dir
 
 
@@ -538,8 +568,9 @@ build src/items/libItems.a: CXX_STATIC_LIBRARY_LINKER__Items_Debug src/items/CMa
   OBJECT_DIR = src\items\CMakeFiles\Items.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = src\items\CMakeFiles\Items.dir\Items.pdb
   TARGET_FILE = src\items\libItems.a
-  TARGET_PDB = Items.a.dbg
+  TARGET_PDB = src\items\libItems.pdb
   TARGET_SUPPORT_DIR = src\items\CMakeFiles\Items.dir
 
 
@@ -661,14 +692,14 @@ build src/quests/all: phony src/quests/libQuests.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/numbers/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/general/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/npc/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/players/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/quests/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/items/cmake_install.cmake: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/WindowsPaths.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/general/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/items/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/npc/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/numbers/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/players/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/quests/CMakeLists.txt CMakeCache.txt CMakeFiles/4.2.1/CMakeCCompiler.cmake CMakeFiles/4.2.1/CMakeCXXCompiler.cmake CMakeFiles/4.2.1/CMakeRCCompiler.cmake CMakeFiles/4.2.1/CMakeSystem.cmake
+build build.ninja C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/numbers/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/general/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/npc/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/players/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/quests/cmake_install.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/out/build/rpg/src/items/cmake_install.cmake: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCCompilerABI.c C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerSupport.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeNinjaFindMake.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeSystem.cmake.in C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-CXX-CXXImportStd.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeInspectCLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-Determine-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/WindowsPaths.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/general/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/items/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/npc/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/numbers/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/players/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/quests/CMakeLists.txt CMakeCache.txt CMakeFiles/4.2.1/CMakeCCompiler.cmake CMakeFiles/4.2.1/CMakeCXXCompiler.cmake CMakeFiles/4.2.1/CMakeRCCompiler.cmake CMakeFiles/4.2.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/WindowsPaths.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/general/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/items/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/npc/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/numbers/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/players/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/quests/CMakeLists.txt CMakeCache.txt CMakeFiles/4.2.1/CMakeCCompiler.cmake CMakeFiles/4.2.1/CMakeCXXCompiler.cmake CMakeFiles/4.2.1/CMakeRCCompiler.cmake CMakeFiles/4.2.1/CMakeSystem.cmake: phony
+build C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCCompilerABI.c C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerSupport.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeNinjaFindMake.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeSystem.cmake.in C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-CXX-CXXImportStd.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeInspectCLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-Determine-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.2/Modules/Platform/WindowsPaths.cmake C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/general/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/items/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/npc/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/numbers/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/players/CMakeLists.txt C$:/Users/franc/OneDrive/Pulpit/PO_PD_GIT/src/quests/CMakeLists.txt CMakeCache.txt CMakeFiles/4.2.1/CMakeCCompiler.cmake CMakeFiles/4.2.1/CMakeCXXCompiler.cmake CMakeFiles/4.2.1/CMakeRCCompiler.cmake CMakeFiles/4.2.1/CMakeSystem.cmake: phony
 
 
 #############################################

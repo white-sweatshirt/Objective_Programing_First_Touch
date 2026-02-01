@@ -147,8 +147,9 @@ void UserInterface::simulatePlayerFight(bool &maintainGame)
         this->pc->gainExperience(opponent->dieAndGiveExp());
         this->pc->getMonetaryReward(opponent->dieAndGiveMoney());
         delete opponent;
-
-        this->pc->checkLevelUp();
+        this->currentSublocation->setOponent(nullptr);
+        this->opponent=nullptr;
+        this->pc->checkLevelUp(); 
         this->playerInFight = false;
     }
 }

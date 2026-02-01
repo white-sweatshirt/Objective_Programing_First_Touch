@@ -21,7 +21,6 @@ protected:
    std::deque<SubLocation *> sublocations;
 
 public:
-   int tellAboutInterestingLocations(void);
    void addNewSublocation(SubLocation *sublocation);
    SubLocation * giveSublocationWithNumber(int numberOfSublocation);
    int giveNumberOfSublocations(void);
