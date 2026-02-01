@@ -97,7 +97,7 @@ void NPCTrader::getUserToChoseOption(Player *pc)
     std::cout << "Jestes w sklepie " << this->name;
     std::cout << "mozesz kupic takie itemki wpisujac odpowiednia opcje: " << std::endl;
     choice = templateLib::getStandardChoiceResult(this, showOptions, 0, items.size());
-    interprateChoice(choice, pc);
+    interprateChoice(choice,pc);
 }
 void NPCCrafter::showCraftingNamesOptions(void)
 {
@@ -125,8 +125,8 @@ void NPCCrafter::showCraftingTypeOptions(void)
 }
 void NPCCrafter::getUserToChoseOption(Player *pc)
 {
-    int choice = templateLib::getStandardChoiceResult(this, showOptions, 0, 3);
-    interprateChoice(choice, pc);
+    int choice=templateLib::getStandardChoiceResult(this,showOptions,0,3);
+    interprateChoice(choice,pc);
 }
 void NPCCrafter::interprateChoice(int choice, Player *pc)
 {
