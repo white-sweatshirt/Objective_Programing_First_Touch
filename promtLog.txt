@@ -1,0 +1,106 @@
+// Dane copy paste from word
+Rzeczownik 
+(jako kandydat na klasę/obiekt) 	Czasownik 
+(jak kandydat na funkcję/metodę) 	Opis/ograniczenia na dane (to co nie pasuje do kolumn obok ale może być przydatne) 	Rzeczownik jako atrybut/cecha/właściwość 
+NPC Trader	Sell,buy, giveselction	Will have penalty for buying items from player about 10%	itemListToSell
+NPC Crafter	giveSelection,Sell	Allows user to craft desired item for gold. There will be selection of items put 	
+NPC	giveOptionsInDialoge()	Abstract class meant as interface for other actors
+	
+NPC ShopKeeper	giveSelection,Sell,Buy	Sells premade items on game generation . those items will be in standard container
+Mostly a standard implemention of trader but checks wheter has item in inventory 
+Assuming that shopekeeper canot run out of supply of given item.	
+NPCQuestGiver	giveQuest,giveRewardForQuest		
+NPC healer	healForSmallFee	inheritesFrom	
+ActiveActor	Attack,defend,defendYourself,TryToDoge	Actions have 	Hp points, agility,
+Strength, intelligence,
+Level
+Wizzard	Attack(using inteligence + agility)
+defendYourself(strenght + agility)	Wizzard uses inteligence + agility to attacks + uses magical attacks from weapon	
+Warrior	Attack(using strenght + agility)
+defendYourself(strenght + inteligence)	Warrior uses strenght and agility in attacks, warrior doesn’t have access to magic but it can wear more tanky arrmor	
+Archer	riposteNextAttack
+Attack(using strenght + agility)
+defendYourself(strenght + inteligence). Check if riposte is possibility if so then do it instead of regural defence else defnse(strength + inteligence0	Arrcher uses agillity and intelligence in attacks , archer doesn’t use magic from weapons unless they are passive incrise of demage and not using them on tier own. Archer has unique ability to riposte	
+Quest	sayWhatNeedsToBeDone,
+checkFulfilmentConditon	Abstract Class , from with other quests will be specified	
+HuntingQuest	sayWhatNeedsToBeDone		Type and creature Tokill
+SearchQuest	sayWhatNeedsToBeDone		whatNeedsToBeFinded
+KillingQuest	sayWhatNeedsToBeDone		What kind of enemy must be killed
+Equipment			
+weapon	UseInAttack	May be enchanted to add addifional demage, or reforged to the same effect,	weaponDemegeMulitplyer,
+vectorOfSpecialEffects,
+vectorOf
+mealeweapon	equipItem(person)
+giveAttackBonus, from strenght
+giveBonusAttack
+giveDefenseBonus	Inheritence from Item	
+rangedWeapon	equipItem(person)
+giveAttackBonus from agility	Inheritence from Item	String name, double demegeBonus
+magicWeapon	equipItem(person)
+giveAddtionalAttack(baseAttack_
+giveAttackBonus from inteligence	Inheritence from Item
+Magic weapons incrise magical defense as well as incrise damage from attacks	String name, double demegeBonus, double 
+Item	equipItem(person)
+giveValue,
+giveEffect,
+Item(bool questItem)	Abstract Class meant to be used in vector of items in equipment,
+Also to be used in case of 	Value , double,
+levelOfItem,
+bool isItQuestItem
+Magic Staff	giveAttackBonus,
+giveBonusAttack
+giveDefenseBonus	AddlevelTo	
+mace	crushingAttack		
+armor	Use InDefense		demageReductionModiffer
+PC	goToNewPlace, goForOtherMonster,
+seeLocalOptions,
+seeAllLocationOptions,
+getExpirenceFromDefeatedOpponet
+askNPCForQuest,
+requestRewordFromNPC,
+startDiologeWith(NPC *npc)
+seeSkillOptions (not yet implemented)
+askNpcForForgingItem	Abstract class meant to repeasent possibilities unique to human player.	QuestList, placeOfBeing,
+expiranceLevel,
+  
+Player Wizzard		Wizzard+ player abilities	
+Player Archer		Archer+ player abilities	
+HuntedCreature	sayWhatAreYou		
+wolf		Inheritance fromActiveActor	
+Troll		Inheritance fromActiveActor	
+location	sayOptionsWhereProtagonistCanGo	Meant to describe indidual location.	String nameOfLocation,
+Vector interestingPeople
+// wlasciwy promt w ktorym wydaje polecnia na podstawie ktorych ai ma cos wygenrowac
+// promt do chat gpt 4-0 , w agent mode, 
+This is also nominal verbal decompostion that will be basics of future code.
+This is a schemat of simple txt rpg , it is meant to produce short
+adventure with 3 diffrent locations. .prodce implemention of classes 
+basic on this specyfication ,  you must sort groups of  simillar calsses 
+into one file Like all weapons should be in same file as well as npcs. 
+Remeber to ensure coomon compatiblity between clases of npc and player 
+as well as activeActor. You must use vector to pointers as primarly 
+structure of refence between classes that have releation between each other. 
+Also use abstract classes as a way for objects to communicate.
+Communication should be done on pointers to classes . 
+Remeber to implement custom destructors in each fucntion that uses vector of pointers 
+in with value will first delete object under a pointer and only after that delete pointer.
+Create additional folders in src and headers where you will put files with similar contents
+ensure proper naming schema. 
+Remeber to write CmakeFiles that will be used to build project. 
+Ensure that Cmake is compitibe wit version 3.14.
+
+////////////////////////////////////////////////////////////////////////
+// Name:       ActiveActor::Attack()
+// Purpose:    Implementation of ActiveActor::Attack()
+// Return:     void
+//////////////////////////////////////////////////////////////////////// 
+delte all such comments
+/(((((((((((((((())))))))))))))))
+produce function askFor healing 
+where actor invokes module of healing
+ of NPC that will then invoke module 
+ payFor Heling , if transaction will 
+ be sucessfull then restore player to
+  full hpoints 
+and if not then , dop healing
+((((((((((((((((((((((((()))))))))))))))))))))))))
