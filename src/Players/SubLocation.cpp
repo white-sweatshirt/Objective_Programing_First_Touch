@@ -3,15 +3,15 @@
 #include "ActiveActor.h"
 void SubLocation::show() 
 {
-    std::cout << "Interesting Place: " << description << std::endl;
+    std::cout << "Sublokacja : " << description << std::endl;
     if (interestingNPC)
     {
-        std::cout << "NPC present at this location." << std::endl;
+        std::cout << "NPC jest obecny: " << std::endl;
         this->interestingNPC->show();
     }
     if (enemy)
     {
-        std::cout << "Opponent present at this location.\n Importnat info:" << std::endl;
+        std::cout << "Przeciwnik jest obecny .\nInformacje na jego temat:" << std::endl;
         this->enemy->giveVitalInfo();
     }
 }

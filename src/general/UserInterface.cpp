@@ -23,7 +23,8 @@ void UserInterface::showGeneralPosibilites(void)
     cout << "5. Zapisz gre" << endl;
     cout << "6. Wczytaj gre" << endl;
     cout << "7. Zatakuj przeciwnika" << endl;
-    cout << "8. Wyjdz z gry" << endl;
+    cout << " 8. Zobacz mape aktualnej lokacji" << endl;
+    cout << "9. Wyjdz z gry" << endl;
 }
 void UserInterface::askForUserInput(bool &maintainGame)
 {
@@ -33,7 +34,7 @@ void UserInterface::askForUserInput(bool &maintainGame)
         simulatePlayerFight(maintainGame);
         return;
     }
-    choice = templateLib::getStandardChoiceResult(this, showGeneralPosibilites, 0, 8);
+    choice = templateLib::getStandardChoiceResult(this, showGeneralPosibilites, 0, 9);
     cout << "wprowadzono: " << choice << endl;
     redetictFromMainMenu(choice, maintainGame);
 }
@@ -44,7 +45,7 @@ void UserInterface::redetictFromMainMenu(int choice, bool &maintainGame)
     {
     case 0:
         secundChoice = templateLib::getStandardChoiceResult(this, showGoingMenu, 0, 2);
-        interprateChosenRoute(choice);
+        interprateChosenRoute(secundChoice);
         break;
 
     case 1:
@@ -77,6 +78,9 @@ void UserInterface::redetictFromMainMenu(int choice, bool &maintainGame)
         playerInFight = 1;
         break;
     case 8:
+        this->currentLocation->showAllSublocations();
+        break;
+    case 9:
         maintainGame = false;
         break;
     default:
@@ -130,27 +134,44 @@ void UserInterface::showGoingMenu()
     cout << "1. idzi do innej sublokacji" << endl;
     cout << "2. Zostan gdzie jestes" << endl;
 }
-void UserInterface::showPossiableLocationsDestinations(void)
+void UserInterface::showPossiableLocations(void)
+
 {
+    std::cout << "mozliwe lokacje do podrozy: " << std::endl;
     templateLib::showContentsOfContainerWithCounter(this->allLocations);
+}
+void UserInterface::showPossiableSubLocations()
+{
+    std::cout << "Mozliwe sublokacje do wyprawy: " << std::endl;
+    if (this->currentLocation)
+        currentLocation->showAllSublocations();
+    else
+        std::cout << "You are not in any location." << std::endl;
 }
 void UserInterface::choseSublocationToVenture(void)
 {
     int choice = -1;
     choice = templateLib::getStandardChoiceResult(this,
-                                                  showPossiableLocationsDestinations,
+                                                  showPossiableSubLocations,
                                                   0, this->currentLocation->giveNumberOfSublocations() - 1);
     this->currentSublocation = this->currentLocation->giveSublocationWithNumber(choice);
+    this->npc = currentSublocation->giveNPC();
+    this->opponent = currentSublocation->giveAntagonist();
 }
 void UserInterface::choseLocationToVenture(void)
 {
     int choice = -1;
     choice = templateLib::getStandardChoiceResult(this,
-                                                  showPossiableSubLocationsDestinations,
+                                                  showPossiableLocations,
                                                   0, this->allLocations.size() - 1);
     this->currentLocation = allLocations[choice];
     if (currentLocation)
+    {
         this->currentSublocation = this->currentLocation->giveSublocationWithNumber(0);
+        this->npc = this->currentSublocation->giveNPC();
+        this->opponent = this->currentSublocation->giveAntagonist();
+    }
+
     if (!currentLocation || !currentSublocation)
     {
         cerr << "brak sublokacji!!!!!" << endl;
@@ -171,13 +192,7 @@ void UserInterface::interprateChosenRoute(int choice)
         break;
     }
 }
-void UserInterface::showPossiableSubLocationsDestinations()
-{
-    if (this->currentLocation)
-        currentLocation->showAllSublocations();
-    else
-        std::cout << "You are not in any location." << std::endl;
-}
+
 /*inventory options*/
 void UserInterface::showInventoryMenu(void)
 {

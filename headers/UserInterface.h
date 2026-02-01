@@ -32,8 +32,8 @@ protected:
     void showGeneralPosibilites(void);
 
     void showGoingMenu(void);
-    void showPossiableLocationsDestinations(void);
-    void showPossiableSubLocationsDestinations(void);
+    void showPossiableLocations(void);
+    void showPossiableSubLocations(void);
 
     void choseSublocationToVenture(void);
     void choseLocationToVenture(void);

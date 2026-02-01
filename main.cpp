@@ -19,12 +19,12 @@ using namespace std;
 string produceNameForVillan(void)
 {
     const string names[] = {"Sauron", "Vader", "Goon", "Pimpek", "Ivan", "Ceseri", "Rambo",
-                            "Nero", "Caligula", "Palpatine", "WhiteWalker", "Emyhr"
-                                                                            "Vladimir Harkonnen",
-                            "Gargamel", "Fred-Rautha"};
-    const string adjectives[] = {"Terrible", "Dark", "Wicked", "Foulmounth", "Cruel", "Scary", "Terror of World"};
-    return adjectives[rand() % (sizeof(adjectives) / sizeof(adjectives[0]))] + 
-    " " + names[rand() % (sizeof(names) / sizeof(names[0]))];
+                            "Nero", "Caligula", "Palpatine", "WhiteWalker", "Emyhr",
+                            "Vladimir Harkonnen", "Gargamel", "Fred-Rautha"};
+    const string adjectives[] = {"Terrible", "Dark", "Wicked",
+                                 "Foulmounth", "Cruel", "Scary", "Terror of World"};
+    return adjectives[rand() % (sizeof(adjectives) / sizeof(adjectives[0]))] +
+           " " + names[rand() % (sizeof(names) / sizeof(names[0]))];
 }
 void setUpGame(UserInterface *startingInterface)
 {
@@ -53,11 +53,12 @@ void setUpGame(UserInterface *startingInterface)
 }
 int main(void)
 {
+    fflush(stdout);
     srand(time(NULL));
     UserInterface *startingInterface = new UserInterface();
     setUpGame(startingInterface);
-    bool maitainGame= true;
-    while(maitainGame)
+    bool maitainGame = true;
+    while (maitainGame)
         startingInterface->askForUserInput(maitainGame);
     delete startingInterface;
     // fi.

@@ -126,7 +126,7 @@ int getNaturalNumberFromKeyPad(char number[], int limit)
 {
     do
     {
-        std::cout << "podaj liczbe: ";
+        std::cout << "podaj wybor: ";
         std::cin >> number;
     } while (!isItNatural(number, limit));
 

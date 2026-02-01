@@ -46,6 +46,7 @@ ActiveActor::ActiveActor(std::string name)
    this->agility = 3;
    this->money = 100;
    this->name = "Generic name 1";
+   this->weapon=nullptr;
 }
 ActiveActor::ActiveActor()
 {
@@ -56,6 +57,7 @@ ActiveActor::ActiveActor()
    this->strenght = 3;
    this->agility = 3;
    this->money = 100;
+   this->weapon=nullptr;
 }
 void ActiveActor::giveVitalInfo(void)
 {

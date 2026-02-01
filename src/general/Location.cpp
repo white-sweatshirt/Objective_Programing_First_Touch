@@ -9,8 +9,8 @@
 #include "TemplateLib.h"
 void Location::show()
 {
-      std::cout<<"opis lokacji: "<<this->description<<std::endl;
-      std::cout<<"ilosc sublokacji: "<<this->giveNumberOfSublocations();
+      std::cout << "opis lokacji: " << this->description << std::endl;
+      std::cout << "ilosc sublokacji: " << this->giveNumberOfSublocations()<<std::endl;
 }
 
 void Location::addNewSublocation(SubLocation *sublocation)
@@ -27,6 +27,8 @@ SubLocation *Location::giveSublocationWithNumber(int choice)
 }
 void Location::showAllSublocations(void)
 {
+      std::cout << "***************************" << std::endl;
+      std::cout << "wsystkie sublokacje w lokcaji " << this->description << ": " << std::endl;
       templateLib::showContentsOfContainerWithCounter(this->sublocations);
 }
 int Location::giveNumberOfSublocations(void)
