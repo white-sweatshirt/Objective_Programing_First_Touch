@@ -87,7 +87,10 @@ int ActiveActor::dieAndGiveExp(void)
 {
    return level * 10;
 }
-
+double ActiveActor::dieAndGiveMoney(void)
+{
+   return this->money;
+}
 bool ActiveActor::defendYourself(int attackPoints)
 {
    if (attackPoints > 0)

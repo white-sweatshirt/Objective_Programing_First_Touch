@@ -29,9 +29,9 @@ string produceNameForVillan(void)
 void setUpGame(UserInterface *startingInterface)
 {
     Location *nowCreatedLocation = new Location("Starting Town");
-
     nowCreatedLocation->addNewSublocation(new SubLocation(new NPCTrader(), "Sklep Handlarza"));
     nowCreatedLocation->addNewSublocation(new SubLocation(new NPCCrafter(), "Smith"));
+    nowCreatedLocation->addNewSublocation(new SubLocation (new NPCHealer(),"Hospital dr. Gabinet"));
     nowCreatedLocation->addNewSublocation(new SubLocation(new NPCQuestGiver, "Wise Old Wizzard's Tower"));
     startingInterface->addLocation(nowCreatedLocation);
 
@@ -39,14 +39,15 @@ void setUpGame(UserInterface *startingInterface)
     nowCreatedLocation->addNewSublocation(new SubLocation(new Wizzard, "Corrupted Mage layar"));
     nowCreatedLocation->addNewSublocation(new SubLocation(new Warrior, "Petty thief hanza"));
     nowCreatedLocation->addNewSublocation(new SubLocation(new Archer, "Fallen RobinHood Hideout"));
-
     startingInterface->addLocation(nowCreatedLocation);
+    
     nowCreatedLocation = new Location("Murky Village");
     nowCreatedLocation->addNewSublocation(new SubLocation(new Warrior, "Arena"));
     nowCreatedLocation->addNewSublocation(new SubLocation(new Archer, "Arena2"));
-    nowCreatedLocation->addNewSublocation(new SubLocation(new NPCHealer, "healers Dent"));
+    nowCreatedLocation->addNewSublocation(new SubLocation(new NPCHealer(), "healers Dent"));
     nowCreatedLocation->addNewSublocation(new SubLocation(new Wizzard(), "Dark Wizzard Tower"));
     startingInterface->addLocation(nowCreatedLocation);
+    
     startingInterface->createProtagonist();
     startingInterface->performInitalSetUp();
     nowCreatedLocation = nullptr;
@@ -61,6 +62,6 @@ int main(void)
     while (maitainGame)
         startingInterface->askForUserInput(maitainGame);
     delete startingInterface;
-    // fi.
+    // fi.  
     return 0;
 }

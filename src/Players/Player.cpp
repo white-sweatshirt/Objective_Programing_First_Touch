@@ -8,8 +8,14 @@
 
 Player::Player(std::string customName)
     : ActiveActor(100, 4, 4, 4, customName), level(1),
-      experience(0), expToNextLevel(30), money(0)
+      experience(0), expToNextLevel(30)
+{}
+void Player::showSellingOptions(void)
 {
+    int size = 0;
+    std::cout << "pokazywanie ekwypinku: " << std::endl;
+    size = templateLib::showContentsOfContainerWithCounter(this->items);
+    std::cout << size << ". wyjdz z ekwipunku" << std::endl;
 }
 void Player::showInventory(void)
 {
@@ -120,7 +126,9 @@ void Player::sellItem(Item *item, NPCTrader *trader)
 Item *Player::choseSellingItem(void)
 {
     int choice = -1;
-    choice = templateLib::getStandardChoiceResult(this, showInventory, 0, items.size() - 1);
+    choice = templateLib::getStandardChoiceResult(this, showSellingOptions, 0, items.size());
+    if (choice == items.size())
+        return nullptr;
     Item *chosenItem = items[choice];
     templateLib::removeElemetOfVector(items, items[choice]);
     return chosenItem;

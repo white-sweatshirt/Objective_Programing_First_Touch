@@ -1,2 +1,0 @@
-add_subdirectory(paitients)
-add_subdirectory(person)

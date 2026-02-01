@@ -20,10 +20,10 @@ void UserInterface::showGeneralPosibilites(void)
     cout << "2. Sprawdz statystyki postaci" << endl;
     cout << "3. Interakcja z NPC" << endl;
     cout << "4. Sprawdz questy" << endl;
-    cout << "5. Zapisz gre" << endl;
-    cout << "6. Wczytaj gre" << endl;
+    cout << "5. Zapisz gre (doesn't work)" << endl;
+    cout << "6. Wczytaj gre (doesn't work)" << endl;
     cout << "7. Zatakuj przeciwnika" << endl;
-    cout << " 8. Zobacz mape aktualnej lokacji" << endl;
+    cout << "8. Zobacz mape aktualnej lokacji" << endl;
     cout << "9. Wyjdz z gry" << endl;
 }
 void UserInterface::askForUserInput(bool &maintainGame)
@@ -93,25 +93,49 @@ void UserInterface::showFightingOptions(void)
     cout << "0. Zatakuj przeciwnika" << endl;
     cout << "1. Wykonaj atak specjalny" << endl;
     cout << "2. Uciekaj (moga pojawic sie obrazenia)" << endl;
+    cout << "3. podejrzyj swoje statystki do walki" << endl;
+    cout << "4. podejrzyj statystyki wroga do walki " << endl;
 }
 void UserInterface::simulatePlayerFight(bool &maintainGame)
 {
-    int choice = templateLib::getStandardChoiceResult(this, showFightingOptions, 0, 2);
-    if (choice == 0)
+    if (!opponent)
+    {
+        playerInFight = false;
+        return;
+    }
+    cout << "obecne zdrowie gracza: " << this->pc->giveCurrentHp() << endl;
+    cout << "obecne zdrowie wroga: " << this->opponent->giveCurrentHp() << endl;
+    int choice = templateLib::getStandardChoiceResult(this, showFightingOptions, 0, 4);
+    bool opponetWillGetRevange = true;
+    switch (choice)
+    {
+    case 0:
         this->pc->attack(this->opponent);
+        opponetWillGetRevange = true;
+        break;
+    case 1:
 
-    else if (choice == 1)
-        if (opponent)
-            this->pc->specialAttack(opponent);
-        else
-        {
-            cout << "nie ma opponenta w tej lokacji";
-            playerInFight = false;
-            return;
-        }
-    else
-        this->playerInFight = false;
-    if (this->opponent->giveCurrentHp() > 0)
+        this->pc->specialAttack(opponent);
+        opponetWillGetRevange = true;
+        break;
+    case 2:
+        playerInFight = false;
+        opponetWillGetRevange = true;
+        break;
+    case 3:
+        this->pc->giveVitalInfo();
+        opponetWillGetRevange = false;
+        break;
+    case 4:
+        this->opponent->giveVitalInfo();
+        opponetWillGetRevange = false;
+        break;
+    default:
+        opponetWillGetRevange = false;
+        break;
+    }
+
+    if (this->opponent->giveCurrentHp() > 0 && opponetWillGetRevange)
         this->opponent->attack(pc);
     else if (this->pc->giveCurrentHp() <= 0)
     {
@@ -121,6 +145,7 @@ void UserInterface::simulatePlayerFight(bool &maintainGame)
     else if (this->opponent->giveCurrentHp() <= 0)
     {
         this->pc->gainExperience(opponent->dieAndGiveExp());
+        this->pc->getMonetaryReward(opponent->dieAndGiveMoney());
         delete opponent;
 
         this->pc->checkLevelUp();

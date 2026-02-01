@@ -15,7 +15,7 @@ namespace templateLib
    template <class vectorOfPointers>
    void killVectorOfPointers(vectorOfPointers &killedVector)
    {
-      for (auto w : killedVector)
+      for (auto &w : killedVector)
          delete w;
       killedVector.clear();
    }
@@ -24,7 +24,9 @@ namespace templateLib
    template <class vectorOfPointersToClass, class pointerTypeToRemove>
    void removeElemetOfVector(vectorOfPointersToClass &a, pointerTypeToRemove b)
    {
-      for (auto it : a)
+      // fixed mistake where it would just copy value from a and not actully become it
+      // made it so through refence
+      for (auto &it : a)
          if (it == b)
          {
             std::swap(it, a.back()); // bezposrednie odwolanie do przestrzeni std
@@ -45,9 +47,8 @@ namespace templateLib
       int i = 0;
       for (auto w : a)
       {
-         std::cout << i << ". " << std::endl;
+         std::cout << i++ << ". " << std::endl;
          w->show();
-         i++;
       }
       return i;
    }
@@ -64,11 +65,11 @@ namespace templateLib
       char bufer[MAX_TEXT];
       int i = 0;
       int c = -1;
-      int constexpr numberToNotSeeMenu = 10;
+      int constexpr numberToSeeMenu = 10;
       (objectOnWithIoperate->*showMenu)();
       do
       {
-         if (i == numberToNotSeeMenu)
+         if (i == numberToSeeMenu)
          {
             (objectOnWithIoperate->*showMenu)();
             i = 0;
@@ -88,11 +89,11 @@ namespace templateLib
       char choice;
       char buf[MAX_TEXT];
       int i = 0, c = -1;
-      int constexpr numberToNotSeeMenu = 10;
+      int constexpr numberToSeeMenu = 10;
       (objectOnWithIoperate->*showMenu)(upperLimit);
       do
       {
-         if (i == numberToNotSeeMenu)
+         if (i == numberToSeeMenu)
          {
             (objectOnWithIoperate->*showMenu)(upperLimit);
             i = 0;

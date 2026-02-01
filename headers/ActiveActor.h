@@ -44,6 +44,7 @@ public:
    int calculateWeaponBonus(void);
    bool defendYourself(int attackPoints);
    bool specialAttack(ActiveActor *target);
+   double dieAndGiveMoney(void);
    ActiveActor(int hP, int strenght, int inteligence, int agility);
    ActiveActor();
    ActiveActor(std::string name);

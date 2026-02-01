@@ -9,7 +9,10 @@ NPCTrader::NPCTrader()
 void NPCTrader::sellItem(Player *player, int numberChosen)
 {
     if (player->payForSth((items[numberChosen])->giveValue()))
+    {
         player->addItemToInventory(items[numberChosen]);
+        templateLib::removeElemetOfVector(items,items[numberChosen]);
+    }
     else
         std::cout << "za malo pieniedzy na ten przedmiot!" << std::endl;
 }
@@ -24,7 +27,7 @@ void NPCTrader::show()
     std::cout << "W ofercie mamy: ";
     for (auto const w : this->items)
     {
-        std::cout << lineCounter++ << ". ";
+        std::cout << lineCounter++ << ". " << "O wartosci :" << w->giveValue();
         w->show();
     }
 }
@@ -78,7 +81,8 @@ void NPCTrader::interprateChoice(int choice, Player *pc)
         break;
     case 1:
         chosenItem = pc->choseSellingItem();
-        pc->getMonetaryReward(this->buyItem(chosenItem));
+        if (chosenItem)
+            pc->getMonetaryReward(this->buyItem(chosenItem));
         break;
     case 2:
         break;
@@ -138,7 +142,8 @@ void NPCCrafter::interprateChoice(int choice, Player *pc)
         break;
     case 1:
         chosenItem = pc->choseSellingItem();
-        pc->getMonetaryReward(this->buyItem(chosenItem));
+        if (chosenItem)
+            pc->getMonetaryReward(this->buyItem(chosenItem));
         break;
     case 2:
         secundChoice = templateLib::getStandardChoiceResult(this, showCraftingTypeOptions, 0, 2);
