@@ -40,6 +40,18 @@ void SearchQuest::show()
     std::cout << "musisz znalezc tyle przedmiotow" << this->itemsMeantToBeFound << std::endl;
     std::cout << "obcenie znalazles: " << this->itemsFounded << std::endl;
 }
+void SearchQuest::getOnePointOfProgress(void)
+{
+    this->itemsFounded++;
+    if (checkFulfillmentCondition())
+        complited = true;
+}
+void KillingQuest::getOnePointOfProgress(void)
+{
+    creaturesKilled++;
+    if (checkFulfillmentCondition())
+        complited = true;
+}
 void KillingQuest::show()
 {
     std::cout << "musisz zabic tylu przeciwnikow" << this->craeturesToKill << std::endl;
@@ -53,14 +65,4 @@ KillingQuest::KillingQuest()
 {
     this->craeturesToKill = 4;
     this->creaturesKilled = 0;
-}
-void KillingQuest::addKilling()
-{
-    if (creaturesKilled < craeturesToKill)
-    {
-        creaturesKilled++;
-        show();
-    }
-    else
-        complited = 1;
 }

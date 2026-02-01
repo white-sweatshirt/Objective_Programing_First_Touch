@@ -32,6 +32,7 @@ private:
     virtual void interprateChoice(int choice, Player *pc) override;
 
 public:
+    NPCHealer();
     virtual void getUserToChoseOption(Player *pc);
     void healPlayerForFee(ActiveActor *pCharacter);
     void show() override;

@@ -17,8 +17,13 @@ void NPC::showOptions()
 void NPC::getUserToChoseOption(Player *cp)
 {
 }
+NPCHealer::NPCHealer()
+{
+    this->healingFee = 10;
+}
 void NPCHealer::showOptions(void)
 {
+    
     std::cout << "0. ulecz postac" << std::endl;
     std::cout << "1. zakoncz interakcje" << std::endl;
 }
@@ -85,11 +90,11 @@ void NPCQuestGiver::interprateChoice(int choice, Player *pc)
 }
 void NPCQuestGiver::getUserToChoseOption(Player *pc)
 {
-    interprateChoice(templateLib::getStandardChoiceResult(this,showOptions,0,2),pc);
+    interprateChoice(templateLib::getStandardChoiceResult(this, showOptions, 0, 2), pc);
 }
 void NPCQuestGiver::show()
 {
-    std::cout<<"jestem npc dajacym questy jestem: "<<this->name<<std::endl;
+    std::cout << "jestem npc dajacym questy jestem: " << this->name << std::endl;
 }
 void NPCQuestGiver::giveRewardForQuest(Player *player, Quest *realisedQuest)
 {

@@ -26,7 +26,6 @@ void SubLocation::setdesc(std::string desc)
 }
 void SubLocation::setOponent(ActiveActor * opponent)
 {
-    delete this->enemy;
     this->enemy= opponent;
 }
 SubLocation::SubLocation(ActiveActor *opponent, NPC *npc,std::string desc):
